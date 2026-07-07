@@ -1,0 +1,181 @@
+import { config } from "dotenv";
+config({ path: ".env.local" });
+import { createAdminClient } from "../src/lib/supabase/admin";
+import { countries } from "../src/data/countries";
+import { universities } from "../src/data/universities";
+import { faqs } from "../src/data/faqs";
+import { testimonials } from "../src/data/testimonials";
+
+async function seed() {
+  const supabase = createAdminClient();
+
+  console.log("Seeding countries...");
+  for (const c of countries) {
+    const { error } = await supabase.from("countries").upsert(
+      {
+        slug: c.slug,
+        flag_emoji: c.flag_emoji,
+        hero_image_url: c.hero_image_url,
+        sort_order: c.sort_order,
+        is_active: c.is_active,
+        is_featured: c.is_featured,
+        name_az: c.name_az,
+        name_ru: c.name_ru,
+        name_en: c.name_en,
+        description_az: c.description_az,
+        description_ru: c.description_ru,
+        description_en: c.description_en,
+        warning_banner_az: c.warning_banner,
+        warning_banner_ru: c.warning_banner,
+        warning_banner_en: c.warning_banner,
+        advantages_az: c.advantages,
+        advantages_ru: c.advantages_ru,
+        advantages_en: c.advantages_en,
+        documents_az: c.documents_required,
+        documents_ru: c.documents_required,
+        documents_en: c.documents_required,
+        steps_az: c.application_steps,
+        steps_ru: c.application_steps,
+        steps_en: c.application_steps,
+        qs_universities: c.quick_stats.universities,
+        qs_avg_tuition_usd: c.quick_stats.avg_tuition_usd,
+        qs_language: c.quick_stats.language,
+        qs_visa_difficulty: c.quick_stats.visa_difficulty,
+      },
+      { onConflict: "slug" },
+    );
+    if (error) console.error(`countries ${c.slug}:`, error.message);
+  }
+
+  console.log("Seeding universities + faculties + fees...");
+  for (const u of universities) {
+    const { error } = await supabase.from("universities").upsert(
+      {
+        slug: u.slug,
+        country_slug: u.country_slug,
+        website_url: u.website_url,
+        logo_url: u.logo_url,
+        hero_image_url: u.hero_image_url,
+        is_active: u.is_active,
+        is_featured: u.is_featured,
+        name_az: u.name_az,
+        name_ru: u.name_ru,
+        name_en: u.name_en,
+        city_az: u.city_az,
+        city_ru: u.city_ru,
+        city_en: u.city_en,
+        highlights_az: u.highlights,
+        highlights_ru: u.highlights_ru,
+        highlights_en: u.highlights_en,
+        notes_az: u.notes,
+        notes_ru: u.notes_ru,
+        notes_en: u.notes_en,
+        campus_info_az: u.campus_info,
+        campus_info_ru: u.campus_info_ru,
+        campus_info_en: u.campus_info_en,
+      },
+      { onConflict: "slug" },
+    );
+    if (error) {
+      console.error(`universities ${u.slug}:`, error.message);
+      continue;
+    }
+
+    await supabase.from("faculties").delete().eq("university_slug", u.slug);
+    for (const f of u.faculties) {
+      const { error: fe } = await supabase.from("faculties").insert({
+        university_slug: u.slug,
+        name_az: f.name_az,
+        name_ru: f.name_ru,
+        name_en: f.name_en,
+        is_competitive: f.is_competitive,
+        duration_years: f.duration_years,
+        language: f.language,
+        sort_order: f.sort_order,
+      });
+      if (fe) console.error(`faculties ${u.slug}/${f.name_az}:`, fe.message);
+    }
+
+    const { error: feeErr } = await supabase
+      .from("university_fees")
+      .upsert({ university_slug: u.slug, ...u.fees }, { onConflict: "university_slug" });
+    if (feeErr) console.error(`fees ${u.slug}:`, feeErr.message);
+  }
+
+  console.log("Seeding FAQs...");
+  await supabase.from("faqs").delete().neq("id", "00000000-0000-0000-0000-000000000000");
+  for (const f of faqs) {
+    const { error } = await supabase.from("faqs").insert({
+      country_slug: f.country_slug ?? null,
+      university_slug: f.university_slug ?? null,
+      question_az: f.question_az,
+      question_ru: f.question_ru,
+      question_en: f.question_en,
+      answer_az: f.answer_az,
+      answer_ru: f.answer_ru,
+      answer_en: f.answer_en,
+      sort_order: f.sort_order,
+    });
+    if (error) console.error("faqs:", error.message);
+  }
+
+  console.log("Seeding testimonials...");
+  await supabase.from("testimonials").delete().neq("id", "00000000-0000-0000-0000-000000000000");
+  for (const t of testimonials) {
+    const { error } = await supabase.from("testimonials").insert({
+      student_name: t.student_name,
+      university_slug: t.university_slug || null,
+      country_slug: t.country_slug || null,
+      photo_url: t.photo_url,
+      quote_az: t.quote_az,
+      quote_ru: t.quote_ru,
+      quote_en: t.quote_en,
+      year: t.year,
+      is_active: true,
+      sort_order: 0,
+    });
+    if (error) console.error("testimonials:", error.message);
+  }
+
+  console.log("Seeding site_content...");
+  const sc = [
+    { key: "hero_title", az: "Xaricdə Təhsil — Attestatla, İmtahansız", ru: "Учеба за рубежом — аттестат, без экзаменов", en: "Study Abroad — Certificate, Exam-Free" },
+    { key: "hero_subtitle", az: "MegaGroup — Xaricdə Təhsil Mərkəzi", ru: "MegaGroup — Центр обучения за рубежом", en: "MegaGroup — Study Abroad Center" },
+    { key: "cta_choose_country", az: "Ölkə Seç" },
+    { key: "cta_apply", az: "Müraciət Et" },
+    { key: "cta_free_consult", az: "Pulsuz Konsultasiya Al" },
+    { key: "hero_stat_universities", az: "200" },
+    { key: "hero_stat_exams", az: "0" },
+    { key: "hero_stat_countries", az: "7" },
+    { key: "hero_stat_students", az: "1000" },
+    { key: "contact_whatsapp", az: "https://wa.me/994519999370" },
+    { key: "contact_phone", az: "+994 51 572 35 54" },
+    { key: "contact_email", az: "info@megagroup.az" },
+    { key: "contact_address", az: "Bakı, Azərbaycan" },
+    { key: "contact_instagram", az: "https://www.instagram.com/mega_xaricde_tehsil_merkezi/" },
+    { key: "contact_tiktok", az: "https://www.tiktok.com/@mega_xaricde_tehsil_merkezi" },
+    { key: "footer_description", az: "Azərbaycanlı tələbələr üçün xaricdə təhsil imkanlarını attestatla, imtahansız təqdim edirik." },
+  ];
+  for (const s of sc) {
+    const { error } = await supabase
+      .from("site_content")
+      .upsert({ key: s.key, value_az: s.az, value_ru: (s as any).ru ?? s.az, value_en: (s as any).en ?? s.az }, { onConflict: "key" });
+    if (error) console.error(`site_content ${s.key}:`, error.message);
+  }
+
+  console.log("Creating admin user...");
+  const { error: ue } = await supabase.auth.admin.createUser({
+    email: process.env.SEED_ADMIN_EMAIL!,
+    password: process.env.SEED_ADMIN_PASSWORD!,
+    email_confirm: true,
+  });
+  if (ue && !ue.message.includes("already")) console.error("Admin:", ue.message);
+  else console.log("Admin ready:", process.env.SEED_ADMIN_EMAIL);
+
+  console.log("Seed complete!");
+}
+
+seed().catch((e) => {
+  console.error(e);
+  process.exit(1);
+});

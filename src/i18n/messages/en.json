@@ -1,0 +1,160 @@
+{
+  "nav": {
+    "home": "Home",
+    "studyAbroad": "Study Abroad",
+    "calculator": "Calculator",
+    "apply": "Apply",
+    "about": "About",
+    "blog": "Blog"
+  },
+  "cta": {
+    "chooseCountry": "Choose Country",
+    "apply": "Apply Now",
+    "freeConsult": "Get Free Consultation",
+    "more": "Learn more",
+    "viewMore": "View details"
+  },
+  "home": {
+    "countriesTitle": "Countries",
+    "countriesSubtitle": "Choose the right country for you",
+    "calcTitle": "Cost Calculator",
+    "calcSubtitle": "Select country and university — calculate monthly cost",
+    "storiesTitle": "Success Stories",
+    "storiesSubtitle": "Students studying abroad with MegaGroup",
+    "faqTitle": "Frequently Asked Questions"
+  },
+  "country": {
+    "universities": "Universities",
+    "featuredUni": "Featured University",
+    "process": "Application Process",
+    "documents": "Required Documents",
+    "why": "Why",
+    "statUniversities": "Universities",
+    "statTuition": "Tuition",
+    "statLanguage": "Language",
+    "statVisa": "Visa",
+    "visaEasy": "Easy",
+    "visaMedium": "Medium",
+    "visaHard": "Hard",
+    "viewDetails": "View details"
+  },
+  "university": {
+    "why": "Why",
+    "faculties": "Faculties & Programs",
+    "faculty": "Faculty",
+    "competitiveCol": "Competitive",
+    "competitive": "Competitive",
+    "open": "Open",
+    "duration": "Duration",
+    "years": "yrs",
+    "language": "Language",
+    "cost": "Cost Estimate",
+    "campus": "Campus & City",
+    "stories": "Success Stories",
+    "faq": "FAQ",
+    "officialSite": "Official site"
+  },
+  "calc": {
+    "university": "University",
+    "duration": "Duration",
+    "tuition": "Tuition",
+    "dorm": "Dormitory",
+    "food": "Food",
+    "transport": "Transport",
+    "personal": "Personal",
+    "monthlyTotal": "Monthly total",
+    "periodTotal": "For {months} months",
+    "durationLabel": "Duration: {months} months"
+  },
+  "common": {
+    "featured": "Featured",
+    "tuition": "Tuition",
+    "perYear": "/year",
+    "free": "Free",
+    "perMonth": "/mo"
+  },
+  "application": {
+    "title": "Free Consultation & Application",
+    "desc": "Fill the form — a MegaGroup consultant will contact you. First consultation is free.",
+    "name": "Full Name",
+    "phone": "Phone",
+    "email": "Email",
+    "country": "Country of interest",
+    "message": "Message",
+    "submit": "Apply",
+    "submitting": "Sending...",
+    "success": "Your application has been received! We will contact you soon.",
+    "directContact": "Or contact directly:"
+  },
+  "footer": {
+    "countries": "Countries",
+    "services": "Services",
+    "contact": "Contact",
+    "rights": "MegaGroup — Study Abroad Center © 2026"
+  },
+  "hero": {
+    "title": "Study Abroad — Certificate, Exam-Free",
+    "subtitle": "MegaGroup — Study Abroad Center",
+    "statUniversities": "Universities",
+    "statExams": "Exams",
+    "statCountries": "Countries",
+    "statStudents": "Students"
+  },
+  "instagram": {
+    "title": "Follow Us on Instagram",
+    "follow": "Follow on Instagram",
+    "desc": "Student stories, university tours and useful tips — all on our Instagram!"
+  },
+  "about": {
+    "title": "About Us",
+    "intro": "MegaGroup is a study-abroad center for Azerbaijani students. Since 2018, we have turned the dreams of thousands of students into reality.",
+    "missionTitle": "Our Mission",
+    "mission": "To enable every Azerbaijani student to receive quality education abroad by certificate, exam-free. We simplify the process, prepare documents, and support you from application to visa.",
+    "statsTitle": "By the Numbers",
+    "statStudents": "Students sent abroad",
+    "statCountries": "Countries",
+    "statUnis": "Partner universities",
+    "statYears": "Years of experience",
+    "servicesTitle": "Our Services",
+    "service1Title": "Free Consultation",
+    "service1Desc": "We select the best country and university for you.",
+    "service2Title": "Document Preparation",
+    "service2Desc": "Translation and certification of certificate, transcript and other documents.",
+    "service3Title": "Admission & Visa",
+    "service3Desc": "University application, acceptance letter and student visa process.",
+    "service4Title": "On-site Support",
+    "service4Desc": "From tickets to dormitory — full support for your relocation."
+  },
+  "journey": {
+    "eyebrow": "MegaGroup Journey",
+    "title": "We're Taking You to the University of Your Dreams",
+    "scrollStory": "Scroll Story",
+    "startingPoint": "Starting Point",
+    "destination": "Destination",
+    "countries": {
+      "azerbaijan": "Azerbaijan",
+      "turkey": "Turkey",
+      "russia": "Russia",
+      "georgia": "Georgia",
+      "kazakhstan": "Kazakhstan"
+    },
+    "descriptions": {
+      "azerbaijan": "Starting Point",
+      "turkey": "Popular Destination",
+      "russia": "Leading Universities",
+      "georgia": "Growing Community",
+      "kazakhstan": "Future Opportunities"
+    },
+    "stats": {
+      "studentsAbroad": "Students Abroad",
+      "countries": "Countries",
+      "partnerUniversities": "Partner Universities",
+      "visaSuccessRate": "Visa Success Rate"
+    }
+  },
+  "lang": {
+    "az": "AZ",
+    "ru": "RU",
+    "en": "EN"
+  }
+}

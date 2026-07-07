@@ -1,0 +1,153 @@
+import type { Country, Faculty, University, FAQ, Testimonial, SiteContent, Locale } from "@/types";
+
+export function pickLocalized(locale: Locale, az: string, ru?: string | null, en?: string | null): string {
+  if (locale === "ru") return ru && ru !== "" ? ru : az;
+  if (locale === "en") return en && en !== "" ? en : az;
+  return az;
+}
+
+export function pickLocalizedArray(locale: Locale, az: any[], ru?: any[] | null, en?: any[] | null): any[] {
+  if (locale === "ru" && ru && ru.length) return ru;
+  if (locale === "en" && en && en.length) return en;
+  return az;
+}
+
+export function mapCountryRow(row: any, locale: Locale): Country {
+  return {
+    id: row.id,
+    slug: row.slug,
+    name: pickLocalized(locale, row.name_az, row.name_ru, row.name_en),
+    name_az: row.name_az,
+    name_ru: row.name_ru ?? row.name_az,
+    name_en: row.name_en ?? row.name_az,
+    flag_emoji: row.flag_emoji ?? "",
+    description: pickLocalized(locale, row.description_az, row.description_ru, row.description_en),
+    description_az: row.description_az ?? "",
+    description_ru: row.description_ru ?? "",
+    description_en: row.description_en ?? "",
+    hero_image_url: row.hero_image_url ?? "",
+    sort_order: row.sort_order ?? 0,
+    is_active: row.is_active ?? true,
+    is_featured: row.is_featured ?? false,
+    quick_stats: {
+      universities: row.qs_universities ?? 0,
+      avg_tuition_usd: row.qs_avg_tuition_usd ?? 0,
+      language: row.qs_language ?? "",
+      visa_difficulty: row.qs_visa_difficulty ?? "medium",
+    },
+    advantages: pickLocalizedArray(locale, row.advantages_az, row.advantages_ru, row.advantages_en),
+    warning_banner:
+      pickLocalized(locale, row.warning_banner_az, row.warning_banner_ru, row.warning_banner_en) || undefined,
+    documents_required: pickLocalizedArray(locale, row.documents_az, row.documents_ru, row.documents_en),
+    application_steps: pickLocalizedArray(locale, row.steps_az, row.steps_ru, row.steps_en),
+    advantages_az: row.advantages_az ?? [],
+    advantages_ru: row.advantages_ru ?? [],
+    advantages_en: row.advantages_en ?? [],
+  };
+}
+
+export function mapFacultyRow(row: any, locale: Locale): Faculty {
+  return {
+    id: row.id,
+    university_id: row.university_slug,
+    university_slug: row.university_slug,
+    name: pickLocalized(locale, row.name_az, row.name_ru, row.name_en),
+    name_az: row.name_az,
+    name_ru: row.name_ru ?? row.name_az,
+    name_en: row.name_en ?? row.name_az,
+    is_competitive: row.is_competitive ?? false,
+    duration_years: row.duration_years ?? 4,
+    language: row.language ?? "",
+    sort_order: row.sort_order ?? 0,
+  };
+}
+
+export function mapUniversityRow(row: any, faculties: any[], fees: any, locale: Locale): University {
+  const defaultFees = {
+    tuition_min_usd: 0,
+    tuition_max_usd: 0,
+    dorm_min_usd: 0,
+    dorm_max_usd: 0,
+    food_min_usd: 0,
+    food_max_usd: 0,
+    transport_min_usd: 0,
+    transport_max_usd: 0,
+    personal_min_usd: 0,
+    personal_max_usd: 0,
+  };
+  return {
+    id: row.id,
+    slug: row.slug,
+    country_slug: row.country_slug,
+    name: pickLocalized(locale, row.name_az, row.name_ru, row.name_en),
+    name_az: row.name_az,
+    name_ru: row.name_ru ?? row.name_az,
+    name_en: row.name_en ?? row.name_az,
+    city: pickLocalized(locale, row.city_az, row.city_ru, row.city_en),
+    city_az: row.city_az,
+    city_ru: row.city_ru ?? row.city_az,
+    city_en: row.city_en ?? row.city_az,
+    website_url: row.website_url ?? "",
+    logo_url: row.logo_url ?? "",
+    hero_image_url: row.hero_image_url ?? "",
+    is_featured: row.is_featured ?? false,
+    is_active: row.is_active ?? true,
+    highlights: pickLocalizedArray(locale, row.highlights_az, row.highlights_ru, row.highlights_en),
+    highlights_az: row.highlights_az ?? [],
+    highlights_ru: row.highlights_ru ?? [],
+    highlights_en: row.highlights_en ?? [],
+    faculties: faculties.map((f) => mapFacultyRow(f, locale)),
+    fees: fees ?? defaultFees,
+    notes: pickLocalized(locale, row.notes_az, row.notes_ru, row.notes_en) || undefined,
+    notes_az: row.notes_az,
+    notes_ru: row.notes_ru,
+    notes_en: row.notes_en,
+    campus_info:
+      pickLocalized(locale, row.campus_info_az, row.campus_info_ru, row.campus_info_en) || undefined,
+    campus_info_az: row.campus_info_az,
+    campus_info_ru: row.campus_info_ru,
+    campus_info_en: row.campus_info_en,
+  };
+}
+
+export function mapFaqRow(row: any, locale: Locale): FAQ {
+  return {
+    id: row.id,
+    question: pickLocalized(locale, row.question_az, row.question_ru, row.question_en),
+    question_az: row.question_az,
+    question_ru: row.question_ru ?? row.question_az,
+    question_en: row.question_en ?? row.question_az,
+    answer: pickLocalized(locale, row.answer_az, row.answer_ru, row.answer_en),
+    answer_az: row.answer_az,
+    answer_ru: row.answer_ru ?? row.answer_az,
+    answer_en: row.answer_en ?? row.answer_az,
+    country_slug: row.country_slug ?? undefined,
+    university_slug: row.university_slug ?? undefined,
+    sort_order: row.sort_order ?? 0,
+  };
+}
+
+export function mapTestimonialRow(row: any, locale: Locale): Testimonial {
+  return {
+    id: row.id,
+    student_name: row.student_name,
+    university_slug: row.university_slug ?? "",
+    country_slug: row.country_slug ?? "",
+    photo_url: row.photo_url ?? "",
+    quote: pickLocalized(locale, row.quote_az, row.quote_ru, row.quote_en),
+    quote_az: row.quote_az,
+    quote_ru: row.quote_ru ?? row.quote_az,
+    quote_en: row.quote_en ?? row.quote_az,
+    year: row.year ?? new Date().getFullYear(),
+  };
+}
+
+export function mapSiteContentRow(row: any, locale: Locale): SiteContent {
+  return {
+    key: row.key,
+    value: pickLocalized(locale, row.value_az, row.value_ru, row.value_en),
+    value_az: row.value_az,
+    value_ru: row.value_ru ?? row.value_az,
+    value_en: row.value_en ?? row.value_az,
+  };
+}

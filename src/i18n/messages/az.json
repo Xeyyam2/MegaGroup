@@ -1,0 +1,160 @@
+{
+  "nav": {
+    "home": "Ana Səhifə",
+    "studyAbroad": "Xaricdə Təhsil",
+    "calculator": "Kalkulyator",
+    "apply": "Müraciət",
+    "about": "Haqqımızda",
+    "blog": "Bloq"
+  },
+  "cta": {
+    "chooseCountry": "Ölkə Seç",
+    "apply": "Müraciət Et",
+    "freeConsult": "Pulsuz Konsultasiya Al",
+    "more": "Ətraflı",
+    "viewMore": "Ətraflı bax"
+  },
+  "home": {
+    "countriesTitle": "Ölkələr",
+    "countriesSubtitle": "Sizin üçün uyğun ölkəni seçin",
+    "calcTitle": "Xərc Kalkulatoru",
+    "calcSubtitle": "Ölkə və universitet seçin — aylıq xərci hesablayın",
+    "storiesTitle": "Uğur Hekayələri",
+    "storiesSubtitle": "MegaGroup ilə xaricdə təhsil alan tələbələrimiz",
+    "faqTitle": "Tez-tez Verilən Suallar"
+  },
+  "country": {
+    "universities": "Universitetlər",
+    "featuredUni": "Seçilmiş Universitet",
+    "process": "Müraciət Prosesi",
+    "documents": "Lazımi Sənədlər",
+    "why": "Niyə",
+    "statUniversities": "Universitet",
+    "statTuition": "Təhsil haqqı",
+    "statLanguage": "Dil",
+    "statVisa": "Viza",
+    "visaEasy": "Asan",
+    "visaMedium": "Orta",
+    "visaHard": "Çətin",
+    "viewDetails": "Ətraflı bax"
+  },
+  "university": {
+    "why": "Niyə",
+    "faculties": "Fakültə və İxtisaslar",
+    "faculty": "Fakültə",
+    "competitiveCol": "Rəqabət",
+    "competitive": "Rəqabətli",
+    "open": "Açıq",
+    "duration": "Müddət",
+    "years": "il",
+    "language": "Dil",
+    "cost": "Xərc Hesablaması",
+    "campus": "Kampus & Şəhər",
+    "stories": "Uğur Hekayələri",
+    "faq": "Tez-tez Verilən Suallar",
+    "officialSite": "Rəsmi sayt"
+  },
+  "calc": {
+    "university": "Universitet",
+    "duration": "Müddət",
+    "tuition": "Təhsil",
+    "dorm": "Yataqxana",
+    "food": "Yemək",
+    "transport": "Nəqliyyat",
+    "personal": "Şəxsi",
+    "monthlyTotal": "Aylıq cəmi",
+    "periodTotal": "{months} ay üçün",
+    "durationLabel": "Müddət: {months} ay"
+  },
+  "common": {
+    "featured": "Seçilmiş",
+    "tuition": "Təhsil haqqı",
+    "perYear": "/il",
+    "free": "Pulsuz",
+    "perMonth": "/ay"
+  },
+  "application": {
+    "title": "Pulsuz Konsultasiya və Müraciət",
+    "desc": "Formu doldurun — MegaGroup konsultantı sizinlə əlaqə saxlayacaq. İlk konsultasiya tam pulsuzdur.",
+    "name": "Ad Soyad",
+    "phone": "Telefon",
+    "email": "Email",
+    "country": "Maraqlandığınız ölkə",
+    "message": "Mesaj",
+    "submit": "Müraciət Et",
+    "submitting": "Göndərilir...",
+    "success": "Müraciətiniz qeydə alındı! Tezliklə əlaqə saxlayacağıq.",
+    "directContact": "Və ya birbaşa əlaqə:"
+  },
+  "footer": {
+    "countries": "Ölkələr",
+    "services": "Xidmətlər",
+    "contact": "Əlaqə",
+    "rights": "MegaGroup — Xaricdə Təhsil Mərkəzi © 2026"
+  },
+  "hero": {
+    "title": "Xaricdə Təhsil — Attestatla, İmtahansız",
+    "subtitle": "MegaGroup — Xaricdə Təhsil Mərkəzi",
+    "statUniversities": "Universitet",
+    "statExams": "İmtahan",
+    "statCountries": "Ölkə",
+    "statStudents": "Tələbə"
+  },
+  "instagram": {
+    "title": "Instagram-da Bizi İzlə",
+    "follow": "Instagram-da İzlə",
+    "desc": "Tələbələrimizin hekayələri, universitet turları və faydalı məsləhətlər — hamısı Instagram-da!"
+  },
+  "about": {
+    "title": "Haqqımızda",
+    "intro": "MegaGroup — Azərbaycanlı tələbələr üçün xaricdə təhsil mərkəzidir. 2018-ci ildən bəri minlərlə tələbənin xaricdə təhsil arzusunu reallığa çeviririk.",
+    "missionTitle": "Missiyamız",
+    "mission": "Hər azərbaycanlı tələbənin attestatla, imtahansız xaricdə keyfiyyətli təhsil ala bilməsini təmin etmək. Biz prosesi sadələşdirir, sənədləri hazırlayır və müraciətdən vizaya qədər yanınızdayıq.",
+    "statsTitle": "Rəqəmlərlə",
+    "statStudents": "Tələbə xaricə köçürdüq",
+    "statCountries": "Ölkə",
+    "statUnis": "Universitet tərəfdaşı",
+    "statYears": "İllik təcrübə",
+    "servicesTitle": "Xidmətlərimiz",
+    "service1Title": "Pulsuz Konsultasiya",
+    "service1Desc": "Sizin üçün ən uyğun ölkə və universiteti seçirik.",
+    "service2Title": "Sənəd Hazırlığı",
+    "service2Desc": "Attestat, transkript və digər sənədləri tərcümə və təsdiq edirik.",
+    "service3Title": "Qəbul və Viza",
+    "service3Desc": "Universitetə müraciət, qəbul məktubu və tələbə vizası prosesini idarə edirik.",
+    "service4Title": "Yolüstü Dəstək",
+    "service4Desc": "Biletlərdən yataqxanaya qədər — xaricə köçməkdə tam dəstək."
+  },
+  "journey": {
+    "eyebrow": "MegaGroup Səyahəti",
+    "title": "Səni Xəyalındakı Universitetə Aparırıq",
+    "scrollStory": "Sürüşmə Hekayəti",
+    "startingPoint": "Başlanğıc Nöqtəsi",
+    "destination": "Təyinat",
+    "countries": {
+      "azerbaijan": "Azərbaycan",
+      "turkey": "Türkiyə",
+      "russia": "Rusiya",
+      "georgia": "Gürcüstan",
+      "kazakhstan": "Qazaxıstan"
+    },
+    "descriptions": {
+      "azerbaijan": "Başlanğıc Nöqtəsi",
+      "turkey": "Populyar Təyinat",
+      "russia": "Lider Universitetlər",
+      "georgia": "Böyüyən Cəmiyyət",
+      "kazakhstan": "Gələcək İmkanlar"
+    },
+    "stats": {
+      "studentsAbroad": "Xaricdə Tələbə",
+      "countries": "Ölkə",
+      "partnerUniversities": "Tərəfdaş Universitet",
+      "visaSuccessRate": "Viza Uğur Faizi"
+    }
+  },
+  "lang": {
+    "az": "AZ",
+    "ru": "RU",
+    "en": "EN"
+  }
+}
