@@ -27,7 +27,7 @@ support (flights, dormitory, city onboarding).
 - Admission model: certificate (attestat) based, no centralized exam required at most partner universities
 - Languages served: Azerbaijani, Russian, English
 - Contact: +994 51 999 93 70 (WhatsApp available), Baku, Azerbaijan
-- Website: https://megagroup.az
+- Website: https://www.megatehsil.com
 
 ## Pages
 - Homepage: /az (also /ru, /en)

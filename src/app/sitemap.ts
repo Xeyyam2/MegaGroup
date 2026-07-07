@@ -7,6 +7,10 @@ import { siteUrl } from "@/lib/site";
 
 const baseUrl = siteUrl;
 
+// Sitemap-də real lastModified istifadə olunur — `new Date()` deyil.
+// Statik səhifələrin son yenilənmə tarixi.
+const STATIC_LASTMOD = new Date("2026-07-01");
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const countries = await getCountries("az");
   const universities = await getAllUniversitySlugs();
@@ -16,7 +20,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   for (const path of staticPaths) {
     entries.push({
       url: `${baseUrl}/az${path}`,
-      lastModified: new Date(),
+      lastModified: STATIC_LASTMOD,
       changeFrequency: path === "" ? "daily" : "weekly",
       priority: path === "" ? 1.0 : 0.8,
       alternates: {
@@ -28,7 +32,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const path = `/xaricde-tehsil/${c.slug}`;
     entries.push({
       url: `${baseUrl}/az${path}`,
-      lastModified: new Date(),
+      lastModified: STATIC_LASTMOD,
       changeFrequency: "weekly",
       priority: 0.8,
       alternates: {
@@ -40,7 +44,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const path = `/xaricde-tehsil/${u.country_slug}/${u.slug}`;
     entries.push({
       url: `${baseUrl}/az${path}`,
-      lastModified: new Date(),
+      lastModified: STATIC_LASTMOD,
       changeFrequency: "monthly",
       priority: 0.7,
       alternates: {
@@ -53,13 +57,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // directly target the primary keywords the business wants to rank for.
   entries.push({
     url: `${baseUrl}/az/bloq`,
-    lastModified: new Date(),
+    lastModified: STATIC_LASTMOD,
     changeFrequency: "weekly",
     priority: 0.9,
   });
   for (const a of ARTICLES) {
     entries.push({
       url: `${baseUrl}/az/bloq/${a.slug}`,
+      // Hər məqalənin real yenilənmə tarixi — crawl ə_priority üçün vacib.
       lastModified: new Date(a.updatedAt),
       changeFrequency: "monthly",
       priority: 0.9,

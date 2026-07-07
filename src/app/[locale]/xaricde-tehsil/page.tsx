@@ -29,7 +29,15 @@ export async function generateMetadata({
         : locale === "ru"
           ? "MegaGroup — учеба за рубежом: Турция, Россия, Грузия, Украина, Казахстан, Германия и Польша. Поступление по аттестату, без экзаменов."
           : "MegaGroup — study abroad in Turkey, Russia, Georgia, Ukraine, Kazakhstan, Germany and Poland. Certificate-based, exam-free admission.",
-    alternates: { canonical: `${siteUrl}/${locale}/xaricde-tehsil` },
+    alternates: {
+      canonical: `${siteUrl}/${locale}/xaricde-tehsil`,
+      languages: {
+        az: `${siteUrl}/az/xaricde-tehsil`,
+        ru: `${siteUrl}/ru/xaricde-tehsil`,
+        en: `${siteUrl}/en/xaricde-tehsil`,
+        "x-default": `${siteUrl}/az/xaricde-tehsil`,
+      },
+    },
   };
 }
 
@@ -43,8 +51,22 @@ export default async function StudyAbroadIndex({
   const tCta = await getTranslations({ locale, namespace: "cta" });
   const countries = await getCountries(locale);
 
+  // ItemList schema — ölkə kolleksiyası səhifəsi üçün zəngin nəticə.
+  const itemListJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: locale === "az" ? "Xaricdə Təhsil Ölkələri" : locale === "ru" ? "Страны для обучения" : "Study Abroad Countries",
+    itemListElement: countries.map((c, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: c.name,
+      url: `${siteUrl}/${locale}/xaricde-tehsil/${c.slug}`,
+    })),
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }} />
       <section className="mx-auto max-w-7xl px-6 py-20 text-center">
         <h1 className="font-heading text-4xl font-extrabold text-foreground sm:text-5xl">
           {locale === "az" ? "Xaricdə Təhsil" : locale === "ru" ? "Учеба за рубежом" : "Study Abroad"}

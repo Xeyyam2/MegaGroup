@@ -101,6 +101,46 @@ export default async function LocaleLayout({
           }),
         }}
       />
+      {/* LocalBusiness schema — local pack və Google Maps üçün.
+          NAP (Name, Address, Phone), geo və xidmət zonası. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ProfessionalService",
+            name: "MegaGroup — Xaricdə Təhsil Mərkəzi",
+            description: "Xaricdə təhsil üzrə konsaltinq və universitetə yerləşdirmə mərkəzi.",
+            url: siteUrl,
+            telephone: "+994-51-999-93-70",
+            image: `${siteUrl}/icons/icon-512.png`,
+            priceRange: "$$",
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Bakı",
+              addressCountry: "AZ",
+            },
+            areaServed: { "@type": "Country", name: "Azərbaycan" },
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: 40.4093,
+              longitude: 49.8671,
+            },
+            openingHoursSpecification: [
+              {
+                "@type": "OpeningHoursSpecification",
+                dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                opens: "10:00",
+                closes: "19:00",
+              },
+            ],
+            sameAs: [
+              "https://www.instagram.com/mega_xaricde_tehsil_merkezi/",
+              "https://www.tiktok.com/@mega_xaricde_tehsil_merkezi",
+            ],
+          }),
+        }}
+      />
       <NextIntlClientProvider locale={locale} messages={messages}>
         <SmoothScrollProvider>
           <ScrollProgress />

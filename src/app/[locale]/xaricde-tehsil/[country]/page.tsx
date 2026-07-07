@@ -14,7 +14,9 @@ import { getFAQsByCountry } from "@/lib/data/faqs";
 import { routing, type Locale } from "@/i18n/routing";
 import { countries as staticCountries } from "@/data/countries";
 import { ARTICLES } from "@/data/articles";
+import { getCountryContent } from "@/data/country-content";
 import { siteUrl } from "@/lib/site";
+import { getCountrySeo } from "@/lib/seo";
 
 export const revalidate = 3600;
 
@@ -32,30 +34,44 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const locale = rawLocale as Locale;
   const c = await getCountryBySlug(country, locale);
   if (!c) return { title: locale === "az" ? "Tapılmadı" : "Not found" };
-  const kwMap: Record<string, string[]> = {
-    az: [`${c.name_az.toLowerCase()}da təhsil`, `${c.name_az.toLowerCase()} universitetləri`, "attestatla qəbul", "imtahansız qəbul", "xaricdə təhsil"],
-    ru: [`учеба в ${c.name_ru.toLowerCase()}`, `университеты ${c.name_ru.toLowerCase()}`, "поступление по аттестату", "учеба за рубежом"],
-    en: [`study in ${c.name_en.toLowerCase()}`, `${c.name_en.toLowerCase()} universities`, "study abroad", "certificate admission"],
-  };
-  const titleSuffix = locale === "az" ? "Təhsil — Attestatla Qəbul" : locale === "ru" ? "Учеба — поступление по аттестату" : "Study — Certificate Admission";
+  const seo = locale === "az" ? getCountrySeo(country) : undefined;
+
+  // Title — açar söz BAŞDA olmalı (exact-match ranking üçün kritik).
+  // AZ üçün qrammatik düzgün açar söz (seo.ts), RU/EN üçün əvvəlki dinamik forma.
+  const title = locale === "az" && seo
+    ? seo.title
+    : `${c.name} ${locale === "ru" ? "— Учеба по аттестату" : "— Study & Admission"} | MegaGroup`;
+  const description = locale === "az" && seo ? seo.metaDescription : c.description;
+  const keywords = locale === "az" && seo
+    ? seo.keywords
+    : locale === "ru"
+      ? [`учеба в ${c.name_ru.toLowerCase()}`, `${c.name_ru.toLowerCase()} университеты`, "поступление по аттестату", "учеба за рубежом"]
+      : [`study in ${c.name_en.toLowerCase()}`, `${c.name_en.toLowerCase()} universities`, "study abroad", "certificate admission"];
+
   return {
-    title: `${c.name} ${titleSuffix} | MegaGroup`,
-    description: c.description,
-    keywords: kwMap[locale],
+    title,
+    description,
+    keywords,
     alternates: {
       canonical: `${siteUrl}/${locale}/xaricde-tehsil/${c.slug}`,
       languages: {
         az: `${siteUrl}/az/xaricde-tehsil/${c.slug}`,
         ru: `${siteUrl}/ru/xaricde-tehsil/${c.slug}`,
         en: `${siteUrl}/en/xaricde-tehsil/${c.slug}`,
+        // x-default — axtarış sistemləri üçün susmaya versiya
+        "x-default": `${siteUrl}/az/xaricde-tehsil/${c.slug}`,
       },
     },
     openGraph: {
-      title: `${c.name} | MegaGroup`,
-      description: c.description,
-      images: [{ url: c.hero_image_url, width: 1200, height: 630 }],
+      title,
+      description,
+      images: [{ url: c.hero_image_url, width: 1200, height: 630, alt: locale === "az" && seo ? seo.h1 : c.name }],
       type: "website",
+      locale: locale === "az" ? "az_AZ" : locale === "ru" ? "ru_RU" : "en_US",
+      siteName: "MegaGroup",
+      url: `${siteUrl}/${locale}/xaricde-tehsil/${c.slug}`,
     },
+    twitter: { card: "summary_large_image", title, description },
   };
 }
 
@@ -66,6 +82,13 @@ export default async function CountryPage({ params }: PageProps) {
   const t = await getTranslations({ locale, namespace: "country" });
   const c = await getCountryBySlug(country, locale);
   if (!c) notFound();
+
+  // AZ üçün qrammatik düzgün açar söz H1-i (ranking üçün kritik),
+  // RU/EN üçün əvvəlki dinamik forma saxlanılır.
+  const seo = locale === "az" ? getCountrySeo(country) : undefined;
+  const h1 = seo?.h1 ?? c.name;
+  // Dərin AZ məzmunu (yalnız az dilində — hədəf açar sözlər AZ-dildir).
+  const content = locale === "az" ? getCountryContent(country) : undefined;
 
   const allCountries = await getCountries(locale);
   const unis = await getUniversitiesByCountry(country, locale);
@@ -122,14 +145,25 @@ export default async function CountryPage({ params }: PageProps) {
       )}
 
       <section className="relative flex min-h-[60vh] items-center justify-center overflow-hidden">
-        <Image src={c.hero_image_url} alt={c.name} fill priority sizes="100vw" className="object-cover opacity-30" />
+        <Image src={c.hero_image_url} alt={locale === "az" && seo ? `${seo.h1} — ${c.name}` : c.name} fill priority sizes="100vw" className="object-cover opacity-30" />
         <div className="relative z-10 px-6 py-24 text-center">
-          <h1 className="text-balance mt-4 font-heading text-4xl font-extrabold text-foreground sm:text-6xl">{c.name}</h1>
+          <h1 className="text-balance mt-4 font-heading text-4xl font-extrabold text-foreground sm:text-6xl">{h1}</h1>
           <p className="mx-auto mt-4 max-w-2xl text-foreground/80">{c.description}</p>
         </div>
       </section>
 
       <CountryTabs countries={allCountries} activeSlug={c.slug} localePrefix={`/${locale}`} />
+
+      {/* Giriş paraqrafları — ilk 100 sözdə açar söz (SEO üçün kritik). */}
+      {content?.intro && (
+        <section className="mx-auto max-w-3xl px-6 py-10">
+          <div className="space-y-4 text-base leading-relaxed text-foreground/80">
+            {content.intro.map((p, i) => (
+              <p key={i}>{p}</p>
+            ))}
+          </div>
+        </section>
+      )}
 
       <section className="mx-auto max-w-7xl px-6 py-16">
         {c.warning_banner && (
@@ -154,7 +188,7 @@ export default async function CountryPage({ params }: PageProps) {
 
       <section className="mx-auto max-w-7xl px-6 py-12">
         <h2 className="font-heading text-3xl font-bold text-foreground">
-          {locale === "az" ? "Niyə" : locale === "ru" ? "Почему" : "Why"} {c.name}?
+          {locale === "az" ? `Niyə ${h1.replace(/\s*2026$/, "")}?` : locale === "ru" ? `Почему ${c.name}?` : `Why ${c.name}?`}
         </h2>
         <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {c.advantages.map((a, i) => (
@@ -167,6 +201,83 @@ export default async function CountryPage({ params }: PageProps) {
           ))}
         </div>
       </section>
+
+      {/* Xərc cədvəli — real rəqəmlərlə (SEO + istifadəçi dəyəri). */}
+      {content?.costRows && content.costRows.length > 0 && (
+        <section className="mx-auto max-w-5xl px-6 py-12">
+          <h2 className="font-heading text-3xl font-bold text-foreground">
+            {locale === "az" ? `${h1.replace(/\s*2026$/, "")} — Xərclər` : locale === "ru" ? "Расходы" : "Costs"}
+          </h2>
+          <div className="glass mt-8 overflow-x-auto rounded-2xl">
+            <table className="w-full text-left text-sm">
+              <thead className="border-b border-white/10 text-foreground/70">
+                <tr>
+                  <th className="px-5 py-3">{locale === "az" ? "Xərc kateqoriyası" : locale === "ru" ? "Категория" : "Category"}</th>
+                  <th className="px-5 py-3">{locale === "az" ? "Minimum" : "Min"}</th>
+                  <th className="px-5 py-3">{locale === "az" ? "Maksimum" : "Max"}</th>
+                  <th className="px-5 py-3">{locale === "az" ? "Müddət" : "Period"}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {content.costRows.map((row) => (
+                  <tr key={row.label} className="border-b border-white/5 last:border-0">
+                    <td className="px-5 py-3 font-medium text-foreground">
+                      {row.label}
+                      {row.note && <span className="block text-xs font-normal text-foreground/50">{row.note}</span>}
+                    </td>
+                    <td className="px-5 py-3 text-foreground/80">${row.min.toLocaleString("en-US")}</td>
+                    <td className="px-5 py-3 text-foreground/80">${row.max.toLocaleString("en-US")}</td>
+                    <td className="px-5 py-3 text-foreground/60">
+                      {row.unit === "il" ? (locale === "az" ? "illik" : "yearly") : locale === "az" ? "aylıq" : "monthly"}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          {content.costNote && <p className="mt-4 text-sm text-foreground/60">{content.costNote}</p>}
+        </section>
+      )}
+
+      {/* Ən populyar tələbə şəhərləri. */}
+      {content?.cities && content.cities.length > 0 && (
+        <section className="mx-auto max-w-7xl px-6 py-12">
+          <h2 className="font-heading text-3xl font-bold text-foreground">
+            {locale === "az" ? "Ən Populyar Tələbə Şəhərləri" : locale === "ru" ? "Города" : "Top Student Cities"}
+          </h2>
+          <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {content.cities.map((city, i) => (
+              <FadeInUp key={city.name} delay={i * 0.08}>
+                <div className="glass h-full rounded-2xl p-6">
+                  <h3 className="font-heading text-xl font-bold text-foreground">{city.name}</h3>
+                  <p className="mt-2 text-sm text-foreground/70">{city.description}</p>
+                </div>
+              </FadeInUp>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Qəbul şərtləri haqqında detallı məzmun. */}
+      {content?.admission && content.admission.length > 0 && (
+        <section className="mx-auto max-w-3xl px-6 py-12">
+          <h2 className="font-heading text-3xl font-bold text-foreground">
+            {locale === "az" ? "Qəbul Şərtləri" : locale === "ru" ? "Условия поступления" : "Admission Requirements"}
+          </h2>
+          <div className="mt-8 space-y-8">
+            {content.admission.map((sec) => (
+              <div key={sec.heading}>
+                <h3 className="font-heading text-xl font-bold text-foreground">{sec.heading}</h3>
+                <div className="mt-2 space-y-3 text-foreground/80">
+                  {sec.paragraphs.map((p, i) => (
+                    <p key={i}>{p}</p>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {featured && (
         <section className="mx-auto max-w-7xl px-6 py-12">
@@ -230,6 +341,42 @@ export default async function CountryPage({ params }: PageProps) {
         </div>
       </section>
 
+      {/* Viza prosesi — addım-addım dərin məzmun. */}
+      {content?.visaSteps && content.visaSteps.length > 0 && (
+        <section className="mx-auto max-w-7xl px-6 py-12">
+          <h2 className="font-heading text-3xl font-bold text-foreground">
+            {locale === "az" ? "Viza Prosesi" : locale === "ru" ? "Процесс визы" : "Visa Process"}
+          </h2>
+          <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {content.visaSteps.map((step, i) => (
+              <FadeInUp key={step.step} delay={i * 0.1}>
+                <div className="glass h-full rounded-2xl p-6">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-secondary font-bold text-white">
+                    {step.step}
+                  </div>
+                  <h3 className="mt-3 font-semibold text-foreground">{step.title}</h3>
+                  <p className="mt-1 text-sm text-foreground/70">{step.description}</p>
+                </div>
+              </FadeInUp>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Tələbə həyatı haqqında dərin məzmun (E-E-A-T üçün faydalı). */}
+      {content?.studentLife && content.studentLife.length > 0 && (
+        <section className="mx-auto max-w-3xl px-6 py-12">
+          <h2 className="font-heading text-3xl font-bold text-foreground">
+            {locale === "az" ? "Tələbə Həyatı və Yaşayış" : locale === "ru" ? "Студенческая жизнь" : "Student Life"}
+          </h2>
+          <div className="mt-6 space-y-4 text-foreground/80">
+            {content.studentLife.map((p, i) => (
+              <p key={i}>{p}</p>
+            ))}
+          </div>
+        </section>
+      )}
+
       <section className="mx-auto max-w-3xl px-6 py-12">
         <h2 className="font-heading text-3xl font-bold text-foreground">
           {locale === "az" ? "Tez-tez Verilən Suallar" : locale === "ru" ? "Часто задаваемые вопросы" : "FAQ"}
@@ -247,7 +394,8 @@ export default async function CountryPage({ params }: PageProps) {
               className="glass shadow-brand-hover block h-full rounded-2xl p-6 transition-colors hover:bg-white/10"
             >
               <span className="text-sm font-semibold text-brand-primary">
-                {c.name} haqqında ətraflı bələdçini oxu →
+                {/* Açar sözlü anchor text — blog məqaləsinə kontekstual link */}
+                {seo?.primaryKeyword ?? c.name} haqqında ətraflı bələdçini oxu →
               </span>
               <p className="mt-1 text-sm text-foreground/70">{relatedArticle.excerpt}</p>
             </Link>

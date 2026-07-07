@@ -18,6 +18,7 @@ import { getGeneralFAQs } from "@/lib/data/faqs";
 import { getSiteContentMap } from "@/lib/data/site-content";
 import { ARTICLES } from "@/data/articles";
 import { siteUrl } from "@/lib/site";
+import { getCountrySeo } from "@/lib/seo";
 import type { Locale } from "@/i18n/routing";
 
 export const revalidate = 3600;
@@ -54,6 +55,7 @@ export async function generateMetadata({
         az: `${siteUrl}/az`,
         ru: `${siteUrl}/ru`,
         en: `${siteUrl}/en`,
+        "x-default": `${siteUrl}/az`,
       },
     },
     openGraph: {
@@ -119,13 +121,18 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
           <CountryTabs countries={countries} localePrefix={`/${locale}`} />
         </div>
         <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {countries.map((c, i) => (
+          {countries.map((c, i) => {
+            // AZ üçün açar sözlü anchor text (internal link gücü),
+            // RU/EN üçün sadəcə ölkə adı.
+            const cardTitle =
+              locale === "az" ? (getCountrySeo(c.slug)?.h1 ?? c.name) : c.name;
+            return (
             <FadeInUp key={c.slug} delay={i * 0.08}>
               <Link
                 href={`/${locale}/xaricde-tehsil/${c.slug}`}
                 className="glass shadow-brand-hover block h-full rounded-2xl p-6 text-center transition-colors hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary"
               >
-                <h3 className="font-heading text-xl font-bold text-foreground">{c.name}</h3>
+                <h3 className="font-heading text-xl font-bold text-foreground">{cardTitle}</h3>
                 <p className="mt-2 text-sm text-foreground/70">{c.description}</p>
                 <div className="mt-4 grid grid-cols-2 gap-2 text-xs text-foreground/60">
                   <span>🎓 {c.quick_stats.universities}</span>
@@ -146,7 +153,8 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
                 </span>
               </Link>
             </FadeInUp>
-          ))}
+            );
+          })}
         </div>
       </section>
 

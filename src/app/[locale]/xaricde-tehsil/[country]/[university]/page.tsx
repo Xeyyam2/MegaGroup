@@ -60,6 +60,14 @@ export default async function UniversityPage({ params }: PageProps) {
     name: u.name,
     url: u.website_url,
     address: { "@type": "PostalAddress", addressCountry: c.name_en, addressLocality: u.city },
+    // Qiymət məlumatı — zəngin nəticələr üçün Offer schema
+    makesOffer: {
+      "@type": "Offer",
+      name: `${locale === "az" ? "Xarici tələbə qəbulu" : locale === "ru" ? "Поступление иностранных студентов" : "International student admission"}`,
+      priceCurrency: "USD",
+      price: u.fees?.tuition_min_usd ?? undefined,
+      description: locale === "az" ? "Attestat əsaslı qəbul — imtahansız" : "Certificate-based admission",
+    },
   };
 
   return (
