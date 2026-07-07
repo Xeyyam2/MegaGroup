@@ -121,6 +121,12 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  /* Hero exit-dissolve scale (1 → 1.06) və digər transform animasiyaları
+     üfüqi overflow yaradıb horizontal scrollbar göstərirdi. `clip` (hidden
+     deyil) istifadə olunur çünki scroll container yaratmır — belə `position:
+     sticky` hero və `position: fixed` overlay-lər viewport-a nisbətən işləməyə
+     davam edir. */
+  overflow-x: clip;
 }
 
 /* Interactive-element cursor — buttons, links, and anything clickable
@@ -143,6 +149,9 @@ summary {
 html {
   scrollbar-color: var(--color-brand-primary) transparent;
   scrollbar-width: thin;
+  /* body overflow-x: clip-inin təkrarı — köhnə brauzerlərdə də üfüqi
+     scrollbar-un bloklanması üçün (scroll container yaratmadan). */
+  overflow-x: clip;
 }
 ::-webkit-scrollbar {
   width: 10px;
