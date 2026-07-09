@@ -1,7 +1,10 @@
-import { createClient } from "@/lib/supabase/server";
+import { unstable_cache } from "next/cache";
+import { createCacheClient } from "@/lib/supabase/server-cache";
 import { mapSiteContentRow } from "./mappers";
 import { isSupabaseConfigured } from "./config";
 import type { Locale } from "@/types";
+
+const REVALIDATE = 300;
 
 const FALLBACK: Record<string, string> = {
   hero_title: "Xaricdə Təhsil — Attestatla, İmtahansız",
@@ -22,11 +25,11 @@ const FALLBACK: Record<string, string> = {
   footer_description: "Azərbaycanlı tələbələr üçün xaricdə təhsil imkanlarını attestatla, imtahansız təqdim edirik.",
 };
 
-export async function getSiteContentMap(locale: Locale): Promise<Record<string, string>> {
+async function fetchSiteContentMap(locale: Locale): Promise<Record<string, string>> {
   if (!isSupabaseConfigured()) {
     return FALLBACK;
   }
-  const supabase = await createClient();
+  const supabase = createCacheClient();
   const { data, error } = await supabase.from("site_content").select("*");
   if (error) {
     return FALLBACK;
@@ -39,14 +42,24 @@ export async function getSiteContentMap(locale: Locale): Promise<Record<string, 
   return map;
 }
 
-export async function getSiteContent(key: string, locale: Locale): Promise<string | null> {
+async function fetchSiteContent(key: string, locale: Locale): Promise<string | null> {
   if (!isSupabaseConfigured()) {
     return FALLBACK[key] ?? null;
   }
-  const supabase = await createClient();
+  const supabase = createCacheClient();
   const { data, error } = await supabase.from("site_content").select("*").eq("key", key).single();
   if (error || !data) {
     return FALLBACK[key] ?? null;
   }
   return mapSiteContentRow(data, locale).value;
 }
+
+export const getSiteContentMap = unstable_cache(fetchSiteContentMap, ["site-content:map"], {
+  revalidate: REVALIDATE,
+  tags: ["site-content"],
+});
+
+export const getSiteContent = unstable_cache(fetchSiteContent, ["site-content:key"], {
+  revalidate: REVALIDATE,
+  tags: ["site-content"],
+});

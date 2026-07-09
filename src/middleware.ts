@@ -36,7 +36,8 @@ export async function middleware(request: NextRequest) {
 
   // Admin panel — auth guard (next-intl bura islemir)
   if (pathname.startsWith(ADMIN_BASE)) {
-    if (pathname === `${ADMIN_BASE}/login`) {
+    // Login və reset-password açıqdır ( recovery linki brauzerdən gəlir)
+    if (pathname === `${ADMIN_BASE}/login` || pathname === `${ADMIN_BASE}/reset-password`) {
       return NextResponse.next();
     }
     // Supabase konfiqurasiya olunmayibsa login sehifesine yonlendir

@@ -1,15 +1,21 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { toast } from "sonner";
+import { deleteApplication } from "./actions";
 
-export function DeleteApplicationButton({ id, name }: { id: string; name: string }) {
+export function DeleteApplicationButton({ id }: { id: string; name: string }) {
   const [confirming, setConfirming] = useState(false);
   const router = useRouter();
 
   async function handleDelete() {
-    const { deleteApplication } = await import("./actions");
-    await deleteApplication(id);
-    router.refresh();
+    const res = await deleteApplication(id);
+    if ("error" in res && res.error) {
+      toast.error(res.error);
+    } else {
+      toast.success("Müraciət silindi");
+      router.refresh();
+    }
   }
 
   if (!confirming) {

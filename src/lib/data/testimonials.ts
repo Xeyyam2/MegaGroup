@@ -1,4 +1,5 @@
-import { createClient } from "@/lib/supabase/server";
+import { unstable_cache } from "next/cache";
+import { createCacheClient } from "@/lib/supabase/server-cache";
 import { mapTestimonialRow } from "./mappers";
 import { isSupabaseConfigured } from "./config";
 import {
@@ -8,11 +9,13 @@ import {
 } from "@/data/testimonials";
 import type { Testimonial, Locale } from "@/types";
 
-export async function getTestimonials(locale: Locale): Promise<Testimonial[]> {
+const REVALIDATE = 300;
+
+async function fetchTestimonials(locale: Locale): Promise<Testimonial[]> {
   if (!isSupabaseConfigured()) {
     return staticTestimonials;
   }
-  const supabase = await createClient();
+  const supabase = createCacheClient();
   const { data, error } = await supabase
     .from("testimonials")
     .select("*")
@@ -25,14 +28,11 @@ export async function getTestimonials(locale: Locale): Promise<Testimonial[]> {
   return (data ?? []).map((row) => mapTestimonialRow(row, locale));
 }
 
-export async function getTestimonialsByCountry(
-  countrySlug: string,
-  locale: Locale,
-): Promise<Testimonial[]> {
+async function fetchTestimonialsByCountry(countrySlug: string, locale: Locale): Promise<Testimonial[]> {
   if (!isSupabaseConfigured()) {
     return staticByCountry(countrySlug);
   }
-  const supabase = await createClient();
+  const supabase = createCacheClient();
   const { data, error } = await supabase
     .from("testimonials")
     .select("*")
@@ -45,14 +45,11 @@ export async function getTestimonialsByCountry(
   return (data ?? []).map((row) => mapTestimonialRow(row, locale));
 }
 
-export async function getTestimonialsByUniversity(
-  universitySlug: string,
-  locale: Locale,
-): Promise<Testimonial[]> {
+async function fetchTestimonialsByUniversity(universitySlug: string, locale: Locale): Promise<Testimonial[]> {
   if (!isSupabaseConfigured()) {
     return staticByUniversity(universitySlug);
   }
-  const supabase = await createClient();
+  const supabase = createCacheClient();
   const { data, error } = await supabase
     .from("testimonials")
     .select("*")
@@ -64,3 +61,22 @@ export async function getTestimonialsByUniversity(
   }
   return (data ?? []).map((row) => mapTestimonialRow(row, locale));
 }
+
+export const getTestimonials = unstable_cache(fetchTestimonials, ["testimonials:all"], {
+  revalidate: REVALIDATE,
+  tags: ["testimonials"],
+});
+
+export const getTestimonialsByCountry = unstable_cache(fetchTestimonialsByCountry, ["testimonials:by-country"], {
+  revalidate: REVALIDATE,
+  tags: ["testimonials"],
+});
+
+export const getTestimonialsByUniversity = unstable_cache(
+  fetchTestimonialsByUniversity,
+  ["testimonials:by-university"],
+  {
+    revalidate: REVALIDATE,
+    tags: ["testimonials"],
+  },
+);

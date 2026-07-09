@@ -1,9 +1,8 @@
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import { InstagramIcon } from "@/components/ui/InstagramIcon";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
 
 export async function InstagramCTA() {
-  const locale = await getLocale();
   const t = await getTranslations("instagram");
 
   return (

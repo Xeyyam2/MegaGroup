@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { HeroSection } from "@/components/sections/HeroSection";
-import { StudyJourneySection } from "@/components/study-journey/StudyJourneySection";
+import { StudyJourneyLazy } from "@/components/study-journey/StudyJourneyLazy";
 import { CountryTabs } from "@/components/sections/CountryTabs";
 import { CostCalculator } from "@/components/sections/CostCalculator";
 import { SuccessStories } from "@/components/sections/SuccessStories";
@@ -108,7 +108,7 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
 
       <HeroSection stats={heroStats} title={content.hero_title} subtitle={content.hero_subtitle} />
 
-      <StudyJourneySection />
+      <StudyJourneyLazy />
 
       <section id="olkeler" className="mx-auto max-w-7xl px-6 py-16">
         <ScrollReveal className="text-center">

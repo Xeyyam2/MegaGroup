@@ -5,7 +5,8 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { contactSchema, type ContactFormData, type ContactFormOutput } from "@/lib/validations/contact.schema";
 import { countries } from "@/data/countries";
-import { createApplication } from "@/app/admin/(cms)/muraciyyatler/actions";
+import { createApplication } from "@/lib/actions/applications";
+import { TurnstileWidget } from "@/components/sections/TurnstileWidget";
 import { cn } from "@/lib/utils";
 
 export function ApplicationForm() {
@@ -18,8 +19,12 @@ export function ApplicationForm() {
     formState: { errors, isSubmitting },
   } = useForm<ContactFormData, unknown, ContactFormOutput>({ resolver: zodResolver(contactSchema) });
 
-  const onSubmit = async (data: ContactFormOutput) => {
+  const onSubmit = async (data: ContactFormOutput, event?: React.BaseSyntheticEvent) => {
     setServerError("");
+    // Honeypot dəyərini submit event-in DOM-dan oxuyuruq (ref closure -> lint qaydasını tetiklemir)
+    const formEl = event?.target as HTMLFormElement | undefined;
+    const honeypot = formEl?.querySelector<HTMLInputElement>('input[name="website"]')?.value ?? "";
+    const turnstileToken = formEl?.querySelector<HTMLInputElement>('input[name="cf-turnstile-response"]')?.value ?? "";
     const fd = new FormData();
     fd.append("full_name", data.full_name);
     fd.append("phone", data.phone);
@@ -27,6 +32,8 @@ export function ApplicationForm() {
     fd.append("country_interest", data.country_interest);
     fd.append("attestat_avg", String(data.attestat_avg ?? ""));
     fd.append("message", data.message ?? "");
+    fd.append("website", honeypot);
+    fd.append("cf-turnstile-response", turnstileToken);
     const res = await createApplication(fd);
     if ("error" in res && res.error) {
       setServerError(res.error);
@@ -92,6 +99,18 @@ export function ApplicationForm() {
         {errors.message && <p className="mt-1 text-sm text-brand-primary">{errors.message.message}</p>}
       </div>
       {serverError && <p className="text-sm text-red-400">{serverError}</p>}
+      {/* Turnstile (aktivdirsə — NEXT_PUBLIC_TURNSTILE_SITE_KEY yoxdursa görünmür) */}
+      <TurnstileWidget />
+      {/* Honeypot: botlar doldurur, istifadəçilər görmür — server-də yoxlanır */}
+      <input
+        type="text"
+        name="website"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        defaultValue=""
+        className="absolute left-[-9999px] h-0 w-0 opacity-0"
+      />
       <button type="submit" disabled={isSubmitting} className="w-full rounded-xl bg-brand-primary px-6 py-3.5 font-semibold text-white transition-colors hover:bg-red-700 disabled:opacity-50">
         {isSubmitting ? t("submitting") : t("submit")}
       </button>

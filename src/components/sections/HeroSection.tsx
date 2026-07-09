@@ -4,7 +4,6 @@ import { useEffect, useRef } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { CanvasWrapper } from "@/components/three/CanvasWrapper";
 import { TextReveal } from "@/components/motion/TextReveal";
 import { CounterAnimation } from "@/components/motion/CounterAnimation";
 import { MagneticButton } from "@/components/motion/MagneticButton";
@@ -22,6 +21,13 @@ const ShaderBackground = dynamic(
 const GlobeScene = dynamic(
   () => import("@/components/three/GlobeScene").then((m) => m.GlobeScene),
   { ssr: false, loading: () => null },
+);
+
+// CanvasWrapper @react-three/fiber-in Canvas-ini çəkir — dynamic ilə ayrı chunk-a
+// ayırırıq ki, three.js əsas bundle-a girməsin (yalnız client-də, ehtiyaca yüklənsin).
+const CanvasWrapper = dynamic(
+  () => import("@/components/three/CanvasWrapper").then((m) => m.CanvasWrapper),
+  { ssr: false, loading: () => <div className="hero-fallback-gradient absolute inset-0" aria-hidden /> },
 );
 
 // Must match GROW_END in GlobeScene.tsx — the fraction of the total hero

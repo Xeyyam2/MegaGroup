@@ -1,4 +1,5 @@
-import { createClient } from "@/lib/supabase/server";
+import { unstable_cache } from "next/cache";
+import { createCacheClient } from "@/lib/supabase/server-cache";
 import { mapCountryRow } from "./mappers";
 import { isSupabaseConfigured } from "./config";
 import {
@@ -7,11 +8,13 @@ import {
 } from "@/data/countries";
 import type { Country, Locale } from "@/types";
 
-export async function getCountries(locale: Locale): Promise<Country[]> {
+const REVALIDATE = 300; // 5 dəqiqə; admin update-də revalidateTag dərhal yeniləyir
+
+async function fetchCountries(locale: Locale): Promise<Country[]> {
   if (!isSupabaseConfigured()) {
     return staticCountries.filter((c) => c.is_active);
   }
-  const supabase = await createClient();
+  const supabase = createCacheClient();
   const { data, error } = await supabase
     .from("countries")
     .select("*")
@@ -24,11 +27,11 @@ export async function getCountries(locale: Locale): Promise<Country[]> {
   return (data ?? []).map((row) => mapCountryRow(row, locale));
 }
 
-export async function getCountryBySlug(slug: string, locale: Locale): Promise<Country | null> {
+async function fetchCountryBySlug(slug: string, locale: Locale): Promise<Country | null> {
   if (!isSupabaseConfigured()) {
     return staticGetCountryBySlug(slug) ?? null;
   }
-  const supabase = await createClient();
+  const supabase = createCacheClient();
   const { data, error } = await supabase.from("countries").select("*").eq("slug", slug).single();
   if (error) {
     return staticGetCountryBySlug(slug) ?? null;
@@ -36,11 +39,11 @@ export async function getCountryBySlug(slug: string, locale: Locale): Promise<Co
   return data ? mapCountryRow(data, locale) : null;
 }
 
-export async function getFeaturedCountries(locale: Locale): Promise<Country[]> {
+async function fetchFeaturedCountries(locale: Locale): Promise<Country[]> {
   if (!isSupabaseConfigured()) {
     return staticCountries.filter((c) => c.is_active && c.is_featured);
   }
-  const supabase = await createClient();
+  const supabase = createCacheClient();
   const { data, error } = await supabase
     .from("countries")
     .select("*")
@@ -52,3 +55,18 @@ export async function getFeaturedCountries(locale: Locale): Promise<Country[]> {
   }
   return (data ?? []).map((row) => mapCountryRow(row, locale));
 }
+
+export const getCountries = unstable_cache(fetchCountries, ["countries:list"], {
+  revalidate: REVALIDATE,
+  tags: ["countries"],
+});
+
+export const getCountryBySlug = unstable_cache(fetchCountryBySlug, ["countries:by-slug"], {
+  revalidate: REVALIDATE,
+  tags: ["countries"],
+});
+
+export const getFeaturedCountries = unstable_cache(fetchFeaturedCountries, ["countries:featured"], {
+  revalidate: REVALIDATE,
+  tags: ["countries"],
+});

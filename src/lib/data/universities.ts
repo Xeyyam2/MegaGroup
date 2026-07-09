@@ -1,4 +1,5 @@
-import { createClient } from "@/lib/supabase/server";
+import { unstable_cache } from "next/cache";
+import { createCacheClient } from "@/lib/supabase/server-cache";
 import { mapUniversityRow } from "./mappers";
 import { isSupabaseConfigured } from "./config";
 import {
@@ -9,14 +10,16 @@ import {
 } from "@/data/universities";
 import type { University, Locale } from "@/types";
 
-export async function getUniversitiesByCountry(
+const REVALIDATE = 300;
+
+async function fetchUniversitiesByCountry(
   countrySlug: string,
   locale: Locale,
 ): Promise<University[]> {
   if (!isSupabaseConfigured()) {
     return staticByCountry(countrySlug);
   }
-  const supabase = await createClient();
+  const supabase = createCacheClient();
   const { data: unis, error } = await supabase
     .from("universities")
     .select("*")
@@ -34,10 +37,7 @@ export async function getUniversitiesByCountry(
     .select("*")
     .in("university_slug", slugs)
     .order("sort_order");
-  const { data: fees } = await supabase
-    .from("university_fees")
-    .select("*")
-    .in("university_slug", slugs);
+  const { data: fees } = await supabase.from("university_fees").select("*").in("university_slug", slugs);
   const feeMap = new Map((fees ?? []).map((f) => [f.university_slug, f]));
   return unis.map((u) =>
     mapUniversityRow(
@@ -49,16 +49,12 @@ export async function getUniversitiesByCountry(
   );
 }
 
-export async function getUniversityBySlug(slug: string, locale: Locale): Promise<University | null> {
+async function fetchUniversityBySlug(slug: string, locale: Locale): Promise<University | null> {
   if (!isSupabaseConfigured()) {
     return staticBySlug(slug) ?? null;
   }
-  const supabase = await createClient();
-  const { data: uni, error } = await supabase
-    .from("universities")
-    .select("*")
-    .eq("slug", slug)
-    .single();
+  const supabase = createCacheClient();
+  const { data: uni, error } = await supabase.from("universities").select("*").eq("slug", slug).single();
   if (error) {
     return staticBySlug(slug) ?? null;
   }
@@ -76,14 +72,11 @@ export async function getUniversityBySlug(slug: string, locale: Locale): Promise
   return mapUniversityRow(uni, faculties ?? [], fees ?? null, locale);
 }
 
-export async function getFeaturedUniversity(
-  countrySlug: string,
-  locale: Locale,
-): Promise<University | null> {
+async function fetchFeaturedUniversity(countrySlug: string, locale: Locale): Promise<University | null> {
   if (!isSupabaseConfigured()) {
     return staticFeatured(countrySlug) ?? null;
   }
-  const supabase = await createClient();
+  const supabase = createCacheClient();
   const { data: uni, error } = await supabase
     .from("universities")
     .select("*")
@@ -107,17 +100,34 @@ export async function getFeaturedUniversity(
   return mapUniversityRow(uni, faculties ?? [], fees ?? null, locale);
 }
 
-export async function getAllUniversitySlugs(): Promise<{ slug: string; country_slug: string }[]> {
+async function fetchAllUniversitySlugs(): Promise<{ slug: string; country_slug: string }[]> {
   if (!isSupabaseConfigured()) {
     return staticUniversities.map((u) => ({ slug: u.slug, country_slug: u.country_slug }));
   }
-  const supabase = await createClient();
-  const { data, error } = await supabase
-    .from("universities")
-    .select("slug, country_slug")
-    .eq("is_active", true);
+  const supabase = createCacheClient();
+  const { data, error } = await supabase.from("universities").select("slug, country_slug").eq("is_active", true);
   if (error) {
     return staticUniversities.map((u) => ({ slug: u.slug, country_slug: u.country_slug }));
   }
   return data ?? [];
 }
+
+export const getUniversitiesByCountry = unstable_cache(fetchUniversitiesByCountry, ["universities:by-country"], {
+  revalidate: REVALIDATE,
+  tags: ["universities"],
+});
+
+export const getUniversityBySlug = unstable_cache(fetchUniversityBySlug, ["universities:by-slug"], {
+  revalidate: REVALIDATE,
+  tags: ["universities"],
+});
+
+export const getFeaturedUniversity = unstable_cache(fetchFeaturedUniversity, ["universities:featured"], {
+  revalidate: REVALIDATE,
+  tags: ["universities"],
+});
+
+export const getAllUniversitySlugs = unstable_cache(fetchAllUniversitySlugs, ["universities:all-slugs"], {
+  revalidate: REVALIDATE,
+  tags: ["universities"],
+});

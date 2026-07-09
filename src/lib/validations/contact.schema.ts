@@ -10,7 +10,14 @@ export const contactSchema = z.object({
   attestat_avg: z
     .union([z.string(), z.number()])
     .optional()
-    .transform((v) => (v === undefined || v === "" ? undefined : Number(v))),
+    .transform((v) => (v === undefined || v === "" ? undefined : Number(v)))
+    .pipe(
+      z
+        .number()
+        .min(40, "Attestat 40-100 arası olmalıdır")
+        .max(100, "Attestat 40-100 arası olmalıdır")
+        .optional(),
+    ),
   message: z.string().max(500).optional(),
 });
 

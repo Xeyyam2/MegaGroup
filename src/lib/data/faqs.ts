@@ -1,4 +1,5 @@
-import { createClient } from "@/lib/supabase/server";
+import { unstable_cache } from "next/cache";
+import { createCacheClient } from "@/lib/supabase/server-cache";
 import { mapFaqRow } from "./mappers";
 import { isSupabaseConfigured } from "./config";
 import {
@@ -8,11 +9,13 @@ import {
 } from "@/data/faqs";
 import type { FAQ, Locale } from "@/types";
 
-export async function getGeneralFAQs(locale: Locale): Promise<FAQ[]> {
+const REVALIDATE = 300;
+
+async function fetchGeneralFAQs(locale: Locale): Promise<FAQ[]> {
   if (!isSupabaseConfigured()) {
     return staticGeneral();
   }
-  const supabase = await createClient();
+  const supabase = createCacheClient();
   const { data, error } = await supabase.from("faqs").select("*").order("sort_order");
   if (error) {
     console.warn("[faqs] Supabase error, statik fallback:", error.message);
@@ -23,11 +26,11 @@ export async function getGeneralFAQs(locale: Locale): Promise<FAQ[]> {
     .map((row) => mapFaqRow(row, locale));
 }
 
-export async function getFAQsByCountry(countrySlug: string, locale: Locale): Promise<FAQ[]> {
+async function fetchFAQsByCountry(countrySlug: string, locale: Locale): Promise<FAQ[]> {
   if (!isSupabaseConfigured()) {
     return staticByCountry(countrySlug);
   }
-  const supabase = await createClient();
+  const supabase = createCacheClient();
   const { data, error } = await supabase
     .from("faqs")
     .select("*")
@@ -39,11 +42,11 @@ export async function getFAQsByCountry(countrySlug: string, locale: Locale): Pro
   return (data ?? []).map((row) => mapFaqRow(row, locale));
 }
 
-export async function getFAQsByUniversity(universitySlug: string, locale: Locale): Promise<FAQ[]> {
+async function fetchFAQsByUniversity(universitySlug: string, locale: Locale): Promise<FAQ[]> {
   if (!isSupabaseConfigured()) {
     return staticByUniversity(universitySlug);
   }
-  const supabase = await createClient();
+  const supabase = createCacheClient();
   const { data, error } = await supabase
     .from("faqs")
     .select("*")
@@ -54,3 +57,18 @@ export async function getFAQsByUniversity(universitySlug: string, locale: Locale
   }
   return (data ?? []).map((row) => mapFaqRow(row, locale));
 }
+
+export const getGeneralFAQs = unstable_cache(fetchGeneralFAQs, ["faqs:general"], {
+  revalidate: REVALIDATE,
+  tags: ["faqs"],
+});
+
+export const getFAQsByCountry = unstable_cache(fetchFAQsByCountry, ["faqs:by-country"], {
+  revalidate: REVALIDATE,
+  tags: ["faqs"],
+});
+
+export const getFAQsByUniversity = unstable_cache(fetchFAQsByUniversity, ["faqs:by-university"], {
+  revalidate: REVALIDATE,
+  tags: ["faqs"],
+});
