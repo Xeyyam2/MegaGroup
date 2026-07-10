@@ -1,7 +1,8 @@
 "use client";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useState } from "react";
+import { Suspense, useState } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { contactSchema, type ContactFormData, type ContactFormOutput } from "@/lib/validations/contact.schema";
 import { countries } from "@/data/countries";
@@ -9,9 +10,22 @@ import { createApplication } from "@/lib/actions/applications";
 import { TurnstileWidget } from "@/components/sections/TurnstileWidget";
 import { cn } from "@/lib/utils";
 
-export function ApplicationForm() {
+// Analytics event-i module səviyyəsində vurulur — react-hooks/immutability qaydası
+// komponent daxilində window.dataLayer mutasiyasına icazə vermir. GA4/GTM standardı.
+function trackApplicationSubmitted(country: string) {
+  if (typeof window === "undefined") return;
+  const w = window as unknown as { dataLayer?: Record<string, unknown>[] };
+  if (!w.dataLayer) w.dataLayer = [];
+  w.dataLayer.push({ event: "application_submitted", country });
+}
+
+function ApplicationFormContent() {
   const t = useTranslations("application");
-  const [submitted, setSubmitted] = useState(false);
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  // Success state URL-də saxlanır (?success=1) — refresh-də itmir.
+  const submitted = searchParams.get("success") === "1";
   const [serverError, setServerError] = useState("");
   const {
     register,
@@ -38,7 +52,10 @@ export function ApplicationForm() {
     if ("error" in res && res.error) {
       setServerError(res.error);
     } else {
-      setSubmitted(true);
+      // Analytics event (GA4 / GTM dataLayer) — redirect-dən əvvəl.
+      trackApplicationSubmitted(data.country_interest ?? "");
+      // Success state-i URL-də saxlayırıq ki, refresh-də qalsın.
+      router.push(`${pathname}?success=1`);
     }
   };
 
@@ -49,7 +66,7 @@ export function ApplicationForm() {
         <h2 className="mt-4 font-heading text-2xl font-bold text-foreground">{t("success")}</h2>
         <button
           type="button"
-          onClick={() => setSubmitted(false)}
+          onClick={() => router.push(pathname)}
           className="mt-6 rounded-xl bg-brand-primary px-6 py-3 font-semibold text-white transition-colors hover:bg-red-700"
         >
           OK
@@ -115,5 +132,14 @@ export function ApplicationForm() {
         {isSubmitting ? t("submitting") : t("submit")}
       </button>
     </form>
+  );
+}
+
+// useSearchParams App Router-də Suspense boundary tələb edir — self-contained wrap.
+export function ApplicationForm() {
+  return (
+    <Suspense fallback={null}>
+      <ApplicationFormContent />
+    </Suspense>
   );
 }
