@@ -1,11 +1,20 @@
 "use client";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { Suspense, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import { isSupabaseConfigured } from "@/lib/data/config";
 import { toast } from "sonner";
 
 type Mode = "login" | "forgot";
+
+function UnauthorizedBanner() {
+  const searchParams = useSearchParams();
+  const reason = searchParams.get("reason");
+  if (reason === "unauthorized") {
+    return <p className="text-sm text-red-400">Bu panelə giriş icazəniz yoxdur.</p>;
+  }
+  return null;
+}
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -67,6 +76,9 @@ export default function LoginPage() {
 
         {isLogin ? (
           <form onSubmit={handleLogin} className="mt-6 space-y-4">
+            <Suspense fallback={null}>
+              <UnauthorizedBanner />
+            </Suspense>
             <div>
               <label className="text-sm text-foreground/70" htmlFor="email">
                 Email

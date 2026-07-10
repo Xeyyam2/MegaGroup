@@ -71,6 +71,13 @@ export async function middleware(request: NextRequest) {
       url.pathname = `${ADMIN_BASE}/login`;
       return NextResponse.redirect(url);
     }
+    // Yalnız admin rolu olan istifadecilere icaze verilir
+    if (session.user.app_metadata?.role !== "admin") {
+      const url = request.nextUrl.clone();
+      url.pathname = `${ADMIN_BASE}/login`;
+      url.searchParams.set("reason", "unauthorized");
+      return NextResponse.redirect(url);
+    }
     return response;
   }
 

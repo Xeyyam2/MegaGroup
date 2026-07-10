@@ -11,6 +11,10 @@ export default async function CmsLayout({ children }: { children: React.ReactNod
     data: { session },
   } = await supabase.auth.getSession();
   if (!session) redirect("/admin/login");
+  // Yalnız admin rolu olan istifadecilere icaze verilir
+  if (session.user.app_metadata?.role !== "admin") {
+    redirect(`/admin/login?reason=unauthorized`);
+  }
 
   return (
     <div className="flex min-h-screen">
