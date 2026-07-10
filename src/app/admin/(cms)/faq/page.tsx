@@ -2,9 +2,30 @@ import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { DeleteFaqButton } from "./DeleteFaqButton";
 
-export default async function FaqList() {
+const PAGE_SIZE = 20;
+
+export default async function FaqList({
+  searchParams,
+}: {
+  searchParams: Promise<{ page?: string }>;
+}) {
+  const sp = await searchParams;
+  const page = Math.max(1, Number(sp.page) || 1);
+  const from = (page - 1) * PAGE_SIZE;
+  const to = from + PAGE_SIZE - 1;
+
   const supabase = await createClient();
-  const { data } = await supabase.from("faqs").select("*").order("sort_order");
+  const { data, count } = await supabase
+    .from("faqs")
+    .select("*", { count: "exact" })
+    .eq("is_deleted", false)
+    .order("sort_order")
+    .range(from, to);
+
+  const total = count ?? 0;
+  const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+
+  const qs = (p: number) => (p > 1 ? `?page=${p}` : "");
 
   return (
     <div>
@@ -45,6 +66,34 @@ export default async function FaqList() {
           </tbody>
         </table>
       </div>
+
+      {totalPages > 1 && (
+        <div className="mt-6 flex items-center justify-center gap-2 text-sm">
+          {page > 1 ? (
+            <Link
+              href={`/admin/faq${qs(page - 1)}`}
+              className="rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-foreground/80 hover:bg-white/10"
+            >
+              ← Əvvəlki
+            </Link>
+          ) : (
+            <span className="rounded-lg border border-white/5 px-3 py-1.5 text-foreground/30">← Əvvəlki</span>
+          )}
+          <span className="px-3 text-foreground/60">
+            {page} / {totalPages}
+          </span>
+          {page < totalPages ? (
+            <Link
+              href={`/admin/faq${qs(page + 1)}`}
+              className="rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-foreground/80 hover:bg-white/10"
+            >
+              Növbəti →
+            </Link>
+          ) : (
+            <span className="rounded-lg border border-white/5 px-3 py-1.5 text-foreground/30">Növbəti →</span>
+          )}
+        </div>
+      )}
     </div>
   );
 }

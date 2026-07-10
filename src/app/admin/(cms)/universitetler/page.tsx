@@ -2,9 +2,30 @@ import { createClient } from "@/lib/supabase/server";
 import Link from "next/link";
 import { UniversitiesTable } from "./UniversitiesTable";
 
-export default async function UniversitiesList() {
+const PAGE_SIZE = 20;
+
+export default async function UniversitiesList({
+  searchParams,
+}: {
+  searchParams: Promise<{ page?: string }>;
+}) {
+  const sp = await searchParams;
+  const page = Math.max(1, Number(sp.page) || 1);
+  const from = (page - 1) * PAGE_SIZE;
+  const to = from + PAGE_SIZE - 1;
+
   const supabase = await createClient();
-  const { data } = await supabase.from("universities").select("*").order("name_az");
+  const { data, count } = await supabase
+    .from("universities")
+    .select("*", { count: "exact" })
+    .eq("is_deleted", false)
+    .order("name_az")
+    .range(from, to);
+
+  const total = count ?? 0;
+  const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+
+  const qs = (p: number) => (p > 1 ? `?page=${p}` : "");
 
   return (
     <div>
@@ -19,6 +40,34 @@ export default async function UniversitiesList() {
       </div>
 
       <UniversitiesTable universities={(data ?? []) as any} />
+
+      {totalPages > 1 && (
+        <div className="mt-6 flex items-center justify-center gap-2 text-sm">
+          {page > 1 ? (
+            <Link
+              href={`/admin/universitetler${qs(page - 1)}`}
+              className="rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-foreground/80 hover:bg-white/10"
+            >
+              ← Əvvəlki
+            </Link>
+          ) : (
+            <span className="rounded-lg border border-white/5 px-3 py-1.5 text-foreground/30">← Əvvəlki</span>
+          )}
+          <span className="px-3 text-foreground/60">
+            {page} / {totalPages}
+          </span>
+          {page < totalPages ? (
+            <Link
+              href={`/admin/universitetler${qs(page + 1)}`}
+              className="rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-foreground/80 hover:bg-white/10"
+            >
+              Növbəti →
+            </Link>
+          ) : (
+            <span className="rounded-lg border border-white/5 px-3 py-1.5 text-foreground/30">Növbəti →</span>
+          )}
+        </div>
+      )}
     </div>
   );
 }
