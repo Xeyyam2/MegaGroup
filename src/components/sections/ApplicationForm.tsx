@@ -81,39 +81,84 @@ function ApplicationFormContent() {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="glass-strong mx-auto max-w-xl space-y-5 rounded-3xl p-8" noValidate>
       <div>
-        <label className="mb-1 block text-sm font-medium text-foreground/80">{t("name")} *</label>
-        <input type="text" {...register("full_name")} className={cn(inputClass, errors.full_name && "border-brand-primary")} />
-        {errors.full_name && <p className="mt-1 text-sm text-brand-primary">{errors.full_name.message}</p>}
+        <label htmlFor="full_name" className="mb-1 block text-sm font-medium text-foreground/80">{t("name")} *</label>
+        <input
+          type="text"
+          id="full_name"
+          {...register("full_name")}
+          aria-invalid={!!errors.full_name}
+          aria-describedby={errors.full_name ? "full_name-error" : undefined}
+          className={cn(inputClass, errors.full_name && "border-brand-primary")}
+        />
+        {errors.full_name && <p id="full_name-error" className="mt-1 text-sm text-brand-primary">{errors.full_name.message}</p>}
       </div>
       <div>
-        <label className="mb-1 block text-sm font-medium text-foreground/80">{t("phone")} *</label>
-        <input type="tel" {...register("phone")} className={cn(inputClass, errors.phone && "border-brand-primary")} placeholder="+994 50 123 45 67" />
-        {errors.phone && <p className="mt-1 text-sm text-brand-primary">{errors.phone.message}</p>}
+        <label htmlFor="phone" className="mb-1 block text-sm font-medium text-foreground/80">{t("phone")} *</label>
+        <input
+          type="tel"
+          id="phone"
+          {...register("phone")}
+          aria-invalid={!!errors.phone}
+          aria-describedby={errors.phone ? "phone-error" : undefined}
+          className={cn(inputClass, errors.phone && "border-brand-primary")}
+          placeholder="+994 50 123 45 67"
+        />
+        {errors.phone && <p id="phone-error" className="mt-1 text-sm text-brand-primary">{errors.phone.message}</p>}
       </div>
       <div>
-        <label className="mb-1 block text-sm font-medium text-foreground/80">{t("email")}</label>
-        <input type="email" {...register("email")} className={cn(inputClass, errors.email && "border-brand-primary")} placeholder="email@example.com" />
-        {errors.email && <p className="mt-1 text-sm text-brand-primary">{errors.email.message}</p>}
+        <label htmlFor="email" className="mb-1 block text-sm font-medium text-foreground/80">{t("email")}</label>
+        <input
+          type="email"
+          id="email"
+          {...register("email")}
+          aria-invalid={!!errors.email}
+          aria-describedby={errors.email ? "email-error" : undefined}
+          className={cn(inputClass, errors.email && "border-brand-primary")}
+          placeholder="email@example.com"
+        />
+        {errors.email && <p id="email-error" className="mt-1 text-sm text-brand-primary">{errors.email.message}</p>}
       </div>
       <div>
-        <label className="mb-1 block text-sm font-medium text-foreground/80">{t("country")} *</label>
-        <select {...register("country_interest")} className={cn(inputClass, errors.country_interest && "border-brand-primary")} defaultValue="">
+        <label htmlFor="country_interest" className="mb-1 block text-sm font-medium text-foreground/80">{t("country")} *</label>
+        <select
+          id="country_interest"
+          {...register("country_interest")}
+          aria-invalid={!!errors.country_interest}
+          aria-describedby={errors.country_interest ? "country_interest-error" : undefined}
+          className={cn(inputClass, errors.country_interest && "border-brand-primary")}
+          defaultValue=""
+        >
           <option value="" disabled className="bg-slate-900">—</option>
           {countries.map((c) => (
             <option key={c.slug} value={c.slug} className="bg-slate-900">{c.name}</option>
           ))}
         </select>
-        {errors.country_interest && <p className="mt-1 text-sm text-brand-primary">{errors.country_interest.message}</p>}
+        {errors.country_interest && <p id="country_interest-error" className="mt-1 text-sm text-brand-primary">{errors.country_interest.message}</p>}
       </div>
       <div>
-        <label className="mb-1 block text-sm font-medium text-foreground/80">Attestat (40-100)</label>
-        <input type="number" {...register("attestat_avg")} className={cn(inputClass, errors.attestat_avg && "border-brand-primary")} min={40} max={100} />
-        {errors.attestat_avg && <p className="mt-1 text-sm text-brand-primary">{errors.attestat_avg.message}</p>}
+        <label htmlFor="attestat_avg" className="mb-1 block text-sm font-medium text-foreground/80">Attestat (40-100)</label>
+        <input
+          type="number"
+          id="attestat_avg"
+          {...register("attestat_avg")}
+          aria-invalid={!!errors.attestat_avg}
+          aria-describedby={errors.attestat_avg ? "attestat_avg-error" : undefined}
+          className={cn(inputClass, errors.attestat_avg && "border-brand-primary")}
+          min={40}
+          max={100}
+        />
+        {errors.attestat_avg && <p id="attestat_avg-error" className="mt-1 text-sm text-brand-primary">{errors.attestat_avg.message}</p>}
       </div>
       <div>
-        <label className="mb-1 block text-sm font-medium text-foreground/80">{t("message")}</label>
-        <textarea {...register("message")} className={cn(inputClass, "min-h-[100px] resize-y")} />
-        {errors.message && <p className="mt-1 text-sm text-brand-primary">{errors.message.message}</p>}
+        <label htmlFor="message" className="mb-1 block text-sm font-medium text-foreground/80">{t("message")}</label>
+        <textarea
+          id="message"
+          {...register("message")}
+          aria-invalid={!!errors.message}
+          aria-describedby={errors.message ? "message-error" : undefined}
+          className={cn(inputClass, "min-h-[100px] resize-y")}
+        />
+        {errors.message && <p id="message-error" className="mt-1 text-sm text-brand-primary">{errors.message.message}</p>}
       </div>
       {serverError && <p className="text-sm text-red-400">{serverError}</p>}
       {/* Turnstile (aktivdirsə — NEXT_PUBLIC_TURNSTILE_SITE_KEY yoxdursa görünmür) */}

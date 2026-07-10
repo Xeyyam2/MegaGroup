@@ -4,6 +4,7 @@ import { useFrame, useThree } from "@react-three/fiber";
 import { Html, OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
 import { useTranslations } from "next-intl";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { ParticleField } from "./ParticleField";
 import { EARTH_RADIUS, latLonToVector3, seededRandom } from "@/components/study-journey/data";
 import { HERO_COUNTRY_MARKERS } from "./heroCountries";
@@ -60,13 +61,16 @@ export function GlobeScene({ progressRef }: { progressRef?: React.MutableRefObje
   const groupRef = useRef<THREE.Group>(null);
   const { pointer } = useThree();
   const landPoints = useMemo(() => createLandPoints(320), []);
+  const reduced = useReducedMotion();
 
   useFrame((_, delta) => {
     const group = groupRef.current;
     if (!group) return;
 
-    group.rotation.y += delta * 0.1;
-    group.rotation.x += (pointer.y * 0.22 - group.rotation.x) * 0.05;
+    if (!reduced) {
+      group.rotation.y += delta * 0.1;
+      group.rotation.x += (pointer.y * 0.22 - group.rotation.x) * 0.05;
+    }
 
     // Real 3D zoom: as the visitor scrolls, the globe itself grows (not a
     // CSS transform), so the country markers stay correctly proportioned.
@@ -119,7 +123,7 @@ export function GlobeScene({ progressRef }: { progressRef?: React.MutableRefObje
 
       <ParticleField />
 
-      <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.35} enableDamping />
+      <OrbitControls enableZoom={false} enablePan={false} autoRotate={!reduced} autoRotateSpeed={0.35} enableDamping />
     </>
   );
 }

@@ -2,6 +2,7 @@
 import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 // Modul səviyyəsində bir dəfə hesablanır — render zamanı impure call yoxdur
 const PARTICLE_COUNT = 500;
@@ -20,11 +21,11 @@ const POSITIONS = (() => {
 
 export function ParticleField() {
   const ref = useRef<THREE.Points>(null);
+  const reduced = useReducedMotion();
 
   useFrame((state) => {
-    if (ref.current) {
-      ref.current.rotation.y = state.clock.elapsedTime * 0.05;
-    }
+    if (reduced || !ref.current) return;
+    ref.current.rotation.y = state.clock.elapsedTime * 0.05;
   });
 
   return (
