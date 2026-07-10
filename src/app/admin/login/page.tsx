@@ -4,6 +4,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import { isSupabaseConfigured } from "@/lib/data/config";
 import { toast } from "sonner";
+import { checkLoginRateLimit } from "./actions";
 
 type Mode = "login" | "forgot";
 
@@ -34,6 +35,16 @@ export default function LoginPage() {
       return;
     }
     setLoading(true);
+    try {
+      const result = await checkLoginRateLimit();
+      if (!result.allowed) {
+        setError("Çox cəhd. " + result.retryAfter + " saniyə sonra yenidən cəhd edin.");
+        setLoading(false);
+        return;
+      }
+    } catch {
+      // Fail-open: limiter xəta versə legit istifadəçini bloklamırıq.
+    }
     const supabase = createClient();
     const { error } = await supabase.auth.signInWithPassword({ email, password });
     if (error) {
