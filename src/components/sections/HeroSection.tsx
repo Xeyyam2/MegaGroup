@@ -168,21 +168,31 @@ export function HeroSection({
           aria-hidden
         />
 
-        {/* Layer 2: WebGL plasma shader background */}
+        {/* Layer 2: WebGL plasma shader background — skipped entirely on
+            reduced-motion so the three.js shader chunk is never fetched. */}
         <div className="absolute inset-0 z-0" aria-hidden>
-          <ShaderBackground className="h-full w-full" />
+          {reduced ? (
+            <div className="hero-fallback-gradient h-full w-full" />
+          ) : (
+            <ShaderBackground className="h-full w-full" />
+          )}
         </div>
 
         {/* Layer 3: 3D holographic globe — grows in real 3D as you scroll,
-            then shows destination country markers (desktop). */}
+            then shows destination country markers (desktop). Skipped entirely
+            on reduced-motion so the R3F/globe chunk is never fetched. */}
         <div
           className="pointer-events-none absolute inset-0 z-0 mix-blend-screen"
           style={{ opacity: reduced ? 0.4 : "calc(0.4 + var(--hero-globe, 0) * 0.6)" }}
           aria-hidden
         >
-          <CanvasWrapper>
-            <GlobeScene progressRef={globeProgressRef} />
-          </CanvasWrapper>
+          {reduced ? (
+            <div className="hero-fallback-gradient absolute inset-0" />
+          ) : (
+            <CanvasWrapper>
+              <GlobeScene progressRef={globeProgressRef} />
+            </CanvasWrapper>
+          )}
         </div>
 
         {/* Layer 3b: CSS-only country labels for mobile / reduced-motion,
