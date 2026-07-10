@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { LayoutDashboard, Globe, GraduationCap, HelpCircle, MessageSquare, FileText, Inbox } from "lucide-react";
+import { LayoutDashboard, Globe, GraduationCap, HelpCircle, MessageSquare, FileText, Inbox, History } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { getNewApplicationsCount } from "@/app/admin/(cms)/muraciyyatler/actions";
 
@@ -14,6 +14,7 @@ const NAV = [
   { href: "/admin/faq", label: "FAQ", icon: HelpCircle },
   { href: "/admin/testimoniallar", label: "Testimoniallar", icon: MessageSquare },
   { href: "/admin/sayt-mezmunu", label: "Sayt Məzmunu", icon: FileText },
+  { href: "/admin/audit", label: "Audit log", icon: History },
 ];
 
 export function Sidebar() {
