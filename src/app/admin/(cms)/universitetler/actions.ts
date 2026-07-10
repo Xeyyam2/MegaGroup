@@ -59,13 +59,34 @@ export async function deleteUniversity(id: string) {
   if (!idResult.success) return { error: "Yanlış ID" };
   const { supabase } = guard;
   const { data: u } = await supabase.from("universities").select("slug").eq("id", id).single();
-  const { error } = await supabase.from("universities").delete().eq("id", id);
+  const { error } = await supabase
+    .from("universities")
+    .update({ is_deleted: true, deleted_at: new Date().toISOString() })
+    .eq("id", id);
   if (error) {
     return handleActionError("deleteUniversity", error);
   }
   revalidatePath("/[locale]", "page");
   revalidateTag("universities", "default");
   return { success: true, slug: u?.slug };
+}
+
+export async function restoreUniversity(id: string) {
+  const guard = await requireAdmin();
+  if (!guard.authorized) return ADMIN_DENIED;
+  const idResult = idSchema.safeParse(id);
+  if (!idResult.success) return { error: "Yanlış ID" };
+  const { supabase } = guard;
+  const { error } = await supabase
+    .from("universities")
+    .update({ is_deleted: false, deleted_at: null })
+    .eq("id", id);
+  if (error) {
+    return handleActionError("restoreUniversity", error);
+  }
+  revalidatePath("/[locale]", "page");
+  revalidateTag("universities", "default");
+  return { success: true };
 }
 
 export async function saveFaculties(universitySlug: string, faculties: unknown[]) {

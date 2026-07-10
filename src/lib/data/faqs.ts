@@ -16,7 +16,7 @@ async function fetchGeneralFAQs(locale: Locale): Promise<FAQ[]> {
     return staticGeneral();
   }
   const supabase = createCacheClient();
-  const { data, error } = await supabase.from("faqs").select("*").order("sort_order");
+  const { data, error } = await supabase.from("faqs").select("*").eq("is_deleted", false).order("sort_order");
   if (error) {
     console.warn("[faqs] Supabase error, statik fallback:", error.message);
     return staticGeneral();
@@ -34,6 +34,7 @@ async function fetchFAQsByCountry(countrySlug: string, locale: Locale): Promise<
   const { data, error } = await supabase
     .from("faqs")
     .select("*")
+    .eq("is_deleted", false)
     .or(`country_slug.eq.${countrySlug},country_slug.is.null`)
     .order("sort_order");
   if (error) {
@@ -50,6 +51,7 @@ async function fetchFAQsByUniversity(universitySlug: string, locale: Locale): Pr
   const { data, error } = await supabase
     .from("faqs")
     .select("*")
+    .eq("is_deleted", false)
     .or(`university_slug.eq.${universitySlug},university_slug.is.null`)
     .order("sort_order");
   if (error) {

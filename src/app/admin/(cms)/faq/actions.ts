@@ -49,9 +49,30 @@ export async function deleteFaq(id: string) {
   const idResult = idSchema.safeParse(id);
   if (!idResult.success) return { error: "Yanlış ID" };
   const { supabase } = guard;
-  const { error } = await supabase.from("faqs").delete().eq("id", id);
+  const { error } = await supabase
+    .from("faqs")
+    .update({ is_deleted: true, deleted_at: new Date().toISOString() })
+    .eq("id", id);
   if (error) {
     return handleActionError("deleteFaq", error);
+  }
+  revalidatePath("/[locale]", "page");
+  revalidateTag("faqs", "default");
+  return { success: true };
+}
+
+export async function restoreFaq(id: string) {
+  const guard = await requireAdmin();
+  if (!guard.authorized) return ADMIN_DENIED;
+  const idResult = idSchema.safeParse(id);
+  if (!idResult.success) return { error: "Yanlış ID" };
+  const { supabase } = guard;
+  const { error } = await supabase
+    .from("faqs")
+    .update({ is_deleted: false, deleted_at: null })
+    .eq("id", id);
+  if (error) {
+    return handleActionError("restoreFaq", error);
   }
   revalidatePath("/[locale]", "page");
   revalidateTag("faqs", "default");

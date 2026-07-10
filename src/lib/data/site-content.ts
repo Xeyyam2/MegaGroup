@@ -30,7 +30,7 @@ async function fetchSiteContentMap(locale: Locale): Promise<Record<string, strin
     return FALLBACK;
   }
   const supabase = createCacheClient();
-  const { data, error } = await supabase.from("site_content").select("*");
+  const { data, error } = await supabase.from("site_content").select("*").eq("is_deleted", false);
   if (error) {
     return FALLBACK;
   }
@@ -47,7 +47,7 @@ async function fetchSiteContent(key: string, locale: Locale): Promise<string | n
     return FALLBACK[key] ?? null;
   }
   const supabase = createCacheClient();
-  const { data, error } = await supabase.from("site_content").select("*").eq("key", key).single();
+  const { data, error } = await supabase.from("site_content").select("*").eq("is_deleted", false).eq("key", key).single();
   if (error || !data) {
     return FALLBACK[key] ?? null;
   }

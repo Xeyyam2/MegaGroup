@@ -19,6 +19,7 @@ async function fetchTestimonials(locale: Locale): Promise<Testimonial[]> {
   const { data, error } = await supabase
     .from("testimonials")
     .select("*")
+    .eq("is_deleted", false)
     .eq("is_active", true)
     .order("sort_order");
   if (error) {
@@ -36,6 +37,7 @@ async function fetchTestimonialsByCountry(countrySlug: string, locale: Locale): 
   const { data, error } = await supabase
     .from("testimonials")
     .select("*")
+    .eq("is_deleted", false)
     .eq("country_slug", countrySlug)
     .eq("is_active", true)
     .order("sort_order");
@@ -53,6 +55,7 @@ async function fetchTestimonialsByUniversity(universitySlug: string, locale: Loc
   const { data, error } = await supabase
     .from("testimonials")
     .select("*")
+    .eq("is_deleted", false)
     .eq("university_slug", universitySlug)
     .eq("is_active", true)
     .order("sort_order");

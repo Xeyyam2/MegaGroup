@@ -23,6 +23,7 @@ async function fetchUniversitiesByCountry(
   const { data: unis, error } = await supabase
     .from("universities")
     .select("*")
+    .eq("is_deleted", false)
     .eq("country_slug", countrySlug)
     .eq("is_active", true)
     .order("name_az");
@@ -35,9 +36,10 @@ async function fetchUniversitiesByCountry(
   const { data: faculties } = await supabase
     .from("faculties")
     .select("*")
+    .eq("is_deleted", false)
     .in("university_slug", slugs)
     .order("sort_order");
-  const { data: fees } = await supabase.from("university_fees").select("*").in("university_slug", slugs);
+  const { data: fees } = await supabase.from("university_fees").select("*").eq("is_deleted", false).in("university_slug", slugs);
   const feeMap = new Map((fees ?? []).map((f) => [f.university_slug, f]));
   return unis.map((u) =>
     mapUniversityRow(
@@ -54,7 +56,7 @@ async function fetchUniversityBySlug(slug: string, locale: Locale): Promise<Univ
     return staticBySlug(slug) ?? null;
   }
   const supabase = createCacheClient();
-  const { data: uni, error } = await supabase.from("universities").select("*").eq("slug", slug).single();
+  const { data: uni, error } = await supabase.from("universities").select("*").eq("is_deleted", false).eq("slug", slug).single();
   if (error) {
     return staticBySlug(slug) ?? null;
   }
@@ -62,11 +64,13 @@ async function fetchUniversityBySlug(slug: string, locale: Locale): Promise<Univ
   const { data: faculties } = await supabase
     .from("faculties")
     .select("*")
+    .eq("is_deleted", false)
     .eq("university_slug", slug)
     .order("sort_order");
   const { data: fees } = await supabase
     .from("university_fees")
     .select("*")
+    .eq("is_deleted", false)
     .eq("university_slug", slug)
     .single();
   return mapUniversityRow(uni, faculties ?? [], fees ?? null, locale);
@@ -80,6 +84,7 @@ async function fetchFeaturedUniversity(countrySlug: string, locale: Locale): Pro
   const { data: uni, error } = await supabase
     .from("universities")
     .select("*")
+    .eq("is_deleted", false)
     .eq("country_slug", countrySlug)
     .eq("is_featured", true)
     .eq("is_active", true)
@@ -90,11 +95,13 @@ async function fetchFeaturedUniversity(countrySlug: string, locale: Locale): Pro
   const { data: faculties } = await supabase
     .from("faculties")
     .select("*")
+    .eq("is_deleted", false)
     .eq("university_slug", uni.slug)
     .order("sort_order");
   const { data: fees } = await supabase
     .from("university_fees")
     .select("*")
+    .eq("is_deleted", false)
     .eq("university_slug", uni.slug)
     .single();
   return mapUniversityRow(uni, faculties ?? [], fees ?? null, locale);
@@ -105,7 +112,7 @@ async function fetchAllUniversitySlugs(): Promise<{ slug: string; country_slug: 
     return staticUniversities.map((u) => ({ slug: u.slug, country_slug: u.country_slug }));
   }
   const supabase = createCacheClient();
-  const { data, error } = await supabase.from("universities").select("slug, country_slug").eq("is_active", true);
+  const { data, error } = await supabase.from("universities").select("slug, country_slug").eq("is_deleted", false).eq("is_active", true);
   if (error) {
     return staticUniversities.map((u) => ({ slug: u.slug, country_slug: u.country_slug }));
   }

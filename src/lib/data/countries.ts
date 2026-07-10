@@ -18,6 +18,7 @@ async function fetchCountries(locale: Locale): Promise<Country[]> {
   const { data, error } = await supabase
     .from("countries")
     .select("*")
+    .eq("is_deleted", false)
     .eq("is_active", true)
     .order("sort_order");
   if (error) {
@@ -32,7 +33,7 @@ async function fetchCountryBySlug(slug: string, locale: Locale): Promise<Country
     return staticGetCountryBySlug(slug) ?? null;
   }
   const supabase = createCacheClient();
-  const { data, error } = await supabase.from("countries").select("*").eq("slug", slug).single();
+  const { data, error } = await supabase.from("countries").select("*").eq("is_deleted", false).eq("slug", slug).single();
   if (error) {
     return staticGetCountryBySlug(slug) ?? null;
   }
@@ -47,6 +48,7 @@ async function fetchFeaturedCountries(locale: Locale): Promise<Country[]> {
   const { data, error } = await supabase
     .from("countries")
     .select("*")
+    .eq("is_deleted", false)
     .eq("is_active", true)
     .eq("is_featured", true)
     .order("sort_order");

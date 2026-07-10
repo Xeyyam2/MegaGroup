@@ -49,9 +49,30 @@ export async function deleteTestimonial(id: string) {
   const idResult = idSchema.safeParse(id);
   if (!idResult.success) return { error: "Yanlış ID" };
   const { supabase } = guard;
-  const { error } = await supabase.from("testimonials").delete().eq("id", id);
+  const { error } = await supabase
+    .from("testimonials")
+    .update({ is_deleted: true, deleted_at: new Date().toISOString() })
+    .eq("id", id);
   if (error) {
     return handleActionError("deleteTestimonial", error);
+  }
+  revalidatePath("/[locale]", "page");
+  revalidateTag("testimonials", "default");
+  return { success: true };
+}
+
+export async function restoreTestimonial(id: string) {
+  const guard = await requireAdmin();
+  if (!guard.authorized) return ADMIN_DENIED;
+  const idResult = idSchema.safeParse(id);
+  if (!idResult.success) return { error: "Yanlış ID" };
+  const { supabase } = guard;
+  const { error } = await supabase
+    .from("testimonials")
+    .update({ is_deleted: false, deleted_at: null })
+    .eq("id", id);
+  if (error) {
+    return handleActionError("restoreTestimonial", error);
   }
   revalidatePath("/[locale]", "page");
   revalidateTag("testimonials", "default");
