@@ -139,3 +139,17 @@ export interface SiteContent {
   value_ru: string;
   value_en: string;
 }
+
+export type ApplicationStatus = "yeni" | "goruldu" | "qebul_edildi" | "imtina";
+
+export interface Application {
+  id: string;
+  full_name: string;
+  phone: string;
+  email: string | null;
+  country_interest: string | null;
+  attestat_avg: number | null;
+  message: string | null;
+  status: ApplicationStatus;
+  created_at: string;
+}

@@ -65,7 +65,15 @@ export default async function ApplicationsList({
     <div>
       <div className="mb-6 flex items-center justify-between">
         <h1 className="font-heading text-2xl font-bold">Müraciətlər</h1>
-        <span className="text-sm text-foreground/60">{total} müraciət</span>
+        <div className="flex items-center gap-3">
+          <span className="text-sm text-foreground/60">{total} müraciət</span>
+          <a
+            href="/admin/muraciyyatler/export"
+            className="rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-sm text-foreground/80 hover:bg-white/10"
+          >
+            CSV endir
+          </a>
+        </div>
       </div>
 
       {/* Status filtri */}
