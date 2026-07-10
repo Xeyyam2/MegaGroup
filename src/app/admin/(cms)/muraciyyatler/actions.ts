@@ -2,6 +2,7 @@
 import { revalidatePath } from "next/cache";
 import { requireAdmin, ADMIN_DENIED } from "@/lib/supabase/auth-guard";
 import { applicationStatusSchema } from "@/lib/validations/application.schema";
+import { handleActionError } from "@/lib/handle-action-error";
 
 // Admin: müraciətin statusunu yeniləyir (yeni/goruldu/qebul_edildi/imtina)
 export async function updateApplicationStatus(id: string, status: string) {
@@ -12,8 +13,7 @@ export async function updateApplicationStatus(id: string, status: string) {
   const { supabase } = guard;
   const { error } = await supabase.from("applications").update({ status: parsed.data }).eq("id", id);
   if (error) {
-    console.error("[updateApplicationStatus]", error.message);
-    return { error: error.message };
+    return handleActionError("updateApplicationStatus", error);
   }
   revalidatePath("/admin/muraciyyatler");
   revalidatePath(`/admin/muraciyyatler/${id}`);
@@ -27,8 +27,7 @@ export async function deleteApplication(id: string) {
   const { supabase } = guard;
   const { error } = await supabase.from("applications").delete().eq("id", id);
   if (error) {
-    console.error("[deleteApplication]", error.message);
-    return { error: error.message };
+    return handleActionError("deleteApplication", error);
   }
   revalidatePath("/admin/muraciyyatler");
   return { success: true };

@@ -2,6 +2,7 @@
 import { revalidatePath, revalidateTag } from "next/cache";
 import { requireAdmin, ADMIN_DENIED } from "@/lib/supabase/auth-guard";
 import { universitySchema } from "@/lib/validations/university.schema";
+import { handleActionError } from "@/lib/handle-action-error";
 
 export async function createUniversity(formData: FormData) {
   const guard = await requireAdmin();
@@ -17,8 +18,7 @@ export async function createUniversity(formData: FormData) {
     highlights_en: highlights_en ? highlights_en.split("\n").filter(Boolean) : [],
   });
   if (error) {
-    console.error("[createUniversity]", error.message);
-    return { error: error.message };
+    return handleActionError("createUniversity", error);
   }
   revalidatePath("/[locale]", "page");
   revalidateTag("universities", "default");
@@ -42,8 +42,7 @@ export async function updateUniversity(id: string, formData: FormData) {
     })
     .eq("id", id);
   if (error) {
-    console.error("[updateUniversity]", error.message);
-    return { error: error.message };
+    return handleActionError("updateUniversity", error);
   }
   revalidatePath("/[locale]", "page");
   revalidateTag("universities", "default");
@@ -57,8 +56,7 @@ export async function deleteUniversity(id: string) {
   const { data: u } = await supabase.from("universities").select("slug").eq("id", id).single();
   const { error } = await supabase.from("universities").delete().eq("id", id);
   if (error) {
-    console.error("[deleteUniversity]", error.message);
-    return { error: error.message };
+    return handleActionError("deleteUniversity", error);
   }
   revalidatePath("/[locale]", "page");
   revalidateTag("universities", "default");
@@ -73,8 +71,7 @@ export async function saveFaculties(universitySlug: string, faculties: any[]) {
   for (const f of faculties) {
     const { error } = await supabase.from("faculties").insert({ university_slug: universitySlug, ...f });
     if (error) {
-      console.error("[saveFaculties]", error.message);
-      return { error: error.message };
+      return handleActionError("saveFaculties", error);
     }
   }
   revalidatePath("/[locale]", "page");
@@ -90,8 +87,7 @@ export async function saveFees(universitySlug: string, fees: Record<string, numb
     .from("university_fees")
     .upsert({ university_slug: universitySlug, ...fees }, { onConflict: "university_slug" });
   if (error) {
-    console.error("[saveFees]", error.message);
-    return { error: error.message };
+    return handleActionError("saveFees", error);
   }
   revalidatePath("/[locale]", "page");
   revalidateTag("universities", "default");

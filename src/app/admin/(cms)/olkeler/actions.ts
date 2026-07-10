@@ -2,6 +2,7 @@
 import { revalidatePath, revalidateTag } from "next/cache";
 import { requireAdmin, ADMIN_DENIED } from "@/lib/supabase/auth-guard";
 import { countrySchema } from "@/lib/validations/country.schema";
+import { handleActionError } from "@/lib/handle-action-error";
 
 export async function createCountry(formData: FormData) {
   const guard = await requireAdmin();
@@ -11,8 +12,7 @@ export async function createCountry(formData: FormData) {
   const { supabase } = guard;
   const { error } = await supabase.from("countries").insert(parsed.data);
   if (error) {
-    console.error("[createCountry]", error.message);
-    return { error: error.message };
+    return handleActionError("createCountry", error);
   }
   revalidatePath("/[locale]", "page");
   revalidateTag("countries", "default");
@@ -27,8 +27,7 @@ export async function updateCountry(id: string, formData: FormData) {
   const { supabase } = guard;
   const { error } = await supabase.from("countries").update(parsed.data).eq("id", id);
   if (error) {
-    console.error("[updateCountry]", error.message);
-    return { error: error.message };
+    return handleActionError("updateCountry", error);
   }
   revalidatePath("/[locale]", "page");
   revalidateTag("countries", "default");
@@ -41,8 +40,7 @@ export async function deleteCountry(id: string) {
   const { supabase } = guard;
   const { error } = await supabase.from("countries").delete().eq("id", id);
   if (error) {
-    console.error("[deleteCountry]", error.message);
-    return { error: error.message };
+    return handleActionError("deleteCountry", error);
   }
   revalidatePath("/[locale]", "page");
   revalidateTag("countries", "default");

@@ -2,6 +2,7 @@
 import { revalidatePath, revalidateTag } from "next/cache";
 import { requireAdmin, ADMIN_DENIED } from "@/lib/supabase/auth-guard";
 import { testimonialSchema } from "@/lib/validations/testimonial.schema";
+import { handleActionError } from "@/lib/handle-action-error";
 
 export async function createTestimonial(formData: FormData) {
   const guard = await requireAdmin();
@@ -12,8 +13,7 @@ export async function createTestimonial(formData: FormData) {
   const { supabase } = guard;
   const { error } = await supabase.from("testimonials").insert(data);
   if (error) {
-    console.error("[createTestimonial]", error.message);
-    return { error: error.message };
+    return handleActionError("createTestimonial", error);
   }
   revalidatePath("/[locale]", "page");
   revalidateTag("testimonials", "default");
@@ -33,8 +33,7 @@ export async function updateTestimonial(id: string, formData: FormData) {
   const { supabase } = guard;
   const { error } = await supabase.from("testimonials").update(data).eq("id", id);
   if (error) {
-    console.error("[updateTestimonial]", error.message);
-    return { error: error.message };
+    return handleActionError("updateTestimonial", error);
   }
   revalidatePath("/[locale]", "page");
   revalidateTag("testimonials", "default");
@@ -47,8 +46,7 @@ export async function deleteTestimonial(id: string) {
   const { supabase } = guard;
   const { error } = await supabase.from("testimonials").delete().eq("id", id);
   if (error) {
-    console.error("[deleteTestimonial]", error.message);
-    return { error: error.message };
+    return handleActionError("deleteTestimonial", error);
   }
   revalidatePath("/[locale]", "page");
   revalidateTag("testimonials", "default");

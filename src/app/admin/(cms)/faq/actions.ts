@@ -2,6 +2,7 @@
 import { revalidatePath, revalidateTag } from "next/cache";
 import { requireAdmin, ADMIN_DENIED } from "@/lib/supabase/auth-guard";
 import { faqSchema } from "@/lib/validations/faq.schema";
+import { handleActionError } from "@/lib/handle-action-error";
 
 export async function createFaq(formData: FormData) {
   const guard = await requireAdmin();
@@ -12,8 +13,7 @@ export async function createFaq(formData: FormData) {
   const { supabase } = guard;
   const { error } = await supabase.from("faqs").insert(data);
   if (error) {
-    console.error("[createFaq]", error.message);
-    return { error: error.message };
+    return handleActionError("createFaq", error);
   }
   revalidatePath("/[locale]", "page");
   revalidateTag("faqs", "default");
@@ -33,8 +33,7 @@ export async function updateFaq(id: string, formData: FormData) {
   const { supabase } = guard;
   const { error } = await supabase.from("faqs").update(data).eq("id", id);
   if (error) {
-    console.error("[updateFaq]", error.message);
-    return { error: error.message };
+    return handleActionError("updateFaq", error);
   }
   revalidatePath("/[locale]", "page");
   revalidateTag("faqs", "default");
@@ -47,8 +46,7 @@ export async function deleteFaq(id: string) {
   const { supabase } = guard;
   const { error } = await supabase.from("faqs").delete().eq("id", id);
   if (error) {
-    console.error("[deleteFaq]", error.message);
-    return { error: error.message };
+    return handleActionError("deleteFaq", error);
   }
   revalidatePath("/[locale]", "page");
   revalidateTag("faqs", "default");
