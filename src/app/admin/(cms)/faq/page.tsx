@@ -4,28 +4,42 @@ import { DeleteFaqButton } from "./DeleteFaqButton";
 
 const PAGE_SIZE = 20;
 
+function escapeIlike(s: string): string {
+  return s.replace(/\\/g, "\\\\").replace(/%/g, "\\%").replace(/_/g, "\\_");
+}
+
 export default async function FaqList({
   searchParams,
 }: {
-  searchParams: Promise<{ page?: string }>;
+  searchParams: Promise<{ page?: string; q?: string }>;
 }) {
   const sp = await searchParams;
+  const q = (sp.q ?? "").trim();
   const page = Math.max(1, Number(sp.page) || 1);
   const from = (page - 1) * PAGE_SIZE;
   const to = from + PAGE_SIZE - 1;
 
   const supabase = await createClient();
-  const { data, count } = await supabase
+  let query = supabase
     .from("faqs")
     .select("*", { count: "exact" })
-    .eq("is_deleted", false)
-    .order("sort_order")
-    .range(from, to);
+    .eq("is_deleted", false);
+  if (q) {
+    const e = escapeIlike(q);
+    query = query.or(`question_az.ilike.%${e}%,question_ru.ilike.%${e}%,question_en.ilike.%${e}%`);
+  }
+  const { data, count } = await query.order("sort_order").range(from, to);
 
   const total = count ?? 0;
   const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
 
-  const qs = (p: number) => (p > 1 ? `?page=${p}` : "");
+  const qs = (p: number) => {
+    const params = new URLSearchParams();
+    if (p > 1) params.set("page", String(p));
+    if (q) params.set("q", q);
+    const s = params.toString();
+    return s ? `?${s}` : "";
+  };
 
   return (
     <div>
@@ -35,6 +49,19 @@ export default async function FaqList({
           + Yeni FAQ
         </Link>
       </div>
+
+      <form className="mb-4 flex gap-2">
+        <input
+          type="text"
+          name="q"
+          defaultValue={q}
+          placeholder="Axtarış..."
+          className="flex-1 rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm text-foreground placeholder:text-foreground/40 focus:border-brand-primary focus:outline-none"
+        />
+        <button type="submit" className="rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-sm text-foreground/80 hover:bg-white/10">
+          Axtar
+        </button>
+      </form>
 
       <div className="glass overflow-x-auto rounded-2xl">
         <table className="w-full text-left text-sm">

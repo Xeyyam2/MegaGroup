@@ -4,28 +4,42 @@ import { UniversitiesTable } from "./UniversitiesTable";
 
 const PAGE_SIZE = 20;
 
+function escapeIlike(s: string): string {
+  return s.replace(/\\/g, "\\\\").replace(/%/g, "\\%").replace(/_/g, "\\_");
+}
+
 export default async function UniversitiesList({
   searchParams,
 }: {
-  searchParams: Promise<{ page?: string }>;
+  searchParams: Promise<{ page?: string; q?: string }>;
 }) {
   const sp = await searchParams;
+  const q = (sp.q ?? "").trim();
   const page = Math.max(1, Number(sp.page) || 1);
   const from = (page - 1) * PAGE_SIZE;
   const to = from + PAGE_SIZE - 1;
 
   const supabase = await createClient();
-  const { data, count } = await supabase
+  let query = supabase
     .from("universities")
     .select("*", { count: "exact" })
-    .eq("is_deleted", false)
-    .order("name_az")
-    .range(from, to);
+    .eq("is_deleted", false);
+  if (q) {
+    const e = escapeIlike(q);
+    query = query.or(`name_az.ilike.%${e}%,name_ru.ilike.%${e}%,name_en.ilike.%${e}%`);
+  }
+  const { data, count } = await query.order("name_az").range(from, to);
 
   const total = count ?? 0;
   const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
 
-  const qs = (p: number) => (p > 1 ? `?page=${p}` : "");
+  const qs = (p: number) => {
+    const params = new URLSearchParams();
+    if (p > 1) params.set("page", String(p));
+    if (q) params.set("q", q);
+    const s = params.toString();
+    return s ? `?${s}` : "";
+  };
 
   return (
     <div>
@@ -38,6 +52,19 @@ export default async function UniversitiesList({
           + Yeni Universitet
         </Link>
       </div>
+
+      <form className="mb-4 flex gap-2">
+        <input
+          type="text"
+          name="q"
+          defaultValue={q}
+          placeholder="Axtarış..."
+          className="flex-1 rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm text-foreground placeholder:text-foreground/40 focus:border-brand-primary focus:outline-none"
+        />
+        <button type="submit" className="rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-sm text-foreground/80 hover:bg-white/10">
+          Axtar
+        </button>
+      </form>
 
       <UniversitiesTable universities={(data ?? []) as any} />
 
