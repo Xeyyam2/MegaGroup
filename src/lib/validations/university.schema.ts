@@ -53,3 +53,5 @@ export const feesSchema = z.object({
   personal_min_usd: z.coerce.number().int().min(0).default(0),
   personal_max_usd: z.coerce.number().int().min(0).default(0),
 });
+
+export const facultiesArraySchema = z.array(facultySchema);

@@ -1,7 +1,7 @@
 "use server";
 import { revalidatePath, revalidateTag } from "next/cache";
 import { requireAdmin, ADMIN_DENIED } from "@/lib/supabase/auth-guard";
-import { universitySchema } from "@/lib/validations/university.schema";
+import { universitySchema, facultiesArraySchema, feesSchema } from "@/lib/validations/university.schema";
 import { handleActionError } from "@/lib/handle-action-error";
 
 export async function createUniversity(formData: FormData) {
@@ -63,12 +63,14 @@ export async function deleteUniversity(id: string) {
   return { success: true, slug: u?.slug };
 }
 
-export async function saveFaculties(universitySlug: string, faculties: any[]) {
+export async function saveFaculties(universitySlug: string, faculties: unknown[]) {
   const guard = await requireAdmin();
   if (!guard.authorized) return ADMIN_DENIED;
+  const parsedFaculties = facultiesArraySchema.safeParse(faculties);
+  if (!parsedFaculties.success) return { error: "Fakültə məlumatları yararsız" };
   const { supabase } = guard;
   await supabase.from("faculties").delete().eq("university_slug", universitySlug);
-  for (const f of faculties) {
+  for (const f of parsedFaculties.data) {
     const { error } = await supabase.from("faculties").insert({ university_slug: universitySlug, ...f });
     if (error) {
       return handleActionError("saveFaculties", error);
@@ -79,13 +81,15 @@ export async function saveFaculties(universitySlug: string, faculties: any[]) {
   return { success: true };
 }
 
-export async function saveFees(universitySlug: string, fees: Record<string, number>) {
+export async function saveFees(universitySlug: string, fees: unknown) {
   const guard = await requireAdmin();
   if (!guard.authorized) return ADMIN_DENIED;
+  const parsedFees = feesSchema.safeParse(fees);
+  if (!parsedFees.success) return { error: "Ödəniş məlumatları yararsız" };
   const { supabase } = guard;
   const { error } = await supabase
     .from("university_fees")
-    .upsert({ university_slug: universitySlug, ...fees }, { onConflict: "university_slug" });
+    .upsert({ university_slug: universitySlug, ...parsedFees.data }, { onConflict: "university_slug" });
   if (error) {
     return handleActionError("saveFees", error);
   }
