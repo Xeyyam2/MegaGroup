@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getLocale } from "next-intl/server";
 import "./globals.css";
 import { siteUrl } from "@/lib/site";
+import { SWRegister } from "@/components/SWRegister";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -37,6 +38,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
       <body className="bg-background text-foreground antialiased">
         <div className="grain-overlay" aria-hidden />
         {children}
+        <SWRegister />
       </body>
     </html>
   );
