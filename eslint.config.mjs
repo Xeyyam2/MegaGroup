@@ -8,7 +8,7 @@ const eslintConfig = defineConfig([
   {
     rules: {
       // Supabase row-ları dinamik tipli oldugu üçün mapper/form state-lərində `any` lazımdır
-      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/no-explicit-any": "warn",
       "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_", varsIgnorePattern: "^_" }],
     },
   },

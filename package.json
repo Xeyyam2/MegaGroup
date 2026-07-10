@@ -12,7 +12,8 @@
     "test:e2e": "playwright test",
     "seed": "tsx scripts/seed-supabase.ts",
     "sync:new-countries": "tsx scripts/sync-new-countries.ts",
-    "sync:universities": "tsx scripts/sync-universities.ts"
+    "sync:universities": "tsx scripts/sync-universities.ts",
+    "gen:types": "supabase gen types typescript --project-id \"$SUPABASE_PROJECT_ID\" > src/types/db.generated.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.4.0",

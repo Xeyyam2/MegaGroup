@@ -1,7 +1,8 @@
 import { describe, it, expect } from "vitest";
 import { mapCountryRow, pickLocalized, pickLocalizedArray } from "@/lib/data/mappers";
+import type { Database } from "@/types/db.generated";
 
-const sampleRow = {
+const sampleRow: Database["public"]["Tables"]["countries"]["Row"] = {
   id: "c1",
   slug: "turkiye",
   flag_emoji: "🇹🇷",
@@ -31,6 +32,10 @@ const sampleRow = {
   qs_avg_tuition_usd: 1500,
   qs_language: "Türkçe",
   qs_visa_difficulty: "easy",
+  created_at: "2024-01-01T00:00:00Z",
+  updated_at: "2024-01-01T00:00:00Z",
+  is_deleted: false,
+  deleted_at: null,
 };
 
 describe("pickLocalized", () => {

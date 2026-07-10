@@ -1,18 +1,24 @@
 import type { Country, Faculty, University, FAQ, Testimonial, SiteContent, Locale } from "@/types";
+import type { Database } from "@/types/db.generated";
 
-export function pickLocalized(locale: Locale, az: string, ru?: string | null, en?: string | null): string {
-  if (locale === "ru") return ru && ru !== "" ? ru : az;
-  if (locale === "en") return en && en !== "" ? en : az;
-  return az;
+export function pickLocalized(locale: Locale, az: string | null, ru?: string | null, en?: string | null): string {
+  if (locale === "ru") return ru && ru !== "" ? ru : az ?? "";
+  if (locale === "en") return en && en !== "" ? en : az ?? "";
+  return az ?? "";
 }
 
-export function pickLocalizedArray(locale: Locale, az: any[], ru?: any[] | null, en?: any[] | null): any[] {
+export function pickLocalizedArray<T>(
+  locale: Locale,
+  az: T[] | null,
+  ru?: T[] | null,
+  en?: T[] | null,
+): T[] {
   if (locale === "ru" && ru && ru.length) return ru;
   if (locale === "en" && en && en.length) return en;
-  return az;
+  return az ?? [];
 }
 
-export function mapCountryRow(row: any, locale: Locale): Country {
+export function mapCountryRow(row: Database["public"]["Tables"]["countries"]["Row"], locale: Locale): Country {
   return {
     id: row.id,
     slug: row.slug,
@@ -46,7 +52,7 @@ export function mapCountryRow(row: any, locale: Locale): Country {
   };
 }
 
-export function mapFacultyRow(row: any, locale: Locale): Faculty {
+export function mapFacultyRow(row: Database["public"]["Tables"]["faculties"]["Row"], locale: Locale): Faculty {
   return {
     id: row.id,
     university_id: row.university_slug,
@@ -62,7 +68,12 @@ export function mapFacultyRow(row: any, locale: Locale): Faculty {
   };
 }
 
-export function mapUniversityRow(row: any, faculties: any[], fees: any, locale: Locale): University {
+export function mapUniversityRow(
+  row: Database["public"]["Tables"]["universities"]["Row"],
+  faculties: Database["public"]["Tables"]["faculties"]["Row"][],
+  fees: Database["public"]["Tables"]["university_fees"]["Row"] | null,
+  locale: Locale,
+): University {
   const defaultFees = {
     tuition_min_usd: 0,
     tuition_max_usd: 0,
@@ -110,7 +121,7 @@ export function mapUniversityRow(row: any, faculties: any[], fees: any, locale: 
   };
 }
 
-export function mapFaqRow(row: any, locale: Locale): FAQ {
+export function mapFaqRow(row: Database["public"]["Tables"]["faqs"]["Row"], locale: Locale): FAQ {
   return {
     id: row.id,
     question: pickLocalized(locale, row.question_az, row.question_ru, row.question_en),
@@ -127,7 +138,7 @@ export function mapFaqRow(row: any, locale: Locale): FAQ {
   };
 }
 
-export function mapTestimonialRow(row: any, locale: Locale): Testimonial {
+export function mapTestimonialRow(row: Database["public"]["Tables"]["testimonials"]["Row"], locale: Locale): Testimonial {
   return {
     id: row.id,
     student_name: row.student_name,
@@ -142,7 +153,7 @@ export function mapTestimonialRow(row: any, locale: Locale): Testimonial {
   };
 }
 
-export function mapSiteContentRow(row: any, locale: Locale): SiteContent {
+export function mapSiteContentRow(row: Database["public"]["Tables"]["site_content"]["Row"], locale: Locale): SiteContent {
   return {
     key: row.key,
     value: pickLocalized(locale, row.value_az, row.value_ru, row.value_en),
