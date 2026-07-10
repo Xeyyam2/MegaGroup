@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { createClient } from "@/lib/supabase/server";
 import { DeleteTestimonialButton } from "./DeleteTestimonialButton";
 
@@ -32,8 +33,7 @@ export default async function TestimonialsList() {
               <tr key={t.id} className="border-b border-white/5 last:border-0">
                 <td className="px-5 py-3">
                   {t.photo_url ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img src={t.photo_url} alt={t.student_name} className="h-8 w-8 rounded-full object-cover" />
+                    <Image src={t.photo_url} alt={t.student_name} width={40} height={40} unoptimized className="h-8 w-8 rounded-full object-cover" />
                   ) : "—"}
                 </td>
                 <td className="px-5 py-3 font-medium text-foreground">{t.student_name}</td>

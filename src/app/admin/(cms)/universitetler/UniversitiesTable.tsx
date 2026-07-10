@@ -1,6 +1,7 @@
 "use client";
 import { useMemo, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { DeleteUniversityButton } from "./DeleteUniversityButton";
 
 type Uni = {
@@ -54,8 +55,7 @@ export function UniversitiesTable({ universities }: { universities: Uni[] }) {
               <tr key={u.id} className="border-b border-white/5 last:border-0">
                 <td className="px-5 py-3">
                   {u.logo_url ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img src={u.logo_url} alt={u.name_az} className="h-8 w-8 rounded object-cover" />
+                    <Image src={u.logo_url} alt={u.name_az} width={40} height={40} unoptimized className="h-8 w-8 rounded object-cover" />
                   ) : (
                     "—"
                   )}

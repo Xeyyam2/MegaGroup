@@ -2,6 +2,7 @@
 import { revalidatePath, revalidateTag } from "next/cache";
 import { requireAdmin, ADMIN_DENIED } from "@/lib/supabase/auth-guard";
 import { universitySchema, facultiesArraySchema, feesSchema } from "@/lib/validations/university.schema";
+import { idSchema } from "@/lib/validations/common";
 import { handleActionError } from "@/lib/handle-action-error";
 
 export async function createUniversity(formData: FormData) {
@@ -28,6 +29,8 @@ export async function createUniversity(formData: FormData) {
 export async function updateUniversity(id: string, formData: FormData) {
   const guard = await requireAdmin();
   if (!guard.authorized) return ADMIN_DENIED;
+  const idResult = idSchema.safeParse(id);
+  if (!idResult.success) return { error: "Yanlış ID" };
   const parsed = universitySchema.partial().safeParse(Object.fromEntries(formData));
   if (!parsed.success) return { error: parsed.error.issues[0]?.message };
   const { supabase } = guard;
@@ -52,6 +55,8 @@ export async function updateUniversity(id: string, formData: FormData) {
 export async function deleteUniversity(id: string) {
   const guard = await requireAdmin();
   if (!guard.authorized) return ADMIN_DENIED;
+  const idResult = idSchema.safeParse(id);
+  if (!idResult.success) return { error: "Yanlış ID" };
   const { supabase } = guard;
   const { data: u } = await supabase.from("universities").select("slug").eq("id", id).single();
   const { error } = await supabase.from("universities").delete().eq("id", id);

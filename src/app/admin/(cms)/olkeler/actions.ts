@@ -2,6 +2,7 @@
 import { revalidatePath, revalidateTag } from "next/cache";
 import { requireAdmin, ADMIN_DENIED } from "@/lib/supabase/auth-guard";
 import { countrySchema } from "@/lib/validations/country.schema";
+import { idSchema } from "@/lib/validations/common";
 import { handleActionError } from "@/lib/handle-action-error";
 
 export async function createCountry(formData: FormData) {
@@ -22,6 +23,8 @@ export async function createCountry(formData: FormData) {
 export async function updateCountry(id: string, formData: FormData) {
   const guard = await requireAdmin();
   if (!guard.authorized) return ADMIN_DENIED;
+  const idResult = idSchema.safeParse(id);
+  if (!idResult.success) return { error: "Yanlış ID" };
   const parsed = countrySchema.partial().safeParse(Object.fromEntries(formData));
   if (!parsed.success) return { error: parsed.error.issues[0]?.message };
   const { supabase } = guard;
@@ -37,6 +40,8 @@ export async function updateCountry(id: string, formData: FormData) {
 export async function deleteCountry(id: string) {
   const guard = await requireAdmin();
   if (!guard.authorized) return ADMIN_DENIED;
+  const idResult = idSchema.safeParse(id);
+  if (!idResult.success) return { error: "Yanlış ID" };
   const { supabase } = guard;
   const { error } = await supabase.from("countries").delete().eq("id", id);
   if (error) {
