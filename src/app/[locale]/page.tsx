@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Suspense } from "react";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { HeroSection } from "@/components/sections/HeroSection";
+import { SectionErrorBoundary } from "@/components/SectionErrorBoundary";
 import { StudyJourneyLazy } from "@/components/study-journey/StudyJourneyLazy";
 import { CountryTabs } from "@/components/sections/CountryTabs";
 import { CostCalculator } from "@/components/sections/CostCalculator";
@@ -70,6 +72,48 @@ export async function generateMetadata({
   };
 }
 
+function SectionSkeleton() {
+  return <div className="glass h-48 animate-pulse rounded-2xl" aria-hidden />;
+}
+
+async function UniversitiesSection({
+  locale,
+  countrySlug,
+}: {
+  locale: Locale;
+  countrySlug: string;
+}) {
+  const universities = await getUniversitiesByCountry(countrySlug, locale);
+  return <CostCalculator universities={universities} />;
+}
+
+async function StoriesSection({ locale }: { locale: Locale }) {
+  const testimonials = await getTestimonials(locale);
+  return <SuccessStories testimonials={testimonials} />;
+}
+
+async function FaqSectionWithData({ locale }: { locale: Locale }) {
+  const faqs = await getGeneralFAQs(locale);
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: { "@type": "Answer", text: f.answer },
+    })),
+  };
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <FAQSection faqs={faqs} />
+    </>
+  );
+}
+
 export default async function Home({ params }: { params: Promise<{ locale: Locale }> }) {
   const locale = (await params).locale as Locale;
   setRequestLocale(locale);
@@ -78,10 +122,8 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
   const tHero = await getTranslations({ locale, namespace: "hero" });
 
   const countries = await getCountries(locale);
-  const universities = await getUniversitiesByCountry(countries[0]?.slug ?? "turkiye", locale);
-  const testimonials = await getTestimonials(locale);
-  const faqs = await getGeneralFAQs(locale);
   const content = await getSiteContentMap(locale);
+  const firstCountrySlug = countries[0]?.slug ?? "turkiye";
 
   const heroStats = content.hero_stat_universities
     ? [
@@ -92,20 +134,8 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
       ]
     : undefined;
 
-  const faqJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((f) => ({
-      "@type": "Question",
-      name: f.question,
-      acceptedAnswer: { "@type": "Answer", text: f.answer },
-    })),
-  };
-
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
-
       <HeroSection stats={heroStats} title={content.hero_title} subtitle={content.hero_subtitle} />
 
       <StudyJourneyLazy />
@@ -167,7 +197,11 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
         </ScrollReveal>
         <div className="mt-8">
           <ScrollReveal direction="scale">
-            <CostCalculator universities={universities} />
+            <SectionErrorBoundary>
+              <Suspense fallback={<SectionSkeleton />}>
+                <UniversitiesSection locale={locale} countrySlug={firstCountrySlug} />
+              </Suspense>
+            </SectionErrorBoundary>
           </ScrollReveal>
         </div>
       </section>
@@ -180,7 +214,11 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
           <p className="mt-2 text-foreground/60">{content.section_stories_subtitle || t("storiesSubtitle")}</p>
         </ScrollReveal>
         <div className="mt-8">
-          <SuccessStories testimonials={testimonials} />
+          <SectionErrorBoundary>
+            <Suspense fallback={<SectionSkeleton />}>
+              <StoriesSection locale={locale} />
+            </Suspense>
+          </SectionErrorBoundary>
         </div>
       </section>
 
@@ -222,7 +260,11 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
           </h2>
         </ScrollReveal>
         <div className="mt-8">
-          <FAQSection faqs={faqs} />
+          <SectionErrorBoundary>
+            <Suspense fallback={<SectionSkeleton />}>
+              <FaqSectionWithData locale={locale} />
+            </Suspense>
+          </SectionErrorBoundary>
         </div>
       </section>
 
