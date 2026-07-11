@@ -26,13 +26,30 @@ function getLimiter(): Ratelimit | null {
 }
 
 // Server action içində klient IP-sini oxuyur (Vercel/standart proxy header-ləri).
+// Vercel-də x-vercel-forwarded-for etibarlıdır; digər deploy-larda x-forwarded-for
+// istifade olunur və Trusted proxy hop sayına göre doğru IP seçilir.
 export async function getClientIp(): Promise<string> {
   const h = await headers();
-  return (
-    h.get("x-forwarded-for")?.split(",")[0]?.trim() ||
-    h.get("x-real-ip") ||
-    "unknown"
-  );
+
+  // Vercel-specific trusted header (always correct on Vercel)
+  const vercelFwd = h.get("x-vercel-forwarded-for");
+  if (vercelFwd) {
+    return vercelFwd.split(",")[0].trim() || "unknown";
+  }
+
+  // Standard X-Forwarded-For: comma-separated client IPs, leftmost = original client.
+  // With trusted proxies, the real client is at index -(trustedHops).
+  // Default: 1 hop (single proxy). Set TRUSTED_PROXY_HOPS=2 for double-proxy setups.
+  const fwd = h.get("x-forwarded-for");
+  if (fwd) {
+    const hops = fwd.split(",").map((ip) => ip.trim());
+    const trustedHops = Number(process.env.TRUSTED_PROXY_HOPS ?? 1);
+    const idx = Math.max(0, hops.length - trustedHops);
+    return hops[idx] || "unknown";
+  }
+
+  // Fallback: x-real-ip (set by some proxies / Nginx)
+  return h.get("x-real-ip") || "unknown";
 }
 
 // true = limit aşılıb (blokla), false = icazə ver (konfiqurasiya olunmayıbsa da icazə verir).
