@@ -3,7 +3,6 @@
 /* eslint-disable react-hooks/immutability */
 
 import { useFrame, useThree } from "@react-three/fiber";
-import { Environment } from "@react-three/drei";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
 import { Globe } from "./Globe";
@@ -95,7 +94,6 @@ export function Scene({
       <ambientLight intensity={0.42} />
       <directionalLight position={[4, 3, 5]} intensity={2.2} color="#dbeafe" />
       <pointLight position={[-3.5, 1.5, 2.5]} intensity={1.25} color="#3B82F6" />
-      <Environment preset="night" />
       <Stars compact={compact} />
 
       <group ref={groupRef}>

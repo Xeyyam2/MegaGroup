@@ -138,7 +138,9 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
     <>
       <HeroSection stats={heroStats} title={content.hero_title} subtitle={content.hero_subtitle} />
 
-      <StudyJourneyLazy />
+      <SectionErrorBoundary>
+        <StudyJourneyLazy />
+      </SectionErrorBoundary>
 
       <section id="olkeler" className="mx-auto max-w-7xl px-6 py-16">
         <ScrollReveal className="text-center">
