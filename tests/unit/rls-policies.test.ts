@@ -43,7 +43,7 @@ const droppedNames = new Set<string>();
 for (const stmt of allStatements) {
   // Match: drop policy if exists "name" on public.table
   const dropMatch = stmt.match(
-    /drop\s+policy\s+if\s+exists\s+["']([^"']+)["']\s+on\s+public\.(\w+)/is,
+    /drop\s+policy\s+if\s+exists\s+["']([^"']+)["']\s+on\s+public\.(\w+)/i,
   );
   if (dropMatch) {
     const key = `${dropMatch[2]}:${dropMatch[1]}`;
@@ -54,7 +54,7 @@ for (const stmt of allStatements) {
 
   // Match: create policy "name" on public.table ...
   const createMatch = stmt.match(
-    /create\s+policy\s+["']([^"']+)["']\s+on\s+public\.(\w+)/is,
+    /create\s+policy\s+["']([^"']+)["']\s+on\s+public\.(\w+)/i,
   );
   if (createMatch) {
     const key = `${createMatch[2]}:${createMatch[1]}`;
@@ -100,11 +100,11 @@ describe("RLS policy regression guard", () => {
         const policies = getPoliciesForTable(table);
         for (const p of policies) {
           // Skip public read policies (FOR SELECT to anon or with using(true) on active rows)
-          const isSelectToAnon = /for\s+select\s+to\s+(anon|public)/is.test(p.statement);
+          const isSelectToAnon = /for\s+select\s+to\s+(anon|public)/i.test(p.statement);
           if (isSelectToAnon) continue;
 
           // Check if this is a write policy targeting authenticated
-          const targetsAuthenticated = /to\s+authenticated/is.test(p.statement);
+          const targetsAuthenticated = /to\s+authenticated/i.test(p.statement);
           if (!targetsAuthenticated) continue;
 
           // This is a write policy for authenticated — must have role check
@@ -119,9 +119,9 @@ describe("RLS policy regression guard", () => {
       it("no effective write policy uses bare using(true) with check(true)", () => {
         const policies = getPoliciesForTable(table);
         for (const p of policies) {
-          const isSelectToAnon = /for\s+select\s+to\s+(anon|public)/is.test(p.statement);
+          const isSelectToAnon = /for\s+select\s+to\s+(anon|public)/i.test(p.statement);
           if (isSelectToAnon) continue;
-          if (!/to\s+authenticated/is.test(p.statement)) continue;
+          if (!/to\s+authenticated/i.test(p.statement)) continue;
 
           const wideOpen =
             /using\s*\(\s*true\s*\)/i.test(p.statement) &&

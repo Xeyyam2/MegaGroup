@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { axeBuilder } from "../helpers/axe";
 
 test("home page renders hero and key sections", async ({ page }) => {
   await page.goto("/");
@@ -15,4 +16,11 @@ test("home page lists 5 countries", async ({ page }) => {
 test("cost calculator section is present", async ({ page }) => {
   await page.goto("/");
   await expect(page.getByText(/Xərc Kalkulatoru/i)).toBeVisible();
+});
+
+test("home page has no critical axe violations", async ({ page }) => {
+  await page.goto("/");
+  const results = await axeBuilder(page).analyze();
+  const criticalViolations = results.violations.filter((v) => v.impact === "critical");
+  expect(criticalViolations).toEqual([]);
 });
