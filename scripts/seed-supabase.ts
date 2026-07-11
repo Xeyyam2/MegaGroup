@@ -6,6 +6,17 @@ import { universities } from "../src/data/universities";
 import { faqs } from "../src/data/faqs";
 import { testimonials } from "../src/data/testimonials";
 
+// --preserve (default): FAQs and testimonials use upsert (no data loss).
+// --force: destructively deletes all FAQs/testimonials before re-inserting.
+const PRESERVE = !process.argv.includes("--force");
+const SENTINEL_UUID = "00000000-0000-0000-0000-000000000000";
+
+if (!PRESERVE) {
+  console.warn("⚠ --force: destructive sync — deleting all FAQs and testimonials before re-inserting.");
+} else {
+  console.log("Safe mode (--preserve): using upsert, no destructive deletes.");
+}
+
 async function seed() {
   const supabase = createAdminClient();
 
@@ -103,9 +114,11 @@ async function seed() {
   }
 
   console.log("Seeding FAQs...");
-  await supabase.from("faqs").delete().neq("id", "00000000-0000-0000-0000-000000000000");
+  if (!PRESERVE) {
+    await supabase.from("faqs").delete().neq("id", SENTINEL_UUID);
+  }
   for (const f of faqs) {
-    const { error } = await supabase.from("faqs").insert({
+    const insertData = {
       country_slug: f.country_slug ?? null,
       university_slug: f.university_slug ?? null,
       question_az: f.question_az,
@@ -115,14 +128,19 @@ async function seed() {
       answer_ru: f.answer_ru,
       answer_en: f.answer_en,
       sort_order: f.sort_order,
-    });
+    };
+    const { error } = PRESERVE
+      ? await supabase.from("faqs").upsert(insertData, { onConflict: "question_az" })
+      : await supabase.from("faqs").insert(insertData);
     if (error) console.error("faqs:", error.message);
   }
 
   console.log("Seeding testimonials...");
-  await supabase.from("testimonials").delete().neq("id", "00000000-0000-0000-0000-000000000000");
+  if (!PRESERVE) {
+    await supabase.from("testimonials").delete().neq("id", SENTINEL_UUID);
+  }
   for (const t of testimonials) {
-    const { error } = await supabase.from("testimonials").insert({
+    const insertData = {
       student_name: t.student_name,
       university_slug: t.university_slug || null,
       country_slug: t.country_slug || null,
@@ -133,7 +151,10 @@ async function seed() {
       year: t.year,
       is_active: true,
       sort_order: 0,
-    });
+    };
+    const { error } = PRESERVE
+      ? await supabase.from("testimonials").upsert(insertData, { onConflict: "student_name" })
+      : await supabase.from("testimonials").insert(insertData);
     if (error) console.error("testimonials:", error.message);
   }
 
