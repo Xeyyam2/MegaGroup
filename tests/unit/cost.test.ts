@@ -1,19 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { calculateMonthlyCost } from "@/data/cost-data";
 import type { UniversityFee } from "@/types";
-
-const sampleFees: UniversityFee = {
-  tuition_min_usd: 1200,
-  tuition_max_usd: 3000,
-  dorm_min_usd: 50,
-  dorm_max_usd: 120,
-  food_min_usd: 100,
-  food_max_usd: 180,
-  transport_min_usd: 20,
-  transport_max_usd: 40,
-  personal_min_usd: 50,
-  personal_max_usd: 120,
-};
+import { sampleFees } from "../fixtures/sampleData";
 
 describe("calculateMonthlyCost", () => {
   it("computes monthly tuition as average divided by 9", () => {
