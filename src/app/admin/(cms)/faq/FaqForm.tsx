@@ -6,11 +6,11 @@ import { LanguageTabs } from "@/components/admin/LanguageTabs";
 import { FormField } from "@/components/admin/FormField";
 import { createFaq, updateFaq } from "./actions";
 
-type Props = { mode: "create" } | { mode: "edit"; id: string; initial: Record<string, any> };
+type Props = { mode: "create" } | { mode: "edit"; id: string; initial: Record<string, string | number | boolean> };
 
 export function FaqForm(props: Props) {
   const router = useRouter();
-  const [data, setData] = useState<Record<string, any>>({
+  const [data, setData] = useState<Record<string, string | number | boolean>>({
     country_slug: "", university_slug: "",
     question_az: "", question_ru: "", question_en: "",
     answer_az: "", answer_ru: "", answer_en: "",
@@ -20,7 +20,7 @@ export function FaqForm(props: Props) {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  function set(k: string, v: any) {
+  function set(k: string, v: string | number | boolean) {
     setData((d) => ({ ...d, [k]: v }));
   }
 
@@ -29,7 +29,7 @@ export function FaqForm(props: Props) {
     setLoading(true);
     setError("");
     const fd = new FormData(e.target as HTMLFormElement);
-    const res = props.mode === "create" ? await createFaq(fd) : await updateFaq((props as any).id, fd);
+    const res = props.mode === "create" ? await createFaq(fd) : await updateFaq(props.id, fd);
     if ("error" in res && res.error) { setError(res.error); setLoading(false); }
     else { router.push("/admin/faq"); router.refresh(); }
   }

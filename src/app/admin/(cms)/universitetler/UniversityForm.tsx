@@ -7,6 +7,15 @@ import { FormField } from "@/components/admin/FormField";
 import { Plus, Trash2 } from "lucide-react";
 import { createUniversity, updateUniversity, saveFaculties, saveFees } from "./actions";
 
+interface FacultyForm {
+  name_az: string;
+  name_ru: string;
+  name_en: string;
+  is_competitive: boolean;
+  duration_years: number;
+  language: string;
+}
+
 const EMPTY = {
   slug: "",
   country_slug: "",
@@ -39,25 +48,25 @@ type Props =
       id: string;
       slug: string;
       countries: { slug: string; name_az: string }[];
-      initial: Record<string, any>;
-      faculties: any[];
+      initial: Record<string, string | number | boolean | string[]>;
+      faculties: FacultyForm[];
       fees: Record<string, number>;
     };
 
 export function UniversityForm(props: Props) {
   const router = useRouter();
-  const [data, setData] = useState<Record<string, any>>({
+  const [data, setData] = useState<Record<string, string | number | boolean>>({
     ...EMPTY,
     ...(props.mode === "edit"
       ? {
           ...props.initial,
-          highlights_az: (props.initial.highlights_az ?? []).join("\n"),
-          highlights_ru: (props.initial.highlights_ru ?? []).join("\n"),
-          highlights_en: (props.initial.highlights_en ?? []).join("\n"),
+          highlights_az: Array.isArray(props.initial.highlights_az) ? props.initial.highlights_az.join("\n") : "",
+          highlights_ru: Array.isArray(props.initial.highlights_ru) ? props.initial.highlights_ru.join("\n") : "",
+          highlights_en: Array.isArray(props.initial.highlights_en) ? props.initial.highlights_en.join("\n") : "",
         }
       : {}),
   });
-  const [faculties, setFaculties] = useState<any[]>(
+  const [faculties, setFaculties] = useState<FacultyForm[]>(
     props.mode === "edit"
       ? props.faculties.map((f) => ({ name_az: f.name_az, name_ru: f.name_ru ?? "", name_en: f.name_en ?? "", is_competitive: f.is_competitive ?? false, duration_years: f.duration_years ?? 4, language: f.language ?? "" }))
       : [],
@@ -66,14 +75,14 @@ export function UniversityForm(props: Props) {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  function set(k: string, v: any) {
+  function set(k: string, v: string | number | boolean) {
     setData((d) => ({ ...d, [k]: v }));
   }
 
   function addFaculty() {
     setFaculties((f) => [...f, { name_az: "", name_ru: "", name_en: "", is_competitive: false, duration_years: 4, language: "" }]);
   }
-  function updateFaculty(i: number, k: string, v: any) {
+  function updateFaculty(i: number, k: string, v: string | number | boolean) {
     setFaculties((f) => f.map((x, idx) => (idx === i ? { ...x, [k]: v } : x)));
   }
   function removeFaculty(i: number) {
@@ -85,13 +94,13 @@ export function UniversityForm(props: Props) {
     setLoading(true);
     setError("");
     const fd = new FormData(e.target as HTMLFormElement);
-    const res = props.mode === "create" ? await createUniversity(fd) : await updateUniversity((props as any).id, fd);
+    const res = props.mode === "create" ? await createUniversity(fd) : await updateUniversity(props.id, fd);
     if ("error" in res && res.error) {
       setError(res.error);
       setLoading(false);
       return;
     }
-    const slug = props.mode === "create" ? (fd.get("slug") as string) : (props as any).slug;
+    const slug = props.mode === "create" ? (fd.get("slug") as string) : props.slug;
     const fRes = await saveFaculties(slug, faculties);
     if ("error" in fRes && fRes.error) { setError("Fakültələr: " + fRes.error); setLoading(false); return; }
     const feeRes = await saveFees(slug, fees);
@@ -114,7 +123,7 @@ export function UniversityForm(props: Props) {
           <select
             id="country_slug"
             name="country_slug"
-            value={data.country_slug}
+            value={String(data.country_slug)}
             onChange={(e) => set("country_slug", e.target.value)}
             required
             className="mt-1 w-full rounded-lg border border-white/20 bg-white/5 px-4 py-2.5 text-sm focus:border-brand-primary focus:outline-none"
@@ -134,10 +143,10 @@ export function UniversityForm(props: Props) {
 
       <div className="flex gap-6">
         <label className="flex items-center gap-2 text-sm text-foreground/70">
-          <input type="checkbox" name="is_active" checked={data.is_active} onChange={(e) => set("is_active", e.target.checked)} /> Aktiv
+          <input type="checkbox" name="is_active" checked={Boolean(data.is_active)} onChange={(e) => set("is_active", e.target.checked)} /> Aktiv
         </label>
         <label className="flex items-center gap-2 text-sm text-foreground/70">
-          <input type="checkbox" name="is_featured" checked={data.is_featured} onChange={(e) => set("is_featured", e.target.checked)} /> Xüsusi (featured)
+          <input type="checkbox" name="is_featured" checked={Boolean(data.is_featured)} onChange={(e) => set("is_featured", e.target.checked)} /> Xüsusi (featured)
         </label>
       </div>
 

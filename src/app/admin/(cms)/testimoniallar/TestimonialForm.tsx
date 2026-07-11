@@ -6,11 +6,11 @@ import { LanguageTabs } from "@/components/admin/LanguageTabs";
 import { FormField } from "@/components/admin/FormField";
 import { createTestimonial, updateTestimonial } from "./actions";
 
-type Props = { mode: "create" } | { mode: "edit"; id: string; initial: Record<string, any> };
+type Props = { mode: "create" } | { mode: "edit"; id: string; initial: Record<string, string | number | boolean> };
 
 export function TestimonialForm(props: Props) {
   const router = useRouter();
-  const [data, setData] = useState<Record<string, any>>({
+  const [data, setData] = useState<Record<string, string | number | boolean>>({
     student_name: "", university_slug: "", country_slug: "", photo_url: "",
     quote_az: "", quote_ru: "", quote_en: "",
     year: new Date().getFullYear(), is_active: true, sort_order: 0,
@@ -19,14 +19,14 @@ export function TestimonialForm(props: Props) {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  function set(k: string, v: any) { setData((d) => ({ ...d, [k]: v })); }
+  function set(k: string, v: string | number | boolean) { setData((d) => ({ ...d, [k]: v })); }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true);
     setError("");
     const fd = new FormData(e.target as HTMLFormElement);
-    const res = props.mode === "create" ? await createTestimonial(fd) : await updateTestimonial((props as any).id, fd);
+    const res = props.mode === "create" ? await createTestimonial(fd) : await updateTestimonial(props.id, fd);
     if ("error" in res && res.error) { setError(res.error); setLoading(false); }
     else { router.push("/admin/testimoniallar"); router.refresh(); }
   }
@@ -56,7 +56,7 @@ export function TestimonialForm(props: Props) {
         <FormField label="Sıra" name="sort_order" type="number" value={data.sort_order} onChange={(v) => set("sort_order", v)} />
       </div>
       <label className="flex items-center gap-2 text-sm text-foreground/70">
-        <input type="checkbox" name="is_active" checked={data.is_active} onChange={(e) => set("is_active", e.target.checked)} /> Aktiv
+        <input type="checkbox" name="is_active" checked={Boolean(data.is_active)} onChange={(e) => set("is_active", e.target.checked)} /> Aktiv
       </label>
 
       {error && <p className="text-sm text-red-400">{error}</p>}

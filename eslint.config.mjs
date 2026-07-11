@@ -12,7 +12,7 @@ const eslintConfig = defineConfig([
       // CSV export link in admin uses <a> for file download, not page navigation
       "@next/next/no-html-link-for-pages": "warn",
       // Supabase row-ları dinamik tipli oldugu üçün mapper/form state-lərində `any` lazımdır
-      "@typescript-eslint/no-explicit-any": "warn",
+      "@typescript-eslint/no-explicit-any": "error",
       "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_", varsIgnorePattern: "^_" }],
     },
   },
@@ -23,6 +23,10 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Generated artifacts
+    "coverage/**",
+    "playwright-report/**",
+    "test-results/**",
   ]),
 ]);
 

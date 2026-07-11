@@ -159,7 +159,7 @@ async function seed() {
   }
 
   console.log("Seeding site_content...");
-  const sc = [
+  const sc: { key: string; az: string; ru?: string; en?: string }[] = [
     { key: "hero_title", az: "Xaricdə Təhsil — Attestatla, İmtahansız", ru: "Учеба за рубежом — аттестат, без экзаменов", en: "Study Abroad — Certificate, Exam-Free" },
     { key: "hero_subtitle", az: "MegaGroup — Xaricdə Təhsil Mərkəzi", ru: "MegaGroup — Центр обучения за рубежом", en: "MegaGroup — Study Abroad Center" },
     { key: "cta_choose_country", az: "Ölkə Seç" },
@@ -180,7 +180,7 @@ async function seed() {
   for (const s of sc) {
     const { error } = await supabase
       .from("site_content")
-      .upsert({ key: s.key, value_az: s.az, value_ru: (s as any).ru ?? s.az, value_en: (s as any).en ?? s.az }, { onConflict: "key" });
+      .upsert({ key: s.key, value_az: s.az, value_ru: s.ru ?? s.az, value_en: s.en ?? s.az }, { onConflict: "key" });
     if (error) console.error(`site_content ${s.key}:`, error.message);
   }
 

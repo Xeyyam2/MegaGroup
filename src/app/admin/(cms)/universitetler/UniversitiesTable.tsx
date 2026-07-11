@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { DeleteUniversityButton } from "./DeleteUniversityButton";
 
-type Uni = {
+export type Uni = {
   id: string;
   slug: string;
   country_slug: string;

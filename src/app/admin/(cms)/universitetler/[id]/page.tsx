@@ -24,7 +24,7 @@ export default async function EditUniversityPage({ params }: { params: Promise<{
   ]);
 
   const feeFields: Record<string, number> = Object.fromEntries(
-    FEE_KEYS.map((k) => [k, (fees as Record<string, any> | null)?.[k] ?? 0]),
+    FEE_KEYS.map((k) => [k, (fees as Record<string, number> | null)?.[k] ?? 0]),
   );
 
   return (

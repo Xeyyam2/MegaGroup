@@ -25,18 +25,18 @@ const EMPTY = {
   qs_visa_difficulty: "medium" as const,
 };
 
-type Props = { mode: "create" } | { mode: "edit"; id: string; initial: Record<string, any> };
+type Props = { mode: "create" } | { mode: "edit"; id: string; initial: Record<string, string | number | boolean> };
 
 export function CountryForm(props: Props) {
   const router = useRouter();
-  const [data, setData] = useState<Record<string, any>>({
+  const [data, setData] = useState<Record<string, string | number | boolean>>({
     ...EMPTY,
     ...(props.mode === "edit" ? props.initial : {}),
   });
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  function set(k: string, v: any) {
+  function set(k: string, v: string | number | boolean) {
     setData((d) => ({ ...d, [k]: v }));
   }
 
@@ -46,7 +46,7 @@ export function CountryForm(props: Props) {
     setError("");
     const fd = new FormData(e.target as HTMLFormElement);
     const res =
-      props.mode === "create" ? await createCountry(fd) : await updateCountry((props as any).id, fd);
+      props.mode === "create" ? await createCountry(fd) : await updateCountry(props.id, fd);
     if ("error" in res && res.error) {
       setError(res.error);
       setLoading(false);
@@ -73,11 +73,11 @@ export function CountryForm(props: Props) {
 
       <div className="flex gap-6">
         <label className="flex items-center gap-2 text-sm text-foreground/70">
-          <input type="checkbox" name="is_active" checked={data.is_active} onChange={(e) => set("is_active", e.target.checked)} />
+          <input type="checkbox" name="is_active" checked={Boolean(data.is_active)} onChange={(e) => set("is_active", e.target.checked)} />
           Aktiv
         </label>
         <label className="flex items-center gap-2 text-sm text-foreground/70">
-          <input type="checkbox" name="is_featured" checked={data.is_featured} onChange={(e) => set("is_featured", e.target.checked)} />
+          <input type="checkbox" name="is_featured" checked={Boolean(data.is_featured)} onChange={(e) => set("is_featured", e.target.checked)} />
           Xüsusi (featured)
         </label>
       </div>
@@ -114,7 +114,7 @@ export function CountryForm(props: Props) {
             <select
               id="qs_visa_difficulty"
               name="qs_visa_difficulty"
-              value={data.qs_visa_difficulty}
+              value={String(data.qs_visa_difficulty)}
               onChange={(e) => set("qs_visa_difficulty", e.target.value)}
               className="mt-1 w-full rounded-lg border border-white/20 bg-white/5 px-4 py-2.5 text-sm focus:border-brand-primary focus:outline-none"
             >

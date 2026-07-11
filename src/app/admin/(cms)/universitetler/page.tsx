@@ -1,6 +1,6 @@
 import { createClient } from "@/lib/supabase/server";
 import Link from "next/link";
-import { UniversitiesTable } from "./UniversitiesTable";
+import { UniversitiesTable, type Uni } from "./UniversitiesTable";
 
 const PAGE_SIZE = 20;
 
@@ -66,7 +66,7 @@ export default async function UniversitiesList({
         </button>
       </form>
 
-      <UniversitiesTable universities={(data ?? []) as any} />
+      <UniversitiesTable universities={(data ?? []) as unknown as Uni[]} />
 
       {totalPages > 1 && (
         <div className="mt-6 flex items-center justify-center gap-2 text-sm">
