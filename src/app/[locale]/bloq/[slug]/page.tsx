@@ -82,9 +82,10 @@ export default async function ArticlePage({ params }: PageProps) {
     "@type": "BlogPosting",
     headline: article.title,
     description: article.metaDescription,
+    keywords: article.keywords.join(", "),
     dateModified: article.updatedAt,
     datePublished: article.updatedAt,
-    author: { "@type": "Organization", name: "MegaGroup" },
+    author: { "@type": "Organization", name: "MegaGroup", url: siteUrl },
     publisher: { "@type": "Organization", name: "MegaGroup", url: siteUrl },
     mainEntityOfPage: `${siteUrl}/az/bloq/${article.slug}`,
   };
@@ -154,6 +155,32 @@ export default async function ArticlePage({ params }: PageProps) {
                       </li>
                     ))}
                   </ul>
+                )}
+                {section.table && (
+                  <div className="mt-4 overflow-x-auto">
+                    <table className="w-full border-collapse text-sm">
+                      <thead>
+                        <tr className="border-b border-white/15">
+                          {section.table.headers.map((h) => (
+                            <th key={h} className="px-4 py-2 text-left font-semibold text-foreground">
+                              {h}
+                            </th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {section.table.rows.map((row, ri) => (
+                          <tr key={ri} className="border-b border-white/5">
+                            {row.map((cell, ci) => (
+                              <td key={ci} className="px-4 py-2 text-foreground/80">
+                                {cell}
+                              </td>
+                            ))}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
                 )}
               </div>
             </ScrollReveal>
