@@ -1,4 +1,5 @@
 import type { Country, Faculty, University, FAQ, Testimonial, SiteContent, Locale } from "@/types";
+import { countries as staticCountries } from "@/data/countries";
 import type { Database } from "@/types/db.generated";
 
 export function pickLocalized(locale: Locale, az: string | null, ru?: string | null, en?: string | null): string {
@@ -19,6 +20,7 @@ export function pickLocalizedArray<T>(
 }
 
 export function mapCountryRow(row: Database["public"]["Tables"]["countries"]["Row"], locale: Locale): Country {
+  const sc = staticCountries.find((c) => c.slug === row.slug);
   return {
     id: row.id,
     slug: row.slug,
@@ -39,9 +41,9 @@ export function mapCountryRow(row: Database["public"]["Tables"]["countries"]["Ro
       universities: row.qs_universities ?? 0,
       avg_tuition_usd: row.qs_avg_tuition_usd ?? 0,
       language: row.qs_language ?? "",
-      language_az: row.qs_language ?? "",
-      language_ru: row.qs_language ?? "",
-      language_en: row.qs_language ?? "",
+      language_az: sc?.quick_stats.language_az ?? row.qs_language ?? "",
+      language_ru: sc?.quick_stats.language_ru ?? row.qs_language ?? "",
+      language_en: sc?.quick_stats.language_en ?? row.qs_language ?? "",
       visa_difficulty: row.qs_visa_difficulty ?? "medium",
     },
     advantages: pickLocalizedArray(locale, row.advantages_az, row.advantages_ru, row.advantages_en),
