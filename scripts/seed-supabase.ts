@@ -162,9 +162,9 @@ async function seed() {
   const sc: { key: string; az: string; ru?: string; en?: string }[] = [
     { key: "hero_title", az: "Xaricdə Təhsil — Attestatla, İmtahansız", ru: "Учеба за рубежом — аттестат, без экзаменов", en: "Study Abroad — Certificate, Exam-Free" },
     { key: "hero_subtitle", az: "MegaGroup — Xaricdə Təhsil Mərkəzi", ru: "MegaGroup — Центр обучения за рубежом", en: "MegaGroup — Study Abroad Center" },
-    { key: "cta_choose_country", az: "Ölkə Seç" },
-    { key: "cta_apply", az: "Müraciət Et" },
-    { key: "cta_free_consult", az: "Pulsuz Konsultasiya Al" },
+    { key: "cta_choose_country", az: "Ölkə Seç", ru: "Выбрать страну", en: "Choose Country" },
+    { key: "cta_apply", az: "Müraciət Et", ru: "Подать заявку", en: "Apply Now" },
+    { key: "cta_free_consult", az: "Pulsuz Konsultasiya Al", ru: "Бесплатная консультация", en: "Get Free Consultation" },
     { key: "hero_stat_universities", az: "200" },
     { key: "hero_stat_exams", az: "0" },
     { key: "hero_stat_countries", az: "7" },
@@ -175,7 +175,7 @@ async function seed() {
     { key: "contact_address", az: "Bakı, Azərbaycan" },
     { key: "contact_instagram", az: "https://www.instagram.com/mega_xaricde_tehsil_merkezi/" },
     { key: "contact_tiktok", az: "https://www.tiktok.com/@mega_xaricde_tehsil_merkezi" },
-    { key: "footer_description", az: "Azərbaycanlı tələbələr üçün xaricdə təhsil imkanlarını attestatla, imtahansız təqdim edirik." },
+    { key: "footer_description", az: "Azərbaycanlı tələbələr üçün xaricdə təhsil imkanlarını attestatla, imtahansız təqdim edirik.", ru: "Мы предлагаем азербайджанским студентам обучение за рубежом по аттестату, без экзаменов.", en: "We offer Azerbaijani students study-abroad opportunities by certificate, exam-free." },
   ];
   for (const s of sc) {
     const { error } = await supabase
