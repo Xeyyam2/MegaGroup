@@ -48,3 +48,7 @@ next-env.d.ts
 /test-results
 /playwright/.cache
 /blob-report
+
+# university images (downloaded locally, not in repo)
+public/images/universities/*
+!public/images/universities/.gitkeep

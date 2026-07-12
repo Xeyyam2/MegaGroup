@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import Image from "next/image";
+import { SmartImage } from "@/components/SmartImage";
 import Tilt from "react-parallax-tilt";
 import { useTranslations } from "next-intl";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
@@ -28,13 +28,12 @@ export function UniversityCard({
       )}
     >
       <div className="relative h-40 w-full overflow-hidden">
-        <Image
+        <SmartImage
           src={university.hero_image_url}
           alt={university.name}
           fill
           sizes="(max-width: 768px) 100vw, 33vw"
           className="object-cover"
-          loading="lazy"
         />
       </div>
       <div className="p-5">

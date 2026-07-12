@@ -14,6 +14,7 @@
     "seed": "tsx scripts/seed-supabase.ts",
     "sync:new-countries": "tsx scripts/sync-new-countries.ts",
     "sync:universities": "tsx scripts/sync-universities.ts",
+    "download:images": "tsx scripts/download-university-images.ts",
     "gen:types": "supabase gen types typescript --project-id \"$SUPABASE_PROJECT_ID\" > src/types/db.generated.ts"
   },
   "dependencies": {

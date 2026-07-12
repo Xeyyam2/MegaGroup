@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import { SmartImage } from "@/components/SmartImage";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { CostCalculator } from "@/components/sections/CostCalculator";
@@ -75,7 +75,7 @@ export default async function UniversityPage({ params }: PageProps) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <section className="relative flex min-h-[55vh] items-center justify-center overflow-hidden">
-        <Image src={u.hero_image_url} alt={u.name} fill priority sizes="100vw" className="object-cover opacity-30" />
+        <SmartImage src={u.hero_image_url} alt={u.name} fill priority sizes="100vw" className="object-cover opacity-30" />
         <div className="relative z-10 px-6 py-24 text-center">
           <h1 className="text-balance mt-3 font-heading text-4xl font-extrabold text-foreground sm:text-5xl">{u.name}</h1>
           <p className="mt-2 text-foreground/80">
