@@ -65,7 +65,7 @@ const rawUniversities: RawUniversity[] = [
     city_az: "İstanbul", city_ru: "Стамбул", city_en: "Istanbul",
     website_url: "https://www.istanbul.edu.tr",
     logo_url: "",
-    hero_image_url: "https://images.unsplash.com/photo-1523050854058-8df90fd10ca9?w=1200&q=80",
+    hero_image_url: "/images/universities/istanbul-universiteti.jpg",
     is_featured: false,
     is_active: true,
     highlights: [
@@ -98,7 +98,7 @@ const rawUniversities: RawUniversity[] = [
     city_az: "Moskva", city_ru: "Москва", city_en: "Moscow",
     website_url: "https://www.msu.ru",
     logo_url: "",
-    hero_image_url: "https://images.unsplash.com/photo-1513326738677-b964603b136d?w=1200&q=80",
+    hero_image_url: "/images/universities/moskva-dovlet-universiteti.jpg",
     is_featured: true,
     is_active: true,
     highlights: [
@@ -130,7 +130,7 @@ const rawUniversities: RawUniversity[] = [
     city_az: "Sankt-Peterburq", city_ru: "Санкт-Петербург", city_en: "Saint Petersburg",
     website_url: "https://spbu.ru",
     logo_url: "",
-    hero_image_url: "https://images.unsplash.com/photo-1554992376-8f7161d4a94d?w=1200&q=80",
+    hero_image_url: "/images/universities/sankt-peterburg-universiteti.jpg",
     is_featured: false,
     is_active: true,
     highlights: [
@@ -161,7 +161,7 @@ const rawUniversities: RawUniversity[] = [
     city_az: "Kiyev", city_ru: "Киев", city_en: "Kyiv",
     website_url: "https://kma.edu.ua",
     logo_url: "",
-    hero_image_url: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1200&q=80",
+    hero_image_url: "/images/universities/kiev-tibb-universiteti.jpg",
     is_featured: true,
     is_active: true,
     highlights: [
@@ -195,7 +195,7 @@ const rawUniversities: RawUniversity[] = [
     city_az: "Lvov", city_ru: "Львов", city_en: "Lviv",
     website_url: "https://lnu.edu.ua",
     logo_url: "",
-    hero_image_url: "https://images.unsplash.com/photo-1474181487882-5abf3f0ba6c2?w=1200&q=80",
+    hero_image_url: "https://images.unsplash.com/photo-1566206088916-c11f6a3f4197?w=1200&q=80",
     is_featured: false,
     is_active: true,
     highlights: [
@@ -227,7 +227,7 @@ const rawUniversities: RawUniversity[] = [
     city_az: "Münxen", city_ru: "Мюнхен", city_en: "Munich",
     website_url: "https://www.tum.de",
     logo_url: "",
-    hero_image_url: "https://images.unsplash.com/photo-1519452575417-564c1401ecc0?w=1200&q=80",
+    hero_image_url: "/images/universities/munchen-texniki-universiteti.jpg",
     is_featured: true,
     is_active: true,
     highlights: [
@@ -262,7 +262,7 @@ const rawUniversities: RawUniversity[] = [
     city_az: "Berlin", city_ru: "Берлин", city_en: "Berlin",
     website_url: "https://www.hu-berlin.de",
     logo_url: "",
-    hero_image_url: "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=1200&q=80",
+    hero_image_url: "/images/universities/berlin-universiteti.jpg",
     is_featured: false,
     is_active: true,
     highlights: [
@@ -293,7 +293,7 @@ const rawUniversities: RawUniversity[] = [
     city_az: "Varşava", city_ru: "Варшава", city_en: "Warsaw",
     website_url: "https://wum.edu.pl",
     logo_url: "",
-    hero_image_url: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&q=80",
+    hero_image_url: "/images/universities/varshava-tibb-universiteti.jpg",
     is_featured: true,
     is_active: true,
     highlights: [
@@ -324,7 +324,7 @@ const rawUniversities: RawUniversity[] = [
     city_az: "Krakov", city_ru: "Краков", city_en: "Krakow",
     website_url: "https://www.cm-uj.krakow.pl",
     logo_url: "",
-    hero_image_url: "https://images.unsplash.com/photo-1518563259479-d003c05a6507?w=1200&q=80",
+    hero_image_url: "/images/universities/krakov-tibb-universiteti.jpg",
     is_featured: false,
     is_active: true,
     highlights: [
@@ -355,7 +355,7 @@ const rawUniversities: RawUniversity[] = [
     city_az: "Tbilisi", city_ru: "Тбилиси", city_en: "Tbilisi",
     website_url: "https://tsmu.edu",
     logo_url: "",
-    hero_image_url: "https://images.unsplash.com/photo-1516549655169-df83a0774511?w=1200&q=80",
+    hero_image_url: "/images/universities/tbilisi-dovlet-tibb-universiteti.png",
     is_featured: true,
     is_active: true,
     highlights: [
@@ -394,7 +394,7 @@ const rawUniversities: RawUniversity[] = [
     city_az: "Batumi", city_ru: "Батуми", city_en: "Batumi",
     website_url: "https://bsu.edu.ge",
     logo_url: "",
-    hero_image_url: "https://images.unsplash.com/photo-1515462736193-8e79d81f7ddf?w=1200&q=80",
+    hero_image_url: "/images/universities/batumi-shota-rustaveli-universiteti.jpg",
     is_featured: false,
     is_active: true,
     highlights: [
@@ -432,7 +432,7 @@ const rawUniversities: RawUniversity[] = [
     city_az: "Almatı", city_ru: "Алматы", city_en: "Almaty",
     website_url: "https://www.kaznu.kz",
     logo_url: "",
-    hero_image_url: "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=1200&q=80",
+    hero_image_url: "https://images.unsplash.com/photo-1565148129028-b8bbee5a1f10?w=1200&q=80",
     is_featured: true,
     is_active: true,
     highlights: [
@@ -472,7 +472,7 @@ const rawUniversities: RawUniversity[] = [
     city_az: "Astana", city_ru: "Астана", city_en: "Astana",
     website_url: "https://nu.edu.kz",
     logo_url: "",
-    hero_image_url: "https://images.unsplash.com/photo-1607237138155-edd7ed75b4f6?w=1200&q=80",
+    hero_image_url: "https://images.unsplash.com/photo-1559136055-4a414951a4b1?w=1200&q=80",
     is_featured: false,
     is_active: true,
     highlights: [

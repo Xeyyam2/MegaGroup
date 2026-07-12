@@ -50,5 +50,6 @@ next-env.d.ts
 /blob-report
 
 # university images (downloaded locally, not in repo)
-public/images/universities/*
+# university images now tracked in repo
+# public/images/universities/*
 !public/images/universities/.gitkeep
