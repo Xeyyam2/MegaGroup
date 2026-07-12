@@ -24,7 +24,7 @@ async function fetchCountries(locale: Locale): Promise<Country[]> {
     .order("sort_order");
   if (error) {
     console.warn("[countries] Supabase error, statik fallback:", error.message);
-    return staticCountries.filter((c) => c.is_active);
+    return staticCountries.filter((c) => c.is_active).map((c) => localizeCountry(c, locale));
   }
   return (data ?? []).map((row) => mapCountryRow(row, locale));
 }
@@ -37,7 +37,8 @@ async function fetchCountryBySlug(slug: string, locale: Locale): Promise<Country
   const supabase = createCacheClient();
   const { data, error } = await supabase.from("countries").select("*").eq("is_deleted", false).eq("slug", slug).single();
   if (error) {
-    return staticGetCountryBySlug(slug) ?? null;
+    const sc = staticGetCountryBySlug(slug);
+    return sc ? localizeCountry(sc, locale) : null;
   }
   return data ? mapCountryRow(data, locale) : null;
 }
@@ -55,7 +56,7 @@ async function fetchFeaturedCountries(locale: Locale): Promise<Country[]> {
     .eq("is_featured", true)
     .order("sort_order");
   if (error) {
-    return staticCountries.filter((c) => c.is_active && c.is_featured);
+    return staticCountries.filter((c) => c.is_active && c.is_featured).map((c) => localizeCountry(c, locale));
   }
   return (data ?? []).map((row) => mapCountryRow(row, locale));
 }

@@ -31,6 +31,8 @@ const rawUniversities: RawUniversity[] = [
       "Təhsil haqqı müqayisəli ucuzdur",
       "İngilis dilində bölmələr var",
     ],
+    highlights_ru: ["Прямое поступление по аттестату — без DIM/ÖSYM","Есть медицинский факультет","Кампус на берегу моря — город Гиресун","Активное азербайджанское студенческое сообщество","Сравнительно невысокая плата за обучение","Есть отделения на английском языке"],
+    highlights_en: ["Direct admission by certificate — no DIM/ÖSYM","Medical faculty available","Seaside campus — Giresun city","Active Azerbaijani student community","Comparatively affordable tuition","English-language departments available"],
     faculties: [
       { id: "f1", university_id: "u1", name_az: "Tibb", is_competitive: true, duration_years: 6, language: "Türkçe" },
       { id: "f2", university_id: "u1", name_az: "Stomatologiya", is_competitive: true, duration_years: 5, language: "Türkçe" },
@@ -47,7 +49,13 @@ const rawUniversities: RawUniversity[] = [
       personal_min_usd: 50, personal_max_usd: 120,
     },
     notes: "Tibb fakültəsi üçün attestat ortalaması vacibdir. Müqavilə əsaslı (ödənişli) yerlər daha asandır.",
+    notes_en: "For the medical faculty, the certificate GPA is important. Contract-based (paid) places are easier to get.",
+    notes_ru: "Для медицинского факультета важен средний балл аттестата. Контрактные (платные) места более доступны.",
+    notes_az: "Tibb fakültəsi üçün attestat ortalaması vacibdir. Müqavilə əsaslı (ödənişli) yerlər daha asandır.",
     campus_info: "Giresun şəhəri Karadeniz (Qara dəniz) sahilindədir. Sakit, təhlükəsiz, tələbə dostu bir şəhər. Kampus dənizə yaxındır.",
+    campus_info_en: "Giresun is located on the Black Sea coast. A quiet, safe, student-friendly city. The campus is close to the sea.",
+    campus_info_ru: "Город Гиресун находится на побережье Чёрного моря. Тихий, безопасный, дружелюбный к студентам город. Кампус расположен недалеко от моря.",
+    campus_info_az: "Giresun şəhəri Karadeniz (Qara dəniz) sahilindədir. Sakit, təhlükəsiz, tələbə dostu bir şəhər. Kampus dənizə yaxındır.",
   },
   {
     id: "u2",
@@ -66,6 +74,8 @@ const rawUniversities: RawUniversity[] = [
       "İstanbul — mədəni mərkəz",
       "Güclü akademik reputasiya",
     ],
+    highlights_ru: ["Старейший университет Турции","Широкий выбор специальностей","Стамбул — культурный центр","Сильная академическая репутация"],
+    highlights_en: ["Turkey's oldest university","Wide range of specialties","Istanbul — cultural hub","Strong academic reputation"],
     faculties: [
       { id: "f7", university_id: "u2", name_az: "Hüquq", is_competitive: true, duration_years: 4, language: "Türkçe" },
       { id: "f8", university_id: "u2", name_az: "Tibb", is_competitive: true, duration_years: 6, language: "Türkçe" },
@@ -97,6 +107,8 @@ const rawUniversities: RawUniversity[] = [
       "Tarixi kampus",
       "Beynəlxalq tanınma",
     ],
+    highlights_ru: ["Самый престижный университет России","Сильные медицинские и инженерные программы","Исторический кампус","Международное признание"],
+    highlights_en: ["Russia's most prestigious university","Strong medical and engineering programs","Historic campus","International recognition"],
     faculties: [
       { id: "f10", university_id: "u3", name_az: "Tibb", is_competitive: true, duration_years: 6, language: "Rus" },
       { id: "f11", university_id: "u3", name_az: "İqtisadiyyat", is_competitive: false, duration_years: 4, language: "Rus" },
@@ -127,6 +139,8 @@ const rawUniversities: RawUniversity[] = [
       "Mədəni şəhər",
       "Müasir laboratoriyalar",
     ],
+    highlights_ru: ["Исторический академический центр","Сильные программы языка и литературы","Культурный город","Современные лаборатории"],
+    highlights_en: ["Historic academic center","Strong language and literature programs","Cultural city","Modern laboratories"],
     faculties: [
       { id: "f13", university_id: "u4", name_az: "Filologiya", is_competitive: false, duration_years: 4, language: "Rus" },
       { id: "f14", university_id: "u4", name_az: "Hüquq", is_competitive: true, duration_years: 4, language: "Rus" },
@@ -156,6 +170,8 @@ const rawUniversities: RawUniversity[] = [
       "Klinik təcrübə imkanları",
       "PMQ hazırlığı dəstəyi",
     ],
+    highlights_ru: ["Медицинская программа на английском языке","Диплом, признаваемый в Европе","Возможности клинической практики","Поддержка подготовки к PMQ"],
+    highlights_en: ["Medical program in English","Diploma recognized in Europe","Clinical practice opportunities","PMQ preparation support"],
     faculties: [
       { id: "f15", university_id: "u5", name_az: "Ümumi Tibb (İngilis)", is_competitive: false, duration_years: 6, language: "İngilis" },
       { id: "f16", university_id: "u5", name_az: "Stomatologiya", is_competitive: true, duration_years: 5, language: "İngilis" },
@@ -168,6 +184,8 @@ const rawUniversities: RawUniversity[] = [
       personal_min_usd: 50, personal_max_usd: 120,
     },
     notes: "Yalnız təhlükəsiz regionda yerləşən universitetləri seçin.",
+    notes_en: "Only choose universities in safe regions.",
+    notes_ru: "Выбирайте только университеты в безопасных регионах.",
   },
   {
     id: "u6",
@@ -186,6 +204,8 @@ const rawUniversities: RawUniversity[] = [
       "Geniş ixtisas seçimi",
       "Münasib təhsil haqqı",
     ],
+    highlights_ru: ["Безопасный город в Западной Украине","Европейская архитектура","Широкий выбор специальностей","Приемлемая плата за обучение"],
+    highlights_en: ["Safe city in Western Ukraine","European architecture","Wide range of specialties","Affordable tuition"],
     faculties: [
       { id: "f17", university_id: "u6", name_az: "İqtisadiyyat", is_competitive: false, duration_years: 4, language: "Ukraynaca/İngilis" },
       { id: "f18", university_id: "u6", name_az: "Hüquq", is_competitive: false, duration_years: 4, language: "Ukraynaca" },
@@ -216,6 +236,8 @@ const rawUniversities: RawUniversity[] = [
       "Mühəndislik və texnologiya lideri",
       "Güclü sənaye əlaqələri",
     ],
+    highlights_ru: ["Один из лучших технических университетов Европы","Бесплатное государственное образование","Лидер в инженерии и технологиях","Сильные связи с промышленностью"],
+    highlights_en: ["One of Europe's best technical universities","Free public education","Leader in engineering and technology","Strong industry connections"],
     faculties: [
       { id: "f19", university_id: "u7", name_az: "Mexatronika", is_competitive: true, duration_years: 4, language: "Alman/İngilis" },
       { id: "f20", university_id: "u7", name_az: "İnformatika", is_competitive: true, duration_years: 4, language: "İngilis" },
@@ -229,6 +251,8 @@ const rawUniversities: RawUniversity[] = [
       personal_min_usd: 100, personal_max_usd: 220,
     },
     notes: "Alman dilini bilmək üstünlükdür. Studienkolleg tələb oluna bilər.",
+    notes_en: "Knowledge of German is an advantage. Studienkolleg may be required.",
+    notes_ru: "Знание немецкого языка — преимущество. Может потребоваться Studienkolleg.",
   },
   {
     id: "u8",
@@ -247,6 +271,8 @@ const rawUniversities: RawUniversity[] = [
       "Pulsuz təhsil",
       "Beynəlxalq mühit",
     ],
+    highlights_ru: ["Столичный университет","Широкий выбор гуманитарных и естественных наук","Бесплатное обучение","Международная среда"],
+    highlights_en: ["Capital city university","Wide range of humanities and sciences","Free education","International environment"],
     faculties: [
       { id: "f22", university_id: "u8", name_az: "Fəlsəfə", is_competitive: false, duration_years: 4, language: "Alman" },
       { id: "f23", university_id: "u8", name_az: "Biologiya", is_competitive: false, duration_years: 4, language: "Alman/İngilis" },
@@ -276,6 +302,8 @@ const rawUniversities: RawUniversity[] = [
       "PMQ/USMLE hazırlıq dəstəyi",
       "Müasir kampus və xəstəxanalar",
     ],
+    highlights_ru: ["Медицинская программа на английском языке","Диплом Европейского союза","Поддержка подготовки к PMQ/USMLE","Современный кампус и больницы"],
+    highlights_en: ["Medical program in English","European Union diploma","PMQ/USMLE preparation support","Modern campus and hospitals"],
     faculties: [
       { id: "f24", university_id: "u9", name_az: "Ümumi Tibb (İngilis)", is_competitive: false, duration_years: 6, language: "İngilis" },
       { id: "f25", university_id: "u9", name_az: "Stomatologiya (İngilis)", is_competitive: true, duration_years: 5, language: "İngilis" },
@@ -305,6 +333,8 @@ const rawUniversities: RawUniversity[] = [
       "Münasib təhsil haqqı",
       "EU diplomu",
     ],
+    highlights_ru: ["Исторический медицинский центр","Программы на английском языке","Приемлемая плата за обучение","Диплом ЕС"],
+    highlights_en: ["Historic medical center","English-language programs","Affordable tuition","EU diploma"],
     faculties: [
       { id: "f26", university_id: "u10", name_az: "Ümumi Tibb (İngilis)", is_competitive: false, duration_years: 6, language: "İngilis" },
       { id: "f27", university_id: "u10", name_az: "Əczaçılıq", is_competitive: false, duration_years: 5, language: "İngilis" },
@@ -335,6 +365,8 @@ const rawUniversities: RawUniversity[] = [
       "Bakıya ən yaxın xarici tibb təhsili mərkəzlərindən biri",
       "Klinik təcrübə imkanları geniş",
     ],
+    highlights_ru: ["Прямое поступление по аттестату — экзамены не требуются","Медицинский университет из списка ВОЗ/FAIMER","Полностью англоязычная медицинская программа","Один из ближайших к Баку зарубежных медицинских центров","Широкие возможности клинической практики"],
+    highlights_en: ["Direct admission by certificate — no exam required","WHO/FAIMER-listed medical university","Fully English-language medical program","One of the closest foreign medical education centers to Baku","Extensive clinical practice opportunities"],
     faculties: [
       { id: "f28", university_id: "u11", name_az: "Ümumi Tibb (İngilis)", is_competitive: true, duration_years: 6, language: "İngilis" },
       { id: "f29", university_id: "u11", name_az: "Stomatologiya", is_competitive: true, duration_years: 5, language: "İngilis" },
@@ -348,7 +380,11 @@ const rawUniversities: RawUniversity[] = [
       personal_min_usd: 50, personal_max_usd: 130,
     },
     notes: "Tibb fakültəsi rəqabətlidir; ingilis dili sübutu (ya da hazırlıq ili) tövsiyə olunur.",
+    notes_en: "The medical faculty is competitive; English language proof (or a preparatory year) is recommended.",
+    notes_ru: "Медицинский факультет конкурсный; рекомендуется подтверждение английского языка (или подготовительный год).",
     campus_info: "Tbilisi — Azərbaycana ən yaxın böyük şəhərlərdən biri, tarixi mərkəz və müasir tələbə həyatı bir arada.",
+    campus_info_en: "Tbilisi is one of the closest major cities to Azerbaijan, combining a historic center with modern student life.",
+    campus_info_ru: "Тбилиси — один из ближайших к Азербайджану крупных городов, исторический центр и современная студенческая жизнь в одном месте.",
   },
   {
     id: "u12",
@@ -367,6 +403,8 @@ const rawUniversities: RawUniversity[] = [
       "Əlçatan təhsil haqqı",
       "İngilis dilində beynəlxalq proqramlar",
     ],
+    highlights_ru: ["Поступление по аттестату — централизованный экзамен не требуется","Кампус на берегу Чёрного моря — Батуми","Доступная плата за обучение","Международные программы на английском языке"],
+    highlights_en: ["Admission by certificate — no centralized exam required","Black Sea coast campus — Batumi","Affordable tuition","International programs in English"],
     faculties: [
       { id: "f31", university_id: "u12", name_az: "Mühəndislik və Texnologiya", is_competitive: false, duration_years: 4, language: "İngilis/Gürcü" },
       { id: "f32", university_id: "u12", name_az: "İqtisadiyyat və Biznes", is_competitive: false, duration_years: 4, language: "İngilis" },
@@ -380,7 +418,11 @@ const rawUniversities: RawUniversity[] = [
       personal_min_usd: 45, personal_max_usd: 110,
     },
     notes: "Turizm və biznes ixtisasları üçün əlverişli seçimdir; sənədlər sadədir.",
+    notes_en: "A suitable choice for tourism and business specialties; simple document processing.",
+    notes_ru: "Подходящий выбор для специальностей в сфере туризма и бизнеса; оформление документов простое.",
     campus_info: "Batumi — Qara dəniz sahilində turizm mərkəzi, sakit və təhlükəsiz tələbə şəhəri.",
+    campus_info_en: "Batumi is a tourist center on the Black Sea coast, a quiet and safe student city.",
+    campus_info_ru: "Батуми — туристический центр на побережье Чёрного моря, тихий и безопасный студенческий город.",
   },
   {
     id: "u13",
@@ -400,6 +442,8 @@ const rawUniversities: RawUniversity[] = [
       "Almatı — mədəni və biznes mərkəzi",
       "Geniş ixtisas seçimi və elmi-tədqiqat imkanları",
     ],
+    highlights_ru: ["Прямое поступление по аттестату — централизованный экзамен не требуется","Один из самых престижных университетов Центральной Азии","Международные программы на английском языке","Алматы — культурный и деловой центр","Широкий выбор специальностей и научно-исследовательские возможности"],
+    highlights_en: ["Direct admission by certificate — no centralized exam required","One of Central Asia's most prestigious universities","International programs in English","Almaty — cultural and business center","Wide range of specialties and research opportunities"],
     faculties: [
       { id: "f34", university_id: "u13", name_az: "Mühəndislik və IT", is_competitive: false, duration_years: 4, language: "İngilis/Rus" },
       { id: "f35", university_id: "u13", name_az: "Beynəlxalq Münasibətlər", is_competitive: false, duration_years: 4, language: "İngilis" },
@@ -414,7 +458,11 @@ const rawUniversities: RawUniversity[] = [
       personal_min_usd: 50, personal_max_usd: 120,
     },
     notes: "Beynəlxalq tələbələr üçün ingilis dilində proqramlar hazırlıq kursu ilə birlikdə təklif olunur.",
+    notes_en: "For international students, English-language programs are offered together with a preparatory course.",
+    notes_ru: "Для иностранных студентов программы на английском языке предлагаются вместе с подготовительным курсом.",
     campus_info: "Almatı — Qazaxıstanın ən böyük şəhəri, dağ mənzərəli müasir kampus və fəal beynəlxalq tələbə icması.",
+    campus_info_en: "Almaty is Kazakhstan's largest city, a modern campus with mountain views and an active international student community.",
+    campus_info_ru: "Алматы — крупнейший город Казахстана, современный кампус с видом на горы и активное международное студенческое сообщество.",
   },
   {
     id: "u14",
@@ -433,6 +481,8 @@ const rawUniversities: RawUniversity[] = [
       "Müasir tədqiqat mərkəzləri və laboratoriyalar",
       "Astana — sürətlə inkişaf edən paytaxt şəhəri",
     ],
+    highlights_ru: ["Полностью англоязычное обучение — ведущий университет Казахстана","Совместные программы с международными университетами-партнёрами","Современные исследовательские центры и лаборатории","Астана — быстро развивающаяся столица"],
+    highlights_en: ["Fully English-language education — Kazakhstan's leading university","Joint programs with international partner universities","Modern research centers and laboratories","Astana — rapidly developing capital"],
     faculties: [
       { id: "f38", university_id: "u14", name_az: "Mühəndislik", is_competitive: true, duration_years: 4, language: "İngilis" },
       { id: "f39", university_id: "u14", name_az: "Elm və Texnologiya", is_competitive: true, duration_years: 4, language: "İngilis" },

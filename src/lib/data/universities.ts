@@ -30,7 +30,7 @@ async function fetchUniversitiesByCountry(
     .order("name_az");
   if (error) {
     console.warn("[universities] Supabase error, statik fallback:", error.message);
-    return staticByCountry(countrySlug);
+    return staticByCountry(countrySlug).map((u) => localizeUniversity(u, locale));
   }
   if (!unis?.length) return [];
   const slugs = unis.map((u) => u.slug);
@@ -59,7 +59,7 @@ async function fetchUniversityBySlug(slug: string, locale: Locale): Promise<Univ
   const supabase = createCacheClient();
   const { data: uni, error } = await supabase.from("universities").select("*").eq("is_deleted", false).eq("slug", slug).single();
   if (error) {
-    return staticBySlug(slug) ?? null;
+    const su = staticBySlug(slug); return su ? localizeUniversity(su, locale) : null;
   }
   if (!uni) return null;
   const { data: faculties } = await supabase
@@ -91,7 +91,7 @@ async function fetchFeaturedUniversity(countrySlug: string, locale: Locale): Pro
     .eq("is_active", true)
     .single();
   if (error || !uni) {
-    return staticFeatured(countrySlug) ?? null;
+    const sf = staticFeatured(countrySlug); return sf ? localizeUniversity(sf, locale) : null;
   }
   const { data: faculties } = await supabase
     .from("faculties")
@@ -133,7 +133,7 @@ async function fetchAllUniversities(locale: Locale): Promise<University[]> {
     .order("country_slug")
     .order("name_az");
   if (error || !unis?.length) {
-    return staticUniversities;
+    return staticUniversities.map((u) => localizeUniversity(u, locale));
   }
   const slugs = unis.map((u) => u.slug);
   const { data: faculties } = await supabase
