@@ -97,9 +97,10 @@ describe("CostCalculator", () => {
     const uniATotal = 573;
     expect(screen.getByText("$" + uniATotal)).toBeInTheDocument();
 
-    // Change to University B
-    const select = screen.getByRole("combobox");
-    fireEvent.change(select, { target: { value: "uni-b" } });
+    // Change to University B — the university select is the second combobox
+    const selects = screen.getAllByRole("combobox");
+    const uniSelect = selects[selects.length - 1];
+    fireEvent.change(uniSelect, { target: { value: "uni-b" } });
 
     // University B: tuition=round((2000+5000)/2/9)=round(3500/9)=389, dorm=150, food=200, transport=45, personal=120
     // total_monthly = 389+150+200+45+120 = 904

@@ -14,7 +14,7 @@ import { CTASection } from "@/components/sections/CTASection";
 import { FadeInUp } from "@/components/motion/FadeInUp";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
 import { getCountries } from "@/lib/data/countries";
-import { getUniversitiesByCountry } from "@/lib/data/universities";
+import { getAllUniversities } from "@/lib/data/universities";
 import { getTestimonials } from "@/lib/data/testimonials";
 import { getGeneralFAQs } from "@/lib/data/faqs";
 import { getSiteContentMap } from "@/lib/data/site-content";
@@ -22,6 +22,7 @@ import { ARTICLES } from "@/data/articles";
 import { siteUrl } from "@/lib/site";
 import { getCountrySeo } from "@/lib/seo";
 import type { Locale } from "@/i18n/routing";
+import type { Country } from "@/types";
 
 export const revalidate = 3600;
 
@@ -78,13 +79,13 @@ function SectionSkeleton() {
 
 async function UniversitiesSection({
   locale,
-  countrySlug,
+  countries,
 }: {
   locale: Locale;
-  countrySlug: string;
+  countries: Country[];
 }) {
-  const universities = await getUniversitiesByCountry(countrySlug, locale);
-  return <CostCalculator universities={universities} />;
+  const universities = await getAllUniversities(locale);
+  return <CostCalculator universities={universities} countries={countries} />;
 }
 
 async function StoriesSection({ locale }: { locale: Locale }) {
@@ -123,7 +124,6 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
 
   const countries = await getCountries(locale);
   const content = await getSiteContentMap(locale);
-  const firstCountrySlug = countries[0]?.slug ?? "turkiye";
 
   const heroStats = content.hero_stat_universities
     ? [
@@ -199,9 +199,9 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
         </ScrollReveal>
         <div className="mt-8">
           <ScrollReveal direction="scale">
-            <SectionErrorBoundary>
+                <SectionErrorBoundary>
               <Suspense fallback={<SectionSkeleton />}>
-                <UniversitiesSection locale={locale} countrySlug={firstCountrySlug} />
+                <UniversitiesSection locale={locale} countries={countries} />
               </Suspense>
             </SectionErrorBoundary>
           </ScrollReveal>

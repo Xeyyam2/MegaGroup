@@ -48,7 +48,7 @@ export default async function CalculatorPage({
       </section>
 
       <section className="mx-auto max-w-7xl px-6 pb-16">
-        <CostCalculator universities={universities} />
+        <CostCalculator universities={universities} countries={countries} />
       </section>
 
       <CTASection />

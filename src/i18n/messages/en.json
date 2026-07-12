@@ -55,6 +55,7 @@
     "officialSite": "Official site"
   },
   "calc": {
+    "country": "Country",
     "university": "University",
     "duration": "Duration",
     "tuition": "Tuition",
