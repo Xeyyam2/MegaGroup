@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef, useCallback } from "react";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { Menu, X, ChevronDown } from "lucide-react";
@@ -17,6 +17,10 @@ function countryName(slug: string, locale: Locale): string {
 export function Header() {
   const [open, setOpen] = useState(false);
   const [studyOpen, setStudyOpen] = useState(false);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const openMenu = useCallback(() => { if (closeTimer.current) clearTimeout(closeTimer.current); setStudyOpen(true); }, []);
+  const closeMenu = useCallback(() => { closeTimer.current = setTimeout(() => setStudyOpen(false), 300); }, []);
+  const cancelClose = useCallback(() => { if (closeTimer.current) clearTimeout(closeTimer.current); }, []);
   const locale = useLocale() as Locale;
   const t = useTranslations("nav");
 
@@ -35,7 +39,7 @@ export function Header() {
         </Link>
 
         {/* MERKEZDE menular (desktop) */}
-        <nav className="hidden items-center gap-6 justify-self-center md:flex" onMouseLeave={() => setStudyOpen(false)}>
+        <nav className="hidden items-center gap-6 justify-self-center md:flex" onMouseLeave={closeMenu}>
           <Link
             href={`/${locale}`}
             className="text-sm font-medium text-foreground/80 transition-colors hover:text-brand-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary"
@@ -44,7 +48,7 @@ export function Header() {
           </Link>
 
           {/* Xaricdə Təhsil — submenu ilə */}
-          <div className="relative" onMouseEnter={() => setStudyOpen(true)}>
+          <div className="relative" onMouseEnter={openMenu}>
             <Link
               href={`/${locale}/xaricde-tehsil`}
               className="inline-flex items-center gap-1 text-sm font-medium text-foreground/80 transition-colors hover:text-brand-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary"
@@ -53,7 +57,7 @@ export function Header() {
               <ChevronDown size={14} className={cn("transition-transform", studyOpen && "rotate-180")} />
             </Link>
             {studyOpen && (
-              <div className="glass absolute left-1/2 top-full z-50 mt-1 w-48 -translate-x-1/2 rounded-xl border border-white/20 p-1 shadow-xl">
+              <div onMouseEnter={cancelClose} onMouseLeave={closeMenu} className="glass absolute left-1/2 top-full z-50 mt-1 w-48 -translate-x-1/2 rounded-xl border border-white/20 p-1 shadow-xl">
                 {COUNTRY_SLUGS.map((slug) => (
                   <Link
                     key={slug}

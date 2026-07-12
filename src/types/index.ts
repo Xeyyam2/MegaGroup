@@ -23,6 +23,9 @@ export interface Country {
     universities: number;
     avg_tuition_usd: number;
     language: string;
+    language_az: string;
+    language_ru: string;
+    language_en: string;
     visa_difficulty: "easy" | "medium" | "hard";
   };
   advantages: string[];
@@ -30,8 +33,17 @@ export interface Country {
   advantages_ru: string[];
   advantages_en: string[];
   warning_banner?: string;
+  warning_banner_az?: string;
+  warning_banner_ru?: string;
+  warning_banner_en?: string;
   documents_required: string[];
+  documents_required_az: string[];
+  documents_required_ru: string[];
+  documents_required_en: string[];
   application_steps: { step: number; title: string; description: string }[];
+  application_steps_az: { step: number; title: string; description: string }[];
+  application_steps_ru: { step: number; title: string; description: string }[];
+  application_steps_en: { step: number; title: string; description: string }[];
 }
 
 export interface Faculty {

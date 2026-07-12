@@ -5,6 +5,7 @@ import { isSupabaseConfigured } from "./config";
 import {
   countries as staticCountries,
   getCountryBySlug as staticGetCountryBySlug,
+  localizeCountry,
 } from "@/data/countries";
 import type { Country, Locale } from "@/types";
 
@@ -12,7 +13,7 @@ const REVALIDATE = 300; // 5 dəqiqə; admin update-də revalidateTag dərhal ye
 
 async function fetchCountries(locale: Locale): Promise<Country[]> {
   if (!isSupabaseConfigured()) {
-    return staticCountries.filter((c) => c.is_active);
+    return staticCountries.filter((c) => c.is_active).map((c) => localizeCountry(c, locale));
   }
   const supabase = createCacheClient();
   const { data, error } = await supabase
@@ -30,7 +31,8 @@ async function fetchCountries(locale: Locale): Promise<Country[]> {
 
 async function fetchCountryBySlug(slug: string, locale: Locale): Promise<Country | null> {
   if (!isSupabaseConfigured()) {
-    return staticGetCountryBySlug(slug) ?? null;
+    const sc = staticGetCountryBySlug(slug);
+    return sc ? localizeCountry(sc, locale) : null;
   }
   const supabase = createCacheClient();
   const { data, error } = await supabase.from("countries").select("*").eq("is_deleted", false).eq("slug", slug).single();
@@ -42,7 +44,7 @@ async function fetchCountryBySlug(slug: string, locale: Locale): Promise<Country
 
 async function fetchFeaturedCountries(locale: Locale): Promise<Country[]> {
   if (!isSupabaseConfigured()) {
-    return staticCountries.filter((c) => c.is_active && c.is_featured);
+    return staticCountries.filter((c) => c.is_active && c.is_featured).map((c) => localizeCountry(c, locale));
   }
   const supabase = createCacheClient();
   const { data, error } = await supabase

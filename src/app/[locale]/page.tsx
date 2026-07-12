@@ -177,7 +177,7 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
                         : locale === "ru"
                           ? "Бесплатно"
                           : "Free"
-                      : `${c.quick_stats.avg_tuition_usd}/il`}
+                      : `${c.quick_stats.avg_tuition_usd}` + (locale === "az" ? "/il" : locale === "ru" ? "/год" : "/yr")}
                   </span>
                 </div>
                 <span className="mt-4 inline-block text-sm font-semibold text-brand-primary">

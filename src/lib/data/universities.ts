@@ -7,6 +7,7 @@ import {
   getUniversitiesByCountry as staticByCountry,
   getUniversityBySlug as staticBySlug,
   getFeaturedUniversity as staticFeatured,
+  localizeUniversity,
 } from "@/data/universities";
 import type { University, Locale } from "@/types";
 
@@ -17,7 +18,7 @@ async function fetchUniversitiesByCountry(
   locale: Locale,
 ): Promise<University[]> {
   if (!isSupabaseConfigured()) {
-    return staticByCountry(countrySlug);
+    return staticByCountry(countrySlug).map((u) => localizeUniversity(u, locale));
   }
   const supabase = createCacheClient();
   const { data: unis, error } = await supabase
@@ -53,7 +54,7 @@ async function fetchUniversitiesByCountry(
 
 async function fetchUniversityBySlug(slug: string, locale: Locale): Promise<University | null> {
   if (!isSupabaseConfigured()) {
-    return staticBySlug(slug) ?? null;
+    const su = staticBySlug(slug); return su ? localizeUniversity(su, locale) : null;
   }
   const supabase = createCacheClient();
   const { data: uni, error } = await supabase.from("universities").select("*").eq("is_deleted", false).eq("slug", slug).single();
@@ -78,7 +79,7 @@ async function fetchUniversityBySlug(slug: string, locale: Locale): Promise<Univ
 
 async function fetchFeaturedUniversity(countrySlug: string, locale: Locale): Promise<University | null> {
   if (!isSupabaseConfigured()) {
-    return staticFeatured(countrySlug) ?? null;
+    const sf = staticFeatured(countrySlug); return sf ? localizeUniversity(sf, locale) : null;
   }
   const supabase = createCacheClient();
   const { data: uni, error } = await supabase
@@ -121,7 +122,7 @@ async function fetchAllUniversitySlugs(): Promise<{ slug: string; country_slug: 
 
 async function fetchAllUniversities(locale: Locale): Promise<University[]> {
   if (!isSupabaseConfigured()) {
-    return staticUniversities;
+    return staticUniversities.map((u) => localizeUniversity(u, locale));
   }
   const supabase = createCacheClient();
   const { data: unis, error } = await supabase

@@ -1,12 +1,15 @@
-import type { University, Faculty } from "@/types";
+import type { University, Faculty, Locale } from "@/types";
 
-type RawFaculty = Omit<Faculty, "university_slug" | "name" | "name_ru" | "name_en" | "sort_order">;
+type RawFaculty = Omit<Faculty, "university_slug" | "name" | "name_ru" | "name_en" | "sort_order"> & {
+  name_ru?: string;
+  name_en?: string;
+};
 type RawUniversity = Omit<
   University,
   | "name" | "city"
   | "highlights_az" | "highlights_ru" | "highlights_en"
   | "faculties"
-> & { faculties: RawFaculty[] };
+> & { faculties: RawFaculty[]; highlights_ru?: string[]; highlights_en?: string[]; notes_az?: string; notes_ru?: string; notes_en?: string; campus_info_az?: string; campus_info_ru?: string; campus_info_en?: string; };
 
 const rawUniversities: RawUniversity[] = [
   {
@@ -452,14 +455,20 @@ export const universities: University[] = rawUniversities.map((u) => ({
   name: u.name_az,
   city: u.city_az,
   highlights_az: u.highlights,
-  highlights_ru: u.highlights,
-  highlights_en: u.highlights,
+  highlights_ru: u.highlights_ru ?? u.highlights,
+  highlights_en: u.highlights_en ?? u.highlights,
+  notes_az: u.notes_az ?? u.notes,
+  notes_ru: u.notes_ru,
+  notes_en: u.notes_en,
+  campus_info_az: u.campus_info_az ?? u.campus_info,
+  campus_info_ru: u.campus_info_ru,
+  campus_info_en: u.campus_info_en,
   faculties: u.faculties.map((f, i) => ({
     ...f,
     university_slug: u.slug,
     name: f.name_az,
-    name_ru: f.name_az,
-    name_en: f.name_az,
+    name_ru: f.name_ru ?? f.name_az,
+    name_en: f.name_en ?? f.name_az,
     sort_order: i,
   })),
 }));
@@ -474,5 +483,25 @@ export function getUniversitiesByCountry(countrySlug: string): University[] {
 
 export function getFeaturedUniversity(countrySlug: string): University | undefined {
   return universities.find((u) => u.country_slug === countrySlug && u.is_featured && u.is_active);
+}
+
+/** Locale-e gore statik universiteti lokallasdirir. */
+export function localizeUniversity(u: University, locale: Locale): University {
+  const pick = <T>(az: T, ru?: T | null, en?: T | null): T =>
+    locale === "ru" && ru ? ru : locale === "en" && en ? en : az;
+  const pickArr = <T>(az: T[], ru?: T[] | null, en?: T[] | null): T[] =>
+    locale === "ru" && ru && ru.length ? ru : locale === "en" && en && en.length ? en : az;
+  return {
+    ...u,
+    name: pick(u.name_az, u.name_ru, u.name_en),
+    city: pick(u.city_az, u.city_ru, u.city_en),
+    highlights: pickArr(u.highlights_az, u.highlights_ru, u.highlights_en),
+    notes: pick(u.notes_az, u.notes_ru, u.notes_en) || undefined,
+    campus_info: pick(u.campus_info_az, u.campus_info_ru, u.campus_info_en) || undefined,
+    faculties: u.faculties.map((f) => ({
+      ...f,
+      name: pick(f.name_az, f.name_ru, f.name_en),
+    })),
+  };
 }
 
