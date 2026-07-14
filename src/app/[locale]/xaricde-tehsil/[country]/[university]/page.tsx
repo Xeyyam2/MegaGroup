@@ -16,6 +16,7 @@ import { universities as staticUniversities } from "@/data/universities";
 import { siteUrl } from "@/lib/site";
 
 export const revalidate = 3600;
+export const dynamic = "force-static";
 
 interface PageProps {
   params: Promise<{ locale: string; country: string; university: string }>;
@@ -32,15 +33,36 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const locale = rawLocale as Locale;
   const u = await getUniversityBySlug(university, locale);
   if (!u) return { title: locale === "az" ? "Tapılmadı" : "Not found" };
+  const titleSuffix =
+    locale === "az" ? "Attestatla Qəbul" : locale === "ru" ? "Поступление" : "Admission";
+  const descriptions = {
+    az: `${u.name} (${u.city}) — attestatla, imtahansız qəbul. Fakültələr, təhsil haqqı, qəbul şərtləri və xərclər. MegaGroup — Xaricdə Təhsil Mərkəzi.`,
+    ru: `${u.name} (${u.city}) — поступление по аттестату, без экзаменов. Факультеты, стоимость, условия поступления. MegaGroup.`,
+    en: `${u.name} (${u.city}) — certificate-based admission, exam-free. Faculties, tuition, requirements. MegaGroup — Study Abroad Center.`,
+  };
+  const path = `xaricde-tehsil/${u.country_slug}/${u.slug}`;
   return {
-    title: `${u.name} — ${locale === "az" ? "Attestatla Qəbul" : locale === "ru" ? "Поступление" : "Admission"}`,
-    description: `${u.name} (${u.city}) — MegaGroup — Xaricdə Təhsil Mərkəzi.`,
-    alternates: { canonical: `${siteUrl}/${locale}/xaricde-tehsil/${u.country_slug}/${u.slug}` },
+    title: `${u.name} — ${titleSuffix}`,
+    description: descriptions[locale],
+    alternates: {
+      canonical: `${siteUrl}/${locale}/${path}`,
+      languages: {
+        az: `${siteUrl}/az/${path}`,
+        ru: `${siteUrl}/ru/${path}`,
+        en: `${siteUrl}/en/${path}`,
+        "x-default": `${siteUrl}/az/${path}`,
+      },
+    },
     openGraph: {
       title: `${u.name} | MegaGroup`,
-      description: `${u.city}`,
+      description: descriptions[locale],
       images: [{ url: u.hero_image_url, width: 1200, height: 630 }],
+      type: "website",
+      locale: locale === "az" ? "az_AZ" : locale === "ru" ? "ru_RU" : "en_US",
+      siteName: "MegaGroup",
+      url: `${siteUrl}/${locale}/${path}`,
     },
+    twitter: { card: "summary_large_image", title: `${u.name} | MegaGroup`, description: descriptions[locale] },
   };
 }
 
@@ -70,9 +92,20 @@ export default async function UniversityPage({ params }: PageProps) {
     },
   };
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Xaricdə Təhsil", item: `${siteUrl}/${locale}/xaricde-tehsil` },
+      { "@type": "ListItem", position: 2, name: c.name, item: `${siteUrl}/${locale}/xaricde-tehsil/${c.slug}` },
+      { "@type": "ListItem", position: 3, name: u.name, item: `${siteUrl}/${locale}/xaricde-tehsil/${c.slug}/${u.slug}` },
+    ],
+  };
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
 
       <section className="relative flex min-h-[55vh] items-center justify-center overflow-hidden">
         <SmartImage src={u.hero_image_url} alt={u.name} fill priority sizes="100vw" className="object-cover opacity-30" />

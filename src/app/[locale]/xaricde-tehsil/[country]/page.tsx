@@ -19,6 +19,7 @@ import { siteUrl } from "@/lib/site";
 import { getCountrySeo } from "@/lib/seo";
 
 export const revalidate = 3600;
+export const dynamic = "force-static";
 
 interface PageProps {
   params: Promise<{ locale: string; country: string }>;

@@ -8,6 +8,7 @@ import { siteUrl } from "@/lib/site";
 import type { Locale } from "@/i18n/routing";
 
 export const revalidate = 3600;
+export const dynamic = "force-static";
 
 export async function generateMetadata({
   params,

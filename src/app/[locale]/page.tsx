@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Suspense } from "react";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { SectionErrorBoundary } from "@/components/SectionErrorBoundary";
@@ -25,6 +24,7 @@ import type { Locale } from "@/i18n/routing";
 import type { Country } from "@/types";
 
 export const revalidate = 3600;
+export const dynamic = "force-static";
 
 export async function generateMetadata({
   params,
@@ -73,10 +73,6 @@ export async function generateMetadata({
   };
 }
 
-function SectionSkeleton() {
-  return <div className="glass h-48 animate-pulse rounded-2xl" aria-hidden />;
-}
-
 async function UniversitiesSection({
   locale,
   countries,
@@ -115,33 +111,17 @@ async function FaqSectionWithData({ locale }: { locale: Locale }) {
   );
 }
 
-export default async function Home({ params }: { params: Promise<{ locale: Locale }> }) {
-  const locale = (await params).locale as Locale;
-  setRequestLocale(locale);
+// Məzmunu asılı olan bölmələr ayrı async komponentdə fetch olunur ki,
+// Hero + kritik HTML dərhal stream olunsun (SEO: Googlebot ilk crawl-da
+// h1 və əsas məzmunu görür; data yalnız alt Suspense sərhədlərində gəlir).
+async function HomeBody({ locale }: { locale: Locale }) {
   const t = await getTranslations({ locale, namespace: "home" });
   const tCta = await getTranslations({ locale, namespace: "cta" });
-  const tHero = await getTranslations({ locale, namespace: "hero" });
-
   const countries = await getCountries(locale);
   const content = await getSiteContentMap(locale);
 
-  const heroStats = content.hero_stat_universities
-    ? [
-        { end: Number(content.hero_stat_universities) || 200, suffix: "+", label: tHero("statUniversities") },
-        { end: Number(content.hero_stat_exams) || 0, suffix: "", label: tHero("statExams") },
-        { end: Number(content.hero_stat_countries) || 7, suffix: "", label: tHero("statCountries") },
-        { end: Number(content.hero_stat_students) || 1000, suffix: "+", label: tHero("statStudents") },
-      ]
-    : undefined;
-
   return (
     <>
-      <HeroSection stats={heroStats} title={content.hero_title} subtitle={content.hero_subtitle} />
-
-      <SectionErrorBoundary>
-        <StudyJourneyLazy />
-      </SectionErrorBoundary>
-
       <section id="olkeler" className="mx-auto max-w-7xl px-6 py-16">
         <ScrollReveal className="text-center">
           <h2 className="text-balance font-heading text-3xl font-bold text-foreground">
@@ -200,9 +180,7 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
         <div className="mt-8">
           <ScrollReveal direction="scale">
                 <SectionErrorBoundary>
-              <Suspense fallback={<SectionSkeleton />}>
-                <UniversitiesSection locale={locale} countries={countries} />
-              </Suspense>
+              <UniversitiesSection locale={locale} countries={countries} />
             </SectionErrorBoundary>
           </ScrollReveal>
         </div>
@@ -217,9 +195,7 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
         </ScrollReveal>
         <div className="mt-8">
           <SectionErrorBoundary>
-            <Suspense fallback={<SectionSkeleton />}>
-              <StoriesSection locale={locale} />
-            </Suspense>
+            <StoriesSection locale={locale} />
           </SectionErrorBoundary>
         </div>
       </section>
@@ -263,14 +239,37 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
         </ScrollReveal>
         <div className="mt-8">
           <SectionErrorBoundary>
-            <Suspense fallback={<SectionSkeleton />}>
-              <FaqSectionWithData locale={locale} />
-            </Suspense>
+            <FaqSectionWithData locale={locale} />
           </SectionErrorBoundary>
         </div>
       </section>
 
       <CTASection whatsappUrl={content.contact_whatsapp} />
+    </>
+  );
+}
+
+export default async function Home({ params }: { params: Promise<{ locale: Locale }> }) {
+  const locale = (await params).locale as Locale;
+  setRequestLocale(locale);
+
+  // Hero dərhal render olunur (öz tərcüməsi + default statistikaları var),
+  // beləcə h1 və əsas məzmun ilk HTML stream-ə düşür — data fetch-lər
+  // onu bloklamır. Bu, SEO üçün kritikdir (Googlebot skelet deyil, məzmunu görür).
+  return (
+    <>
+      <HeroSection />
+
+      <SectionErrorBoundary>
+        <StudyJourneyLazy />
+      </SectionErrorBoundary>
+
+      {/*
+        force-static (SSG) istifadə etdiyimiz üçün Suspense stream-i lazım deyil —
+        bütün data build zamanı resolve olunur və məzmun birbaşa statik HTML-ə
+        düşür (gizli S:0 seqmentləri YOXDUR → Googlebot hər şeyi dərhal görür).
+      */}
+      <HomeBody locale={locale} />
     </>
   );
 }

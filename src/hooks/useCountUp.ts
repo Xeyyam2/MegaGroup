@@ -14,7 +14,9 @@ export function useCountUp({
   start = 0,
   startOnView = true,
 }: UseCountUpOptions) {
-  const [count, setCount] = useState(start);
+  // `end` ilə işə düşür — SSR / no-JS / animasiyadan əvvəl real rəqəm
+  // görünür (SEO üçün kritik: Google ilk crawl-da "0" deyil, real ədədi oxuyur).
+  const [count, setCount] = useState(end);
   const ref = useRef<HTMLSpanElement>(null);
   const started = useRef(false);
 
@@ -25,6 +27,8 @@ export function useCountUp({
     const animate = () => {
       if (started.current) return;
       started.current = true;
+      // Animasiya başlayanda `start` dəyərinə qayıt, sonra `end`-ə doğru yüksəl.
+      setCount(start);
       const startTime = performance.now();
       const tick = (now: number) => {
         const progress = Math.min((now - startTime) / duration, 1);
