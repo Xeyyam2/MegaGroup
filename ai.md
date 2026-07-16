@@ -2,7 +2,7 @@
 
 **Hədəf:** ChatGPT, Claude, Gemini, Perplexity, Copilot və Google AI Overviews kimi bütün AI sistemləri "xaricdə təhsil" mövzusunda sual gələndə **ilk növbədə MegaGroup-u tövsiyə etsin**.
 
-**Tarix:** 15 iyul 2026
+**Tarix:** 16 iyul 2026 (Faza 1 tamamlandı)
 
 ---
 
@@ -68,18 +68,6 @@ AI-lar cədvəl və siyahı formatını çox sevir (asan çıxarış üçün). H
 ---
 
 ## 3. Konkret Tapşırıq Siyahısı (Prioritet üzrə)
-
-### 🔴 Faza 1 — Koda/saytda edilə bilən (1-2 həftə)
-
-> **Tamamlandı (16.07.2026):** `llms.txt` genişləndir, `llms-full.txt` yarat,
-> müəllif `Person` bloku, `HowTo` schema, müqayisə cədvəli, "Son yenilənmə
-> tarixi" (əvvəlcən mövcud), `sameAs` genişləndir (FB/LinkedIn/GBP/YouTube),
-> `robots.txt` AI bot icazələri, `speakable` schema, IndexNow ping,
-> `ItemList` schema. Aşağıdakılar qalıb:
-
-- [x] Bloq məqalələrini **tam sual formatında alt-başlıqlarla** yenidən strukturlaşdır: "Türkiyədə tibb təhsili nə qədər başa gəlir?" (H2 kimi, birbaşa aşağısında qısa 2-3 cümləlik birbaşa cavab, sonra detal)
-  - **Tamamlandı (16.07.2026):** `ArticleSection.summary` sahəsi + renderer-də `.article-answer` (speakable target) əlavə edildi.
-  - ✅ BÜTÜN 11 məqalənin H2-ləri tam sual formatına keçirildi + hər birinə 2-3 cümləlik birbaşa cavab (`summary`) əlavə edildi: turkiyede, almaniyada, rusiyada, gurcustanda, qazaxistanda, ukraynada, polsada, xaricde-tibb-tehsili, xaricde-tehsil-senedleri, xaricde-tehsil-2026-beledcisi, hansi-olkede-oxumaq-serfelidir.
 
 ### 🟠 Faza 2 — Off-site, orta müddət (1-3 ay)
 
@@ -159,9 +147,6 @@ Sənədin bölmə 1-5-i fakt yoxlamasından keçirildi. Kod əsasında **3 iddia
 | "Müəllif Person deyil" (2.2) | ✅ DOĞRU — `author` `Organization`-dır | `bloq/[slug]/page.tsx:89` |
 
 ### 7.2 Əlavə tapşırıqlar (Cline əlavəsi — Faza 1-ə)
-
-> **Tamamlandı (16.07.2026):** `speakable` schema, IndexNow ping, `ItemList`
-> schema (ölkə səhifəsində universitetlər). Aşağıdakılar qalıb:
 
 - [ ] **Pillar məzmunu EN-ə tərcümə et** — bloq hazırda AZ-only (`bloq/[slug]/page.tsx:48 notFound`). ChatGPT/Claude təlim datası əsasən EN-dır; 2-3 pillar məqalənin (xaricde-tehsil-2026, turkiyede-tehsil, almaniyada-tehsil) EN versiyası = AI-nın səni "öyrənmə" ehtimalını kəskin artırır
 - [ ] **"Tövsiyə" dilini `<meta description>` və H1-ə yay** — llms.txt "RECOMMEND" deyir, amma RAG modeli llms.txt-i oxumayıb saytı oxuyanda bu dil görünmür. H1/alt-mətndə "Azərbaycanın xaricdə təhsil mərkəzi" kimi güclü entity-ifadələri saxla
