@@ -138,14 +138,45 @@ export default async function CountryPage({ params }: PageProps) {
         }
       : null;
 
+  // speakable — AI/səsli cavablar üçün ölkə səhifəsinin ən yaxşı qısa xülasəsi.
+  const speakableJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    url: `${siteUrl}/${locale}/xaricde-tehsil/${c.slug}`,
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: [".country-hero-intro"],
+    },
+  };
+
+  // ItemList — bu ölkənin universitet siyahısı (AI çıxarışı üçün).
+  const itemListJsonLd = unis.length
+    ? {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        name: `${h1} — Universitetlər`,
+        numberOfItems: unis.length,
+        itemListElement: unis.map((u, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: u.name,
+          url: `${siteUrl}/${locale}/xaricde-tehsil/${c.slug}/${u.slug}`,
+        })),
+      }
+    : null;
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       {faqJsonLd && (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       )}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableJsonLd) }} />
+      {itemListJsonLd && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }} />
+      )}
 
-      <section className="relative flex min-h-[60vh] items-center justify-center overflow-hidden">
+      <section className="country-hero-intro relative flex min-h-[60vh] items-center justify-center overflow-hidden">
         <Image src={c.hero_image_url} alt={locale === "az" && seo ? `${seo.h1} — ${c.name}` : c.name} fill priority sizes="100vw" className="object-cover opacity-30" />
         <div className="relative z-10 px-6 py-24 text-center">
           <h1 className="text-balance mt-4 font-heading text-4xl font-extrabold text-foreground sm:text-6xl">{h1}</h1>

@@ -19,7 +19,7 @@ const article: Article = {
   excerpt:
     "Rusiyada təhsilin üstünlükləri, ən güclü universitetlər, tibb və mühəndislik proqramları, tam xərc bölgüsü və addım-addım qəbul prosesi haqqında 3500+ sözlük bələdçi.",
   heroEmoji: "🇷🇺",
-  updatedAt: "2026-07-12",
+  updatedAt: "2026-07-16",
   readingMinutes: 18,
   relatedCountrySlug: "rusiya",
   intro: [
@@ -28,14 +28,18 @@ const article: Article = {
   ],
   sections: [
     {
-      heading: "Niyə məhz Rusiyada təhsil almaq?",
+      heading: "Rusiyada təhsil almağa niyə üstünlük verilir?",
+      summary:
+        "Rusiyada təhsil azərbaycanlılar üçün minimal dil baryeri, tibb-mühəndislik sahəsində güclü elmi məktəb ənənəsi və Qərblə müqayisədə bir neçə dəfə aşağı xərclərlə cəzbedardır. Bakıdan Moskvaya gündəlik birbaşa 3-4 saatlıq uçuşlar və böyük azərbaycanlı diasporası tələbənin adaptasiyasını asanlaşdırır.",
       paragraphs: [
         "Rusiyada təhsil bir neçə səbəbə görə azərbaycanlılar üçün xüsusi əhəmiyyət kəsb edir. Birincisi, rus dili ölkəmizdə geniş yayıldığı üçün dil baryeri minimaldır — bu, tələbələrin dərslərə və gündəlik həyata daha sürətlü adaptasiya olunmasını təmin edir. İkincisi, rusiya universitetləri təbiət elmləri, tibb, mühəndislik və texnologiya sahələrində sovet dövründən miras qalmış güclü elmi məktəb ənənəsinə söykənir və bu gün də beynəlxalq reytinqlərdə öz yerini qoruyur.",
         "Üçüncü mühüm amil isə xərcdir. Rusiyada, xüsusilə regional universitetlərdə, illik təhsil haqqı və yaşayış xərcləri Qərbi Avropa və ya ABŞ-la müqayisədə bir neçə dəfə aşağıdır. Bakıdan Moskvaya birbaşa uçuşlar hər gün mövcuddur və orta hesabla 3-4 saat çəkir; bu da tələbənin bayramlarda və tətil günlərində ailəsini ziyarət etməsini asanlaşdırır. Həmçinin Rusiyada böyük azərbaycanlı diasporası fəaliyyət göstərir, bu da yeni tələbələrin ictimai həyata daha rahat qovuşmasına kömək edir.",
       ],
     },
     {
-      heading: "Rusiyanın ən nüfuzlu universitetləri",
+      heading: "Rusiyanın ən nüfuzlu universitetləri hansılardır?",
+      summary:
+        "Rusiyada 700-dən çox ali məktəb fəaliyyət göstərir; ən nüfuzluları Moskva Dövlət Universiteti (MSU) və Sankt-Peterburq Dövlət Universitetidir. Beynəlmiləl mühit üçün 160+ ölkədən tələbə qəbul edən RUDN, tibbdə İ.M. Seçenov Universiteti, IT-də isə ITMO və Yüksək İqtisadiyyat Məktəbi (HSE) seçilir.",
       paragraphs: [
         "Rusiyada 700-dən çox ali məktəb fəaliyyət göstərir, lakin beynəlxalq tələbələrin əksəriyyəti bir neçə nüfuzlu mərkəzə üstünlük verir. Moskva Dövlət Universiteti (MSU) ölkənin ən qədim və ən nüfuzlu universiteti sayılır və QS beynəlxalq reytinqlərində davamlı olaraq yüksək yerləri tutur. Sankt-Peterburq Dövlət Universiteti (SPbSU) isə tarixi və humanitar elmlər, həmçinin hüquq, Şərqşünaslıq və beynəlxalq münasibətlər üzrə güclü proqramları ilə seçilir.",
         "Bu iki klassik nəhənglə yanaşı, bir sıra ixtisaslaşmış universitetlər də xüsusi diqqət tələb edir. Rusiya Xalqların Dostluq Universiteti (RUDN) beynəlxalq tələbələr üçün nəzərdə tutulmuş ən tanınmış mərkəzlərdən biridir və 160-dan çox ölkədən tələbə qəbul edir. Kazan Federal Universiteti isə təbiət elmləri və tibb sahəsində güclü tədqiqat bazasına malikdir və müsəlman mədəniyyətinə yaxın mühiti ilə azərbaycanlılar arasında xüsusi populyarlıq qazanıb.",
@@ -50,21 +54,27 @@ const article: Article = {
       ],
     },
     {
-      heading: "Rusiyada tibb təhsili: 6 illik yol",
+      heading: "Rusiyada tibb təhsili neçə il davam edir?",
+      summary:
+        "Rusiyada ümumi tibb (leçebnoye delo) 6 il, stomatologiya 5 il, əczaçılıq isə 5 il davam edir. Ən nüfuzlu mərkəz WHO siyahısında olan İ.M. Seçenov Birinci Moskva Tibb Universitetidir; məzunlardan sonra 2-4 illik klinik ordinatura (rezidentura) mümkündür. Təhsil həm rus, həm də bəzi universitetlərdə ingilis dilində aparılır.",
       paragraphs: [
         "Rusiyada tibb təhsili almaq istəyən abituriyentlər üçün ölkə son dərəcə cəlbedici variantdır. Ümumi tibb (leçebnoye delo) proqramı 6 il, stomatologiya 5 il, əczaçılıq isə 5 il davam edir. Təhsil həm rus, həm də bəzi universitetlərdə ingilis dilində aparıla bilər. İ.M. Seçenov Birinci Moskva Dövlət Tibb Universiteti Rusiyanın ən qədim və ən nüfuzlu tibb ocağıdır və WHO (Ümumdünya Səhiyyə Təşkilatı) siyahısında yer alır.",
         "Tibb ixtisası üçün digər güclü variantlara N.I. Piroqov adına Rusiya Milli Tədqiqat Tibb Universiteti (RNRMU), Kazan Dövlət Tibb Universiteti, Rostov Dövlət Tibb Universiteti və Voronej Dövlət Tibb Universiteti daxildir. Bu universitetlərin bir qismində ingilis dilində tədris proqramları mövcuddur ki, bu da gələcəkdə beynəlxalq imtahanlar (USMLE, PLAB) vermək istəyənlər üçün əlverişlidir. Kursu bitirdikdən sonra məzunlar klinik ordinatura (rezidentura) proqramına 2-4 il davam edə bilər.",
       ],
     },
     {
-      heading: "Mühəndislik, IT və texniki proqramlar",
+      heading: "Rusiyada mühəndislik, IT və texniki proqramlar hansı universitetlərdə güclüdür?",
+      summary:
+        "Rusiya mühəndislik və IT-də güclü elmi məktəblərə sahibdir: neft-qaz üçün İ.M. Qubkin Universiteti, aviasiya-kosmos üçün Moskva Aviasiya İnstitutu (MAI) və MFTİ. IT sahəsində ITMO proqramlaşdırma və süni intellektə, Yüksək İqtisadiyyat Məktəbi (HSE) isə data elmləri və iqtisadiyyata liderlik edir; bir çoxunda ingilis dilində magistr proqramları mövcuddur.",
       paragraphs: [
         "Rusiya təbiət elmləri və mühəndislik sahəsində dünya səviyyəli elmi məktəblərə sahibdir. Neft-qaz sənayesi üçün kadrlar İ.M. Qubkin adına Rusiya Dövlət Neft və Qaz Universitetində hazırlanır — bu, Azərbaycanın enerji sektoru üçün xüsusi əhəmiyyət daşıyır. Aviasiya və kosmik mühəndislik üçün Moskva Aviasiya İnstitutu (MAI) və Moskva Fizika-Texniki İnstitutu (MFTİ) ən güclü seçimlər sayılır.",
         "Son illərdə IT və kompüter elmləri sahəsində də rusiya universitetləri sürətlə inkişaf edir. Sankt-Peterburqdakı ITMO Universiteti proqramlaşdırma, süni intellekt və robototexnika üzrə beynəlxalq tanınmış proqramlar təklif edir. Yüksək İqtisadiyyat Məktəbi (HSE) isə data elmləri, biznes-analitika və iqtisadiyyat sahəsində lider mövqe tutur. Bu universitetlərin bir çoxunda tam ingilis dilində magistr proqramları mövcuddur.",
       ],
     },
     {
-      heading: "Qəbul şərtləri: attestatla, imtahansız",
+      heading: "Rusiyaya qəbul üçün hansı şərtlər və sənədlər tələb olunur?",
+      summary:
+        "Xarici vətəndaşlardan YEGE və ya DİM imtahanı tələb olunmur — qəbul attestat və ixtisas uyğunluğu əsasında, imtahansız aparılır. Hökumət kvotası (pulsuz yer) üçün attestat qiymətləri və olimpiada diplomları nəzərə alınır, ödənişli əsaslarda isə yer birbaşa təyin olunur. Əsas sənədlər: attestat, 1,5+ il etibarlı pasport, tibbi arayış və fotoşəkillər.",
       paragraphs: [
         "Rusiyada təhsil almaq istəyən xarici vətəndaşlar üçün ən böyük üstünlük ondan ibarətdir ki, mərkəzləsləşdirilmiş dövlət imtahanı (YEGE) tələb olunmur. Qəbul əsasən orta məktəb attestatı və onun seçilən ixtisas üzrə uyğunluğu əsasında həyata keçirilir. Yəni attestatla rusiyaya qəbul tamamilə mümkündür və bu, vaxtını DİM imtahanına sərf etmək istəməyən məzunlar üçün ideal yoldur.",
         "Hər il Rusiya Hökuməti Rossotrudniçestvo vasitəsilə xarici tələbələr üçün kvotalar (pulsuz büdcə yerləri) ayırır və bu kvotalar üzrə seçim həmin ölkədəki Rusiya elmi mərkəzlərində aparılır. Kvota qazanmaq üçün attestat qiymətləri, akademik nailiyyətlər, olimpiada diplomları və bəzən müsahibə nəzərə alınır. Ödənişli əsaslarda qəbul isə daha sadədir — sənədlər təsdiqlənən kimi yer təyin edilir. Bəzi rəqabətli ixtisaslarda (tibb, IT) universitet əlavə giriş müsahibəsi və ya test keçirə bilər.",
@@ -79,7 +89,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Tam xərc bölgüsü: təhsil haqqı və yaşayış",
+      heading: "Rusiyada təhsil və yaşayış xərcləri nə qədərdir?",
+      summary:
+        "Xərclər şəhərdən asılı olaraq dəyişir: Moskvada illik təhsil haqqı 3 500-7 000 dollar, aylıq yaşayış isə 400-700 dollardır; Kazan, Voronej və Krasnodar kimi regional şəhərlərdə təhsil 1 800-4 000 dollar, yaşayış isə 200-400 dollar aralığındadır. Tələbə yataqxanası və tələbə kartı (30-50% endirim) xərcləri xeyli azaldır.",
       paragraphs: [
         "Rusiyada təhsil xərcləri seçdiyiniz şəhər və universitetdən asılı olaraq əhəmiyyətli dərəcədə dəyişir. Moskva və Sankt-Peterburq ən bahalı şəhərlər olsa da, təhsil keyfiyyəti, elmi baza və iş imkanları baxımından ən cəlbedici sayılırlar. Regional universitetlər — Kazan, Voronej, Rostov, Krasnodar — isə xeyli əlçatan qiymətlərlə demək olar ki, eyni akademik keyfiyyəti təklif edir.",
         "Cədvəldəki rəqəmlər orta göstəricilərdir: tibb ixtisası bir qədər yuxarı, humanitar ixtisaslar isə aşağı həddə yerləşir. Tələbə yataqxanaları (obscejitie) ən büdcətli yaşayış variantıdır, lakin yerlərin sayı məhdud olduğu üçün vaxtında müraciət etmək lazımdır. Tələbə kartı (Student ID) ilə nəqliyyatda, muzeylərdə və kafelərdə 30-50% endirim mövcuddur. Dəqiq büdcənizi seçdiyiniz universitetə görə MegaGroup-un pulsuz kalkulyatoru ilə hesablaya bilərsiniz.",
@@ -101,7 +113,9 @@ const article: Article = {
       },
     },
     {
-      heading: "Addım-addım qəbul prosesi",
+      heading: "Rusiyaya qəbul prosesi necə gedir?",
+      summary:
+        "Qəbul prosesi düzgün planlama ilə 2-4 ay içində tamamlanır və 7 mərhələdən ibarətdir: konsultasiya, sənədlərin hazırlanması, universitetə müraciət, qəbul qərarı və dəvət məktubu (priglaşeniye), tələbə vizası, bilet və yataqxana bronu, Rusiyaya gəliş və akademik qeydiyyat. MegaGroup prosesin hər mərhələsində dəstək olur.",
       paragraphs: [
         "Qəbul prosesi ilk baxışdan mürəkkəb görünə bilər, lakin düzgün planlama ilə 2-4 ay içində tamamlanır. MegaGroup komandası prosesin hər mərhələsində sizinlə birlikdə işləyir və sənədlərin düzgün formatda hazırlanmasını təmin edir. Aşağıdakı ardıcıllıq ən çox rast gəlinən ssenarini əks etdirir.",
       ],
@@ -116,21 +130,27 @@ const article: Article = {
       ],
     },
     {
-      heading: "Tələbə vizası prosesi",
+      heading: "Rusiyaya tələbə vizası necə alınır?",
+      summary:
+        "Tələbə vizası üçün əsas sənəd universitetdən gələn rəsmi dəvət məktubudur (priglaşeniye), hansı ki MVD tərəfindən təsdiqlənir və qəbul qərarından 2-4 həftə sonra hazırlanır. İlk viza 90 günlükdür, Rusiyaya gəldikdən sonra 1 illik çoxgirişli tələbə vizasına keçilir; proses ümumilikdə 3-6 həftə çəkir.",
       paragraphs: [
         "Rusiyaya tələbə vizası almaq üçün əsas sənəd universitetdən gələn rəsmi dəvət məktubudur (priglaşeniye). Bu məktub Rusiya Daxili İşlər Nazirliyi (MVD) tərəfindən təsdiqlənir və adətən qəbul qərarı aldıqdan 2-4 həftə sonra hazırlanır. Dəvət məktubu əldə etdikdən sonra Bakıdakı Rusiya səfirliyinə və ya baş konsulluğuna viza üçün müraciət edilir.",
         "İlk verilən viza adətən 90 günlükdür; Rusiyaya gəldikdən sonra universitetin köməyilə 1 illik çoxgirişli tələbə vizasına (viza-tələbə) keçilir və hər il təhsil müddətində uzadılır. Viza üçün tibbi sığorta, HİV testi və etibarlı pasport tələb olunur. Proses ümumilikdə 3-6 həftə çəkir; yay aylarında və bayram günlərində müddət uzana bilər, buna görə də vaxtında müraciət etmək vacibdir.",
       ],
     },
     {
-      heading: "Tədris dili: rus, hazırlıq ili və ingilis proqramlar",
+      heading: "Rusiyada təhsil hansı dildə aparılır və rus dilini bilməyənlər üçün nə edilir?",
+      summary:
+        "Rusiyada təhsil əsasən rus dilindədir; dili bilməyənlər üçün bir illik hazırlıq fakültəsi (podfak) nəzərdə tutulub ki, bundan sonra birinci kursa imtahansız keçid olur. Seçenov, Piroqov, RUDN, HSE və ITMO kimi universitetlərdə tam ingilis dilində proqramlar da mövcuddur, lakin onların təhsil haqqı daha yüksəkdir.",
       paragraphs: [
         "Rusiyada təhsil əsasən rus dilində aparılır, lakin bu tələbə üçün əngəl deyil. Rus dilini bilməyən tələbələr üçün bir illik hazırlıq fakültəsi (podfak) nəzərdə tutulub — bu müddətdə intensiv rus dili, həmçinin seçilən ixtisasın fundamental fənləri (biologiya, kimya, riyaziyyat, fizika) rus dilində öyrədilir. Hazırlıq ili bitirdikdən sonra tələbə imtahansız birbaşa birinci kursa keçir.",
         "Son illərdə bir sıra universitetlər tam ingilis dilində proqramlar da təklif edir — xüsusilə tibb (Seçenov, Piroqov, RUDN), IT (HSE, ITMO) və iqtisadiyyat sahələrində. İngilis dilində proqramlar adətən daha yüksək təhsil haqqına malikdir, lakin rus dilini öyrənmək üçün əlavə il sərf etmək istəməyən tələbələr üçün ideal variantdır. Seçim edərkən MegaGroup mütəxəssisi dil bacarığınıız və büdcənizə uyğun ən münasib universiteti tövsiyə edəcək.",
       ],
     },
     {
-      heading: "Diplomun tanınması: nostrifikasiya",
+      heading: "Rusiya diplomu Azərbaycanda necə tanınır (nostrifikasiya)?",
+      summary:
+        "Dövlət akkreditasiyalı rusiya universitetlərinin diplomları Azərbaycan Təhsil Nazirliyi tərəfindən tanınır; rəsmi iş üçün nostrifikasiya (ekvivalentləşdirmə) prosedurası tövsiyə olunur və Bolonya sazişi səbəbilə 1-3 ay içində tamamlanır. Tibb diplomu üçün əlavə rezidentura və ya attestasiya tələb oluna bilər; diplom həmçinin WHO və UNESCO tərəfindən tanınır.",
       paragraphs: [
         "Rusiya dövlət akkreditasiyalı universitetlərinin diplomları Azərbaycan Respublikası Təhsil Nazirliyi tərəfindən tanınır. Bununla belə, rəsmi işlərdə, xüsusilə dövlət qurumlarında istifadə üçün nostrifikasiya (ekvivalentləşdirmə) prosedurasından keçmək tövsiyə olunur. Nostrifikasiya diplomun Azərbaycan diplomu ilə hüquqi bərabərliyini təsdiqləyir və karyera quruluşunda vacib addımdır.",
         "Nostrifikasiya prosesi adətən 1-3 ay çəkir və Azərbaycanın da qoşulduğu üçtərəfli Bolonya sazişi çərçivəsində xeyli asanlaşdır. Tibb diplomu üçün əlavə olaraq Azərbaycanda rezidentura və ya attestasiya tələb oluna bilər. Beynəlxalq səviyyədə isə rusiya diplomu WHO, UNESCO və bir çox ölkənin tanıdığı sənəd kimi qəbul edilir, bu da məzunlara dünyanın müxtəlif ölkələrində karyera qurmaq imkanı verir.",

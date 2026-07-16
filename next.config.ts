@@ -23,6 +23,8 @@ const nextConfig: NextConfig = {
   },
   images: {
     formats: ["image/avif", "image/webp"],
+    // next/image optimallaşdırılmış şəkilləri 24 saat cacheda saxla.
+    minimumCacheTTL: 60 * 60 * 24,
     remotePatterns: [
       { protocol: "https", hostname: "images.unsplash.com" },
       { protocol: "https", hostname: "cdninstagram.com" },

@@ -10,6 +10,7 @@ import { SuccessStories } from "@/components/sections/SuccessStories";
 import { InstagramCTA } from "@/components/sections/InstagramCTA";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { CTASection } from "@/components/sections/CTASection";
+import { CountryComparisonTable } from "@/components/sections/CountryComparisonTable";
 import { FadeInUp } from "@/components/motion/FadeInUp";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
 import { getCountries } from "@/lib/data/countries";
@@ -170,6 +171,25 @@ async function HomeBody({ locale }: { locale: Locale }) {
         </div>
       </section>
 
+      {locale === "az" && (
+        <section className="mx-auto max-w-7xl px-6 py-8">
+          <ScrollReveal className="text-center">
+            <h2 className="text-balance font-heading text-3xl font-bold text-foreground">
+              Xaricdə Təhsil — 7 Ölkə Müqayisəsi
+            </h2>
+            <p className="mt-2 text-foreground/60">
+              Türkiyə, Rusiya, Gürcüstan, Ukrayna, Qazaxıstan, Almaniya və Polşa üzrə
+              təhsil haqqı, dil, qəbul, viza və diplom tanınması bir yerdə.
+            </p>
+          </ScrollReveal>
+          <div className="mt-8">
+            <ScrollReveal direction="scale">
+              <CountryComparisonTable />
+            </ScrollReveal>
+          </div>
+        </section>
+      )}
+
       <section id="kalkulator" className="mx-auto max-w-7xl px-6 py-16">
         <ScrollReveal className="text-center" delay={0.1}>
           <h2 className="text-balance font-heading text-3xl font-bold text-foreground">
@@ -253,11 +273,24 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
   const locale = (await params).locale as Locale;
   setRequestLocale(locale);
 
+  // speakable — AI/səsli assistant cavabları üçün ana səhifənin ən yaxşı qısa
+  // cavab hissəsi (hero başlığı + alt yazısı).
+  const speakableJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    url: `${siteUrl}/${locale}`,
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: [".hero-fade-content"],
+    },
+  };
+
   // Hero dərhal render olunur (öz tərcüməsi + default statistikaları var),
   // beləcə h1 və əsas məzmun ilk HTML stream-ə düşür — data fetch-lər
   // onu bloklamır. Bu, SEO üçün kritikdir (Googlebot skelet deyil, məzmunu görür).
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableJsonLd) }} />
       <HeroSection />
 
       <SectionErrorBoundary>

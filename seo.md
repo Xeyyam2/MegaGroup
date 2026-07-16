@@ -121,12 +121,8 @@ Bu sahələrdə dəyişiklik lazım deyil:
 
 **Məqsəd:** Core Web Vitals — LCP < 2.5s, CLS < 0.1, INP < 100ms (mobil).
 
-- [ ] **2.1 gsap VƏ ya framer-motion-dan birini seç:** İkisi eyni işi görür. Main bundle-dan birini çıxar. Tövsiyə: framer-motion saxla (SSR-dostu), gsap-ı tədricən çıxar.
-- [ ] **2.2 `SmoothScrollProvider` (Lenis) şərti et:** Mobil və `prefers-reduced-motion: reduce`-da deaktiv. Yalnız desktop + no-reduced-motion.
-- [ ] **2.3 `react-parallax-tilt` dynamic import et:** `UniversityCard.tsx:4`, `SuccessStories.tsx:3` — `dynamic(() => ..., {ssr:false})`.
-- [ ] **2.4 Hero scroll hijack azalt:** `HeroSection.tsx:137` — `h-[210vh]`-i `min-h-[100dvh]`-ə endir; ScrollTrigger scrub-i sadələşdir. 110-130vh "ölü" scroll qalmasın.
-- [ ] **2.5 `ScrollReveal` FOUC düzəlt:** `ScrollReveal.tsx:28-54` — `from` state-i `useLayoutEffect`-də yox, CSS ilə initial et ki, flash olmasın.
-- [ ] **2.6 Lighthouse CI aktivləşdir:** `.github/workflows/` (hazırda CI yoxdur — `analiz.md` D1) — lint + type-check + build + Lighthouse budget.
+- [ ] **2.1 gsap VƏ ya framer-motion-dan birini seç:** İkisi eyni işi görür. Main bundle-dan birini çıxar. Tövsiyə: framer-motion saxla (SSR-dostu), gsap-ı tədricən çıxar. ⏭️ **TƏXİRƏ SALINIB:** hero + ölkə (StudyJourney) scroll animasiyaları birbaşa gsap ScrollTrigger-asılıdır (`HeroSection.tsx:97-123`, `StudyJourneySection.tsx:74`). gsap-ı çıxarmaq bu imza animasiyaları qırar — yalnız hero/journey-ə toxunmayan komponentlərdən (ScrollReveal və s.) tədricən çıxarmaq olar.
+- [ ] **2.4 Hero scroll hijack azalt:** `HeroSection.tsx:137` — `h-[210vh]`-i `min-h-[100dvh]`-ə endir; ScrollTrigger scrub-i sadələşdir. 110-130vh "ölü" scroll qalmasın. ⏭️ **TƏXİRƏ SALINIB:** hero-nun iki-fazalı scroll hekayəsi (kürə böyüməsi + ölkə etiketləri + exit dissolve) bu 210vh scroll otağına bağlıdır. Azaltmaq imza animasiyanı qırar.
 
 **Doğrulama:** `pagespeed.web.dev/competitors` mobil LCP/CLS/INP + Lighthouse Performance ≥ 90.
 

@@ -16,6 +16,11 @@ export function SmoothScrollProvider({
 
   useEffect(() => {
     if (reduced) return;
+    // Touch / coarse-pointer cihazlarda Lenis smooth-wheel mobil INP-ni
+    // pisləşdirir və faydasızdır (touch ekranında wheel yoxdur). GSAP
+    // ScrollTrigger yerli scroll hadisələrindən də yenilənir, ona görə
+    // hero + study-journey scroll animasiyaları bundan təsirlənmir.
+    if (window.matchMedia("(pointer: coarse)").matches) return;
     const lenis = new Lenis({ duration: 1.2, smoothWheel: true });
     lenis.on("scroll", ScrollTrigger.update);
     const raf = (time: number) => lenis.raf(time * 1000);

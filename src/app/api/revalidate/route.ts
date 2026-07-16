@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { revalidateTag, revalidatePath } from "next/cache";
+import { pingIndexNow } from "@/lib/indexnow";
+import { siteUrl } from "@/lib/site";
 
 export async function POST(req: NextRequest) {
   const authHeader = req.headers.get("authorization");
@@ -52,14 +54,26 @@ export async function POST(req: NextRequest) {
     // Also revalidate the layout
     revalidatePath("/", "layout");
 
+    // IndexNow ping — Bing (ChatGPT/Copilot) və Yandex indeksini sürətləndirir.
+    const indexNowUrls = [
+      ...locales.map((l) => `${siteUrl}/${l}`),
+      ...locales.map((l) => `${siteUrl}/${l}/xaricde-tehsil`),
+      ...locales.flatMap((l) =>
+        countrySlugs.map((s) => `${siteUrl}/${l}/xaricde-tehsil/${s}`),
+      ),
+    ];
+    const indexNowResult = await pingIndexNow(indexNowUrls);
+
     return NextResponse.json({
       revalidated: true,
       timestamp: new Date().toISOString(),
       message: "All caches purged successfully",
+      indexNow: indexNowResult,
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const details = error instanceof Error ? error.message : String(error);
     return NextResponse.json(
-      { error: "Revalidation failed", details: error.message },
+      { error: "Revalidation failed", details },
       { status: 500 }
     );
   }
@@ -84,7 +98,8 @@ export async function GET(req: NextRequest) {
       revalidated: true,
       timestamp: new Date().toISOString(),
     });
-  } catch (error: any) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : String(error);
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }

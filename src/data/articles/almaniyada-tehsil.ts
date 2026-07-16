@@ -19,7 +19,7 @@ const article: Article = {
   excerpt:
     "Almaniyada təhsil necə mümkündür? Pulsuz dövlət universitetləri, Studienkolleg, APS, dil tələbləri, xərclər, viza və məzuniyyətdən sonrakı iş imkanları barədə tam bələdçi.",
   heroEmoji: "🇩🇪",
-  updatedAt: "2026-07-12",
+  updatedAt: "2026-07-16",
   readingMinutes: 16,
   relatedCountrySlug: "almaniya",
   intro: [
@@ -28,7 +28,9 @@ const article: Article = {
   ],
   sections: [
     {
-      heading: "Niyə Almaniyada təhsil? Əsas üstünlüklər",
+      heading: "Almaniyada nə üçün təhsil almağa dəyər?",
+      summary:
+        "Almaniya dövlət universitetlərində praktiki olaraq pulsuz təhsil, qlobal tanınan EU diplomu, mühəndislik/informatika sahəsində dünya liderliyi (BMW, Mercedes, Siemens əlaqələri) və məzuniyyətdən sonra 18 aylıq iş axtarış vizası təklif edir. Bu, yalnız diplom deyil, Avropada gələcək karyera qurmaq deməkdir.",
       paragraphs: [
         "Almaniyada təhsil dünyada ən çox tələb olunan istiqamətlərdən biridir və bunun səbəbi yalnız təhsil haqqının olmaması deyil. Almaniya universitetləri maşınqayırma (Maschinenbau), elektrotexnika (Elektrotechnik), informatika və avtomobil sənayesi sahələrində qlobal lider sayılır. Burada oxumaq yalnız akademik baxımdan deyil, həm də gələcək karyera baxımından strateji qərardır, çünki Almaniyada təhsil alan məzunlar avtomobil nəhəngləri (BMW, Mercedes, Volkswagen), texnologiya şirkətləri (SAP, Siemens) və maliyyə qurumları üçün birbaşa iş bazarına çıxış əldə edirlər.",
         "İkinci vacib üstünlük Avropa İttifaqı diplomudur. Almaniyada bitirdiyiniz universitetin diplomu Bolonya prosesi çərçivəsində bütün Avropa ölkələrində tanınır və Azərbaycanda da ekvivalentləşdirilir. Üçüncü üstünlük isə tələbə dostu siyasətdir: təhsil zamanı işləmək icazəsi, məzuniyyətdən sonra 18 aylıq iş axtarış vizası və güclü sosial təminat sistemi almaniyada təhsili yalnız təhsil deyil, həm də gələcəyə yatırım edir.",
@@ -44,7 +46,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Almaniya universitetlərinin növləri",
+      heading: "Almaniyada hansı universitet növləri var?",
+      summary:
+        "Üç əsas növ var: Universität (nəzəri tədqiqat, elmi karyera), Fachhochschule (tətbiqi, sənaye yönümlü — məzunları iş bazarında çox uğurlu) və Kunst/Musikhochschule (incəsənət, musiqi). Bundan əlavə Technische Universität (TU) texniki ixtisaslar üzrə ayrılır (TU Münhen, RWTH Aachen).",
       paragraphs: [
         "Almaniyada təhsil sistemi üç əsas universitet növü üzərində qurulub və hər birinin missiyası, tədris üslubu və qəbul şərtləri fərqlənir. Doğru növü seçmək karyera hədəfinizlə uyğun gəlməlidir, ona görə də bu fərqi bilmək vacibdir.",
         "Birinci növ — Universität (klassik tədqiqat universiteti). Bunlar nəzəri və elmi tədqiqata yönəlmiş universitetlərdir (məsələn, Heidelberg, LMU Münhen, Humboldt). Doktorantura daxil olmaqla geniş elmləri təklif edir və akademik karyera düşünənlər üçün idealdır. İkinci növ — Fachhochschule (Tətbiqi Elmlər Universiteti). Bunlar praktik, sənaye yönümlü təhsil verir və mühəndislik, biznes, sosial iş kimi sahələrdə birbaşa əmək bazarına hazırlayır. Fachhochschule məzunları iş tapmaq baxımından çox uğurlu olur.",
@@ -61,7 +65,9 @@ const article: Article = {
       },
     },
     {
-      heading: "Almaniyada pulsuz təhsil: həqiqət və şərtlər",
+      heading: "Almaniyada təhsil həqiqətən pulsuzdurmu?",
+      summary:
+        "Bəli — dövlət universitetlərinin əksəriyyətində bakalavr və magistr üçün təhsil haqqı yoxdur, yalnız hər semestr 150-350 EUR semestr haqqı (içində nəqliyyat bileti) ödənilir. Yeganə istisna Baden-Württemberg əyalətidir (qeyri-AB tələbələrindən semestr başına 1 500 EUR). Amma pulsuz təhsil yaşayış xərclərinin olmaması demək deyil — blocked account tələb olunur.",
       paragraphs: [
         "Ən çox maraq doğuran suallardan biri budur: “Almaniyada təhsil həqiqətən pulsuzdurmu?” Cavab böyük ölçüdə bəlidir. Almaniyanın dövlət (öffentlich) universitetlərinin əksəriyyətində bakalavr və magistr səviyyəsində təhsil haqqı yoxdur — nə azərbaycanlı, nə alman, nə də digər xarici tələbələrdən təhsil haqqı alınır. Bunun əvəzinə hər semestr kiçik bir semestr haqqı (Semesterbeitrag) ödənilir ki, bu da adətən 150–350 EUR arasında dəyişir və daxilinə nəqliyyat bileti (Semesterticket) daxil olur.",
         "Yeganə istisna Baden-Württemberg əyalətidir, hansında ki, qeyri-AB tələbələrindən (o cümlədən Azərbaycan vətəndaşlarından) hər semestr 1 500 EUR təhsil haqqı alınır. Bu o deməkdir ki, Münhen, Berlin, Aaxen, Hamburq və ya Köln kimi şəhərlərdə oxumaq faktiki olaraq pulsuzdur, Stuttqart və ya Karlsrue isə bir qədər büdcə tələb edir. Özəl (private) universitetlər isə ödənişlidir, lakin onlar azlıq təşkil edir.",
@@ -69,7 +75,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Studienkolleg — Azərbaycan məzunları üçün hazırlıq ili",
+      heading: "Studienkolleg nədir və Azərbaycan məzunlarına nə üçün lazımdır?",
+      summary:
+        "Studienkolleg, 12 illik məktəb təhsili tələb edən Almaniyada, 11 illik Azərbaycan attestatı ilə birbaşa qəbul olmayan tələbələr üçün birillik hazırlıq proqramıdır. T/M/W/G-Kurs seçimindən asılı olaraq Feststellungsprüfung yekun imtahanı verilir və uğurla verən birbaşa universitetə qəbul olur. Dövlət Studienkolleg-ləri adətən pulsuzdur.",
       paragraphs: [
         "Studienkolleg, almaniyada təhsil almaq istəyən, lakin direkt universitetə qəbul olunmağa hüququ olmayan beynəlxalq tələbələr üçün nəzərdə tutulmuş bir illik hazırlıq proqramıdır. Məsələ ondadır ki, Almaniya 12 illik məktəb təhsilini bakalavra birbaşa qəbul üçün standart kimi qəbul edir, Azərbaycanda isə orta məktəb 11 il çəkir. Ona görə də Azərbaycan attestatı ilə birbaşa alman universitetinə qəbul adətən mümkün deyil və Studienkolleg tələb olunur.",
         "Studienkolleg bir neçə kurs (Kurs) üzrə təşkil olunur və hər kurs müəyyən ixtisas istiqamətinə uyğun gəlir: T-Kurs (texniki/mühəndislik), M-Kurs (tibb/biologiya), W-Kurs (iqtisadiyyat), G-Kurs (humanitar) və S-Kurs (dil/ədəbiyyat). Kursu bitirdikdən sonra Feststellungsprüfung adlı yekun imtahan verilir və bu imtahanı uğurla verən tələbə birbaşa seçdiyi universitetin müvafiq ixtisasına qəbul olunur.",
@@ -86,7 +94,9 @@ const article: Article = {
       },
     },
     {
-      heading: "APS sertifikatı — sənədlərin təsdiqi",
+      heading: "APS sertifikatı nədir və necə alınır?",
+      summary:
+        "APS (Akademische Prüfstelle) Azərbaycan təhsil sənədlərinin (attestat, transkript) orijinallığını təsdiqləyən məcburi sertifikatdır — onsuz alman universitetinə və ya Studienkollegə müraciət mümkün deyil. Sənədlər təqdim edilir, bəzən qısa müsahibə keçirilir və bir neçə həftə-ay içində sertifikat alınır.",
       paragraphs: [
         "APS sertifikatı (Akademische Prüfstelle) Azərbaycan vətəndaşları da daxil olmaqla bir sıra ölkə tələbələri üçün məcburi addımdır. APS, Almaniyada təhsil almaq istəyən tələbənin Azərbaycan təhsil sənədlərini (attestat, transkript, diplom) yoxlayır və orijinallığını təsdiqləyir. Bu sertifikatsiz alman universitetinə (və ya Studienkollegə) müraciət etmək mümkün deyil.",
         "APS prosesi adətən Almaniyanın Bakıdakı səfirliyi və ya Ankara/Berlin APS ofisləri vasitəsilə həyata keçirilir. Sənədlər təqdim edilir, bəzən qısa müsahibə və ya imtahan keçirilir (bu, ixtisasdan asılıdır), və nəticədə APS sertifikatı alınır. Bu sertifikat bir neçə universitetə müraciət üçün istifadə oluna bilər və adətən uzun müddət etibarlıdır.",
@@ -94,7 +104,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Dil tələbləri — TestDaF, DSH, IELTS və TOEFL",
+      heading: "Almaniyada təhsil üçün hansı dil sertifikatı lazımdır?",
+      summary:
+        "Alman dilində proqramlar üçün TestDaF (TDN 4) və ya DSH-2 (C1 səviyyəsi), ingilis dilində proqramlar üçün isə IELTS 6.5-7.0 və ya TOEFL iBT 80-100 bal tələb olunur. Dil hazırlığı 6-12 ay intensiv iş tələb edir; magistr səviyyəsində ingilis proqramlarının sayı xeyli çoxdur.",
       paragraphs: [
         "Almaniyada təhsil üçün dil hazırlığı mərkəzi əhəmiyyət daşıyır. Əgər alman dilində tədris olunan proqram seçsəniz, qəbul üçün alman dili sertifikatı tələb olunur. Ən çox qəbul edilən imtahanlar TestDaF (TDN 4–5 səviyyəsi) və DSH (ən azı DSH-2) hesab olunur. Bundan əlavə, Goethe-Institutun C1 və C2 sertifikatları, həmçinin telc C1 Hochschule də tanınır. Ümumiyyətlə, universitet səviyyəli qəbul üçün C1 səviyyəsi hədəflənməlidir.",
         "İngilis dilində tədris olunan proqramlar (xüsusilə magistr səviyyəsində çoxdur) üçün IELTS (ümumiyyətlə 6.5, bəzi proqramlarda 7.0) və ya TOEFL iBT (80–100 bal) tələb olunur. Bəzi universitetlər hər iki dilin sübutunu istəyə bilər. Yaxşı xəbər odur ki, ingilis dilində magistr proqramlarının sayı son illərdə xeyli artıb, xüsusən informatika, beynəlxalq biznes və mühəndislik sahələrində.",
@@ -112,7 +124,9 @@ const article: Article = {
       },
     },
     {
-      heading: "Almaniyanın ən yaxşı universitetləri",
+      heading: "Almaniyanın ən yaxşı universitetləri hansılardır?",
+      summary:
+        "Ən yaxşılar: TU Münhen (mühəndislik/informatika #1), Heidelberg (ən qədim, tibb/hüquq), RWTH Aachen (maşınqayırma/avtomobil), həmçinin Humboldt Berlin, LMU Münhen, KIT Karlsruhe və TU Berlin. Bunlar 'Exzellenzstrategie' çərçivəsində xüsusi maliyyə dəstəyi alan universitetlərdir.",
       paragraphs: [
         "Almaniya universitetləri dünya reytinqlərində hər il üst sıralarda yer alır və “Exzellenzstrategie” (Mükəmməllik Strategiyası) çərçivəsində bir qrup universitetə xüsusi maliyyə dəstəyi ayrılır. Bu universitetlər Azərbaycan tələbələri arasında da ən çox seçilənlərdir.",
         "Technical University of Munich (TU Münhen) — mühəndislik, informatika və təbii elmlər üzrə Almaniyanın bir nömrəli universitetidir və BMW, Siemens kimi şirkətlərlə sıx əməkdaşlıq edir. Heidelberg Universiteti — Almaniyanın ən qədim universitetidir və tibb, hüquq, humanitar elmlərdə dünyaca məşhurdur. RWTH Aaxen — mühəndislik və texnologiya sahəsində liderdir, xüsusilə maşınqayırma və avtomobil sənayesində güclüdür.",
@@ -120,7 +134,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Populyar ixtisaslar: mühəndislik, informatika, tibb və iqtisadiyyat",
+      heading: "Almaniyada ən populyar ixtisaslar hansılardır?",
+      summary:
+        "Ən güclü ixtisaslar: Maschinenbau (maşınqayırma), Elektrotechnik (elektrotexnika), Informatik (informatika/AI/data science) — məzunları Mercedes, Bosch, SAP kimi şirkətlərdə yüksək maaş alır. Tibb rəqabətli (TMS imtahanı), iqtisadiyyat isə ingilis dilində magistr proqramları ilə beynəlxalq karyera üçün idealdır.",
       paragraphs: [
         "Almaniya “Mühəndislər ölkəsi” kimi tanınır və bu sahədə dünya standartlarını müəyyənləşdirir. Maschinenbau (maşınqayırma) və Elektrotechnik (elektrotexnika) ənənəvi olaraq ən güclü ixtisaslardır; məzunları Mercedes, Bosch, Continental kimi şirkətlərdə yüksək maaşlı iş tapırlar. Son illərdə Informatik (informatika/kompüter elmləri) ixtisasına tələb partlayış şəklində artıb və AI, proqram təminatı, kibertəhlükəsizlik istiqamətləri xüsusilə populyardır.",
         "Tibb sahəsində almaniyada təhsil olduqca prestijlidir, lakin rəqabətli və xüsusi şərtlərlə keçir. Tibb fakültəsinə qəbul üçün TMS (Test für Medizinische Studiengänge) imtahanı və çox yüksək alman dili səviyyəsi tələb olunur; xarici tələbələr üçün yerlər məhdud sayda ayrılır. Wirtschaftswissenschaften (iqtisadiyyat və biznes) isə geniş ingilis dilində magistr proqramları ilə təklif olunur və beynəlxalq karyera hədəfləyənlər üçün ideal seçimdir.",
@@ -136,7 +152,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Təhsil və yaşayış xərcləri — dəqiq hesab",
+      heading: "Almaniyada təhsil və yaşayış neçəyə başa gəlir?",
+      summary:
+        "Aylıq yaşayış xərci 900-1 200 EUR-dur (Münhen/Hamburq bahalı, Leipzig/Dresden ucuzdur): icarə 350-550, qida 200-250, sığorta ~120 EUR. Təhsil haqqı yoxdur, amma blocked account üçün illik 11 208 EUR (aylıq 934 EUR) vəsait əvvəlcədən bloklanmalıdır. Ümumi illik büdcə təxminən 11 000-13 000 EUR.",
       paragraphs: [
         "Almaniyada təhsilin əsas xərc mənbəyi təhsil haqqı deyil, yaşayış xərcləridir. Tələbə üçün aylıq yaşayış xərci şəhərdən asılı olaraq təxminən 900–1 200 EUR arasında dəyişir. Münhen və Hamburq ən bahalı, Leipzig, Dresden və kiçik şəhərlər isə ən əlçatan seçimlərdir. Bu məbləğə icarə (450–550 EUR), qida (200–250 EUR), sığorta (~120 EUR), internet və şəxsi xərclər daxildir.",
         "Səhiyyə sığortası məcburidir və 30 yaşına qədər dövlət (gesetzlich) sığortası (TK, AOK, Barmer) təxminən 120 EUR/aɣ ödənişlə təklif olunur. Semestr haqqı 150–350 EUR-dur və içində semestr bileti olur. 2024-cü ildən etibarən blocked account (Bloklanmış Hesab) üçün qanuni minimum aylıq məbləğ 934 EUR-dur ki, bu da illik 11 208 EUR edir və bu vəsait Almaniyaya gəlməzdən əvvəl hesabda bloklanmalıdır.",
@@ -155,7 +173,9 @@ const article: Article = {
       },
     },
     {
-      heading: "Addım-addım qəbul prosesi (Uni-assist və birbaşa)",
+      heading: "Almaniyaya necə qəbul olmaq olar?",
+      summary:
+        "Proses 8 addımdan ibarətdir: ixtisas/universitet seçimi, APS sertifikatı (aylar apara bilər), dil sertifikatı, Uni-assist və ya birbaşa müraciət, qəbul qərarı (4-8 həftə), blocked account açılışı, sığorta+viza, gəliş+immatrikulyasiya. Dil hazırlığı da daxil olmaqla ümumi müddət 1-2 ili ala bilər.",
       paragraphs: [
         "Almaniyada təhsilə qəbul prosesi sistemli və vaxtına görə planlı aparılmalıdır. Əsas müraciət kanalı Uni-assist adlı mərkəzləşdirilmiş platformadır, hansı ki, bir çox universitetin sənədlərini bir yerdən yoxlayır və növbəti universitetlərə ötürür. Bəzi universitetlər isə birbaşa öz portalından müraciət qəbul edir. Doğru kanalı bilmək prosesi xeyli sürətləndirir.",
         "Bu prosesin ümumi müddəti dil hazırlığı da daxil olmaqla 1–2 ili ala bilər, ona görə də vaxtında başlamaq uğurun açarıdır. MegaGroup-un təcrübəli komandası hər addımda — APS-dən tutmuş immatrikulyasiyaya qədər — yanınızda olur və sənədlərin xətasız hazırlanmasını təmin edir. Proses aşağıdakı addımlardan ibarətdir:",
@@ -172,7 +192,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Tələbə vizası — blocked account və sığorta",
+      heading: "Almaniya tələbə vizası necə alınır?",
+      summary:
+        "Milli D Vizası üçün lazımdır: universitetin qəbul məktubu (Zulassungsbescheid), blocked account (illik 11 208 EUR), səhiyyə sığortası (TK/AOK/Barmer ~120 EUR/ay) və pasport. Proses 4-8 həftə çəkir; Almaniyaya gəldikdən sonra bu viza yaşayış icazəsinə (Aufenthaltstitel) çevrilir.",
       paragraphs: [
         "Almaniyada təhsil üçün Milli D Vizası (Nationales Visum) tələb olunur. Bu viza Almaniyaya gəldikdən sonra yaşayış icazəsinə (Aufenthaltstitel) çevrilir. Viza üçün əsas tələblər bunlardır: universitetin rəsmi qəbul məktubu (Zulassungsbescheid), blocked account (aylıq ən azı 934 EUR və ya illik 11 208 EUR), səhiyyə sığortası, pasport və biometrik şəkillər.",
         "Blocked account (Sperrkonto) — Almaniyaya gəlməzdən əvvəl açılan xüsusi bank hesabıdır və vəsait hər ay yalnız müəyyən məbləğdə (aylıq 934 EUR) çıxarıla bilər. Bu, maliyyə qabiliyyətinizin rəsmi sübutudur. Fintiba, Expatrio və Coracle kimi provayderlər bu xidməti onlayn təklif edir. Sığorta isə TK, AOK və ya Barmer kimi dövlət sığorta şirkətlərindən alınır.",
@@ -180,7 +202,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Təhsil zamanı işləmək və məzuniyyətdən sonrakı imkanlar",
+      heading: "Almaniyada oxuyarkən işləmək və məzun olandan sonra qalmaq olarmı?",
+      summary:
+        "Bəli — qeyri-AB tələbələri il ərzində 120 tam və ya 240 yarım gün işləyə bilər (Werkstudent kimi aylıq 450-900 EUR; universitet daxili HiWi işləri limitsiz). Məzuniyyətdən sonra 18 aylıq iş axtarış vizası verilir, iş tapdıqda AB Mavi Kartı, 21 ay (və ya B1 almanca) sonra isə daimi yaşayış icazəsi almaq mümkündür.",
       paragraphs: [
         "Almaniyada oxumaq tələbələrə əlavə gəlir qazanmaq imkanı verir. Beynəlxalq tələbələr (qeyri-AB) il ərzində 120 tam iş günü (Vollzeit) və ya 240 yarım gün (Halbzeit) işləyə bilərlər. Tələbə işçi (Werkstudent) olaraq aylıq təxminən 450–900 EUR qazanmaq mümkündür; bu, yaşayış xərclərinin bir hissəsini ödəməyə kifayət edir. Universitet daxilində işlər (HiWi) isə bu limitə daxil deyil.",
         "Məzuniyyətdən sonra Almaniya məzunlara 18 aylıq iş axtarış vizası (Aufenthaltserlaubnis zur Arbeitsplatzsuche) verir. Bu müddət ərzində iş tapdıqda, iş kontraktı əsasında məşğulluq və ya AB Blue Card (Mavi Kart) statusuna keçid mümkündür. Mavi Kart üçün ilkin minimum illik maaş tələbi var (2024-cü il üçün təxminən 45 300 EUR, lakin qıtlıq (Mangelberufe) sahələrində daha aşağı).",
@@ -188,7 +212,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Diplomun tanınması — Azərbaycanda və Avropada",
+      heading: "Almaniya diplomu Azərbaycanda və Avropada tanınırmı?",
+      summary:
+        "Bəli — Bolonya prosesinə və ECTS-ə uyğun olaraq diplom bütün Avropa İttifaqında tanınır. Azərbaycanda Təhsil Nazirliyinin ekvivalentləşdirmə (nostrifikasiya) prosesindən keçir və akkreditəli dövlət universitetlərində problem yaranmır. Yalnız tibb diplomu üçün əlavə rezidentura/lisenziya tələb oluna bilər.",
       paragraphs: [
         "Almaniyada alınan diplom Bolonya prosesinə uyğun olaraq bütün Avropa İttifaqında tanınır və ECTS (Avropa Kredit Transfer Sistemi) çərçivəsində transfer olunur. Bu o deməkdirdir ki, Almaniya diplomu ilə Fransa, Niderland, İsveçrə və ya başqa AB ölkəsində magistr və ya iş üçün müraciət etmək asandır.",
         "Azərbaycanda isə Almaniya diplomu Təhsil Nazirliyinin ekvivalentləşdirmə (nostrifikasiya) prosesindən keçir. Akkreditəli dövlət universitetlərinin diplomları adətən problem olmadan tanınır və dövlət qurumlarında, özəl sektorda qəbul olunur. Tibb diplomu üçün isə rezidentura və lisenziya prosesi ayrıca tələb oluna bilər. MegaGroup məzuniyyətdən sonra diplomun ekvivalentləşdirilməsi məsələsində də məsləhət göstərir.",

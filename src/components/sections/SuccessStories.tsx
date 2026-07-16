@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import Tilt from "react-parallax-tilt";
+import { LazyTilt } from "@/components/motion/LazyTilt";
 import { FadeInUp } from "@/components/motion/FadeInUp";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { universities } from "@/data/universities";
@@ -49,9 +49,9 @@ export function SuccessStories({
         return (
           <FadeInUp key={t.id} delay={i * 0.1}>
             {useTilt ? (
-              <Tilt glareEnable scale={1.02} tiltMaxAngleX={6} tiltMaxAngleY={6}>
+              <LazyTilt glareEnable scale={1.02} tiltMaxAngleX={6} tiltMaxAngleY={6}>
                 {card}
-              </Tilt>
+              </LazyTilt>
             ) : (
               card
             )}

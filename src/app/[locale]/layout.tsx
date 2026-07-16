@@ -14,13 +14,14 @@ import { Footer } from "@/components/layout/Footer";
 import { WhatsAppFloat } from "@/components/layout/WhatsAppFloat";
 import { cn } from "@/lib/utils";
 import { siteUrl } from "@/lib/site";
+import { organizationSameAs } from "@/lib/social-links";
 import "../globals.css";
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"], display: "swap" });
 const jakarta = Plus_Jakarta_Sans({
   variable: "--font-jakarta",
   subsets: ["latin"],
-  weight: ["600", "700", "800"],
+  weight: ["700", "800"], // 600 heç vaxt font-heading ilə istifadə olunmur — çıxardıq
   display: "swap",
 });
 
@@ -84,10 +85,7 @@ export default async function LocaleLayout({
             name: "MegaGroup — Xaricdə Təhsil Mərkəzi",
             url: siteUrl,
             description: "Azərbaycanlı tələbələr üçün xaricdə təhsil — attestatla, imtahansız qəbul.",
-            sameAs: [
-              "https://www.instagram.com/mega_xaricde_tehsil_merkezi/",
-              "https://www.tiktok.com/@mega_xaricde_tehsil_merkezi",
-            ],
+            sameAs: organizationSameAs,
             areaServed: "AZ",
             contactPoint: [
               {
@@ -134,10 +132,7 @@ export default async function LocaleLayout({
                 closes: "19:00",
               },
             ],
-            sameAs: [
-              "https://www.instagram.com/mega_xaricde_tehsil_merkezi/",
-              "https://www.tiktok.com/@mega_xaricde_tehsil_merkezi",
-            ],
+            sameAs: organizationSameAs,
           }),
         }}
       />

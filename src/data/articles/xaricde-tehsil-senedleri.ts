@@ -18,7 +18,7 @@ const article: Article = {
   excerpt:
     "Xaricdə oxumaq üçün hansı sənədlər lazımdır? Attestat, pasport, tibbi arayış, motivasiya məktubu, apostil və tərcümə prosesi barədə addım-addım tam bələdçi.",
   heroEmoji: "📋",
-  updatedAt: "2026-07-12",
+  updatedAt: "2026-07-16",
   readingMinutes: 12,
   intro: [
     "Xaricdə təhsil qərarını verdikdən sonra qarşıya çıxan ən vacib və ən çox gərginlik yaradan mərhələ sənədlərin hazırlanmasıdır. Yanlış hazırlanmış, vaxtı keçmiş və ya düzgün təsdiqlənməmiş bir sənəd bütün qəbul prosesini ləngidə bilər, bəzən isə müraciətin rədd edilməsinə səbəb ola bilər. Bu məqalədə xaricdə təhsil üçün lazım olan bütün sənədləri, onların hazırlanma qaydasını və tez-tez edilən səhvləri ətraflı şəkildə izah edirik.",
@@ -26,7 +26,9 @@ const article: Article = {
   ],
   sections: [
     {
-      heading: "Xaricdə təhsil üçün əsas sənədlər — ümumi siyahı",
+      heading: "Xaricdə təhsil üçün hansı əsas sənədlər lazımdır?",
+      summary:
+        "Xaricdə təhsil üçün əsas sənədlər: attestat və ya diplom, qüvvədə olan xarici pasport, doğum şəhadətnaməsi, akademik transkript, tibbi arayış, şəkillər, motivasiya məktubu, tövsiyə məktubları, dil sertifikatları, bank çıxarışı, cinayət arayışı və qəbul məktubu. Hər ölkə və universitetin konkret tələbləri fərqli olduğu üçün rəsmi siyahını mütləq yoxlayın.",
       paragraphs: [
         "Hər ölkə və universitetin konkret tələbləri fərqli olsa da, əksər hallarda aşağıdakı əsas sənədlər tələb olunur. Bu siyahı ən geniş yayılmış tələbləri əhatə edir — universitetinizin və ya səfirliyinizin konkret tələblərini mütləq yoxlayın.",
       ],
@@ -46,7 +48,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Attestat və ya diplom — əsas akademik sənəd",
+      heading: "Attestat və ya diplom xaricdə təhsil üçün necə hazırlanmalıdır?",
+      summary:
+        "Attestat (ümumi təhsil haqqında attestat) xaricdə təhsilin ən vacib sənədidir və orijinal Azərbaycan dilində olduğu üçün mütləq rəsmi tərcümə və təsdiq tələb edir. Təsdiq iki yolla aparılır: notarial təsdiq edilmiş tərcümə və ya apostil/konsulluq leqalləşdirməsi — hansı üsulun lazım olduğu hədəf ölkədən asılıdır. Adda-soyadda hər hansı uyğunsuzluq qəbulun rəddinə səbəb ola bilər.",
       paragraphs: [
         "Orta məktəbi bitirdikdən sonra aldığınız attestat (tam adı: «Ümumi təhsil haqqında attestat») xaricdə təhsil üçün ən vacib sənəddir. Bu sənəd sizin orta təhsilinizi başa çatdırdığınızı və ali təhsil almaq hüququnuz olduğunu təsdiqləyir. Attestatın orijinalı Azərbaycan dilindədir və xarici universitetə təqdim etmək üçün onun tərcüməsi və təsdiqi mütləqdir.",
         "Tərcümə prosesi iki yolla aparılır: (1) notarius tərəfindən təsdiqlənmiş tərcümə — notarius sənədin surətini və tərcüməsini təsdiqləyir; (2) apostil və ya konsulluq leqalləşdirməsi — sənədin xarici ölkədə tanınması üçün rəsmi təsdiq. Hansı üsulun tələb olunduğu müraciət etdiyiniz ölkədən asılıdır (buna aşağıda ətraflı toxunuruq).",
@@ -55,7 +59,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Xarici pasport — keçərlilik və müraciət",
+      heading: "Xarici pasport xaricdə təhsil üçün hansı tələbləri ödəməlidir?",
+      summary:
+        "Xaricdə təhsil üçün biometrik xarici pasport mütləqdir və onun keçərlilik müddəti ən azı 1.5–2 il (bəzi ölkələrdə bütün təhsil müddəti ərzində) olmalıdır. Pasport ASAN xidmət və ya DİN pasport şöbəsindən alınır: standart proses 5-10 iş günü, təcili isə 1-3 gün çəkir. Pasportda ən azı 2-3 boş səhifə olmalı və məlumatlarda səhv olmamalıdır.",
       paragraphs: [
         "Xaricdə təhsil üçün xarici pasport (biometrik pasport) mütləqdir. Pasportun keçərlilik müddəti müraciət etdiyiniz ölkədən asılı olaraq ən azı 1.5–2 il olmalıdır — bəzi ölkələr (məsələn, Polşa, Almaniya) pasportun bütün təhsil müddəti ərzində keçərli olmasını tələb edir. Əgər pasportunuzun müddəti yaxınlaşırsa, vaxt itirmədən yeniləyin.",
         "Azərbaycanda xarici pasport üçün ASAN xidmətə və ya Daxili İşlər Nazirliyinin pasport şöbəsinə müraciət etməlisiniz. Tələb olunan sənədlər: şəxsiyyət vəsiqəsi, doğum şəhadətnaməsi, şəkil və dövlət rüsumunun ödənişi. Standart proses 5-10 iş günü çəkir, sürətləndirilmiş (təcili) proses isə 1-3 günə başa gəlir, lakin əlavə ödəniş tələb edir.",
@@ -63,21 +69,27 @@ const article: Article = {
       ],
     },
     {
-      heading: "Doğum şəhadətnaməsi",
+      heading: "Doğum şəhadətnaməsi xaricdə təhsil üçün nə üçün və necə lazımdır?",
+      summary:
+        "Doğum şəhadətnaməsi şəxsiyyətinizi və valideynlərinizi təsdiqləyən rəsmi sənəddir və xarici universitetlər/səfirliklər doğrulama üçün onu tələb edir. Sənəd ASAN xidmətindən və ya VPN qeydiyyat orqanlarından alınır və üç günə verılır. Onun notarial təsdiqlənmiş tərcüməsi, bəzi hallarda isə apostil tələb olunur.",
       paragraphs: [
         "Doğum şəhadətnaməsi (doğumu qeydə alan şəhadətnamə) şəxsiyyətinizi və valideynlərinizi təsdiqləyən rəsmi sənəddir. Xarici universitetlər və səfirliklər bu sənədi adətən doğrulama (verification) üçün tələb edir. Sənəd Azərbaycan DİN-in ASAN xidməti və ya VPN (Vətəndaşlıq Vəziyyəti Aktları) qeydiyyat orqanları tərəfindən verilir.",
         "Doğum şəhadətnaməsi üçün tələb olunanlar: notarial təsdiqlənmiş tərcümə (ingilis, rus, və ya hədəf ölkənin dilinə) və bəzi hallarda apostil. Sənədin surəti və orijinalı hər ikisi tələb oluna bilər. Doğum şəhadətnaməsi itibsə və ya köhnədirsə, ASAN xidmətindən yenidən ala bilərsiniz — proses adətən 1-3 gün çəkir.",
       ],
     },
     {
-      heading: "Akademik transkript və qiymət cədvəli",
+      heading: "Akademik transkript nədir və haradan alınır?",
+      summary:
+        "Transkript attestatın və ya diplomun arxasındakı bütün qiymətləri göstərən rəsmi sənəddir və bir çox universitet onu qəbul qərarı üçün tələb edir. Sənəd məktəbdən və ya Təhsil Nazirliyindən alınır və notarius tərəfindən təsdiqlənmiş rəsmi tərcümə ilə təqdim olunmalıdır. Transkriptdəki qiymətlər attestatla tam uyğun gəlməlidır, əks halda saxtakarlıq şübhəsi yaranır.",
       paragraphs: [
         "Transkript (akademik arayış) attestatın və ya diplomun arxasındakı bütün qiymətlərin rəsmi sənədidir. Bu sənəd sizin hansı fənlərdən keçdiyinizi və hansı qiymətlər aldığınızı göstərir. Bir çox universitet yalnız attestat deyil, həm də transkript tələb edir, çünki qiymətlərin detallı analizi qəbul qərarına təsir edir.",
         "Transkrixt məktəbdən və ya Təhsil Nazirliyindən alınır. Rəsmi tərcüməsi notarius tərəfindən təsdiqlənməlidir. Diqqət edin: transkriptdəki qiymətlər attestatdakı ilə tam uyğun gəlməlidir — hər hansı uyğunsuzluq qəbul komitəsi tərəfindən saxtakarlıq kimi qiymətləndirilə bilər və müraciətin rədd edilməsinə səbəb ola bilər.",
       ],
     },
     {
-      heading: "Tibbi arayış / sağlamlıq şəhadətnaməsi",
+      heading: "Tibbi arayış xaricdə təhsil üçün necə alınır və nəyi əhatə edir?",
+      summary:
+        "Tibbi arayış ciddi xəstəliyinizin olmadığını və xaricdə təhsil almağa sağlamlığınızın uyğun olduğunu təsdiqləyir; ümumi müayinə, qan analizi (HIV, hepatit B/C), rentgen və ürək-qan damarları yoxlamasını əhatə edir. Sənəd dövlət və ya özəl tibbi müəssisədən rəsmi möhürlə alınır və rus/ingilis dilinə notarial tərcümə olunur. Keçərlilik müddəti 1-3 ay olduğundan viza müraciətindən 2-4 həftə əvvəl alınması məsləhətdir.",
       paragraphs: [
         "Tibbi arayış (medical certificate) sizin ciddi xəstəlikləriniz olmamasını və xaricdə təhsil almağa sağlamlığınızın uyğun olduğunu təsdiqləyir. Standart tibbi arayış aşağıdakı müayinələri əhatə edir: ümumi müayinə, qan analizi (HIV, hepatit B və C), mədəntürəsi (rentgen), ürək-qan damarları müayinəsi və bəzi ölkələrdə psixiatrik arayış.",
         "Tibbi arayışı dövlət və ya özəl tibbi müəssisədə ala bilərsiniz, lakin sənəd rəsmi möhürlə və həkimin imzası ilə təsdiqlənməlidir. Bəzi ölkələr (məsələn, Rusiya, Ukrayna) xüsusi formada tibmi arayış tələb edir — bu forma səfirlikdən və ya universitetdən alına bilər. Sənəd rus və ya ingilis dilinə tərcümə olunmalı və notarial təsdiqlənməlidir.",
@@ -85,14 +97,18 @@ const article: Article = {
       ],
     },
     {
-      heading: "Fotoşəkillər — spesifikasiyalar",
+      heading: "Fotoşəkillər hansı ölçü və formatda olmalıdır?",
+      summary:
+        "Fotoşəkillər pasport, qəbul məktubu, viza və tələbə kartı üçün tələb olunur; standart ölçü 3x4 və ya 4x5 sm (bəzi ölkələrdə 5x5 sm), adətən 6-10 ədəd kifayətdir. Şəkillər açıq fonda, son 6 ay içində çəkilmiş və üzün aydın görünəcəyi formada olmalıdır. Onlayn müraciətlər üçün minimum 300 dpi, JPG və ya PNG formatında rəqəmsal şəkil də hazırlanmalıdır.",
       paragraphs: [
         "Fotoşəkillər pasport, qəbul məktubu, viza və tələbə kartı üçün tələb olunur. Əksər ölkələr üçün standart ölçü 3x4 sm və ya 4x5 sm-dir, lakin bəzi ölkələr (məsələn, ABŞ viza üçün) 5x5 sm tələb edir. Adətən 6-10 ədəd şəkil hazırlamaq kifayətdir.",
         "Şəkillər açıq fonda (ağ və ya açıq boz), son 6 ay içində çəkilmiş, üzünüzün aydın görünəcəyi şəkildə olmalıdır. Eynək taxmısınızsa, şəkildə gözləriniz görünməlidir. Rəqəmsal (elektron) şəkillər də bir çox universitetlərin onlayn müraciət sistemlərində tələb olunur — yüksək keyfiyyətdə (minimum 300 dpi) JPG və ya PNG formatında hazırlayın.",
       ],
     },
     {
-      heading: "Motivasiya məktubu / şəxsi bəyannamə",
+      heading: "Motivasiya məktubu necə yazılır və nəyi əhatə etməlidir?",
+      summary:
+        "Motivasiya məktubu niyə həmin universitetə, ixtisasa və ölkəyə müraciət etdiyinizi izah edən yazılı sənəddir və Avropa/Şimali Amerika qəbul qərarlarına birbaşa təsir edir. Məktub ixtisas seçiminin səbəbi, universitetin seçimi, nailiyyətlər və gələcək planlar kimi məqamları əhatə etməli, 1-2 səhifə (500-800 söz) şəxsi tonla yazılmalıdır. Hər universitet üçün ayrıca yazmaq və dil xətalarını aradan qaldırmaq tövsiyə olunur.",
       paragraphs: [
         "Motivasiya məktubu (motivation letter və ya personal statement) sizin niyə bu universitetə, bu ixtisasa və bu ölkəyə müraciət etdiyinizi izah etdiyiniz yazılı sənəddir. Bu, xüsusilə Avropa və Şimali Amerika universitetlərində qəbul qərarına birbaşa təsir edən vacib sənəddir. Yaxşı motivasiya məktubu zəif attestat qiymətlərini kompensasiya edə bilər.",
         "Motivasiya məktubunda aşağıdakı məqamları əhatə etməlisiniz: (1) niyə bu ixtisası seçirsiniz — marağınızın mənşəyi, gələcək məqsədləriniz; (2) niyə bu universitet və bu ölkə — spesifik proqramlar, professorlar, imkanlar; (3) sizin nailiyyətləriniz və təcrübəniz — olimpiadalar, kurslar, könüllü fəaliyyət; (4) gələcək planlarınız — məzun olduqdan sonra nə etmək istədiyiniz.",
@@ -100,14 +116,18 @@ const article: Article = {
       ],
     },
     {
-      heading: "Tövsiyə məktubları (recommendation letters)",
+      heading: "Tövsiyə məktubu kimdən və necə alınır?",
+      summary:
+        "Tövsiyə məktubu müəllim, direktor və ya iş yeri rəhbərinin akademik və şəxsi keyfiyyətlərinizi təsvir etdiyi rəsmi sənəddir; Avropa və Şimali Amerika universitetləri adətən 1-3 ədəd tələb edir. Ən yaxşı variant sizi yaxşı tanıyan şəxslərdən (direktor, ixtisas müəllimi, olimpiada məşqçisi) rəsmi blankda, imza və möhürlə almaqdır. Sonra məktub ingilis və ya hədəf ölkə dilinə tərcümə olunmalıdır.",
       paragraphs: [
         "Tövsiyə məktubu müəllimlərinizin, direktorunuzun və ya iş yerinizin rəhbərinin sizin akademik və şəxsi keyfiyyətlərinizi təsvir etdiyi rəsmi sənəddir. Avropa və Şimali Amerika universitetləri adətən 1-3 tövsiyə məktubu tələb edir. Türkiyə, Rusiya və qonşu ölkələrdə isə bu daha az yayılıb.",
         "Tövsiyə məktubunu kimdən almalı? Ən yaxşı variant sizin yaxşı tanıdığı və sizinlə işləmiş şəxslərdir: məktəb direktoru, əsas fənlərin müəllimi (ixtisasla bağlı fən), olimpiada məşqçisi, və ya iş yeri rəhbəri. Məktub rəsmi blankda, imza və möhürlə yazılmalı, sonra ingilis və ya hədəf ölkə dilinə tərcümə olunmalıdır.",
       ],
     },
     {
-      heading: "Dil sertifikatları — IELTS, TOEFL və digərləri",
+      heading: "Xaricdə təhsil üçün hansı dil sertifikatları qəbul olunur?",
+      summary:
+        "İngilis dilində proqramlar üçün ən çox qəbul edilən sertifikatlar IELTS Academic (adətən 5.5–6.5), TOEFL iBT (75–90) və Cambridge English (FCE, CAE)-dir; bəzi universitetlər Duolingo və PTE Academic da qəbul edir. Almaniyada TestDaF/DSH, Fransada DELF/DALF, Türkiyədə isə YÖS/TÖMER tələb oluna bilər. Sertifikatların keçərlilik müddəti 2 ildir, lakin olmadıqda müraciət avtomatik rədd edilir.",
       paragraphs: [
         "İngilis dilində tədris aparan proqramlara qəbul üçün dil sertifikatı mütləqdir. Ən çox qəbul edilən sertifikatlar: IELTS Academic (minimum bal adətən 5.5–6.5), TOEFL iBT (minimum 75–90), Cambridge English (FCE, CAE). Bəzi universitetlər Duolingo English Test və ya PTE Academic də qəbul edirlər.",
         "Alman dilində proqramlar üçün TestDaF və ya DSH imtahanı, fransız üçün DELF/DALF, türk dövlət universitetləri üçün YÖS (Yabancı Öğrenci Sınavı) və ya TÖMER sertifikatı tələb oluna bilər. Dil sertifikatının keçərlilik müddəti adətən 2 ildir — buna görə sertifikatı müraciətdən 1-2 il əvvəl almaq kifayətdir.",
@@ -115,7 +135,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Maliyyə zəmanəti və bank çıxarışı",
+      heading: "Viza üçün maliyyə zəmanəti və bank çıxarışı hansı məbləği tələb edir?",
+      summary:
+        "Maliyyə zəmanəti sizin təhsil və yaşayış xərclərini ödəməyə qadir olduğunuzu təsdiqləyir və adətən son 3-6 ayın bank çıxarışı və ya rəsmi bank məktubu şəklində təqdim olunur. Məbləğ ölkədən asılıdır: Almaniya üçün ~€11,208 (Sperrkonto), Polşa üçün ~€6,000-8,000, Türkiyə və Rusiya üçün isə daha aşağı məbləğlər kifayətdir. Sponsor valideynin gəlir sənədi və doğum şəhadətnaməsi də əlavə edilə bilər.",
       paragraphs: [
         "Viza müraciəti zamanı ən kritik sənədlərdən biri maliyyə zəmanətidir (financial proof). Bu sənəd sizin və ya ailənizin təhsil və yaşayış xərclərini ödəməyə qadir olduğunu təsdiqləyir. Adətən son 3-6 ayın bank çıxarışı və ya bankdan alınmış rəsmi məktub tələb olunur.",
         "Məbləğ ölkədən asılıdır: məsələn, Almaniya üçün tələb olunan illik məbləğ təxminən 11 208 avro (Sperrkonto — bloklanmış hesab), Polşa üçün təxminən 6 000-8 000 avro, Türkiyə və Rusiya üçün isə daha aşağı məbləğlər kifayət edir. Bank çıxarışında pulun axınını (böyük miqdarda birdən yatırılan pul değil, davamlı balans) göstərmək daha etibarlıdır.",
@@ -123,14 +145,18 @@ const article: Article = {
       ],
     },
     {
-      heading: "Cinayət məsuliyyətində olmama arayışı",
+      heading: "Cinayət məsuliyyətində olmama arayışı haradan və necə alınır?",
+      summary:
+        "Cinayət məsuliyyətində olmama arayışı Azərbaycanda cinayət qeydiyyatınızın olmadığını təsdiqləyir və bir çox Avropa ölkələrinin (Almaniya, Polşa, Çexiya) viza prosesində tələb olunur. Sənəd Ədliyyə Nazirliyindən və ya ASAN xidmətindən 3-7 iş gününə alınır və ingilis/hədəf ölkə dilinə notarial tərcümə (bəzi ölkələrdə apostil) tələb edir. Keçərlilik müddəti 3-6 ay olduğundan viza müraciətindən 1-2 ay əvvəl alınması tövsiyə olunur.",
       paragraphs: [
         "Cinayət məsuliyyətində olmama arayışı (police clearance certificate) sizin Azərbaycanda cinayət qeydiyyatınızın olmadığını təsdiqləyir. Bu sənəd bir çox Avropa ölkələrinin (Almaniya, Polşa, Çexiya) viza prosesində tələb olunur. Sənəd Ədliyyə Nazirliyindən və ya ASAN xidmətindən alınır — proses adətən 3-7 iş günü çəkir.",
         "Arayışın ingilis və ya hədəf ölkə dilinə tərcüməsi və notarial təsdiqi lazımdır. Bəzi ölkələr həm də apostil tələb edir. Arayışın keçərlilik müddəti adətən 3-6 aydır — buna görə viza müraciətindən 1-2 ay əvvəl almaq tövsiyə olunur.",
       ],
     },
     {
-      heading: "Apostil və konsulluq leqalləşdirməsi — fərq nədir?",
+      heading: "Apostil və konsulluq leqalləşdirməsi arasındakı fərq nədir?",
+      summary:
+        "Apostil və konsulluq leqalləşdirməsi sənədlərin xaricdə tanınması üçün iki üsuldur; hansının tələb olunduğu hədəf ölkənin 1961-ci il Haaqa Konvensiyasına üzv olub-olmamasından asılıdır. Apostil Haaqa ölkələri (Türkiyə, Gürcüstan, Rusiya, Polşa, Almaniya) üçün Təhsil və ya Ədliyyə Nazirliyində 1-5 günə qoyulur və sənəd başına 20-60 manata başa gəlir. Qeyri-üzv ölkələr üçün isə XİN və səfirlikdə həyata keçirilən konsulluq leqalləşdirməsi tələb olunur.",
       paragraphs: [
         "Sənədlərin xaricdə tanınması üçün iki əsas üsul var: apostil (apostille) və konsulluq leqalləşdirməsi (legalization). Hansı üsulun tələb olunduğu müraciət etdiyiniz ölkənin 1961-ci il Haaqa Konvensiyasının iştirakçısı olub-olmamasından asılıdır.",
         "Apostil — Haaqa Konvensiyasına üzv olan ölkələr (Türkiyə, Gürcüstan, Rusiya, Polşa, Almaniya, bir çox Avropa ölkələri) üçün keçərlidir. Apostil Təhsil Nazirliyində və ya Ədliyyə Nazirliyində (sənədin növündən asılı olaraq) qoyulur və sənədin həmin ölkədə avtomatik tanınmasını təmin edir. Proses adətən 1-5 iş günü çəkir.",
@@ -141,7 +167,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Viza üçün sənədlər — ölkələrə görə fərqlər",
+      heading: "Tələbə vizası üçün hansı sənədlər tələb olunur və ölkələrə görə nə ilə fərqlənir?",
+      summary:
+        "Viza üçün tələb olunan sənədlər ölkədən asılı olaraq fərqlənir: Türkiyədə proses sürətli və sadədir (qəbul məktubu, pasport, bank çıxarışı, sığorta), Rusiya və Qazaxıstanda xüsusi formada tibmi arayış və apostil edilmiş tərcümələr tələb olunur. Aİ ölkələri (Polşa, Almaniya, Çexiya) daha ciddidir — maliyyə zəmanəti (Polşa €6,000-8,000, Almaniya €11,208 bloklanmış hesab), sığorta, yaşayış təsdiqi, doğum şəhadətnaməsi və cinayət arayışı tələb edir. Gürcüstan üçün xüsusi tələbə vizası yoxdur — 90 günədək vizasız qalmaq və yaşayış icazəsi almaq mümkündür.",
       paragraphs: [
         "Universitet qəbul məktubunu aldıqdan sonra növbəti mərhələ tələbə vizası müraciətidir. Viza üçün tələb olunan sənədlər ölkədən asılı olaraq fərqlənir. Türkiyə üçün əsasən qəbul məktubu, pasport, bank çıxarışı, sığorta və yaşayış təsdiyi kifayətdir — proses sürətli və nisbətən sadədir. Türkiyə səfirliyi viza qərarını adətən 2-4 həftəyə verir.",
         "Rusiya və Qazaxıstan üçün qəbul məktubu (priglaşeniye), attestatın apostil edilmiş tərcüməsi, tibbi arayış (xüsusi formada, HIV testi ilə), pasport və şəkillər tələb olunur. Rusiya vizası adətən 7-15 iş gününə alınır. Qazaxıstan vizası prosesi də oxşardır və qısamüddətli səfərlər üçün vizasız rejim mövcuddur.",
@@ -150,7 +178,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Sənəd hazırlığı üçün vaxt xəritəsi",
+      heading: "Xaricdə təhsil sənədlərini neçə ay əvvəl hazırlamağa başlamaq lazımdır?",
+      summary:
+        "Sənəd hazırlığına ideal olaraq universitetə müraciətdən 3-4 ay əvvəl başlamaq lazımdır. 3-4 ay əvvəl pasport yoxlanışı və IELTS/TOEFL imtahanına yazılmaq, 2-3 ay əvvəl tərcümə və apostil işlərinə başlamaq, 1-2 ay əvvəl isə tibmi arayış, cinayət arayışı və tövsiyə məktublarını toplamaq tövsiyə olunur. Son 4-6 həftədə sənəd paketi universitetə, 2-4 həftə qalmış isə viza müraciətinə təqdim edilir.",
       paragraphs: [
         "Sənədlərin hazırlanması prosesinə ideal olaraq universitetə müraciətdən 3-4 ay əvvəl başlamalısınız. Aşağıda tipik vaxt xəritəsini təqdim edirik:",
       ],
@@ -163,14 +193,18 @@ const article: Article = {
       ],
     },
     {
-      heading: "Mövsümilik və doğru vaxt seçimi",
+      heading: "Xaricdə təhsilə müraciətin ən doğru mövsümü və vaxtı hansıdır?",
+      summary:
+        "Əksər Avropa və Türkiyə universitetlərinin qəbul prosesi növbəti ilin sentyabrı üçün sentyabr-oktyabrda başlayır və mart-maydə yekunlaşır; Almaniyada qış semestri üçün iyul 15-dək, yay semestri üçün yanvar 15-dək müraciət olunur. Dil imtahanları vaxtında yazılmalı (nəticə 2-4 həftə gəlir), yay aylarında isə viza növbələri uzundur. Optimal strategiya: qış-fevral aylarından hazırlığa başlayıb iyul-avqustda müraciət etməkdir.",
       paragraphs: [
         "Xaricə müraciətin mövsümiliyi var və vaxtınıza düşməyi bacarmaq prosesin uğuruna təsir edir. Əksər Avropa və Türkiyə universitetlərinin qəbul prosesi sentyabr-oktyabr aylarında (növbəti ilin sentyabrı üçün) başlayır və mart-may aylarında yekunlaşır. Almaniya üçün qış semestri (oktyabr) və yay semestri (aprel) qəbul dövrləri mövcuddur — qış semestri üçün müraciət iyul 15-dək, yay semestri üçün isə yanvar 15-dək.",
         "Tələb olunan dil imtahanları (IELTS, TOEFL, TestDaF) müəyyən tarixlərdə keçirilir və nəticələr 2-4 həftəyə gəlir. Buna görə də imtahana ən gec qəbul tarixindən 3-4 ay əvvəl yazılmaq lazımdır. Viza prosesi də mövsümi tələb yığınları səbəbindən yay aylarında (iyun-avqust) daha yavaş gedir — bu dövrdə səfirliklərdə növbələr uzundur. Optimal strategiya: qış-fevral aylarından hazırlığa başlamaq, yaz-yay sənədləri tamamlamaq və iyul-avqustda universitetə müraciət etməkdir.",
       ],
     },
     {
-      heading: "Ən çox edilən səhvlər və onlardan qaçınma",
+      heading: "Sənəd prosesində ən çox edilən səhvlər hansılardır və necə qaçınmaq olar?",
+      summary:
+        "Ən yaygın səhvlər: pasportun vaxtı keçmiş olması, attestat və transkriptdə qiymət uyğunsuzluğu, ad-soyad-doğum tarixində tərcümə xətaları, apostilin qoyulmaması, birdən yatırılan böyük bank məbləği və kopyalanmış motivasiya məktubudur. Bundan başqa, orijinal əvəzinə surət göndərmək, tibmi arayışın keçərliliyinin bitməsi və universitetin konkret format tələblərinin yoxlanmaması da tez rast gəlinir. Hər sənədi iki dəfə yoxlamaq, professional tərcümə və təcrübəli məsləhətçidən kömək almaq bu səhvlərin qarşısını alır.",
       paragraphs: [
         "Sənəd prosesində tez-tez rast gəlinən səhvlər bunlardır: (1) pasportun keçərlilik müddətini vaxtında yoxlamamaq — bu, viza rəddinə səbəb olur; (2) attestat və transkriptdəki qiymətlər arasında uyğunsuzluq; (3) tərcümə xətaları — ad, soyad, doğum tarixində hərflə fərqlilik; (4) apostil qoymadan sənədi göndərmək; (5) köhnə bank çıxarışı və ya birdən yatırılan böyük məbləğ; (6) motivasiya məktubunu kopyalamaq və ya başqasından götürmək.",
         "Başqa bir yaygın səhv sənədlərin surətini göndərmək, lakin orijinalı və ya apostil edilmiş versiyanı saxlamaqdır — universitetlərin böyük əksəriyyəti sənədlərin orijinalını və ya apostil edilmiş surətini tələb edir. Həmçinin tibbi arayışın vaxtında keçərliliyini itirməsi də çox rast gəlinir: arayışı viza müraciətindən aylar əvvəl aldıqda, proses zamanı keçərlilik müddəti bitə bilər.",
@@ -179,14 +213,18 @@ const article: Article = {
       ],
     },
     {
-      heading: "Qəbul məktubu — viza üçün əsas sənəd",
+      heading: "Qəbul məktubu nədir və viza üçün necə istifadə olunur?",
+      summary:
+        "Qəbul məktubu (acceptance letter / invitation) universitet müraciətinizi qəbul etdikdə rəsmi blankında, möhür və imza ilə göndərilən sənəddir və tələbə vizası müraciətinin əsasını təşkil edir. Bəzi ölkələr xüsusi format tələb edir — məsələn, Rusiyada «priglaşeniye», Almaniyada isə rəsmi qeydiyyat təsdiqi. Qəbul məktubu gəldikdən sonra tibmi arayış və bank çıxarışının keçərlilik müddəti məhdud olduğundan viza müraciətinə dərhal keçmək lazımdır.",
       paragraphs: [
         "Qəbul məktubu (university acceptance letter / invitation) universitet sizin müraciətinizi qəbul etdikdən sonra rəsmi olaraq göndərilir. Bu sənəd viza müraciətinin əsasını təşkil edir və hansı ixtisasa, nə vaxt başlayacağınızı göstərir. Qəbul məktubu universitetin rəsmi blankında, möhür və imza ilə təqdim olunmalıdır.",
         "Bəzi ölkələr qəbul məktubunun xüsusi formatda olmasını tələb edir: məsələn, Rusiya üçün «priglaşeniye» adlı xüsusi dəvətnamə formu, Almaniya üçün rəsmi qeydiyyat təsdiqi. Qəbul məktubu gəldikdən sonra vaxt itirmədən viza müraciətinə keçin, çünki bəzi sənədlərin (tibmi arayış, bank çıxarışı) keçərlilik müddəti məhduddur.",
       ],
     },
     {
-      heading: "MegaGroup-un dəstəyi",
+      heading: "MegaGroup xaricdə təhsil sənədlərinin hazırlanmasında hansı xidmətləri təklif edir?",
+      summary:
+        "MegaGroup sənədlərin tam yoxlanması, professional tərcümə, apostil və leqalləşdirmə işlərinin idarə edilməsi, motivasiya məktubunun hazırlanması, bank və maliyyə sənədlərinin formatlanması və viza prosesində addım-addım rəhbərlik təklif edir. Pulsuz konsultasiya çərçivəsində vəziyyətiniz qiymətləndirilir və konkret fəaliyyət planı hazırlanır.",
       paragraphs: [
         "Sənəd prosesi mürəkkəb və gərgin ola bilər, xüsusilə də ilk dəfə xaricə müraciət edirsinizsə. MegaGroup sizə aşağıdakı xidmətləri təklif edir: sənədlərin tam yoxlanması, professional tərcümə, apostil və leqalləşdirmə işlərinin idarə edilməsi, motivasiya məktubunun hazırlanması, bank çıxarışı və maliyyə sənədlərinin formatlanması, viza prosesində addım-addım rəhbərlik. Pulsuz konsultasiya ilə sizin vəziyyətinizi qiymətləndirir və konkret fəaliyyət planı hazırlayırıq.",
       ],

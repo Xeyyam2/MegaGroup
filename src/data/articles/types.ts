@@ -1,5 +1,11 @@
 export interface ArticleSection {
   heading: string;
+  /**
+   * Qısa birbaşa cavab (2-3 cümlə) — H2-nin dərhal altında, detallı
+   * paraqraflardan əvvəl göstərilir. GEO/AEO üçün kritik: AI "featured
+   * snippet" / birbaşa cavab kimi bunu çıxarış edir. Olmasa detal oxunur.
+   */
+  summary?: string;
   paragraphs: string[];
   list?: string[];
   table?: { headers: string[]; rows: string[][] };

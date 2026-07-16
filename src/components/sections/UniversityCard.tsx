@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { SmartImage } from "@/components/SmartImage";
-import Tilt from "react-parallax-tilt";
+import { LazyTilt } from "@/components/motion/LazyTilt";
 import { useTranslations } from "next-intl";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { cn } from "@/lib/utils";
@@ -68,9 +68,9 @@ export function UniversityCard({
       className="block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary"
     >
       {useTilt ? (
-        <Tilt glareEnable scale={1.02} tiltMaxAngleX={8} tiltMaxAngleY={8}>
+        <LazyTilt glareEnable scale={1.02} tiltMaxAngleX={8} tiltMaxAngleY={8}>
           {card}
-        </Tilt>
+        </LazyTilt>
       ) : (
         card
       )}

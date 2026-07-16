@@ -8,7 +8,9 @@ import { FadeInUp } from "@/components/motion/FadeInUp";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
 import { CTASection } from "@/components/sections/CTASection";
 import { BlogFAQ } from "@/components/sections/BlogFAQ";
+import { AuthorBio } from "@/components/sections/AuthorBio";
 import { siteUrl } from "@/lib/site";
+import { authorPersonJsonLd, editorialAuthor } from "@/data/site-authors";
 import type { Locale } from "@/i18n/routing";
 
 export const revalidate = 3600;
@@ -78,6 +80,9 @@ export default async function ArticlePage({ params }: PageProps) {
     provider: { "@type": "Organization", name: "MegaGroup", url: siteUrl },
   };
 
+  // Müəllif artıq `Organization` deyil, `Person`-dur (E-E-A-T).
+  const authorPerson = authorPersonJsonLd(locale === "az" ? "az" : locale === "ru" ? "ru" : "en");
+
   const blogPostingJsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -86,9 +91,38 @@ export default async function ArticlePage({ params }: PageProps) {
     keywords: article.keywords.join(", "),
     dateModified: article.updatedAt,
     datePublished: article.updatedAt,
-    author: { "@type": "Organization", name: "MegaGroup", url: siteUrl },
-    publisher: { "@type": "Organization", name: "MegaGroup", url: siteUrl },
+    author: authorPerson,
+    publisher: {
+      "@type": "Organization",
+      name: "MegaGroup",
+      url: siteUrl,
+      logo: { "@type": "ImageObject", url: `${siteUrl}/icons/icon-512.png` },
+    },
     mainEntityOfPage: `${siteUrl}/az/bloq/${article.slug}`,
+    citation: article.faqs.length
+      ? {
+          "@type": "CreativeWork",
+          name: `${article.title} — Tez-tez verilən suallar`,
+        }
+      : undefined,
+  };
+
+  // Ayrıca `Person` obyekti — Google entity tanıması üçün tək başına da
+  // mövcud olmalıdır (BlogPosting.author referansı kifayət deyil).
+  const personJsonLd = {
+    "@context": "https://schema.org",
+    ...authorPerson,
+  };
+
+  // speakable — AI/səsli cavablar üçün ən yaxşı qısa cavab (intro).
+  const speakableJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    url: `${siteUrl}/az/bloq/${article.slug}`,
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: [".article-intro-summary", ".article-answer"],
+    },
   };
 
   const faqJsonLd = {
@@ -107,6 +141,8 @@ export default async function ArticlePage({ params }: PageProps) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableJsonLd) }} />
 
       <article className="mx-auto max-w-3xl px-6 py-20">
         <nav className="mb-8 flex items-center gap-2 text-xs text-foreground/50" aria-label="Breadcrumb">
@@ -130,10 +166,10 @@ export default async function ArticlePage({ params }: PageProps) {
           <span>·</span>
           <span>Yenilənib: {new Date(article.updatedAt).toLocaleDateString("az-AZ")}</span>
           <span>·</span>
-          <span>MegaGroup ekspertləri</span>
+          <span itemProp="author">{editorialAuthor.name}</span>
         </div>
 
-        <div className="mt-8 space-y-4 text-lg leading-relaxed text-foreground/85">
+        <div className="article-intro-summary mt-8 space-y-4 text-lg leading-relaxed text-foreground/85">
           {article.intro.map((p, i) => (
             <p key={i}>{p}</p>
           ))}
@@ -143,6 +179,11 @@ export default async function ArticlePage({ params }: PageProps) {
           {article.sections.map((section, i) => (
             <ScrollReveal key={section.heading} delay={i * 0.05}>
               <h2 className="font-heading text-2xl font-bold text-foreground">{section.heading}</h2>
+              {section.summary && (
+                <p className="article-answer mt-3 border-l-2 border-brand-primary/60 pl-4 text-base font-medium leading-relaxed text-foreground">
+                  {section.summary}
+                </p>
+              )}
               <div className="mt-3 space-y-3 text-foreground/80">
                 {section.paragraphs.map((p, j) => (
                   <p key={j}>{p}</p>
@@ -210,6 +251,8 @@ export default async function ArticlePage({ params }: PageProps) {
             <BlogFAQ faqs={article.faqs} />
           </div>
         </div>
+
+        <AuthorBio locale={locale} />
 
         {otherArticles.length > 0 && (
           <div className="mt-14">

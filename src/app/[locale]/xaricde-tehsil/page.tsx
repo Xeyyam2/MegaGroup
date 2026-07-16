@@ -5,6 +5,7 @@ import { CTASection } from "@/components/sections/CTASection";
 import { FadeInUp } from "@/components/motion/FadeInUp";
 import { getCountries } from "@/lib/data/countries";
 import { siteUrl } from "@/lib/site";
+import { howToJsonLd, studyAbroadProcess } from "@/data/study-process";
 import type { Locale } from "@/i18n/routing";
 
 export const revalidate = 3600;
@@ -65,16 +66,33 @@ export default async function StudyAbroadIndex({
     })),
   };
 
+  // HowTo schema — 9 addımlı qlobal proses (AI Overviews üçün).
+  const localePrefix = `/${locale}`;
+  const howToJson = howToJsonLd(localePrefix);
+
+  // speakable — AI/səsli cavablar üçün səhifənin ən yaxşı qısa xülasəsi.
+  const speakableJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    url: `${siteUrl}${localePrefix}/xaricde-tehsil`,
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: [".study-abroad-intro"],
+    },
+  };
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJson) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableJsonLd) }} />
       <section className="mx-auto max-w-7xl px-6 py-20 text-center">
         <h1 className="font-heading text-4xl font-extrabold text-foreground sm:text-5xl">
           {locale === "az" ? "Xaricdə Təhsil" : locale === "ru" ? "Учеба за рубежом" : "Study Abroad"}
         </h1>
-        <p className="mx-auto mt-4 max-w-2xl text-foreground/70">
+        <p className="study-abroad-intro mx-auto mt-4 max-w-2xl text-foreground/70">
           {locale === "az"
-            ? "MegaGroup — Xaricdə Təhsil Mərkəzi. Attestatınızla, DIM imtahanı olmadan xarici universitetlərə qəbul olun."
+            ? "MegaGroup — Xaricdə Təhsil Mərkəzi. Attestatınızla, DIM imtahanı olmadan xarici universitetlərə qəbul olun. 2018-ci ildən 1000+ tələbə 200+ universitetə yerləşdirilib."
             : locale === "ru"
               ? "MegaGroup — Центр обучения за рубежом. Поступление в зарубежные вузы по аттестату, без экзаменов."
               : "MegaGroup — Study Abroad Center. Get admitted to foreign universities with your certificate, exam-free."}
@@ -111,6 +129,36 @@ export default async function StudyAbroadIndex({
             </FadeInUp>
           ))}
         </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 pb-16">
+        <h2 className="font-heading text-3xl font-bold text-foreground">
+          {locale === "az" ? "Xaricdə Təhsil Prosesi — 9 Addım" : locale === "ru" ? "Процесс — 9 шагов" : "The Process — 9 Steps"}
+        </h2>
+        <p className="mt-2 max-w-2xl text-sm text-foreground/60">
+          {locale === "az"
+            ? "Pulsuz konsultasiyadan yaşayış icazəsinə qədər — MegaGroup bütün prosesi uzaidan idarə edir. Ortası müddət: sənədlər hazırdır, təxminən 4-8 həftə."
+            : locale === "ru"
+              ? "От бесплатной консультации до вида на жительство — MegaGroup ведёт весь процесс."
+              : "From free consultation to residence permit — MegaGroup manages the whole journey."}
+        </p>
+        <ol className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {studyAbroadProcess.map((s, i) => (
+            <li
+              key={s.step}
+              id={`addim-${i + 1}`}
+              className="glass rounded-2xl p-5"
+            >
+              <div className="flex items-center gap-3">
+                <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-brand-primary text-sm font-bold text-white">
+                  {s.step}
+                </span>
+                <h3 className="font-heading text-base font-bold text-foreground">{s.name}</h3>
+              </div>
+              <p className="mt-2 text-sm text-foreground/70">{s.text}</p>
+            </li>
+          ))}
+        </ol>
       </section>
 
       <CTASection />

@@ -19,7 +19,7 @@ const article: Article = {
   excerpt:
     "Gürcüstanda təhsilin üstünlükləri, Tbilisi və Batumidəki universitetlər, ingilis dilində tibb proqramları, xərclər və qəbul şərtləri — tam bələdçi.",
   heroEmoji: "🇬🇪",
-  updatedAt: "2026-07-12",
+  updatedAt: "2026-07-16",
   readingMinutes: 14,
   intro: [
     "Gürcüstan, Azərbaycana yaxınlığı, aşağı yaşayış xərcləri və Avropa standartlarına uyğun tədris proqramları sayəsində son illər xaricdə təhsil üçün getdikcə populyarlaşan bir istiqamətdir. Xüsusilə tibb ixtisası üçün Tbilisi və Batumidəki ingilis dilində tədris olunan universitetlər beynəlxalq tələbələri cəlb edir.",
@@ -27,7 +27,9 @@ const article: Article = {
   ],
   sections: [
     {
-      heading: "Niyə Gürcüstanda təhsil almaq?",
+      heading: "Niyə Gürcüstanda təhsil almaq lazımdır?",
+      summary:
+        "Bakıdan Tbilisiyə yalnız bir neçə saatlıq məsafə, aşağı yaşayış xərcləri və ECFMG tərəfindən tanınan tibb universitetləri Gürcüstanı cəzb edir. Aylıq yaşayış xərci Tbilisidə təxminən 300-500 dollardır. Məzunlar ABŞ-da USMLE imtahanı verə və Avropada təcrübə keçə bilərlər.",
       paragraphs: [
         "Gürcüstan, xaricdə təhsil düşünən Azərbaycan məzunları üçün bir çox üstünlükləri olan bir ölkədir. Birincisi, Bakıdan Tbilisiyə yol yalnız bir neçə saat çəkir — istər maşınla, istərsə də təyyarə ilə. Bu, nəqliyyat xərclərini minimuma endirir və tələbələrin tez-tez ailələrini ziyarət etməsinə imkan verir.",
         "İkincisi, yaşayış xərcləri regionun digər ölkələri ilə müqayisədə xeyli aşağıdır. Tbilisidə aylıq yaşayış xərci (yataqxana + qida + nəqliyyat) təxminən 300-500 dollardır, Batumidə isə bir qədər aşağıdır. Bu, xüsusilə orta büdcəli ailələr üçün Gürcüstanı əlverişli seçim edir.",
@@ -35,14 +37,18 @@ const article: Article = {
       ],
     },
     {
-      heading: "Gürcüstanda qəbul şərtləri",
+      heading: "Gürcüstanda universitetlərə qəbul şərtləri nələrdir?",
+      summary:
+        "Gürcüstan universitetlərinin böyük hissəti qəbulu attestat əsasında, mərkəzləşdirilmiş imtahan olmadan aparır. Tibb ixtisasları üçün bəzən biologiya və kimya üzrə əlavə giriş imtahanı tələb olunur. Əsas sənədlər attestat, pasport və şəkildən ibarətdir; proses adətən 2-4 həftə çəkir.",
       paragraphs: [
         "Gürcüstan universitetlərinin böyük hissəti qəbulu attestat əsasında, mərkəzləşdirilmiş imtahan olmadan aparır. Tibb ixtisasları üçün bəzi universitetlər əlavə giriş imtahanı (adətən biologiya və kimya üzrə) tələb edə bilər, lakin bir çox universitetdə sadəcə sənəd yoxlaması və ya müsahibə kifayətdir.",
         "Əsas tələb olunan sənədlər: orta məktəb attestatı (notarial tərcümə ilə), pasport, şəkil, bəzi hallarda motivasiya məktubu. Bütün proses adətən 2-4 həftə davam edir.",
       ],
     },
     {
-      heading: "Tbilisi və Batumidəki populyar universitetlər",
+      heading: "Tbilisi və Batumidə hansı universitetlər populyardır?",
+      summary:
+        "Ən populyar universitetlər Tbilisi Dövlət Tibb Universiteti (illik ~$4,000-6,000), European University Tbilisi (~$3,500-5,000), AIETI Medical School, Caucasus University, Tbilisi State University və Batumi Shota Rustaveli State University-dır. TSMU Gürcüstanın ən köhnə və ən nüfuzlu tibb universitetidir.",
       paragraphs: [
         "Gürcüstanda beynəlxalq tələbələr üçün ən populyar universitetlər bunlardır:",
       ],
@@ -56,7 +62,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Gürcüstanda tibb təhsili — niyə bu qədər populyar?",
+      heading: "Gürcüstanda tibb təhsili niyə bu qədər populyardır?",
+      summary:
+        "Tədris tam ingilis dilində aparılır, diplomlar ECFMG tərəfindən tanınır və təhsil haqqı Qərbi Avropa ilə müqayisədə aşağıdır. Ümumi tibb proqramı 6 il davam edir və məzunlara MD dərəcəsi verilir. Məzunlar ABŞ (USMLE), Böyük Britaniya (PLAB) və Avropa ölkələrində lisenziya imtahanları verə bilərlər.",
       paragraphs: [
         "Gürcüstanda tibb təhsili son illərdə Azərbaycan tələbələri arasında ən çox seçilən istiqamətlərdən biridir. Bunun bir neçə səbəbi var:",
         "Birincisi, tədris tam ingilis dilində aparılır — bu, beynəlxalq tələbələr üçün əlçatandır və məzunlara qlobal karyera imkanları yaradır. İkincisi, ECFME tanınması sayəsində məzunlar USMLE (ABŞ), PLAB (Böyük Britaniya) və Avropa ölkələrində lisenziya imtahanları verə bilərlər. Üçüncüsü, təhsil haqqı Qərbi Avropa və ABŞ-la müqayisədə xeyli aşağıdır.",
@@ -64,7 +72,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Gürcüstanda təhsil xərcləri",
+      heading: "Gürcüstanda təhsil və yaşayış xərcləri nə qədərdir?",
+      summary:
+        "Aylıq ümumi yaşayış xərci Tbilisidə 280-495 dollar, Batumidə isə 210-415 dollardır. Yataqxana və ya kirayə Tbilisidə 150-300 dollar, qida 100-150 dollar, nəqliyyat isə 10-15 dollar təşkil edir. Batumi ümumilikdə Tbilisidən bir qədər ucuzdur.",
       paragraphs: [
         "Gürcüstanda təhsil və yaşayış xərcləri regionun digər ölkələri ilə müqayisədə orta səviyyədədir:",
       ],
@@ -80,20 +90,26 @@ const article: Article = {
       },
     },
     {
-      heading: "Tələbə vizası və qeydiyyat",
+      heading: "Gürcüstanda tələbə vizası və qeydiyyat necə alınır?",
+      summary:
+        "Azərbaycan vətəndaşları üçün 1 ilə qədər vizasız rejim mövcuddur, lakin tələbə statusu üçün universitetin qəbul məktubu əsasında yaşayış icazəsi (residence permit) almaq lazımdır. MegaGroup sənədlərin hazırlanmasından yaşayış icazəsinin alınmasına qədər tam dəstək göstərir.",
       paragraphs: [
         "Azərbaycan vətəndaşları üçün Gürcüstanə qısamüddətli səfərlərdə vizasız rejim mövcuddur (1 ilə qədər). Lakin tələbə kimi qeydiyyatdan keçmək üçün universitetin qəbul məktubu əsasında Gürcüstanda yaşayış icazəsi (residence permit) almaq lazımdır.",
         "MegaGroup bu prosesdə sizə tam dəstək göstərir — sənədlərin hazırlanmasından yaşayış icazəsinin alınmasına qədər.",
       ],
     },
     {
-      heading: "Diplomun tanınması",
+      heading: "Gürcüstan universitet diplomu harada tanınır?",
+      summary:
+        "Gürcüstan universitet diplomları Azərbaycanda tanınır və ekvivalentləşdirilir. Tibb universitetlərinin diplomları isə ECFMG/WFME siyahısında olduğundan ABŞ, Böyük Britaniya, Almaniya və digər Avropa ölkələrində də tanınır.",
       paragraphs: [
         "Gürcüstan universitetlərinin diplomları Azərbaycanda tanınır və ekvivalentləşdirilə bilər. Tibb universitetlərinin diplomları isə ECFMG/WFME siyahısında olduğundan dünyanın bir çox ölkəsində, o cümlədən ABŞ, Böyük Britaniya, Almaniya və digər Avropa ölkələrində tanınır.",
       ],
     },
     {
-      heading: "Gürcüstanda tələbə həyatı",
+      heading: "Gürcüstanda tələbə həyatı necədir?",
+      summary:
+        "Tbilisi və Batumi tələbələr üçün rahat şəhərlərdir: internet sürətli və ucuzdur, ictimai nəqliyyat inkişaf edib, ərzaq müxtəlif və ucuzdur. Tbilisi tarixi memarlığı və gecə həyatı ilə, Batumi isə dənizkənarı kurort şəhəri kimi seçilir. Geniş Azərbaycan diasporası adaptasiyanı asanlaşdırır.",
       paragraphs: [
         "Tbilisi və Batumi tələbələr üçün rahat və əlverişli şəhərlərdir. İnternet sürətli və ucuzdur, ictimai nəqliyyat inkişaf edib, ərzaq müxtəlif və ucuzdur. Tbilisi tarixi memarlığı və gecə həyatı ilə, Batumi isə dənizkənarı kurort şəhəri kimi məşhurdur.",
         "Azərbaycan diasporası Gürcüstanda genişdir və azərbaycandilli icma sayəsində adaptasiya prosesi asan keçir.",

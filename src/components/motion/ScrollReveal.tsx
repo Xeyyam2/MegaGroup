@@ -1,11 +1,17 @@
 "use client";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useLayoutEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { cn } from "@/lib/utils";
 
 gsap.registerPlugin(ScrollTrigger);
+
+// İzomorfik layout effect: SSR-də no-op (useEffect), client-də useLayoutEffect.
+// Bu, `from` state-inin boyaqdan ƏVVƏL tətbiq olunmasını təmin edir ki,
+// "görünür → gizlənir → açılır" (FOUC) flash-i olmasın.
+const useIsoLayoutEffect =
+  typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
 interface ScrollRevealProps {
   children: React.ReactNode;
@@ -25,7 +31,7 @@ export function ScrollReveal({
   const ref = useRef<HTMLDivElement>(null);
   const reduced = useReducedMotion();
 
-  useEffect(() => {
+  useIsoLayoutEffect(() => {
     if (reduced || !ref.current) return;
     const el = ref.current;
     const from: Record<string, number> = { opacity: 0 };

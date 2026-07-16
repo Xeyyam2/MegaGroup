@@ -19,7 +19,7 @@ const article: Article = {
   excerpt:
     "Attestatla, imtahansız xaricdə təhsil necə mümkündür? 7 ölkə üzrə xərclər, sənəd siyahısı, qəbul prosesi, viza və təqaüd imkanları barədə tam bələdçi.",
   heroEmoji: "🎓",
-  updatedAt: "2026-07-12",
+  updatedAt: "2026-07-16",
   readingMinutes: 20,
   intro: [
     "Xaricdə təhsil artıq bir neçə ailənin imtiyazı deyil — hər il minlərlə Azərbaycan məzunu attestat əsasında, mərkəzləşdirilmiş imtahan olmadan xarici universitetlərə qəbul olur. Bu, xüsusilə DİM imtahanında istədiyi balı toplaya bilməyən və ya vaxtını itirmək istəməyən abituriyentlər üçün real və sürətli alternativdir. Bu bələdçidə xaricdə təhsilin bütün mərhələlərini — ölkə seçimindən tutmuş viza alımına qədər — sadə və anlaşıqlı dildə izah edirik.",
@@ -28,6 +28,8 @@ const article: Article = {
   sections: [
     {
       heading: "Xaricdə təhsil nədir və niyə bu qədər vacibdir?",
+      summary:
+        "Xaricdə təhsil — Azərbaycan vətəndaşının orta məktəbi bitirdikdən sonra başqa ölkənin universitetində ali təhsil almasıdır. Bu, sadəcə diplom deyil, yeni dil, beynəlxalq düşüncə və qlobal iş bazarına girişdir. Bir çox ölkə Azərbaycan attestatını tanıyır və mərkəzləşdirilmiş imtahan tələbi olmadan qəbul edir.",
       paragraphs: [
         "Xaricdə təhsil — Azərbaycan vətəndaşının orta məktəbi bitirdikdən sonra başqa bir ölkənin universitetində ali təhsil almasıdır. Bu, yalnız diplom əldə etmək deyil, həm də yeni bir dil, beynəlxalq düşüncə tərzi və qlobal iş bazarına giriş deməkdir. Bugün artıq çoxsaylı ölkələr Azərbaycan attestatını tanıyır və məzunları sadəcə sənəd əsasında, əlavə imtahan tələbi olmadan qəbul edir.",
         "Statistikaya görə, son beş ildə xaricdə oxumaq istəyən Azərbaycan gənclərinin sayı əhəmiyyətli dərəcədə artıb. Bunun əsas səbəbləri arasında attestatla qəbul imkanı, müqayisəli ucuz təhsil haqqı, beynəlxalq tanınan diplom və məzun olduqdan sonra xaricdə iş tapmaq fürsəti dayanır. Xaricdə təhsil həmçinin tələbəyə müstəqil yaşamaq, fərqli mədəniyyətləri tanımaq və peşəkar şəbəkə qurmaq bacarığı qazandırır.",
@@ -36,6 +38,8 @@ const article: Article = {
     },
     {
       heading: "Hansı ölkələr attestatla, imtahansız xaricdə təhsil imkanı verir?",
+      summary:
+        "Attestatla, imtahansız qəbul Türkiyə özəl universitetlərinin, Gürcüstanın, Qazaxıstanın, Rusiyanın və Ukraynanın əksər ixtisaslarında mümkündür. Polşa ingilis dilində proqramlar üçün attestatla yanaşı IELTS 6.0+ sertifikatı, Almaniya isə Studienkolleg və dil sübutu tələb edir.",
       paragraphs: [
         "Attestatla qəbul — yəni yalnız orta məktəb şəhadətnaməsindəki qiymətlər əsasında, mərkəzləşdirilmiş imtahan olmadan universitetə yazılmaq — bu gün getdikcə daha çox ölkə tərəfindən təklif edilir. Aşağıda MegaGroup-un ən çox müraciət aldığı 7 ölkəni və onların attestatla qəbul yanaşmasını qısaca təqdim edirik.",
         "Türkiyə özəl universitetlərinin böyük əksəriyyəti yalnız attestat orta balı (middle-score) ilə, imtahansız qəbul aparır. Gürcüstan və Qazaxıstan demək olar ki, bütün universitetlərdə eyni sistemi tətbiq edir. Rusiya və Ukraynada da əksər ixtisas attestat əsasında qəbul olur, yalnız tibb kimi rəqabətli sahələrdə bəzən əlavə müsahibə ola bilər. Polşa ingilis dilində tibb proqramları üçün attestatla yanaşı IELTS sertifikatı tələb edir. Almaniya isə daha ciddi yanaşmaya malikdir: çox vaxt Studienkolleg (bir illik hazırlıq) və alman/ingilis dili sübutu lazımdır.",
@@ -51,7 +55,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Xaricdə təhsil xərcləri — 7 ölkə üzrə tam müqayisə cədvəli",
+      heading: "Xaricdə təhsil xərcləri 7 ölkə üzrə necə müqayisə olunur?",
+      summary:
+        "İllik ümumi xərc (təhsil haqqı + yaşayış) ölkədən asılı olaraq 4 000–15 000 USD aralığındadır. Ən ucuz təhsil haqqı Almaniyada (0–300 USD, amma yaşayış baha: 700–900 USD/ay), ən əlçatan ümumi büdcə isə Türkiyə (1 200–3 500 USD təhsil, 300–500 USD yaşayış) və Qazaxıstandır.",
       paragraphs: [
         "Xaricdə təhsil üçün büdcə planlaması edərkən yalnız illik təhsil haqqını deyil, həm də aylıq yaşayış (yataqxana, qida, nəqliyyat), sığorta və viza xərclərini birlikdə nəzərə almaq lazımdır. Aşağıdakı cədvəl MegaGroup-un yerləşdirdiyi universitetlərin real rəqəmləri əsasında hazırlanmışdır və 2026-cı il üçün təxmini orta göstəriciləri əks etdirir.",
         "Diqqət edin ki, eyni ölkədə belə şəhərdən asılı olaraq xərclər fərqlənə bilər. Məsələn, Türkiyədə İstanbul və ya Ankarada yaşamaq Giresun kimi kiçik şəhərlərə nisbətən daha baha başa gəlir. Almaniyada təhsil haqqı praktiki olaraq sıfırdır, amma yaşayış xərcləri yüksək olduğu üçün ümumi büdcə digər ölkələrlə müqayisədə fərqlənmir.",
@@ -78,6 +84,8 @@ const article: Article = {
     },
     {
       heading: "Doğru ölkəni necə seçmək olar?",
+      summary:
+        "Ölkə seçimi üç amildən asılıdır: büdcə, ixtisas və dil bacarığı. Büdcə məhdudsa Türkiyə və Qazaxıstan, tibb üçün Gürcüstan və Polşa, mühəndislik və texnologiya üçün Almaniya ən sərfəli variantlardır. Rus dilini bilənlər üçün Rusiya və Qazaxıstan rahat keçid təklif edir.",
       paragraphs: [
         "Ölkə seçimi üç fərdi amildən asılıdır: büdcə, istədiyiniz ixtisas və dil bacarığınız. Büdcəniz məhdudsa, Türkiyə və Qazaxıstan ən əlçatan variantlardır — həm təhsil haqqı aşağıdır, həm də yaşayış xərcləri münasibdir. Tibb ixtisası düşünürsünüzsə və beynəlxalq tanınan diplom (WHO siyahısı) istəyirsinizsə, Gürcüstan və Polşa güclü seçimdir.",
         "Dil baxımından: rus dilini bilirsinizsə, Rusiya və Qazaxıstan rahat keçid təklif edir. İngilis dilində oxumaq istəyirsinizsə, Gürcüstan, Polşa və Qazaxıstanın beynəlxalq proqramları idealdır. Türk dilini öyrənməyə açıqsınızsa, Türkiyə ən sürətli adaptasiyanı təmin edir, çünki iki dil bir-birinə çox yaxındır. Almaniya isə mühəndislik və texnologiya sahələrində qlobal liderdir, amma alman dili və Studienkolleg tələbi səbəbindən daha çox hazırlıq tələb edir.",
@@ -85,7 +93,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Xaricdə təhsil üçün tam sənəd siyahısı",
+      heading: "Xaricdə təhsil üçün hansı sənədlər tələb olunur?",
+      summary:
+        "Əsas sənədlər: attestat/şəhadətnamə, transkript (notar təsdiqli), 6 aydan artıq müddətinə pasport, 6 ədəd foto, dil sertifikatı (IELTS, TOEFL, TÖMER), tibbi arayış və bank spravkasıdır. Bəzi ölkələr əlavə apostil, motivasiya məktubu və sığorta tələb edir.",
       paragraphs: [
         "Sənədlərin düzgün və vaxtında hazırlanması qəbul prosesinin ən kritik mərhələsidir. Çox vaxt tələbələr bir sənədin çatışmazlığı üzündən həftələrlə vaxt itirirlər. Aşağıdakı siyahı əksər ölkələr üçün ümumi olsa da, bəzi ölkələr əlavə sənədlər (apostil, dil sertifikatı, bank spravkası) tələb edə bilər.",
         "Sənədlərin tərcüməsi həmişə təsdiqlənmiş (notarial və ya məxsusi tərcümə) formada olmalıdır. Bəzi ölkələr üçün Azərbaycan Xarici İşlər Nazirliyinin təsdiqi və ya apostil tələb olunur. MegaGroup bu mərhələdə sizin üçün düzgün formatın hansı olduğunu müəyyən edir və sənədlərin hazırlanmasında başdan-ayağa dəstək göstərir.",
@@ -104,7 +114,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Xaricdə təhsilə qəbul prosesi — addım-addım bələdçi",
+      heading: "Xaricdə təhsilə qəbul prosesi necə gedir və neçə addımdan ibarətdir?",
+      summary:
+        "Qəbul prosesi 10 addımdan ibarətdir və düzgün planlama ilə 4–8 həftə ərzində tamamlanır: pulsuz konsultasiya, universitet seçimi, sənədlərin toplanması, tərcümə, onlayn müraciət, qəbul məktubu, ödəniş, viza, yataqxana və biletləşmə. Prosesə tədris ilindən ən az 3–4 ay əvvəl başlamaq tövsiyə olunur.",
       paragraphs: [
         "Qəbul prosesi ilk baxışdan mürəkkəb görünə bilər, amma düzgün planlama ilə 4-8 həftə ərzində tamamlanır. Aşağıdakı addımlar MegaGroup-un minlərlə tələbə yerləşdirmə təcrübəsindən yaranmışdır və ən sürətli, ən etibarlı yolu təmsil edir. Hər addımda sizinlə bir mütəxəssis işləyir ki, heç bir detal gözden qaçmasın.",
         "Vacibdir ki, prosesi son dəqiqəyə qoymayasınız — xüsusilə vizaya qəbul məktubu, bank spravkası və tərcümə işləri vaxt aparan proseslərdir. İdeal olaraq, planlaşdırdığınız tədris ilindən ən az 3-4 ay əvvəl prosesə başlamaq tövsiyə olunur.",
@@ -123,7 +135,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Tələbə vizası prosesi necə gedir?",
+      heading: "Tələbə vizası prosesi necə gedir və hansı sənədlər tələb olunur?",
+      summary:
+        "Viza qəbul məktubundan sonra alınır və ölkədən asılı olaraq 1–3 həftə (Türkiyə, Gürcüstan, Qazaxıstan) və ya 4–8 həftə (Almaniya, Polşa) çəkir. Əsas sənədlər: qəbul məktubu, pasport, maliyyə sübutu (bank spravkası) və sığortadır. Viza rəddi ən çox sənədlərin natamam və ya ziddiyyətli olması səbəbindən baş verir.",
       paragraphs: [
         "Qəbul məktubu əldə etdikdən sonra növbəti mərhələ tələbə vizasıdır. Viza prosesi ölkədən asılı olaraq fərqlənir: Türkiyə, Gürcüstan və Qazaxıstan kimi ölkələrdə proses nisbətən sadə və sürətlidir (adətən 1-3 həftə), Almaniya və Polşa kimi Avropa İttifaqı ölkələrində isə daha çox sənəd və vaxt tələb olunur (4-8 həftə).",
         "Viza üçün əsas tələb olunan sənədlər bunlardır: qəbul məktubu (orijinal), pasport, viza anketi, biometrik fotoşəkillər, maliyyə sübutu (tələbə və ya sponsor adına bank spravkası), səyahət sığortası və bəzi ölkələrdə dil bilik sübutu. Maliyyə sübutu xüsusi əhəmiyyətlidir — siz və ya ailənizin təhsil və yaşayış xərclərini qarşılaya biləcəyini göstərməlisiniz.",
@@ -131,7 +145,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Xaricdə təhsil üçün təqaüd və maliyyə dəstəyi imkanları",
+      heading: "Xaricdə təhsil üçün hansı təqaüd və maliyyə dəstəyi imkanları var?",
+      summary:
+        "Əsas mənbələr: hökumətlərarası kvotalar (Rusiya, Qazaxıstan, Macarıstan dövlət təqaüdləri), universitet bursları (Türkiyə özəl universitetləri yüksək attestat balına 25–100% endirim) və beynəlxalq proqramlar (Almaniyanın DAAD və Erasmus). Təqaüdə tədris ilindən 6–10 ay əvvəl müraciət etmək kritikdir.",
       paragraphs: [
         "Xaricdə təhsil yalnız ödənişli yolla deyil, müxtəlif təqaüd proqramları vasitəsilə də mümkündür. Azərbaycan tələbələri üçün əsas təqaüd mənbələri bunlardır: hökumətlərarası kvotalar (Rusiya, Qazaxıstan və Macarıstan dövlət təqaüdləri təklif edir), universitetlərin öz burs (təqaüd) proqramları və beynəlxalq təşkilatların qrantları.",
         "Türkiyənin özəl universitetlərinin bir çoxu yüksək attestat orta balına malik tələbələrə 25-100% endirim təklif edir. YÖS və ya SAT nəticələri yaxşı olanlar isə tam təqaüd almaq şansına malikdirlər. Almaniyanın DAAD və Erasmus kimi proqramları magistr və doktorantura səviyyəsində güclü maliyyə dəstəyi verir, bakalavr üçün isə dövlət universitetlərində təhsil haqqının sıfır olması ən böyük üstünlükdür.",
@@ -139,7 +155,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Xaricdə təhsil zamanı ən çox edilən səhvlər",
+      heading: "Xaricdə təhsil zamanı ən çox edilən səhvlər hansılardır?",
+      summary:
+        "Ən yayğın səhvlər: prosesi son dəqiqəyə qoymaq (tədris ilindən ən az 3–4 ay əvvəl başlamaq lazımdır), yalnız bir universitetə müraciət etmək, sənədlərin yanlış tərcüməsi, maliyyə sübutunun olmaması və pasport müddətinin qısa olması. Bu səhvlər vaxt və pul itkisinə səbəb olur.",
       paragraphs: [
         "Minlərlə tələbə yerləşdirmə təcrübəsindən sonra ən çox rast gəlinən səhvləri müəyyən etmişik. Bu səhvlərdən çoxunu sadəcə vaxtında məlumatlı olmaqla yanına qaçmaq mümkündür. Aşağıdakı siyahı sizə həm vaxt, həm də pul itkisindən qoruyacaq.",
         "İlk və ən yayğın səhv — prosesi son dəqiqəyə qoymaq. Bir çox tələbə iyun-iyul aylarında müraciət etməyə başlayır, halbuki əksər universitetlərin qəbul kvotası may ayına qədər dolur. İkinci səhv — yalnız bir universitetə müraciət etmək; həmişə ən azı 2-3 ehtiyat variantı nəzərdə tutmaq lazımdır. Üçüncüsü — sənədlərin yanlış tərcüməsi və ya təsdiqinin olmaması, bu da müraciətin rədd edilməsinə səbəb olur.",
@@ -156,7 +174,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Qərardan yola düşməyə qədər — tam timeline",
+      heading: "Xaricdə təhsil qərarından yola düşməyə qədər tam timeline necədir?",
+      summary:
+        "Proses təxminən 9–12 ay əvvəl araşdırma və dil hazırlığı ilə başlayır: 6–9 ay əvvəl universitet və təqaüd seçimi, 4–6 ay əvvəl sənədlər və müraciət, 2–4 ay əvvəl qəbul məktubu və ödəniş, 1–3 ay əvvəl viza, 2–4 həftə əvvəl isə biletləşmə. Gözlənilməz gecikmələr üçün əlavə 2–4 həftə ehtiyat saxlamaq lazımdır.",
       paragraphs: [
         "Xaricdə təhsil qərarından tutmuş təyyarəyə əyləşməyə qədər olan prosesi realistik bir timeline şəklində təqdim edirik. Bu, xüsusilə növbəti tədris ilinə (sentyabr) yetişmək istəyənlər üçün vacibdir. Hər mərhələnin vaxtını nəzərə alaraq geriyə doğru planlamaq tövsiyə olunur.",
         "Yadda saxlayın ki, bu timeline ideal senaridir — gözlənilməz gecikmələr (viza prosesi, tərcümə işləri) üçün əlavə 2-4 həftə ehtiyat müddət nəzərə alın. Qış semestrinə (fevral) müraciət edənlər üçün proses sentyabr-noyabr aylarında başlayır.",
@@ -172,6 +192,8 @@ const article: Article = {
     },
     {
       heading: "MegaGroup xaricdə təhsil prosesində necə kömək edir?",
+      summary:
+        "MegaGroup 2018-ci ildən fəaliyyət göstərir, 1000-dən çox tələbə yerləşdirmiş və 7 ölkədə 200+ partnyor universitetlə geniş şəbəkəyə malikdir. İlkin konsultasiya və ölkə/universitet seçimi tam pulsuzdur; sənədlərdən viza və yataqxanaya qədər hər mərhələdə fərdi mütəxəssis dəstəyi verilir.",
       paragraphs: [
         "MegaGroup 2018-ci ildən bəri xaricdə təhsil sahəsində ixtisaslaşmış konsaltinq şirkətidir. 1000-dən çox uğurlu yerləşdirmə və 7 ölkədə 200+ partnyor universitetlə geniş şəbəkəmiz var. Bizimlə işləməyin ən böyük üstünlüyü — prosesin hər addımında fərdi mütəxəssis dəstəyidir.",
         "İlkin konsultasiya və ölkə/universitet seçimi tam pulsuzdur. Biz sizin büdcənizi, ixtisas arzunuzu və dil bacarığınızı nəzərə alaraq ən uyğun variantları təklif edirik. Daha sonra sənədlərin hazırlanması, müraciət, qəbul məktubu, viza və yataqxana kimi bütün mərhələlərdə yanınızdayıq. Ən vacibi — sənədlərinizi səfirliyə təqdim etməzdən əvvəl tam yoxlama apararaq vizanın rədd edilmə riskini minimuma endiririk.",

@@ -21,7 +21,7 @@ const article: Article = {
   excerpt:
     "Xaricdə tibb təhsili necə alınır? Türkiyə, Rusiya, Gürcüstan, Ukrayna və Polşada həkimlik diplomu, qiymətlər, qəbul şərtləri və WHO tanınması barədə ən geniş bələdçi.",
   heroEmoji: "🏥",
-  updatedAt: "2026-07-12",
+  updatedAt: "2026-07-16",
   readingMinutes: 16,
   intro: [
     "Hər il on minlərlə Azərbaycan abituriyenti tibb fakültəsinə daxil olmaq üçün DİM imtahanına hazırlaşır, lakin kontingentlərin sayı cəmi bir neçə min nəfərlə məhdudlaşdığından, çoxsaylı gənclər arzuladığı ixtisasın kənarında qalır. Bu vəziyyətdə xaricdə tibb təhsili yalnız bir alternativ deyil, həm də real və qəti bir addımdır. Bu məqalədə Azərbaycan vətəndaşları üçün ən uyğun ölkələri, universitetləri, təhsil haqqını, qəbul şərtlərini və diplomun tanınmasını ətraflı şəkildə araşdırırıq.",
@@ -30,6 +30,8 @@ const article: Article = {
   sections: [
     {
       heading: "Niyə xaricdə tibb təhsili almaq lazımdır?",
+      summary:
+        "Xaricdə tibb təhsili Azərbaycanda yüksək rəqabətli qəbul və baha özəl universitetlərə alternativ olaraq daha sərfəli yoldur. Bir çox ölkələrdə qəbul mərkəzləşdirilmiş imtahanla deyil, attestat və ya universitetin öz testi əsasında aparılır və diplom beynəlxalq səviyyədə tanınır. Təhsili ingilis, rus, türk və polyak dillərində almaq mümkündür.",
       paragraphs: [
         "Azərbaycanda tibbə qəbul rəqabəti hər keçən il artır. Dövlət universitetlərində əyani təhsil üçün tələb olunan bal həddi son illərdə 600-dən yuxarı qalxıb, bu da abituriyentlərin böyük hissəsini sıxışdırır. Xüsusi universitetlərdə isə illik təhsil haqqı xeyli yüksəkdir və hər ailə üçün əlçatan deyil. Bu vəziyyətdə xaricdə tibb təhsili daha sərfəli, daha geniş imkanlar təklif edən yol kimi qarşımıza çıxır.",
         "Xaricdə tibb təhsilinin əsas üstünlüklərindən biri budur ki, bir çox ölkələrdə qəbul mərkəzləşdirilmiş imtahanla deyil, attestat qiymətləri və ya universitetin öz testi əsasında aparılır. Bu, DİM-də istənilən balı toplamayan, lakin tibb sahəsinə həqiqətən marağı olan gənclərə ikinci şans verir. Bundan əlavə, xaricdə alınan tibb diplomu çox vaxt beynəlxalq səviyyədə tanınır və məzunlara yalnız Azərbaycanda deyil, Avropa, ABŞ, Kanada və digər ölkələrdə də işləmək imkanı yaradır.",
@@ -37,7 +39,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Beynəlxalq tanınma: WHO, WFME və ECFMG nə deməkdir?",
+      heading: "Tibb diplomunun beynəlxalq tanınması üçün WHO, WFME və ECFMG nə deməkdir?",
+      summary:
+        "WHO-nun World Directory of Medical Schools siyahısında olan universitetlərin diplomları əksər ölkələrdə tanınır. WFME akkreditasiyası isə 2024-cü ildən ABŞ-da ECFMG sertifikatı almaq üçün mütləq şərtdir. ECFMG sertifikatı ABŞ-da tibb təcrübəsi (residency) keçmək istəyən xarici məzunlar üçün zəruridir və USMLE imtahanlarını tələb edir.",
       paragraphs: [
         "Tibb təhsili seçərkən ən kritik məsələ diplomun beynəlxalq tanınmasıdır. Bunun üçün üç əsas qurumun adını bilməlisiniz: WHO (Ümumdünya Səhiyyə Təşkilatı), WFME (World Federation for Medical Education) və ECFMG (Educational Commission for Foreign Medical Graduates). Bu qurumların siyahılarında olmayan universitetlərin diplomları bir çox ölkədə, o cümlədən ABŞ-da tanınmır.",
         "WHO-nun Avicenna Directories və indi isə World Directory of Medical Schools adlanan qlobal məlumat bazasında yer alan universitetlərin diplomları əksər ölkələrdə tanınır. WFME isə tibb məktəblərinin keyfiyyətini qiymətləndirən və akkreditasiya verən qurumdur — 2024-cü ildən etibarən ABŞ-da ECFMG sertifikatı almaq üçün universitetin WFME tərəfindən akkreditə olunması mütləq şərtdir. Buna görə də universitet seçərkən onun WFME akkreditasiyasına sahib olub-olmadığını mütləq yoxlamalısınız.",
@@ -45,7 +49,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Xaricdə tibb təhsili: ölkələr üzrə qısa baxış",
+      heading: "Azərbaycan tələbələri üçün ən populyar tibb təhsili ölkələri hansılardır?",
+      summary:
+        "Ən populyar istiqamətlər Türkiyə, Rusiya, Gürcüstan, Ukrayna və Polşadır; hamısında təhsil 6 il davam edir. Doğru ölkəni seçmək üçün üç amilə baxın: illik büdcə, tədris dili və diplomun gələcəkdə hansı ölkələrdə tanınması. Hər ölkənin təhsil haqqı, dili və tanınma statusu fərqlidir.",
       paragraphs: [
         "Azərbaycan tələbələri üçün ən populyar tibb təhsili istiqamətləri bunlardır: Türkiyə, Rusiya, Gürcüstan, Ukrayna və Polşa. Hər birinin öz üstünlükləri, təhsil haqqı, tədris dili və diplom tanınması fərqlidir. Aşağıda hər ölkəni ayrı-ayrılıqda ətraflı təhlil edirik.",
         "Doğru ölkəni seçmək üçün üç əsas amili nəzərə alın: (1) illik büdcəniz — təhsil haqqı və yaşayış xərcləri; (2) tədris dili — ingilis, rus, türk yoxsa başqa dil; (3) diplomun gələcəkdə hansı ölkələrdə tanınması sizin üçün vacibdir. Bu üç amilə əsaslanaraq seçim etmək, sizi gələcəkdə gözlənilməz sürprizlərdən qoruyur.",
@@ -59,7 +65,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Türkiyədə tibb təhsili",
+      heading: "Türkiyədə tibb təhsili hansı şərtlərlə və neçəyə başa gəlir?",
+      summary:
+        "Türkiyədə tibb təhsili 6 il davam edir və həm türk, həm də ingilis dilində aparılır. Dövlət universitetlərinə YÖS və ya yüksək attestatla, özəl universitetlərə isə adətən attestat əsasında qəbul mümkündür. Təhsil haqqı özəldə illik 15 000–30 000 dollar, dövlətdə isə 600–2 000 dollar ola bilər və diplom YÖK tərəfindən Azərbaycanda tanınır.",
       paragraphs: [
         "Türkiyə, Azərbaycana coğrafi yaxınlığı və tanış mədəniyyəti səbəbindən tibb təhsili üçün ən çox seçilən ölkələrdən biridir. Tibb fakültələrində təhsil 6 il davam edir və məzunlara doktor unvanı verilir. Tədris həm türk, həm də ingilis dilində aparıla bilər — ingilis dilində proqramlar xüsusilə İstanbul, Ankaradakı nüfuzlu universitetlərdə mövcuddur.",
         "Dövlət universitetlərinin tibb fakültələrinə qəbul üçün YÖS (Yabancı Öğrenci Sınavı) və ya yüksək attestat ortalaması tələb olunur və rəqabət çox yüksəkdir. Hacettepe, İstanbul Universitesi (Çapa), Ankara Universitesi, Ege Universitesi kimi dövlət tibb fakültələri dünyanın ən nüfuzlu tibb məktəbləri sırasındadır. Özəl universitetlərdə isə — məsələn, Acıbadem, Bezmiâlem Vakıf, Yeni Yüzyıl — attestat əsasında, YÖS olmadan da qəbul mümkündür, lakin təhsil haqqı daha yüksəkdir.",
@@ -68,7 +76,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Rusiyada tibb təhsili",
+      heading: "Rusiyada tibb təhsili neçə il çəkir və təhsil haqqı nə qədərdir?",
+      summary:
+        "Rusiyada tibb təhsili 6 il davam edir; əsas tədris dili rusdur, lakin bəzi universitetlərdə ingilis dilində proqramlar da var, rus bilməyənlər üçün isə bir illik hazırlıq (podfak) kursu təklif olunur. Sechenov, RNRMU, Kazan və Pavlov kimi nüfuzlu universitetlərin diplomları WHO siyahısındadır və Azərbaycanda tanınır. Təhsil haqqı illik 3 500–8 000 dollar arasındadır.",
       paragraphs: [
         "Rusiya, sovet dövründən miras qalmış güclü tibb təhsil ənənəsi ilə tanınır. Tibb fakültələri 6 il davam edir və məzunlara «врач» (həkim) ixtisas dərəcəsi verilir. Əsas tədris dili rus dilidir, lakin bəzi universitetlərdə ingilis dilində proqramlar da var. Rus dilini bilməyən tələbələr üçün bir illik hazırlıq (podfak) kursu təklif olunur ki, bu müddətdə dil və profil fənləri (biologiya, kimya, rus dili) üzrə intensiv hazırlıq aparılır.",
         "Rusiyanın ən nüfuzlu tibb universitetləri bunlardır: Birinci Moskva Dövlət Tibb Universiteti (Sechenov University) — ölkənin ən qədim və ən nüfuzlu tibb məktəbi; Pirogov Rusiya Milli Tibb Tədqiqat Universiteti (RNRMU); Kazan Federal Universitetinin Tibb İnstitutu; Pavlov Birinci Sankt-Peterburq Dövlət Tibb Universiteti; və RUDN (Xalqlar Dostluğu Universiteti). Bu universitetlərin diplomları WHO siyahısında yer alır və Azərbaycanda tanınır.",
@@ -76,7 +86,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Gürcüstanda tibb təhsili",
+      heading: "Gürcüstanda tibb təhsili ingilis dilində necə alınır və neçəyə başa gəlir?",
+      summary:
+        "Gürcüstanda tibb proqramları 6 il davam edir və tam ingilis dilində tədris olunur; Bakıdan Tbilisiyə uçuş təxminən 1 saat çəkir. TSMU, AIETI, European University kimi universitetlərin bir çoxu ECFMG-uyğundur və məzunlar ABŞ-da USMLE imtahanlarına girə bilər. Təhsil haqqı illik 4 500–7 500 dollar, aylıq yaşayış isə 300–500 dollardır.",
       paragraphs: [
         "Gürcüstan, son on ildə tibb təhsili sahəsində sürətlə inkişaf edən və beynəlxalq tələbələri cəlb edən ölkəyə çevrilib. Tibb proqramları 6 il davam edir və tam ingilis dilində tədris olunur — bu, xüsusilə beynəlxalq karyera planlayan azərbaycanlı tələbələr üçün böyük üstünlükdür. Bakıdan Tbilisiyə quru yolla cəmi bir neçə saatdır, uçuş isə 1 saata yaxındır.",
         "Gürcüstanın ən populyar tibb universitetləri bunlardır: Tbilisi Dövlət Tibb Universiteti (TSMU) — ölkənin ən qədim və ən nüfuzlu tibb məktəbi; David Tvildiani Tibb Universiteti (AIETI); Avropa Tədris Universiteti (European University); Batumi Şota Rustaveli Dövlət Universiteti; Qafqaz Universiteti. Bu universitetlərin bir çoxu ECFMG-uyğundur, yəni məzunlar ABŞ-da USMLE imtahanlarına girə bilər və Amerika Birləşmiş Ştatlarında təcrübə keçə bilər.",
@@ -84,7 +96,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Ukraynada tibb təhsili",
+      heading: "Ukraynada tibb təhsili hansı şərtlərlə mümkündür və hazırki vəziyyəti nədir?",
+      summary:
+        "Ukraynada tibb proqramları 6 il davam edir və ingilis və ya rus dilində tədris olunur; universitetlərin böyük əksəriyyəti WHO və ECFMG siyahılarındadır. Bogomolets, Kiyev, Xarkov kimi nüfuzlu universitetlərdə illik təhsil haqqı 3 500–5 000 dollardır. Müharibə şəraitinə görə bir çox universitet onlayn tədrisə keçib və ya tələbələri daha təhlükəsiz regionlara köçürüb.",
       paragraphs: [
         "Ukrayna uzun illərdir ki, beynəlxalq tələbələr arasında tibb təhsili üçün populyar istiqamət olub. Tibb proqramları 6 il davam edir və ingilis və ya rus dilində tədris olunur. Ukraynanın tibb universitetlərinin böyük əksəriyyəti WHO və ECFMG siyahılarında yer alır, bu da diplomun geniş tanınmasını təmin edir.",
         "Ukraynanın ən tanınmış tibb universitetləri bunlardır: Bogomolets Milli Tibb Universiteti (Kiyev) — ölkənin ən nüfuzlu tibb məktəbi; Kiyev Tibb Universiteti; Xarkov Milli Tibb Universiteti; Dnipro Dövlət Tibb Universiteti; Vinnitsa Milli Tibb Universiteti. Təhsil haqqı nisbətən əlçatandır — illik təxminən 3 500 – 5 000 dollar, yaşayış xərcləri isə xeyli aşağıdır.",
@@ -92,7 +106,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Polşada tibb təhsili",
+      heading: "Polşada tibb təhsili neçə illikdir və diplomu harada tanınır?",
+      summary:
+        "Polşada tibb təhsili abituriyentlər üçün 6 il, bakalavr dərəcəsi olanlar üçün isə 4 illik «graduate entry» proqramı şəklindədir və ingilis dilində mövcuddur. Yagellon, Varşava, Poznan, Qdansk və Wroclaw universitetlərinin diplomu bütün Avropa İttifaqında tanınır. İngilis dilində proqramların təhsil haqqı illik 11 000–15 000 dollar, polyak dilində isə xeyli ucuz və ya pulsuzdur.",
       paragraphs: [
         "Polşa, Avropa İttifaqının üzvü olaraq, tibb təhsili üçün getdikcə daha cəlbedici bir variantdır. Avropa standartlarına uyğun tədris, ingilis dilində proqramlar və diplomun bütün Avropa İttifaqında tanınması bu ölkəni xüsusilə cəlb edici edir. Tibb təhsili abituriyentlər üçün 6 il, əvvəllər bakalavr dərəcəsi (məsələn, tibb bacısı, biotibbi elmlər) almış tələbələr üçün isə 4 illik «graduate entry» proqramı şəklində mövcuddur.",
         "Polşanın ən nüfuzlu tibb universitetləri bunlardır: Yagellon Universiteti (Krakov) — Mərkəzi Avropanın ən qədim universitetlərindən biri; Varşava Tibb Universiteti; Poznan Tibb Elmləri Universiteti; Qdansk Tibb Universiteti; Wroclaw Tibb Universiteti. Bu universitetlərin ingilis dilində tibb proqramları (anglophone programs) xüsusilə Skandinaviya, Almaniya, ABŞ və Kanada tələbələri arasında populyardır.",
@@ -101,7 +117,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Tibb təhsili xərcləri müqayisə cədvəli",
+      heading: "Tibb təhsili xərcləri ölkələr üzrə necə müqayisə olunur?",
+      summary:
+        "Cədvələ görə Türkiyə illik $2,500–$25,000, Rusiya $3,500–$8,000, Gürcüstan $4,500–$7,500, Ukrayna $3,500–$5,000, Polşa isə $11,000–$15,000 təhsil haqqına malikdir. Ən ucuz yaşayış Ukraynada ($200–$400), ən baha isə Polşadır ($400–$700). Polşa diplomu EU, WHO və ECFMG tərəfindən tanınır.",
       paragraphs: [
         "Aşağıdakı cədvəl beş ölkə üzrə tibb təhsilinin əsas xərclərini və göstəricilərini yan-yana qoyur. Bu rəqəmlər orta göstəricilərdir — dəqiq məbləğ seçdiyiniz universitetdən və ixtisasdan asılı olaraq dəyişə bilər. Dəqiq büdcənizi hesablamaq üçün MegaGroup komandası ilə əlaqə saxlaya bilərsiniz.",
       ],
@@ -159,7 +177,9 @@ const article: Article = {
       },
     },
     {
-      heading: "USMLE və PLAB: ABŞ və İngiltərədə həkim kimi işləmək",
+      heading: "USMLE və PLAB imtahanları nədir və ABŞ-İngiltərədə həkim olmaq üçün nə tələb olunur?",
+      summary:
+        "ABŞ-da həkim kimi işləmək üçün USMLE (Step 1, 2 CK, 3), İngiltərədə isə PLAB 1 və PLAB 2 imtahanlarını vermək lazımdır. USMLE-yə girmək üçün universitet ECFMG tərəfindən tanınmalı və 2024-cü ildən WFME akkreditasiyasına sahib olmalıdır. Bu imtahanlar bir neçə il hazırlıq, minlərlə dollar və yüksək ingilis dili səviyyəsi tələb edir.",
       paragraphs: [
         "Bir çox azərbaycanlı tələbə xaricdə tibb təhsili aldıqdan sonra ABŞ, Kanada və ya İngiltərədə işləmək arzusundadır. Bunun üçün iki əsas yol var: ABŞ üçün USMLE (United States Medical Licensing Examination), İngiltərə üçün isə PLAB (Professional and Linguistic Assessments Board) imtahanı.",
         "USMLE üç təşkildən ibarətdir: Step 1 (əsas elmlər), Step 2 CK (klinik biliklər) və Step 3 (klinik tətbiq). USMLE-yə girmək üçün universitetinizin ECFMG tərəfindən tanınması və World Directory of Medical Schools siyahısında olması mütləqdir. 2024-cü ildən etibarən isə əlavə şərt kimi universitetin WFME akkreditasiyasına sahib olması da tələb olunur. Gürcüstan, Polşa və bir çox Ukrayna universitetləri bu tələbə cavab verir.",
@@ -168,7 +188,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Tibb diplomunun Azərbaycanda tanınması",
+      heading: "Xaricdə alınan tibb diplomu Azərbaycanda necə tanınır və tanınması üçün nə tələb olunur?",
+      summary:
+        "Diplomun tanınması Nazirlər Kabinetinin qərarı və Təhsil Nazirliyinin ekvivalentlik (nostrifikasiya) proseduru ilə aparılır; WHO/WFME siyahısında və yerli akkreditasiyalı universitetlərin diplomları problemsiz tanınır. Orijinal diplom, apostil, transkript və tərcümə tələb olunur və proses bir neçə ay çəkir. Diplomun tanınması ilə həkimlik lisenziyası ayrı proseslərdir — praktiki iş üçün Səhiyyə Nazirliyinin attestasiyası tələb olunur.",
       paragraphs: [
         "Xaricdə tibb təhsili aldıqdan sonra Azərbaycana qayıdıb həkim kimi işləmək istəyən məzunlar üçün diplomun tanınması prosesi vacibdir. Azərbaycanda bu proses Nazirlər Kabinetinin qərarı və Təhsil Nazirliyinin ekvivalentlik (nostrifikasiya) proseduru ilə həyata keçirilir. WHO və ya WFME siyahısında yer alan, həmçinin yerli akkreditasiyaya sahib universitetlərin diplomları adətən problemsiz tanınır.",
         "Tanınma prosesi üçün aşağıdakı sənədlər tələb olunur: orijinal diplom (apostil və ya konsulluq leqalləşdirməsi ilə), transkript (bütün qiymətlərin göstərildiyi akademik arayış), pasport, attestat və tərcümələr. Proses bir neçə ay çəkə bilər. Bəzi hallarda nazirlik əlavə imtahan və ya müsahibə tələb edə bilər. Diplomunuzun qəbul edilməsini təmin etmək üçün universitet seçərkən onun tanınmış və akkreditə olunmuş olmasına diqqət yetirin.",
@@ -177,7 +199,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Qəbul tələbləri və giriş imtahanları",
+      heading: "Xaricdə tibb fakültəsinə qəbul üçün hansı tələblər və imtahanlar var?",
+      summary:
+        "Əsas tələb orta məktəb attestatıdır, xüsusən biologiya və kimya fənlərindən yüksək qiymət (4-5 bal) gözlənilir. İngilis dilində proqramlar üçün adətən IELTS 5.5–6.5 və ya TOEFL 75–90 tələb olunur; Türkiyə dövlət universitetləri YÖS/SAT, Polşa isə bəzən BMAT/IMAT istəyir. Gürcüstan və Ukrayna isə əksər hallarda imtahansız, yalnız attestat əsasında qəbul aparır.",
       paragraphs: [
         "Xaricdə tibb fakültəsinə qəbul üçün əsas tələb orta məktəb attestatıdır. Lakin tibb ixtisası xüsusi diqqət tələb etdiyi üçün bir çox universitet əlavə şərtlər qoyur. Ən çox rast gəlinən tələblər bunlardır: attestatda biolgiya və kimya fənləri üzrə yüksək qiymət (adətən 4-5 bal), bəzi universitetlərdə əlavə giriş imtahanı (biologiya, kimya, fizika), və dil bilikləri.",
         "İngilis dilində tədris aparan proqramlara qəbul üçün adətən IELTS (minimum 5.5–6.5) və ya TOEFL (minimum 75–90) sertifikatı tələb olunur. Bəzi universitetlər öz dil testlərini keçirirlər və ya giriş imtahanı zamanı ingilis dilini qiymətləndirirlər. Rus dilində proqramlar üçün isə bir illik hazırlıq kursu kifayətdir — universitetin özündə rus dili intensiv kursu keçirilir.",
@@ -186,7 +210,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Dil məsələləri və klinik təcrübə",
+      heading: "İngilis dilində tibb təhsili alsam belə yerli dili bilmək nəyə görə vacibdir?",
+      summary:
+        "İngilis dilində təhsil alsanız belə, klinik illərdə (4-6-cı kurslar) xəstələrlə ünsiyyət üçün yerli dili bilmək praktiki zərurətə çevrilir — Gürcüstanda gürcü, Polşada polyak, Türkiyədə isə türk dili. Universitetlər adətən ilk iki ildə yerli dil kursları təklif edir. Azərbaycanlılar üçün ən asan adaptasiya Türkiyə və Rusiyada olur.",
       paragraphs: [
         "Tibb təhsilində dil yalnız nəzəri fənləri anlamaq üçün deyil, həm də klinik təcrübə zamanı xəstələrlə ünsiyyət üçün vacibdir. İngilis dilində təhsil alsanız belə, klinik illərdə (4-6-cı kurslar) xəstələrlə danışmaq üçün yerli dili bilməyiniz praktiki olaraq zərurətə çevrilir. Məsələn, Gürcüstanda ingilis dilində oxuyan tələbə gürcü dilini öyrənməlidir, Polşada polyak, Türkiyədə isə türk.",
         "Bu o deməkdir ki, ingilis dilində proqram seçsəniz belə, ilk ildən yerli dilinizi öyrənməyə başlamalısınız. Bir çox universitet bunu nəzərə alaraq ilk iki ildə yerli dil kurslarını tələbələrə təklif edir. Klinik təcrübə zamanı xəstə anamnezi (şikayətləri) toplamaq, diaqnoz qoymaq və müalicə planı hazırlamaq üçün yerli dili səlis bilmək fərqi böyük mənada təsir göstərir.",
@@ -195,7 +221,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Tibb təhsilindən sonrakı mərhələ: rezidentura və ixtisaslaşma",
+      heading: "Tibb təhsilindən sonra rezidentura və ixtisaslaşma mərhələsi nəyi əhatə edir?",
+      summary:
+        "Tibb fakültəsini bitirmək yalnız başlanğıcdır; müstəqil həkim olmaq üçün 2-6 illik rezidentura (residency) proqramı tələb olunur. ABŞ-da ECFMG və USMLE əsasında «Match» sistemi, İngiltərədə FY1/FY2, Avropa ölkələrində yerli dildə rezidentura aparılır. Ümumi tibb yolu 6 il universitet + 2-6 il rezidentura olmaqla 8-12 il çəkir.",
       paragraphs: [
         "Tibb fakültəsini bitirmək və həkim diplomu almaq yalnız başlanğıcdır. Praktikada müstəqil həkim kimi işləmək üçün məzunlar rezidentura (residency) və ya ordinatura proqramına daxil olmalıdırlar. Rezidentura adətən 2-6 il çəkir və ixtisasdan asılıdır: cərrahiyyə, kardiologiya, pediatriya, nevrologiya və s. Rezidentura dövründə gənc həkim xəstəxanada praktiki işləyir və supervizor həkimin rəhbərliyi altında təcrübə toplayır.",
         "Rezidentura prosesi ölkədən asılı olaraq fərqlənir. ABŞ-da rezidentura üçün ECFMG sertifikatı və USMLE nəticələri əsasında «Match» sistemi ilə yerləşmə aparılır — bu, çox rəqabətli prosesdir. İngiltərədə isə FY1/FY2 (Foundation Years) və sonra ixtisaslaşma proqramları mövcuddur. Avropa İttifaqı ölkələrində (Polşa, Almaniya) rezidentura yerli dildə aparılır və bir qayda olaraq polyak/alman dilini bilmək tələb olunur.",
@@ -204,7 +232,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "MegaGroup-un dəstəyi",
+      heading: "MegaGroup xaricdə tibb təhsili almaqda hansı dəstəyi təqdim edir?",
+      summary:
+        "MegaGroup universitet seçimindən başlayaraq sənədlərin hazırlanması, qəbul prosesi, viza müraciəti, yaşayış yeri və diplomun ekvivalentləşdirilməsinə qədər tam dəstək göstərir. Pulsuz konsultasiyada büdcə, dil bacarığı və məqsədlər əsasında ən uyğun universitet birlikdə müəyyən edilir. On illik təcrübə və yüzlərlə yerləşdirilmiş tələbə bazası mövcuddur.",
       paragraphs: [
         "Tibb təhsili seçimi həyatınızın ən vacib qərarlarından biridir və təkbaşına bu prosesi idarə etmək mürəkkəb və stresli ola bilər. MegaGroup olaraq, sizə universitet seçimindən başlayaraq sənədlərin hazırlanması, qəbul prosesi, viza müraciəti, yaşayış yerinin tapılması və diplomatın ekvivalentləşdirilməsinə qədər tam dəstək göstəririk. Pulsuz konsultasiya zamanı büdcənizi, dil bacarığınızı və gələcək məqsədlərinizi nəzərə alaraq sizə ən uyğun universitetləri birlikdə müəyyən edirik.",
         "On illik təcrübə və yüzlərlə yerləşdirilmiş tələbə bazası əsasında, sizin üçün doğru və realistik məsləhətlər veririk — heç bir vaxd və ya pul itirmədən, arzuladığınız həkim diplomuna gedən yolu qısaldırıq. Komandamızla əlaqə saxlayın və ilk addımı birlikdə ataq.",

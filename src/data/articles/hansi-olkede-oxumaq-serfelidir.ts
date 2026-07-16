@@ -19,7 +19,7 @@ const article: Article = {
   excerpt:
     "7 ölkəni xərc, dil, qəbul çətinliyi, viza və diplom tanınmasına görə müqayisə edirik. Büdcənizə və ixtisasınıza uyğun ölkəni seçmək üçün geniş bələdçi.",
   heroEmoji: "🌍",
-  updatedAt: "2026-07-12",
+  updatedAt: "2026-07-16",
   readingMinutes: 14,
   intro: [
     "Xaricdə təhsil qərarını verdikdən sonra ən çətin sual budur: hansı ölkədə oxumaq daha sərfəlidir? Bu sualın tək doğru cavabı yoxdur, çünki cavab sizin büdcənizdən, istədiyiniz ixtisasdan, dil bacarığınızdan və gələcək məqsədlərinizdən asılıdır. Bu məqalədə Azərbaycan məzunları üçün ən populyar 7 ölkəni — Türkiyə, Rusiya, Gürcüstan, Ukrayna, Qazaxıstan, Almaniya və Polşanı — detallı müqayisə edirik.",
@@ -27,7 +27,9 @@ const article: Article = {
   ],
   sections: [
     {
-      heading: "7 ölkənin ümumi müqayisə cədvəli",
+      heading: "7 ölkəni hansı göstəricilər üzrə müqayisə etməli?",
+      summary:
+        "Türkiyə, Rusiya, Gürcüstan, Ukrayna, Qazaxıstan, Almaniya və Polşa təhsil haqqı, yaşayış, tədris dili, qəbul çətinliyi, viza, diplom tanınması və məsafə üzrə müqayisə olunur. Ən ucuz yaşayış Ukrayna və Qazaxıstanda ($200–$450), ən pulsuz təhsil isə Almaniyadadır. Tam ingilis dilində proqramlar əsasən Gürcüstan, Polşa və Almaniyada mövcuddur.",
       paragraphs: [
         "Aşağıdakı cədvəl yeddi ölkəni əsas göstəricilər üzrə yan-yana qoyur. Bu rəqəmlər orta göstəricilərdir — dəqiq məbləğ seçdiyiniz universitetdən, ixtisasdan və şəhərdən asılı olaraq dəyişə bilər. Cədvəli diqqətlə oxuyun və hansı ölçülərin sizin üçün ən vacib olduğunu müəyyən edin.",
       ],
@@ -117,7 +119,9 @@ const article: Article = {
       },
     },
     {
-      heading: "Türkiyə — yaxınlıq, dil və mədəniyyət",
+      heading: "Türkiyə harada oxumaq üçün nəyə görə ən populyar seçimdir?",
+      summary:
+        "Türkiyə Bakıdan cəmi 2-3 saat uçuş məsafəsində və azərbaycan dilinə yaxın türk dili sayəsində ən sürətli adaptasiyanı təklif edir. Təhsil haqqı dövlət universitetlərində illik $1,200-$3,000, özəl universitetlərdə $5,000-$8,000, aylıq yaşayış isə $300-$600 aralığındadır. YÖK akkreditasiyalı diplom Azərbaycanda tanınır; dövlət universitetlərinə YÖS, özəl universitetlərə isə yalnız attestatla qəbul mümkündür.",
       paragraphs: [
         "Türkiyə, Azərbaycana ən yaxın və mədəni cəhətdən ən tanış ölkə olduğu üçün hər il minlərlə azərbaycanlı tələbənin ilk seçimidir. Türk dili azərbaycan dilinə çox yaxındır, buna görə adaptasiya prosesi olduqca sürətlidir və dil baryeri demək olar ki, yoxdur. Bakıdan İstanbul və ya Ankaraya uçuş cəmi 2-3 saat çəkir, bilet qiymətləri isə mövsümdən asılı olaraq əlçatandır.",
         "Təhsil haqqı geniş diapazonda dəyişir: dövlət universitetlərində illik $1,200-$3,000, özəl universitetlərdə isə $5,000-$8,000 (bəzi prestijli ixtisaslarda daha yüksək). Yaşayış xərcləri İstanbul və İzmirdə daha yüksək, Anadolu şəhərlərində (Konya, Kayseri, Samsun) isə daha aşağıdır. Dövlət universitetlərinə qəbul üçün YÖS imtahanı tələb olunur, özəl universitetlərin böyük hissəsi isə yalnız attestat əsasında, imtahansız qəbul aparır.",
@@ -125,7 +129,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Rusiya — güclü akademik ənənə və geniş seçim",
+      heading: "Rusiyada oxumaq nəyə görə ənənəvi seçim olaraq qalır?",
+      summary:
+        "Rusiya güclü təhsil sistemi, geniş universitet şəbəkəsi və tanış rus dili ilə tibb, mühəndislik, neft-qaz sahələrində üstündür. Təhsil haqqı regional universitetlərdə illik $1,500-$2,500, Moskva və Sankt-Peterburqda $3,000-$4,000; aylıq yaşayış $250-$500-dür. Əksər universitetlər attestatla imtahansız qəbul aparır və bir illik podfak (hazırlıq) imkanı var; diplom WHO tərəfindən tanınır.",
       paragraphs: [
         "Rusiya, sovet dövründən miras qalmış güclü təhsil sistemi, geniş universitet şəbəkəsi və tanış rus dili ilə Azərbaycan tələbələri üçün ənənəvi seçim olaraq qalır. Tibb, mühəndislik, neft-qaz və təbiət elmləri sahələrində Rusiya universitetləri dünyanın ən güclü proqramlarını təklif edir. Əsas tədris dili rus dilidir, lakin bir çox universitetdə ingilis dilində proqramlar da var.",
         "Təhsil haqqı regional universitetlərdə illik $1,500-$2,500, Moskva və Sankt-Peterburqdakı nüfuzlu universitetlərdə isə $3,000-$4,000 arasında dəyişir. Yaşayış xərcləri də şəhərə görə fərqlidir — Moskva ən baha, regional şəhərlər (Kazan, Yekaterinburq, Voronej) isə xeyli əlçatandır. Tələbə yataqxanalarında yaşamaq xərcləri xeyli aşağı salır.",
@@ -133,7 +139,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Gürcüstan — sürətli inkişaf və ingilis dili",
+      heading: "Gürcüstan xaricdə oxumaq üçün nəyə görə cəlbedici ölkədir?",
+      summary:
+        "Gürcüstan tibb, biznes və IT ixtisaslarında tam ingilis dilində tədris təklif edir, Bakıdan cəmi 1 saat uçuş və vizasız rejim tətbiq edir. Təhsil haqqı illik $3,000-$6,000, aylıq yaşayış isə $300-$500 aralığındadır. TSMU, AIETI, Caucasus University kimi universitetlərin diplomları WHO və ECFMG siyahılarındadır və attestatla qəbul mövcuddur.",
       paragraphs: [
         "Gürcüstan, son on ildə təhsil infrastrukturuna böyük investisiya qoymuş və beynəlxalq tələbələri cəlb etmək üçün güclü strategiya həyata keçirmiş bir ölkədir. Ən böyük üstünlüyü tam ingilis dilində tədris olunan proqramlardır — xüsusilə tibb, biznes və IT ixtisaslarında. Bakıdan Tbilisiyə quru yolla bir neçə saat, uçuş isə cəmi 1 saat çəkir.",
         "Təhsil haqqı illik $3,000-$6,000 aralığında dəyişir (tibb proqramları bir qədər yüksək). Yaşayış xərcləri Tbilisidə orta səviyyədədir — aylıq təxmini $300-$500 (mənzil, qida, nəqliyyat). Gürcüstan Azərbaycan vətəndaşları üçün vizasız rejim tətbiq edir, bu da səfərləri və hərəkəti son dərəcə rahatlaşdırır. Tələbə statusu üçün universitetin qəbul məktubu ilə yaşayış icazəsi alınır.",
@@ -141,7 +149,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Ukrayna — tanınmış diplom, cari vəziyyət",
+      heading: "Ukraynada təhsil indi sərfəli və təhlükəsizdirmi?",
+      summary:
+        "Ukraynada təhsil haqqı $2,500-$5,000, aylıq yaşayış isə $200-$400-dür və WHO/ECFMG tanınan diplomlar təklif olunur. Lakin davam edən müharibə səbəbindən bir çox universitet onlayn tədrisə keçib və ya tələbələri daha təhlükəsiz regionlara köçürüb. Stabil alternativ kimi Gürcüstan və Polşa daha etibarlı seçim sayılır.",
       paragraphs: [
         "Ukrayna, uzun illərdir beynəlxalq tələbələr arasında tibb, mühəndislik və farmasevtika təhsili üçün populyar istiqamət olub. WHO və ECFMG siyahılarındakı universitetlərin diplomları geniş tanınır. Təhsil haqqı nisbətən əlçatandır ($2,500-$5,000), yaşayış xərcləri isə aşağıdır ($200-$400 aylıq).",
         "Lakin hazırda Ukraynada davam edən müharibə şəraitinə görə bir çox universitet ya onlayn tədrisə keçib, ya da tələbələri daha təhlükəsiz regionlara köçürüb. Bəzi tələbələr Polşa, Çexiya və ya digər qonşu ölkələrdə təhsillərini davam etdirir. Əgər Ukraynada təhsil seçirsinizsə, universitetin cari fəaliyyət statusunu, tədrisin formatını (əyani/onlayn) və təhlükəsizlik vəziyyətini mütləq yoxlayın. MegaGroup bu məsələdə cari vəziyyətə uyğun, realistik məsləhətlər verir.",
@@ -149,7 +159,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Qazaxıstan — türk dünyasına yaxın və əlçatan",
+      heading: "Qazaxıstan orta büdcəli ailələr üçün nəyə görə əlçatan seçimdir?",
+      summary:
+        "Qazaxıstan mədəni yaxınlıq, türk dilli mühit və həm rus, həm ingilis dilində proqramlarla adaptasiyanı asanlaşdırır. Təhsil haqqı illik $2,000-$4,000, aylıq yaşayış isə Almatı və Astanada $250-$450 aralığındadır. Əksər universitetlər attestatla imtahansız qəbul aparır, Nazarbayev Universiteti isə tam ingilis dilində beynəlxalq səviyyəli təhsil təklif edir.",
       paragraphs: [
         "Qazaxıstan, mədəniyyət və mentalitet baxımından Azərbaycana yaxın olduğu üçün adaptasiya prosesini asanlaşdıran bir seçimdir. Həm rus, həm də ingilis dilində tədris olunan proqramlar mövcuddur. Nazarbayev Universiteti kimi beynəlxalq səviyyəli təhsil ocaqları dünyanın aparıcı universitetləri ilə əməkdaşlıq edir və tam ingilis dilində tədris təklif edir.",
         "Təhsil haqqı illik $2,000-$4,000 aralığında dəyişir, yaşayış xərcləri isə Almatı və Astanada orta səviyyədədir ($250-$450 aylıq). Qəbul prosesi sadədir: əksər universitetlər attestat əsasında, imtahansız qəbul aparır; Nazarbayev Universiteti kimi rəqabətli proqramlarda isə yüksək attestat ortalaması və bəzən motivasiya məktubu tələb olunur.",
@@ -158,7 +170,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Almaniya — pulsuz təhsil, yüksək keyfiyyət",
+      heading: "Almaniyada təhsil həqiqətən pulsuzdursa, qəbul çətinliyi nə qədərdir?",
+      summary:
+        "Almaniyanın bir çox federal ştatında dövlət universitetlərində təhsil haqqı yoxdur, yalnız semestrlik $150-$300 idarəetmə rüsumu var. Lakin aylıq yaşayış $700-$1,000, viza üçün isə bloklanmış hesabda illik €11,208 ($12,000) yatırmaq tələb olunur. Qəbul üçün C1 alman dili (TestDaF/DSH) və ya IELTS/TOEFL, həmçinin Studienkollec və ya bir illik universitet təhsili tələb olunur; məzunlara 18 aylıq iş axtarış vizası verilir.",
       paragraphs: [
         "Almaniya, dünyanın ən keyfiyyətli təhsil sistemlərindən birinə sahib olmaqla yanaşı, bir çox federal ştatda dövlət universitetlərində təhsil haqqını demək olar ki, tələb etmir (yalnız semestrlik idarəetmə rüsumu təxminən $150-$300). Bu, onu cəlbedici seçim edir, lakin qəbul çətinliyi və dil tələbi də yüksəkdir.",
         "Almaniyaya qəbul üçün iki əsas şərt var: (1) alman dili — alman dilində proqramlar üçün TestDaF və ya DSH sertifikatı (adətən C1 səviyyəsi); ingilis dilində proqramlar üçün IELTS və ya TOEFL; (2) akademik hazırlıq — Azərbaycan attestatı birbaşa qəbul üçün kifayət deyil, adətən bir illik Studienkollec (hazırlıq kursu) və ya bir illik universitet təhsili Azərbaycanda tələb olunur.",
@@ -166,7 +180,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Polşa — Avropa diplomu, orta qiymət",
+      heading: "Polşa daha əlçatan qiymətə Avropa diplomu təklif edirmi?",
+      summary:
+        "Polşa ingilis dilində proqramlarda illik $3,000-$15,000 (tibb ən bahalı) təhsil haqqı ilə Avropa İttifaqı diplomu təklif edir; polyak proqramları isə daha ucuz və bəzən pulsuzdur. Aylıq yaşayış Varşava və Krakovda $400-$700, viza üçün illik €6,000-$8,000 bank çıxarışı tələb olunur. Diplomla ABŞ-da USMLE, İngiltərədə PLAB imtahanları və Avropa İttifaqında iş imkanı mövcuddur.",
       paragraphs: [
         "Polşa, Avropa İttifaqının üzvü olaraq, daha əlçatan qiymətə Avropa standartlarında təhsil təklif edir. Polyak dilində proqramlar ucuz (bəzi hallarda pulsuz) olduğu halda, ingilis dilində proqramlar daha bahalıdır ($3,000-$15,000 illik, ixtisasdan asılı olaraq). Tibb və stomatologiya ingilis proqramları ən bahalıdır, lakin diplom bütün Avropa İttifaqında tanınır.",
         "Yaşayış xərcləri Varşava və Krakovda orta-yüksək ($400-$700 aylıq), kiçik şəhərlərdə isə daha aşağıdır. Viza prosesi orta çətinlikdədir — qəbul məktubu, bank çıxarışı (illik təxminən €6,000-$8,000), sığorta və yaşayış təsdiqi tələb olunur. Polyak dilini bilməsəniz belə, ingilis proqramları ilə tam təhsil almaq mümkündür.",
@@ -174,7 +190,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Diplom tanınması və ekvivalentləşdirmə — nə bilməlisiniz?",
+      heading: "Xaricdə alınan diplom Azərbaycanda necə tanınır və ekvivalentləşdirilir?",
+      summary:
+        "Xaricdə alınan diplomun Azərbaycanda tanınması (nostrifikasiya) Nazirlər Kabineti və Təhsil Nazirliyi tərəfindən idarə olunur və universitetin akkreditasiyasından asılıdır. Avropa İttifaqı (Almaniya, Polşa), Türkiyə (YÖK) və Rusiya diplomları adətən problemsiz tanınır. Tibb, hüquq və memarlıq kimi tənzimlənən sahələrdə əlavə imtahan və ya sertifikatlaşdırma tələb oluna bilər.",
       paragraphs: [
         "Xaricdə alınan diplomun Azərbaycanda tanınması (nostrifikasiya) mütləq addımdır, əgər məzun olaraq vətənə qayıtmaq və dövlət və ya özəl müəssisədə işləmək niyyətindəsinizsə. Bu proses Azərbaycan Respublikasının Nazirlər Kabineti və Təhsil Nazirliyi tərəfindən idarə olunur. Tanınma üçün universitetin akkreditəli olması, ölkənin təhsil nazirliyi tərəfindən tanınması və diplomun rəsmi olması əsas şərtlərdir.",
         "Tanınma prosesinə təsir edən amillər: universitetin beynəlxalq reytinqi, akkreditasiya statusu (WHO, WFME tibb üçün; AACSB, AMBA biznes üçün; ABET mühəndislik üçün), təhsil müddəti və proqramın uyğunluğu. Avropa İttifaqı ölkələri (Almaniya, Polşa) diplomları adətən problemsiz tanınır, çünki Bolonya sistemindədir. Türkiyə (YÖK akkreditasiyalı), Rusiya və qonşu ölkələr də adətən problemsiz ekvivalentləşdirilir.",
@@ -183,7 +201,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Büdcəyə görə ölkə seçimi",
+      heading: "Büdcəmə uyğun ən sərfəli ölkə hansıdır?",
+      summary:
+        "İllik ümumi xərcə (təhsil + yaşayış) görə üç kateqoriya var: $3,000-dən az (aşağı büdcə) üçün Rusiyanın regional şəhərləri, Qazaxıstan və Türkiyənin dövlət universitetləri; $3,000-$5,000 (orta büdcə) üçün Türkiyə özəl, Gürcüstan, Ukrayna və Polşa polyak proqramları; $5,000-dən çox (yüksək büdcə) üçün Polşa ingilis proqramları və Almaniya ən uyğun seçimlərdir.",
       paragraphs: [
         "Büdcəniz seçiminizdə ən vacib amillərdən biridir. Aşağıda üç büdcə kateqoriyası üzrə ən uyğun ölkələri tövsiyə edirik. Diqqət edin: buradakı rəqəmlər illik ümumi xərci (təhsil haqqı + yaşayış) əhatə edir və orta göstəricilərdir.",
       ],
@@ -194,7 +214,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Gizli xərclər və dəqiq büdcə planlaması",
+      heading: "Xaricdə təhsil büdcəsini planlayarkən hansı gizli xərcləri nəzərə almalıyam?",
+      summary:
+        "Təhsil haqqı və yaşayışdan əlavə viza rüsumu ($50-$200), sığorta (illik $200-$600), dərs vəsaitləri (illik $100-$300), mobil rabitə (aylıq $15-$40) və nəqliyyat (aylıq $20-$80) kimi xərcləri unutmayın. Hər il evə qayıdış biletləri Türkiyə və Gürcüstan üçün $150-$400, Almaniya və Polşa üçün isə $500-$1,000 ola bilər. Hesabladığınız büdcənin üzərinə ən azı 15-20% ehtiyat fond əlavə etmək tövsiyə olunur.",
       paragraphs: [
         "Büdcə planlayarkən yalnız təhsil haqqını və yaşayışı deyil, həm də gözlənilməz xərcləri nəzərə almaq vacibdir. Tez unudulan xərclər bunlardır: viza rüsumu (ölkədən asılı olaraq $50-$200), sığorta (illik $200-$600), dərs vəsaitləri (illik $100-$300), mobil rabitə və internet (aylıq $15-$40), nəqliyyat (aylıq $20-$80), qeydiyyat və inzibati rüsumlar, həmçinin məcburi tibbi sığorta.",
         "Hər il evə qayıdış və ya ailənin ziyarəti üçün uçuş biletlərini də büdcəyə daxil edin. Türkiyə və Gürcüstan üçün bu xərc minimaldır ($150-$400 bilet), lakin Almaniya və Polşa üçün illik $500-$1,000 ola bilər. İlk il həmçinin bir dəfəlik məişət əşyaları, qış geyimləri və depozit (mənzil kirayələyərkən adətən 1-2 aylıq depozit tələb olunur) xərclərini nəzərə alın.",
@@ -202,7 +224,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "İxtisas sahəsinə görə ölkə seçimi",
+      heading: "İxtisasıma uyğun ən güclü ölkə hansıdır?",
+      summary:
+        "Tibb üçün Gürcüstan (ECFMG), Polşa (EU diplomu) və Rusiya; mühəndislik və IT üçün Almaniya (dünya lideri), Polşa, Türkiyə və Qazaxıstan; biznes üçün Türkiyə, Polşa, Gürcüstan və Almaniya ən güclü seçimlərdir. Neft-qaz və enerji sahəsində Rusiya və Qazaxıstan, hüquqda isə gələcəkdə işləmək istədiyiniz ölkə seçilməlidir.",
       paragraphs: [
         "Büdcədən sonra ən vacib amil istədiyiniz ixtisasdır. Hər ölkə müəyyən sahələrdə daha güclüdür və diplom tanınması fərqlidir.",
       ],
@@ -215,7 +239,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Dil bacarığına görə ölkə seçimi",
+      heading: "Dil bacarığıma uyğun hansı ölkəni seçməliyəm?",
+      summary:
+        "İngilis dilini yaxşı bilənlər üçün Gürcüstan, Polşa, Almaniya və Türkiyənin ingilis proqramları; rus dilini bilənlər üçün Rusiya, Qazaxıstan və Ukrayna ən uyğundur. Türk dilini öyrənməyə hazır olanlar üçün Türkiyə ən sürətli adaptasiyanı, alman dilini sıfırdan öyrənməyə hazır olanlar üçün isə Almaniya və ya Avstriya seçilə bilər (1-2 il intensiv hazırlıqla).",
       paragraphs: [
         "Dil bacarığınız adaptasiyanın sürətini və təhsil keyfiyyətini birbaşa təsir edir. Hansı dili bildiyinizə və ya hansı dili öyrənməyə hazır olduğunuzsa görə seçim edin.",
       ],
@@ -227,7 +253,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "İlk il üçün praktik məsləhətlər",
+      heading: "Xaricdə təhsilin ilk ilini uğurla keçirmək üçün nə etməliyəm?",
+      summary:
+        "İlk il akademik uyğunlaşma, dil və mədəni şokla üzləşməyin normal olduğu ən çətin dövrdür; universitetin tutor, məsləhətçi və psixoloji dəstək xidmətlərindən istifadə edin. Ən ucuz və ən sosial yaşayış universitet yataqxanası və ya flatshare variantlarıdır; ilk vaxt müvəqqəti yaşayış tutub sonra daimi mənzil tapmaq daha realistidir. Tələbə klublarına, ESN və AIESEC kimi təşkilatlara qoşulmaq dost tapmağa və dili praktik etməyə kömək edir.",
       paragraphs: [
         "Xaricə köçən hər tələbə üçün ilk il ən çətin və eyni zamanda ən öyrədici dövrdür. Bu müddətdə akademik uyğunlaşma, yeni dil mühiti, fərqli tədris metodu və mədəni şokla üzləşmək normaldır. Birinci semestr adətən ən çətin olur — qiymətlər gözləniləndən aşağı düşə bilər, lakin bu, vaxtla düzəlir. Universitetin təklif etdiyi tələbə dəstək xidmətlərindən (tutor, akademik məsləhətçi, psixoloji dəstək) istifadə etməkdən çekinməyin.",
         "Yaşayış təşkili də ilk həftələrin əsas vəzifəsidir. Universitet yataqxanası adətən ən ucuz və ən sosial variantdır — burada digər beynəlxalq tələbələrlə tanış olmaq asandır. Birlikdə mənzil kirayələmək (flatshare) də populyar və iqtisadi seçimdir. İlk illik müvəqqəti yaşayış (Airbnb və ya qısamüddətli kirayə) almaq, sonra yerindəcə daimi mənzil tapmaq daha realistik yanaşmadır.",
@@ -235,7 +263,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Qərar çərçivəsi — hansı ölkə sizə uyğundur?",
+      heading: "Hansı ölkənin mənim üçün uyğun olduğunu necə müəyyən edim?",
+      summary:
+        "Altı suala cavab verərək seçiminizi dəqiqləşdirin: büdcəniz, ixtisasınız, istədiyiniz tədris dili, diplomun tanınma sahəsi, təhsildən sonra işləmək istədiyiniz ölkə və ailədən uzaqlaşmağa hazır olduğunuz məsafə. Cavablarınızı müqayisə cədvəli ilə yan-yana qoyaraq ən uyğun ölkəni seçə bilərsiniz. Məsafə vacibdirsə Gürcüstan və Türkiyə ən yaxın variantlardır.",
       paragraphs: [
         "Aşağıdakı sadə qərar çərçivəsi sizə doğru seçimi etməkdə kömək edəcək. Özünüzə bu altı sualı ardıcıl cavablayın və yuxarıdakı müqayisə cədvəli ilə yan-yana qoyun:",
       ],
@@ -249,7 +279,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Qərar nümunələri — tipik senarilər",
+      heading: "Tipik senarilərə görə hansı ölkə mənə uyğun gəlir?",
+      summary:
+        "Aşağı büdcə və rus dili üçün Rusiya və ya Qazaxıstan; ABŞ-da işləmək istəyən tibb tələbələri üçün Gürcüstan və ya Polşa; pulsuz Avropa təhsili üçün Almaniya; əlçatan Avropa diplomu üçün Polşa; ən yaxın məsafə və asan adaptasiya üçün Türkiyə və ya Gürcüstan ən sərfəli seçimlərdir. Hələ əmin deyilsinizsə, MegaGroup-un pulsuz konsultasiyası fərdi tövsiyə təqdim edir.",
       paragraphs: [
         "Yuxarıdakı suallara cavab verdikdən sonra, cədvəl və tövsiyələrimizə əsaslanaraq seçiminizi daraldın. Bir neçə tipik nümunəyə baxaq:",
         "Büdcəniz aşağıdırsa və rus dilini bilirsinizsə → Rusiya və ya Qazaxıstan ən sərfəli seçimdir. Tibb oxumaq və ABŞ-da işləmək istəyirsinizsə → Gürcüstan və ya Polşa (ECFMG-uyğun universitetlər). Pulsuz Avropa təhsili istəyirsinizsə və alman dilini öyrənməyə hazırsınızsa → Almaniya. Avropa diplomunu daha əlçatan qiymətə istəyirsinizsə → Polşa. Ən yaxın məsafə və asan adaptasiya üçün → Türkiyə və ya Gürcüstan.",
@@ -257,7 +289,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Təqaüdlər və maliyyə dəstəyi imkanları",
+      heading: "Xaricdə oxumaq üçün hansı təqaüd və maliyyə dəstəyi imkanları var?",
+      summary:
+        "Türkiyə Bursları azərbaycanlılara tam təqaüd (təhsil, yaşayış, sığorta, uçuş) verir və yanvar-fevral aylarında müraciət olunur. Rusiyada Hökumət Kvotası proqramı təhsili tam pulsuz edir və stipendiya verir; Almaniyada DAAD, Polşa və Macarıstanda isə Stipendium proqramları mövcuddur. Qazaxıstanın Nazarbayev Universiteti də akademik nailiyyət əsasında təqaüd təklif edir.",
       paragraphs: [
         "Bir çox tələbə üçün xaricdə təhsilin xərci maneə yaradır, lakin mövcud təqaüd və maliyyə dəstəyi proqramları bu yükü xeyli azalda bilər. Təqaüdlər iki əsas kateqoriyaya bölünür: dövlət təqaüdləri (hökumətlərarası sazişlər əsasında) və universitet təqaüdləri (öz daxili proqramları).",
         "Türkiyə Azərbaycan gəncləri üçün ən geniş təqaüd imkanları təklif edir. Türkiyə Bursları (Türkiye Bursları) proqramı hər il yüzlərlə azərbaycanlı tələbəyə tam təqaüd (təhsil haqqı, yaşayış, sığorta, uçuş bileti) verir. Müraciət adətən yanvar-fevral aylarında onlayn baş tutur. Bundan əlavə, özəl universitetlərin öz daxili təqaüd proqramları (akademik uğur təqaüdü, idman təqaüdü) da mövcuddur.",
@@ -266,7 +300,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Tələbə həyatı, iş icazəsi və köçüm imkanları",
+      heading: "Təhsildən sonra xaricdə qalıb işləmək üçün hansı ölkə ən yaxşı imkanlar verir?",
+      summary:
+        "Almaniya məzunlara 18 aylıq iş axtarış vizası və iş tapdıqdan sonra məskunlaşma icazəsi, Polşa isə Avropa İttifaqı daxilində iş bazarına çıxış imkanı verir — bu iki ölkə köçüm üçün ən güclü seçimlərdir. Təhsil müddətində Polşa və Almaniyada həftədə 20 saata qədər işləmək olar; Türkiyə və Rusiyada isə məhdud saatlarla iş icazəsi mövcuddur. Kanada və Avstraliya da məzun iş vizası proqramları ilə tanınır.",
       paragraphs: [
         "Ölkə seçərkən yalnız təhsil mərhələsini deyil, təhsildən sonrakı imkanları da nəzərə almaq vacibdir. Bir çox ölkə tələbələrə təhsil müddətində məhdud saatlarla işləməyə icazə verir — bu, yaşayış xərclərini qismən ödəməyə kömək edir. Türkiyədə tələbə iş icazəsi məhdud saatlarla mümkündür, Polşa və Almaniyada həftədə 20 saata qədər, Gürcüstan və Rusiyada isə qaydalar daha sərtdir.",
         "Daha vacib məsələ təhsildən sonrakı iş və köçüm (immigration) imkanlarıdır. Almaniya məzunlara 18 aylıq iş axtarış vizası verir və iş tapdıqdan sonra məskunlaşma icazəsi almaq mümkündür — bu, mühəndislik və IT məzunları üçün xüsusilə əlverişlidir. Polşa eynilə Avropa İttifaqı daxilində iş bazarına çıxış imkanı verir. Kanada və Avstraliya isə məzun iş vizası proqramları ilə tanınır.",
@@ -274,14 +310,18 @@ const article: Article = {
       ],
     },
     {
-      heading: "Yaşayış və mədəni adaptasiya",
+      heading: "Hansı ölkədə mədəni adaptasiya ən asan keçir?",
+      summary:
+        "Türkiyə və Qazaxıstan mədəniyyət, mətbəx və din baxımından Azərbaycana ən yaxındır və adaptasiya bir neçə həftə içində başa çatır. Rusiya və Gürcüstanda güclü azərbaycanlı diaspora dəstək şəbəkəsi rolunu oynayır. Almaniya, Polşa və Qərbi Avropada iqlim və həyat tərzi fərqləri daha aydındır, lakin güclü beynəlxalq tələbə cəmiyyəti və ingilis dili adaptasiyanı asanlaşdırır.",
       paragraphs: [
         "Akademik göstəricilərdən başqa, yaşayış keyfiyyəti və mədəni adaptasiya da seçimdə rol oynayır. Türkiyə və Qazaxıstan mədəniyyət, mətbəx və din baxımından Azərbaycana ən yaxın ölkələrdir — adaptasiya adətən bir neçə həftə içində başa çatır. Rusiya və Gürcüstanda da azərbaycanlı diaspora güclüdür və bu, tələbə üçün dəstək şəbəkəsi rolunu oynayır.",
         "Almaniya, Polşa və Qərbi Avropa ölkələrində mədəni fərqlər daha aydındır: iqlim (sərt qışlar), mətbəx, ictimai həyat tərzi. Lakin bu ölkələrdə beynəlxalq tələbə cəmiyyəti güclüdür və ingilis dili geniş yayıldığı üçün ünsiyyət asandır. İlk illik hazırlıq və ya dil kursu bu adaptasiyanı rəvanlaşdırmağa kömək edir. Hər halda, ilk il hər tələbə üçün bir az çətin keçir — bu normaldır və vaxtla həll olunur.",
       ],
     },
     {
-      heading: "MegaGroup necə kömək edir?",
+      heading: "MegaGroup xaricdə təhsil seçimində necə kömək edir?",
+      summary:
+        "MegaGroup pulsuz konsultasiya və ölkə/universitet seçimi, sənəd hazırlığı və tərcümə (apostil daxil), universitetə müraciət, qəbul məktubu, viza və yaşayış icazəsi, yaşayış yeri, sığorta və biletlərin təşkili kimi xidmətlər təklif edir. On illik təcrübə və 1000-dən çox yerləşdirilmiş tələbə bazası ilə hər addımda fərdi dəstək təmin olunur.",
       paragraphs: [
         "Hansı ölkəni seçməyinizdən asılı olmayaraq, MegaGroup sizə aşağıdakı xidmətləri təqdim edir: pulsuz konsultasiya və ölkə/universitet seçimi, sənəd hazırlığı və tərcümə (apostil daxil), universitetə müraciət və qəbul məktubunun alınması, viza müraciəti və yaşayış icazəsi, yaşayış yerinin tapılması, sığorta və biletlərin təşkili, və hər addımda fərdi dəstək. On illik təcrübə və 1000-dən çox yerləşdirilmiş tələbə bazamızla, sizin üçün ən doğru və ən sərfəli yolu birlikdə tapırıq.",
       ],

@@ -19,7 +19,7 @@ const article: Article = {
   excerpt:
     "Türkiyədə təhsilin üstünlükləri, dövlət və özəl universitetlər, YÖS vs attestatla qəbul, tam xərc cədvəli, viza prosesi və tələbə həyatı haqqında 2026 üçün yenilənmiş bələdçi.",
   heroEmoji: "🇹🇷",
-  updatedAt: "2026-07-12",
+  updatedAt: "2026-07-16",
   readingMinutes: 18,
   relatedCountrySlug: "turkiye",
   intro: [
@@ -29,6 +29,8 @@ const article: Article = {
   sections: [
     {
       heading: "Türkiyə niyə Azərbaycan tələbələri üçün 1-ci seçimdir?",
+      summary:
+        "Türkiyə dil və mədəni yaxınlıq, qısa məsafə (Bakıdan 2-3 saat uçuş), müqayisəli aşağı təhsil haqqı və YÖK tərəfindən tanınan diplom sayəsində Azərbaycanlılar üçün ən populyar istiqamətdir. Bu üstünlüklər onu hər il minlərlə tələbənin ilk seçiminə çevirir.",
       paragraphs: [
         "Türkiyə hər il minlərlə Azərbaycan tələbəsini cəlb edən bir neçə səbəbə malikdir. Birincisi, mədəni və dil yaxınlığı — türk dili azərbaycan dilinə o qədər yaxındır ki, əksər tələbə bir neçə həftə içində sərbəst danışmağa başlayır. Bu, həm dərs davamını, həm də gündəlik həyatı xeyli asanlaşdırır. İkincisi, məsafə — valideynlərinizi tez-tez ziyarət etmək və ya tətildə vətənə qayıtmaq sadə və ucuzdur.",
         "Üçüncü vacib amil təhsil haqqıdır. Türkiyə özəl universitetlərində illik təhsil haqqı 1 200–3 500 dollar aralığında dəyişir ki, bu da Avropa ölkələri ilə müqayisədə xeyli aşağıdır. Dövlət universitetlərində isə burs (təqaüd) imkanları sayəsində demək olar ki, pulsuz oxumaq mümkündür. Dördüncü üstünlük isə diplomun tanınmasıdır: YÖK tərəfindən akkreditə olunmuş universitetlərin diplomları həm Azərbaycanda, həm də beynəlxalq səviyyədə tanınır.",
@@ -36,7 +38,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Devlet və özel universitetlər — fərqlər nələrdir?",
+      heading: "Dövlət və özəl universitetlər arasındakı fərqlər nələrdir?",
+      summary:
+        "Dövlət (devlet) universitetləri daha nüfuzlu və ucuzdur, lakin əksəriyyətində YÖS imtahanı tələb olunur və rəqabət yüksəkdir. Özəl (özel/vakıf) universitetləri isə daha müasirdir və böyük əksəriyyəti attestatla, imtahansız qəbul aparır — bu da sürətli və sadə yoldur.",
       paragraphs: [
         "Türkiyədə iki əsas universitet növü mövcuddur: dövlət (devlet) və özəl (özel/vakıf) universitetləri. İki növ arasında qiymət, qəbul şərtləri və tədris keyfiyyəti baxımından əhəmiyyətli fərqlər var. Doğru seçim etmək üçün bu fərqləri başa düşmək lazımdır.",
         "Dövlət universitetləri (məsələn, İstanbul Universiteti, Ankara Universiteti) daha tarixi və akademik cəhətdən nüfuzludur, təhsil haqqı aşağıdır və ya yüksək bal yığanlar üçün pulsuzdur. Amma əksər dövlət universiteti xarici tələbə qəbulu üçün YÖS (Yabancı Öğrenci Sınavı) imtahanını tələb edir və rəqabət yüksəkdir. Özəl universitetlər isə daha müasir infrastruktura malikdir, daha kiçik siniflər və fərdi diqqət təklif edir, və ən vacibi — böyük əksəriyyəti attestatla, imtahansız qəbul aparır.",
@@ -55,7 +59,9 @@ const article: Article = {
       },
     },
     {
-      heading: "YÖS imtahanı vs attestatla qəbul — hansı daha sərfəli?",
+      heading: "YÖS imtahanı yoxsa attestatla qəbul — hansı daha sərfəlidir?",
+      summary:
+        "YÖS dövlət universitetlərinə təqaüdlü qəbul üçündür və vaxt + riyaziyyat hazırlığı tələb edir. Attestatla qəbul isə özəl universitetlərdə imtahansız, sürətli (4-6 həftə) qəbul deməkdir. Bu il tez qəbul olmaq istəyənlər üçün attestatla özəl universitet daha sərfəlidir.",
       paragraphs: [
         "YÖS (Yabancı Öğrenci Sınavı) — Türkiyənin dövlət universitetlərinin xarici tələbələr üçün təşkil etdiyi qəbul imtahanıdır. O, əsasən iq (özgə qabiliyyət) suallarından ibarətdir və riyaziyyat biliyini yoxlayır. YÖS nəticəsi yüksək olan tələbələr İstanbul, Ankara kimi nüfuzlu dövlət universitetlərinə tam və ya qismən təqaüdlə qəbul ola bilirlər.",
         "Attestatla qəbul isə YÖS imtahanı tələb olunmadan, yalnız orta məktəb attestatının orta balı (middle-score) əsasında aparılan qəbul növüdür. Bu yol özəl universitetlərin böyük əksəriyyəti tərəfindən təklif edilir və ən sürətli, ən sadə qəbul metodudur. Attestatla qəbul üçün əlavə imtahana ehtiyac yoxdur — yalnız sənədlərin hazırlanması və müraciət kifayətdir.",
@@ -63,7 +69,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Ən populyar Türkiyə universitetləri — Giresun, İstanbul və digərləri",
+      heading: "Türkiyənin ən populyar universitetləri hansılardır?",
+      summary:
+        "Azərbaycan tələbələri üçün ən çox seçilənlər Giresun Universiteti (ucuz, attestatla qəbul, dəniz kənarı), İstanbul Universiteti (ən nüfuzlu), Ankara və İzmir universitetləridir. Seçim qiymət, şəhər və ixtisas amillərindən asılıdır.",
       paragraphs: [
         "Türkiyədə 200+ universitet mövcuddur və Azərbaycan tələbələri üçün ən cəlbedici olanları müxtəlif amillərə görə seçilir — qiymət, şəhər, ixtisas və qəbul asanlığı. Aşağıda MegaGroup-un ən çox yerləşdirmə apardığı universitetləri təqdim edirik.",
       ],
@@ -76,7 +84,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Türkiyədə təhsil xərcləri — tam büdcə cədvəli",
+      heading: "Türkiyədə təhsil neçəyə başa gəlir?",
+      summary:
+        "Aylıq ümumi xərc (təhsil xaric) Giresun kimi kiçik şəhərdə 220-460 dollar, İstanbulda 300-610 dollar, Ankarada isə 250-505 dollardır. Özəl universitetlərdə illik təhsil haqqı 1 200-3 500 dollar aralığındadır. İstanbul Anadoludan təxminən 30-50% bahadır.",
       paragraphs: [
         "Türkiyədə təhsil üçün aylıq və illik büdcənizi doğru planlamaq üçün bütün xərc kateqoriyalarını nəzərə almaq lazımdır. Aşağıdakı cədvəl Giresun kimi kiçik şəhər və İstanbul kimi böyük şəhər üçün real orta rəqəmləri əks etdirir. Rəqəmlər MegaGroup-un partnyor universitetlərinin aktual məlumatları əsasında hazırlanmışdır.",
         "Diqqət edin ki, İstanbulda yaşayış xərcləri Giresun və ya digər Anadolu şəhərlərinə nisbətən 30-50% yüksəkdir. Ona görə də büdcə məhdudiyyəti olan tələbələr üçün kiçik şəhərlərdəki universitetlər daha sərfəli seçimdir. Eyni keyfiyyətli diplomu daha az xərclə əldə etmək mümkündür.",
@@ -94,7 +104,9 @@ const article: Article = {
       },
     },
     {
-      heading: "Türkiyə universitetlərinə qəbul prosesi — addım-addım",
+      heading: "Türkiyə universitetlərinə necə qəbul olmaq olar?",
+      summary:
+        "Attestatla yolda qəbul prosesi təxminən 4-8 həftə çəkir və 10 addımdan ibarətdir: pulsuz konsultasiya, universitet seçimi, sənədlərin hazırlanması, notarial tərcümə, onlayn müraciət, qəbul məktubu, ödəniş, tələbə vizası, yataqxana və yola düşmə. Sentyabr tədris ilinə yetişmək üçün may-iyunda başlamaq lazımdır.",
       paragraphs: [
         "Türkiyədə təhsil üçün qəbul prosesi attestatla yolda nisbətən sadə və sürətlidir — ümumilikdə 4-8 həftə çəkir. Aşağıdakı addımlar MegaGroup-un minlərlə tələbə yerləşdirmə təcrübəsindən yaranmışdır. Hər addımda mütəxəssislərimiz sizinlə birlikdə işləyir.",
         "Vacib qeyd: Türkiyə universitetlərinin qəbul kvotası məhduddur və xüsusilə tibb kimi rəqabətli ixtisaslarda yerlər tez dolur. Ona görə sentyabr tədris ilinə yetişmək istəyirsinizsə, prosesi may-iyun aylarından başlamaq tövsiyə olunur.",
@@ -113,7 +125,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Türkiyə tələbə vizası — sənədlər və proses",
+      heading: "Türkiyə tələbə vizası necə alınır?",
+      summary:
+        "Türkiyə tələbə vizası (öğrenci vizesi) Azərbaycan vətəndaşları üçün ən asan əldə edilənlərdən biridir. Qəbul məktubu və maliyyə sübutu olduqdan sonra Bakıdakı səfirliyə müraciət edilir və proses 1-3 həftəyə tamamlanır. Gəldikdən sonra 30 gün içində İkamet Tezkeresi (yaşayış icazəsi) alınmalıdır.",
       paragraphs: [
         "Türkiyə tələbə vizası (öğrenci vizesi) — Azərbaycan vətəndaşları üçün ən asan əldə edilən vizalardan biridir. Qəbul məktubu əldə etdikdən sonra Bakıdakı Türkiyə Səfirliyinə və ya Baş Konsulluğa müraciət edilir və proses adətən 1-3 həftə ərzində tamamlanır. Bu, Almaniya və ya Polşa kimi ölkələrlə müqayisədə xeyli sürətlidir.",
         "Viza üçün tələb olunan əsas sənədlər bunlardır: qəbul məktubu (orijinal), pasport (azı 6 ay müddətli), viza anketi, biometrik fotoşəkillər, maliyyə sübutu (bank spravkası) və sığorta. Maliyyə sübutu xüsusilə vacibdir — sizin və ya sponsor valideyninizin təhsil və yaşayış xərclərini qarşılaya biləcəyini göstərməlisiniz.",
@@ -121,7 +135,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Tədris dili: Türkcə yoxsa İngiliscə proqramlar?",
+      heading: "Tədris dili: türkcə yoxsa ingiliscə proqramlar daha uyğundur?",
+      summary:
+        "Türkcə proqramlar daha geniş yayılıb, daha ucuzdur və bilməyənlər üçün birillik TÖMER hazırlıq kursu var (azərbaycanlılar üçün asan). İngiliscə proqramlar beynəlxalq karyera üçün stratejidir, lakin bir qədər baha və IELTS 5.5-6.0 tələb edir. Beynəlxalq məqsədlər varsa ingilis, sürətli adaptasiya üçün türk seçimi daha yaxşıdır.",
       paragraphs: [
         "Türkiyə universitetlərində tədris iki dildə aparıla bilər — türkcə və ingiliscə. Bir çox universitet hər iki variantı təklif edir və siz öz seçiminizə uyğun proqrama yazıla bilərsiniz. Hər birinin öz üstünlükləri və nüansları var.",
         "Türkcə proqramlar daha geniş yayılıb və adətən daha aşağı təhsil haqqına malikdir. Əgər türk dilini bilmirsinizsə, bir illik hazırlıq kursu (TÖMER) keçirsiniz — bu müddət ərzində dili öyrənir və sonrada əsas ixtisasa keçirsiniz. Azərbaycanlılar üçün türk dili öyrənmək çox asandır və əksər tələbə bir-iki ay içində sərbəst danışmağa başlayır.",
@@ -129,7 +145,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Türkiyə diplomunun Azərbaycanda tanınması",
+      heading: "Türkiyə diplomu Azərbaycanda tanınırmı?",
+      summary:
+        "Bəli — YÖK (Yüksəköğretim Kurulu) tərəfindən akkreditə olunmuş universitetlərin diplomları Azərbaycanda Təhsil Nazirliyi tərəfindən ekvivalentləşdirilir və tanınır. Prosedur 1-3 ay çəkir və tanınmış universitetlərdə heç bir problem yaranmır. MegaGroup yalnız tanınan universitetlərə yerləşdirmə aparır.",
       paragraphs: [
         "Türkiyə universitetlərinin diplomları YÖK (Yüksəköğretim Kurulu) tərəfindən akkreditə olunduğu üçün həm Azərbaycanda, həm də beynəlxalq səviyyədə tanınır. Azərbaycanda diplom tanınması Təhsil Nazirliyinin ekvivalentləşdirmə prosesi vasitəsilə həyata keçirilir və əksər hallarda heç bir problem yaranmır.",
         "Tanınma prosesi üçün diplomun orijinalı, transkript və onların notarial tərcüməsi Təhsil Nazirliyinə təqdim edilir. Prosedur adətən 1-3 ay çəkir. Akkreditə olunmuş universitetlərin diplomları qeyri-rəsmi və ya tanınmayan mərkəzlərlə müqayisədə heç bir maneəyə rast gəlmir. Ona görə də universitet seçimi zamanı akkreditasiya statusunu yoxlamaq çox vacibdir.",
@@ -137,7 +155,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Türkiyədə tələbə həyatı — gözlənilən və gözlənilməyən",
+      heading: "Türkiyədə tələbə həyatı necədir?",
+      summary:
+        "Türkiyədə tələbə həyatı zəngin və azərbaycanlılara uyğundur: kampus klubları, yataqxana, ucuz iaşə, tələbə endirimləri və oxşar mədəniyyət. Tələbə vizası kampus daxilində məhdud yarımtayma iş icazəsi verir. İqlim şəhərdən asılı olaraq mülayimdən kontinentaladək dəyişir.",
       paragraphs: [
         "Türkiyədə tələbə həyatı müxtəlif cəhətləri ilə zəngindir. Kampus həyatı, tələbə klubları, idman və mədəni fəaliyyətlər bol imkanlar təklif edir. Universitetlərin əksəriyyətində yataqxana, iaşə (yemekhane), idman zalları və kitabxanalar mövcuddur. Tələbə kartı (öğrenci kimliği) nəqliyyat, muzey və bir çox xidmətlərdə endirim təklif edir.",
         "Yaşayış baxımından Türkiyə tələbə üçün çox əlverişlidir. Yemək mətbəxi Azərbaycana yaxındır, halal qida hər yerdə mövcuddur, və mədəni dəyərlər oxşardır. Bu, valideynlərin də narahatlığını azaldır. İqlim isə şəhərdən asılıdır — Qara dəniz sahilində (Giresun) mülayim və rütubətli, Anadolu daxilində (Ankara, Konya) quru və kontinental, Aralıq dənizi sahilində (Antalya, İzmir) isə isti və günəşlidir.",
@@ -145,7 +165,9 @@ const article: Article = {
       ],
     },
     {
-      heading: "Nəticə — Türkiyədə təhsil sizin üçün doğrudurmu?",
+      heading: "Türkiyədə təhsil sizin üçün doğrudurmu?",
+      summary:
+        "Türkiyə büdcəsi məhdud, lakin keyfiyyətli və beynəlxalq tanınan diplom istəyən, bu il tez qəbul olmaq istəyən Azərbaycan tələbələri üçün ən sərfəli seçimlərdən biridir. Xüsusiln attestatla sürətli qəbul axtaranlar üçün özəl universitetlər ən doğru qərardır.",
       paragraphs: [
         "Türkiyədə təhsil büdcəsi məhdud, lakin keyfiyyətli və beynəlxalq tanınan diplom istəyən Azərbaycan tələbələri üçün ən sərfəli seçimlərdən biridir. Dil yaxınlığı, qısa məsafə, müqayisəli aşağı xərclər və attestatla sürətli qəbul imkanı onu ilk növbədə düşünüləsi istiqamət edir. Əgər vaxt itirmədən bu il universitetə qəbul olunmaq istəyirsinizsə, Türkiyə özəl universitetləri ən doğru qərar ola bilər.",
         "MegaGroup 2018-ci ildən Türkiyənin aparıcı universitetləri ilə işləyir və 1000-dən çox tələbənin arzusunu reallaşdırıb. İlk addımınızın doğru atılması qərarın gələcəyini müəyyən edir — ona görə də pulsuz konsultasiyamızda sizin büdcə, ixtisas və məqsədlərinizə uyğun ən münasib universiteti birlikdə seçək. Komandamızla əlaqə saxlayın və Türkiyədə təhsil yolculuğunuzu etibarlı addımlarla başladın.",
