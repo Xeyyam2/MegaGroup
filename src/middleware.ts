@@ -15,8 +15,53 @@ const LOCALE_GROUP = locales.join("|");
 const LOCALE_PREFIXED_ADMIN = new RegExp(`^/(?:${LOCALE_GROUP})(/(?:admin|dashboard))(/.*)?$`);
 const LEGACY_DASHBOARD = /^\/dashboard(\/.*)?$/;
 
+// WordPress qalıqları — sayt WP-dən Next.js-ə miqrasiya edilib.
+// Bu yollar artıq mövcud deyil; Googlebot-un dəfələrlə crawl etdiyi
+// (və GSC-də 403/404 xətası sayılan) köhnə WP URL-larıdır.
+// 410 Gone = "bir daha gəlmə" → Google 404-dən daha sürətlə növbədən çıxarır.
+const WORDPRESS_REMNANTS = /^\/(?:wp-content|wp-admin|wp-includes|wp-json|wp-login\.php|cgi-sys)(?:\/|$)/;
+
+// Köhnə WordPress slug-ları → yeni Next.js strukturuna 301 redirect.
+// 301 = daimi yönləndirmə → link juice və autoritet yeni URL-a köçür.
+// Format: [regex, hədəf path]. Hədəf `locale` qəbul edir (default /az).
+const LEGACY_SLUGS: Array<[RegExp, (locale: string) => string]> = [
+  // Köhnə "{ölkə}də-tehsil" səhifələri → /az/xaricde-tehsil/{ölkə}
+  [/^\/ukraynada-tehsil\/?$/, () => "/xaricde-tehsil/ukrayna"],
+  [/^\/rusiyada-tehsil\/?$/, () => "/xaricde-tehsil/rusiya"],
+  [/^\/turkiyede-tehsil\/?$/, () => "/xaricde-tehsil/turkiye"],
+  [/^\/gurcustanda-tehsil\/?$/, () => "/xaricde-tehsil/gurcustan"],
+  [/^\/qazaxistanda-tehsil\/?$/, () => "/xaricde-tehsil/qazaxistan"],
+  [/^\/almaniyada-tehsil\/?$/, () => "/xaricde-tehsil/almaniya"],
+  [/^\/polsada-tehsil\/?$/, () => "/xaricde-tehsil/polsa"],
+  // Əlaqə səhifəsi artıq yoxdur (CTASection-də WhatsApp/direct kontakt var)
+  [/^\/elaqe\/?$/, () => ""],
+  // Kiçik/böyük hərf varyasiyaları (CaseSensitive WP)
+  [/^\/Haqqimizda\/?$/i, () => "/haqqimizda"],
+  // WordPress attachment (şəkil) səhifələri → ana səhifə
+  [/^\/logo-(?:\d+)\/?$/, () => ""],
+  // WP tag/kateqoriya arxivləri
+  [/^\/(?:tag|category|author)\/.*$/, () => ""],
+];
+
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+
+  // WordPress qalıqları → 410 Gone (Google bunu 404-dən daha sürətli indexdən çıxarır)
+  if (WORDPRESS_REMNANTS.test(pathname)) {
+    return new NextResponse(null, {
+      status: 410,
+      headers: { "Cache-Control": "public, max-age=86400" },
+    });
+  }
+
+  // Köhnə WP slug-ları → /{locale}/yeni-yol 301 redirect
+  for (const [re, buildPath] of LEGACY_SLUGS) {
+    if (re.test(pathname)) {
+      const url = request.nextUrl.clone();
+      url.pathname = `/az${buildPath("az")}`;
+      return NextResponse.redirect(url, 301);
+    }
+  }
 
   // "/az/admin", "/ru/dashboard/login", etc. -> redirect to "/admin/..."
   const localeMatch = pathname.match(LOCALE_PREFIXED_ADMIN);
@@ -86,5 +131,13 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!api|_next|_vercel|.*\\..*).*)"],
+  // İki əsas qayda:
+  //   1. Normal public yollar (statik fayllar / Next internal istisna)
+  //   2. WordPress qalıq faylları (`.js`, `.php` uzantılı olsalar belə middleware-dən keçir
+  //      ki, yuxarıdakı 410 Gone qaydası işə düşsün — bu fayllar GSC-də 403/404 xətasıdır)
+  // Çoxlu matcher OR-iddir — hər hansı biri uyğun gəlsə middleware işə düşür.
+  matcher: [
+    "/((?!api|_next|_vercel|.*\\..*).*)",
+    "/(wp-content|wp-includes|wp-admin|wp-json|cgi-sys)(/.*)?",
+  ],
 };

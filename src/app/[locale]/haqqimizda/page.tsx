@@ -23,7 +23,15 @@ export async function generateMetadata({
         : locale === "ru"
           ? "MegaGroup — центр обучения за рубежом для азербайджанских студентов."
           : "MegaGroup — study abroad center for Azerbaijani students.",
-    alternates: { canonical: `${siteUrl}/${locale}/haqqimizda` },
+    alternates: {
+      canonical: `${siteUrl}/${locale}/haqqimizda`,
+      languages: {
+        az: `${siteUrl}/az/haqqimizda`,
+        ru: `${siteUrl}/ru/haqqimizda`,
+        en: `${siteUrl}/en/haqqimizda`,
+        "x-default": `${siteUrl}/az/haqqimizda`,
+      },
+    },
   };
 }
 

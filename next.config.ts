@@ -31,6 +31,41 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "scontent.cdninstagram.com" },
     ],
   },
+  // Köhnə/əlaqəsiz URL-ları daimi yönləndirir (SEO: 404 azaldır, link juice qoruyur).
+  // Middleware-dəki qaydalar əlavə təyinatlıdır; bunlar sadə statik yönləndirmələrdir.
+  async redirects() {
+    return [
+      // "study-abroad" və "xaricde-tehsil" — köhnə ingliscə/az slugları eyni hədəfə
+      {
+        source: "/study-abroad",
+        destination: "/az/xaricde-tehsil",
+        permanent: true,
+      },
+      // XML-RPC pingback — WordPress qalığı, tez-tez brute-force hədəfi olur.
+      // 410 vermirik ( Next redirects yalnız 301/307/308 verir), sadəcə ana səhifəyə atırıq.
+      {
+        source: "/xmlrpc.php",
+        destination: "/az",
+        permanent: false,
+      },
+      // Sitemapın köhnə WP yerləri → Next.js sitemap-a
+      {
+        source: "/sitemap_index.xml",
+        destination: "/sitemap.xml",
+        permanent: true,
+      },
+      {
+        source: "/sitemap-news.xml",
+        destination: "/sitemap.xml",
+        permanent: true,
+      },
+      {
+        source: "/news-sitemap.xml",
+        destination: "/sitemap.xml",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

@@ -24,10 +24,44 @@ const AI_BOTS = [
   "cohere-ai",
 ];
 
+// İndekslənməməli olan yollar — SEO baxımından "zibil" URL-lardır:
+// - WordPress qalıqları (sayt WP-dən miqrasiya edilib)
+// - Admin panel və API (internal istifadə)
+// - Next.js avtomatik twəkil etdiyi sistem faylları (opengraph-image, favicon variantları)
+// - Axtarış/süzgəc query parametrləri (faceted nav dupe content)
+const DISALLOWED_PATHS = [
+  "/admin",
+  "/admin/",
+  "/api",
+  "/api/",
+  // WordPress qalıqları (həmçinin middleware-də 410 Gone qaytarır)
+  "/wp-content/",
+  "/wp-admin/",
+  "/wp-includes/",
+  "/wp-json/",
+  "/wp-login.php",
+  "/cgi-sys/",
+  "/xmlrpc.php",
+  // Next.js metadata faylları — hər səhifə üçün avtomatik generasiya olunur,
+  // indekslənməsi websayt üçün dəyər yaratmır, "crawled but not indexed" siqnalı yaradır.
+  "/opengraph-image",
+  "/twitter-image",
+  "/apple-icon",
+  "/manifest.webmanifest",
+  // SW və system faylları
+  "/sw.js",
+  "/workbox-",
+];
+
 export default function robots(): MetadataRoute.Robots {
   const rules: MetadataRoute.Robots["rules"] = [
-    { userAgent: "*", allow: "/" },
-    ...AI_BOTS.map((userAgent) => ({ userAgent, allow: "/" })),
+    {
+      userAgent: "*",
+      allow: "/",
+      disallow: DISALLOWED_PATHS,
+    },
+    // AI botlar üçün də eyni qaydalar (allow + disallow)
+    ...AI_BOTS.map((userAgent) => ({ userAgent, allow: "/", disallow: DISALLOWED_PATHS })),
   ];
   return {
     rules,
