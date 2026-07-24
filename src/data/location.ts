@@ -3,17 +3,19 @@ import type { Locale } from "@/i18n/routing";
 // Mega Group Academy — Google Maps-də qeydli yer.
 // Koordinatlar https://maps.app.goo.gl/3cy38rnZpCqKc59c6 linkindən alınıb.
 //
-// Xəritə OpenStreetMap embedidir. Google Maps-in `output=embed` hack-ı
-// artıq "refused to connect" xətası verir (Google özü frame-i bloklayır),
-// Google Embed API isə açar tələb edir. OSM açarsız və etibarlıdır;
-// "Google Maps-də aç" düyməsi istifadəçini birbaşa Google yerinə aparır.
+// Maps Embed API açarı. BU GİZLİ DEYİL — Google Maps Embed API açarları
+// dizayn etibarilə public-dir (iframe URL-də görünür). Təhlükəsizlik HTTP
+// referrer restriction ilə təmin olunur (yalnız megatehsil.com domainində
+// işləyir). https://developers.google.com/maps/documentation/embed/get-api-key
+const EMBED_KEY = "AIzaSyA4Ss9DnuxBCErSuYKQVwdYLB_Kia4Zu_I";
+
 export const LOCATION = {
   lat: 40.383624,
   lng: 49.8258549,
   mapsLink: "https://maps.app.goo.gl/3cy38rnZpCqKc59c6",
   directions: "https://www.google.com/maps/dir/?api=1&destination=40.383624,49.8258549",
-  embed:
-    "https://www.openstreetmap.org/export/embed.html?bbox=49.82085,40.37862,49.83085,40.38862&layer=mapnik&marker=40.383624,49.8258549",
+  embed: (locale: Locale) =>
+    `https://www.google.com/maps/embed/v1/place?key=${EMBED_KEY}&q=${40.383624},${49.8258549}&zoom=16&language=${locale}&maptype=roadmap`,
 };
 
 export const ADDRESS: Record<Locale, { line1: string; line2: string }> = {
