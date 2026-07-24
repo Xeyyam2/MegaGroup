@@ -185,13 +185,36 @@ async function seed() {
   }
 
   console.log("Creating admin user...");
+  const adminEmail = process.env.SEED_ADMIN_EMAIL!;
+  const adminPassword = process.env.SEED_ADMIN_PASSWORD!;
+  const ADMIN_APP_METADATA = { role: "admin" };
+
   const { error: ue } = await supabase.auth.admin.createUser({
-    email: process.env.SEED_ADMIN_EMAIL!,
-    password: process.env.SEED_ADMIN_PASSWORD!,
+    email: adminEmail,
+    password: adminPassword,
     email_confirm: true,
+    app_metadata: ADMIN_APP_METADATA,
   });
-  if (ue && !ue.message.includes("already")) console.error("Admin:", ue.message);
-  else console.log("Admin ready:", process.env.SEED_ADMIN_EMAIL);
+
+  if (ue) {
+    if (ue.message.toLowerCase().includes("already")) {
+      const { data: list } = await supabase.auth.admin.listUsers();
+      const existing = list?.users?.find((u) => u.email?.toLowerCase() === adminEmail.toLowerCase());
+      if (existing) {
+        const { error: upErr } = await supabase.auth.admin.updateUserById(existing.id, {
+          app_metadata: ADMIN_APP_METADATA,
+        });
+        if (upErr) console.error("Admin role update:", upErr.message);
+        else console.log("Admin role set on existing user:", adminEmail);
+      } else {
+        console.error("Admin user found in error but not in list:", ue.message);
+      }
+    } else {
+      console.error("Admin:", ue.message);
+    }
+  } else {
+    console.log("Admin ready:", adminEmail);
+  }
 
   console.log("Seed complete!");
 }
