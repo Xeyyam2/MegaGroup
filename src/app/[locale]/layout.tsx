@@ -119,15 +119,17 @@ export default async function LocaleLayout({
             priceRange: "$$",
             address: {
               "@type": "PostalAddress",
+              streetAddress: "Məhəmməd Naxçıvani",
               addressLocality: "Bakı",
               addressCountry: "AZ",
             },
             areaServed: { "@type": "Country", name: "Azərbaycan" },
             geo: {
               "@type": "GeoCoordinates",
-              latitude: 40.4093,
-              longitude: 49.8671,
+              latitude: 40.383624,
+              longitude: 49.8258549,
             },
+            hasMap: "https://maps.app.goo.gl/3cy38rnZpCqKc59c6",
             openingHoursSpecification: [
               {
                 "@type": "OpeningHoursSpecification",

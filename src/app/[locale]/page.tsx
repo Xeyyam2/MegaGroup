@@ -10,6 +10,7 @@ import { SuccessStories } from "@/components/sections/SuccessStories";
 import { InstagramCTA } from "@/components/sections/InstagramCTA";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { CTASection } from "@/components/sections/CTASection";
+import { LocationSection } from "@/components/sections/LocationSection";
 import { CountryComparisonTable } from "@/components/sections/CountryComparisonTable";
 import { FadeInUp } from "@/components/motion/FadeInUp";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
@@ -263,6 +264,8 @@ async function HomeBody({ locale }: { locale: Locale }) {
           </SectionErrorBoundary>
         </div>
       </section>
+
+      <LocationSection locale={locale} />
 
       <CTASection whatsappUrl={content.contact_whatsapp} />
     </>

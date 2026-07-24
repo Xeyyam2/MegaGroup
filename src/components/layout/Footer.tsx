@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
-import { MessageCircle, Phone } from "lucide-react";
+import { MessageCircle, Phone, MapPin } from "lucide-react";
 import { InstagramIcon } from "@/components/ui/InstagramIcon";
 import { TikTokIcon } from "@/components/ui/TikTokIcon";
 import { getCountries } from "@/lib/data/countries";
+import { ADDRESS, LOCATION } from "@/data/location";
 import type { Locale } from "@/i18n/routing";
 
 const DEFAULT_WHATSAPP_URL = "https://wa.me/994519999370";
@@ -113,6 +114,21 @@ export async function Footer({
         <div>
           <h3 className="mb-3 font-semibold text-foreground">{t("contact")}</h3>
           <ul className="space-y-2 text-sm text-foreground/70">
+            <li>
+              <a
+                href={LOCATION.mapsLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-start gap-2 hover:text-brand-primary"
+              >
+                <MapPin size={16} className="mt-0.5 shrink-0" />
+                <span>
+                  {(ADDRESS[locale] ?? ADDRESS.az).line1}
+                  <br />
+                  {(ADDRESS[locale] ?? ADDRESS.az).line2}
+                </span>
+              </a>
+            </li>
             <li>
               <a href={`tel:${phoneTel}`} className="inline-flex items-center gap-2 hover:text-brand-primary">
                 <Phone size={16} /> {phoneDisplay}
