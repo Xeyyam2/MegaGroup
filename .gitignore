@@ -43,6 +43,9 @@ dev*.log
 *.tsbuildinfo
 next-env.d.ts
 
+# eslint
+.eslintcache
+
 # playwright
 /playwright-report
 /test-results
