@@ -78,14 +78,12 @@ export function Header() {
           >
             {t("about")}
           </Link>
-          {locale === "az" && (
-            <Link
-              href={`/${locale}/bloq`}
-              className="text-sm font-medium text-foreground/80 transition-colors hover:text-brand-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary"
-            >
-              {t("blog")}
-            </Link>
-          )}
+          <Link
+            href={`/${locale}/bloq`}
+            className="text-sm font-medium text-foreground/80 transition-colors hover:text-brand-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary"
+          >
+            {t("blog")}
+          </Link>
           <Link
             href={`/${locale}/xaricde-tehsil/muraciet`}
             className="text-sm font-medium text-foreground/80 transition-colors hover:text-brand-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary"
@@ -151,15 +149,13 @@ export function Header() {
           >
             {t("about")}
           </Link>
-          {locale === "az" && (
-            <Link
-              href={`/${locale}/bloq`}
-              onClick={() => setOpen(false)}
-              className="rounded-lg px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-white/10 hover:text-brand-primary"
-            >
-              {t("blog")}
-            </Link>
-          )}
+          <Link
+            href={`/${locale}/bloq`}
+            onClick={() => setOpen(false)}
+            className="rounded-lg px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-white/10 hover:text-brand-primary"
+          >
+            {t("blog")}
+          </Link>
           <Link
             href={`/${locale}/xaricde-tehsil/muraciet`}
             onClick={() => setOpen(false)}

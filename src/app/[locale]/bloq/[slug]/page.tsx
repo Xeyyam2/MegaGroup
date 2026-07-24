@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
-import { ARTICLES, getArticleBySlug } from "@/data/articles";
+import { ARTICLES, getArticleBySlugLocalized } from "@/data/articles";
 import { getCountryBySlug } from "@/lib/data/countries";
 import { FadeInUp } from "@/components/motion/FadeInUp";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
@@ -11,6 +11,7 @@ import { BlogFAQ } from "@/components/sections/BlogFAQ";
 import { AuthorBio } from "@/components/sections/AuthorBio";
 import { siteUrl } from "@/lib/site";
 import { authorPersonJsonLd, editorialAuthor } from "@/data/site-authors";
+import { locales } from "@/i18n/routing";
 import type { Locale } from "@/i18n/routing";
 
 export const revalidate = 3600;
@@ -20,26 +21,85 @@ interface PageProps {
   params: Promise<{ locale: string; slug: string }>;
 }
 
+const STR: Record<Locale, {
+  notFound: string;
+  minRead: string;
+  updated: string;
+  home: string;
+  blogCrumb: string;
+  faqTitle: string;
+  otherGuides: string;
+  relatedCta: string;
+  relatedDesc: string;
+  faqCitation: string;
+  dateLocale: string;
+}> = {
+  az: {
+    notFound: "Tapılmadı",
+    minRead: "dəqiqəlik oxu",
+    updated: "Yenilənib",
+    home: "Ana Səhifə",
+    blogCrumb: "Bloq",
+    faqTitle: "Tez-tez Verilən Suallar",
+    otherGuides: "Digər Bələdçilər",
+    relatedCta: "üzrə universitetlərə bax →",
+    relatedDesc: "dakı universitetlər, qəbul şərtləri və xərclər haqqında ətraflı məlumat.",
+    faqCitation: "Tez-tez verilən suallar",
+    dateLocale: "az-AZ",
+  },
+  ru: {
+    notFound: "Не найдено",
+    minRead: "минут чтения",
+    updated: "Обновлено",
+    home: "Главная",
+    blogCrumb: "Блог",
+    faqTitle: "Часто задаваемые вопросы",
+    otherGuides: "Другие руководства",
+    relatedCta: "— смотреть вузы →",
+    relatedDesc: "Подробная информация о вузах, условиях поступления и расходах.",
+    faqCitation: "Часто задаваемые вопросы",
+    dateLocale: "ru-RU",
+  },
+  en: {
+    notFound: "Not Found",
+    minRead: "minute read",
+    updated: "Updated",
+    home: "Home",
+    blogCrumb: "Blog",
+    faqTitle: "Frequently Asked Questions",
+    otherGuides: "Other Guides",
+    relatedCta: "— view universities →",
+    relatedDesc: "Detailed information about universities, admission requirements and costs.",
+    faqCitation: "Frequently asked questions",
+    dateLocale: "en-US",
+  },
+};
+
 export function generateStaticParams() {
-  return ARTICLES.map((a) => ({ locale: "az", slug: a.slug }));
+  return locales.flatMap((locale) => ARTICLES.map((a) => ({ locale, slug: a.slug })));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { locale, slug } = await params;
-  if (locale !== "az") return {};
-  const article = getArticleBySlug(slug);
-  if (!article) return { title: "Tapılmadı" };
+  const { locale: rawLocale, slug } = await params;
+  const locale = rawLocale as Locale;
+  const s = STR[locale] ?? STR.az;
+  const article = getArticleBySlugLocalized(slug, locale);
+  if (!article) return { title: s.notFound };
+  const alternates: Record<string, string> = {};
+  for (const l of locales) alternates[l] = `${siteUrl}/${l}/bloq/${article.slug}`;
+  alternates["x-default"] = `${siteUrl}/az/bloq/${article.slug}`;
   return {
     title: `${article.title} | MegaGroup`,
     description: article.metaDescription,
     keywords: article.keywords,
-    alternates: { canonical: `${siteUrl}/az/bloq/${article.slug}` },
+    alternates: { canonical: `${siteUrl}/${locale}/bloq/${article.slug}`, languages: alternates },
     openGraph: {
       title: article.title,
       description: article.metaDescription,
       type: "article",
-      url: `${siteUrl}/az/bloq/${article.slug}`,
+      url: `${siteUrl}/${locale}/bloq/${article.slug}`,
       modifiedTime: article.updatedAt,
+      locale: locale === "az" ? "az_AZ" : locale === "ru" ? "ru_RU" : "en_US",
     },
   };
 }
@@ -47,28 +107,25 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function ArticlePage({ params }: PageProps) {
   const { locale: rawLocale, slug } = await params;
   const locale = rawLocale as Locale;
-  if (locale !== "az") notFound();
   setRequestLocale(locale);
+  const s = STR[locale] ?? STR.az;
 
-  const article = getArticleBySlug(slug);
+  const article = getArticleBySlugLocalized(slug, locale);
   if (!article) notFound();
 
   const relatedCountry = article.relatedCountrySlug
     ? await getCountryBySlug(article.relatedCountrySlug, locale)
     : null;
 
-  // Cross-link the other cornerstone SEO articles — strengthens the
-  // "study abroad" topical cluster and keeps visitors moving between the
-  // exact-match keyword pages (turkiyede-tehsil, rusiyada-tehsil, etc.).
   const otherArticles = ARTICLES.filter((a) => a.slug !== article.slug).slice(0, 4);
 
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Ana Səhifə", item: `${siteUrl}/az` },
-      { "@type": "ListItem", position: 2, name: "Bloq", item: `${siteUrl}/az/bloq` },
-      { "@type": "ListItem", position: 3, name: article.title, item: `${siteUrl}/az/bloq/${article.slug}` },
+      { "@type": "ListItem", position: 1, name: s.home, item: `${siteUrl}/${locale}` },
+      { "@type": "ListItem", position: 2, name: s.blogCrumb, item: `${siteUrl}/${locale}/bloq` },
+      { "@type": "ListItem", position: 3, name: article.title, item: `${siteUrl}/${locale}/bloq/${article.slug}` },
     ],
   };
 
@@ -80,8 +137,7 @@ export default async function ArticlePage({ params }: PageProps) {
     provider: { "@type": "Organization", name: "MegaGroup", url: siteUrl },
   };
 
-  // Müəllif artıq `Organization` deyil, `Person`-dur (E-E-A-T).
-  const authorPerson = authorPersonJsonLd(locale === "az" ? "az" : locale === "ru" ? "ru" : "en");
+  const authorPerson = authorPersonJsonLd(locale);
 
   const blogPostingJsonLd = {
     "@context": "https://schema.org",
@@ -91,6 +147,7 @@ export default async function ArticlePage({ params }: PageProps) {
     keywords: article.keywords.join(", "),
     dateModified: article.updatedAt,
     datePublished: article.updatedAt,
+    inLanguage: locale,
     author: authorPerson,
     publisher: {
       "@type": "Organization",
@@ -98,31 +155,19 @@ export default async function ArticlePage({ params }: PageProps) {
       url: siteUrl,
       logo: { "@type": "ImageObject", url: `${siteUrl}/icons/icon-512.png` },
     },
-    mainEntityOfPage: `${siteUrl}/az/bloq/${article.slug}`,
+    mainEntityOfPage: `${siteUrl}/${locale}/bloq/${article.slug}`,
     citation: article.faqs.length
-      ? {
-          "@type": "CreativeWork",
-          name: `${article.title} — Tez-tez verilən suallar`,
-        }
+      ? { "@type": "CreativeWork", name: `${article.title} — ${s.faqCitation}` }
       : undefined,
   };
 
-  // Ayrıca `Person` obyekti — Google entity tanıması üçün tək başına da
-  // mövcud olmalıdır (BlogPosting.author referansı kifayət deyil).
-  const personJsonLd = {
-    "@context": "https://schema.org",
-    ...authorPerson,
-  };
+  const personJsonLd = { "@context": "https://schema.org", ...authorPerson };
 
-  // speakable — AI/səsli cavablar üçün ən yaxşı qısa cavab (intro).
   const speakableJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    url: `${siteUrl}/az/bloq/${article.slug}`,
-    speakable: {
-      "@type": "SpeakableSpecification",
-      cssSelector: [".article-intro-summary", ".article-answer"],
-    },
+    url: `${siteUrl}/${locale}/bloq/${article.slug}`,
+    speakable: { "@type": "SpeakableSpecification", cssSelector: [".article-intro-summary", ".article-answer"] },
   };
 
   const faqJsonLd = {
@@ -146,12 +191,12 @@ export default async function ArticlePage({ params }: PageProps) {
 
       <article className="mx-auto max-w-3xl px-6 py-20">
         <nav className="mb-8 flex items-center gap-2 text-xs text-foreground/50" aria-label="Breadcrumb">
-          <Link href="/az" className="hover:text-brand-primary">
-            Ana Səhifə
+          <Link href={`/${locale}`} className="hover:text-brand-primary">
+            {s.home}
           </Link>
           <span>/</span>
-          <Link href="/az/bloq" className="hover:text-brand-primary">
-            Bloq
+          <Link href={`/${locale}/bloq`} className="hover:text-brand-primary">
+            {s.blogCrumb}
           </Link>
           <span>/</span>
           <span className="text-foreground/70">{article.title}</span>
@@ -162,9 +207,9 @@ export default async function ArticlePage({ params }: PageProps) {
           {article.title}
         </h1>
         <div className="mt-4 flex items-center gap-3 text-sm text-foreground/50">
-          <span>{article.readingMinutes} dəqiqəlik oxu</span>
+          <span>{article.readingMinutes} {s.minRead}</span>
           <span>·</span>
-          <span>Yenilənib: {new Date(article.updatedAt).toLocaleDateString("az-AZ")}</span>
+          <span>{s.updated}: {new Date(article.updatedAt).toLocaleDateString(s.dateLocale)}</span>
           <span>·</span>
           <span itemProp="author">{editorialAuthor.name}</span>
         </div>
@@ -232,21 +277,22 @@ export default async function ArticlePage({ params }: PageProps) {
         {relatedCountry && (
           <FadeInUp>
             <Link
-              href={`/az/xaricde-tehsil/${relatedCountry.slug}`}
+              href={`/${locale}/xaricde-tehsil/${relatedCountry.slug}`}
               className="glass shadow-brand-hover mt-12 block rounded-2xl p-6 transition-colors hover:bg-white/10"
             >
               <span className="text-sm font-semibold text-brand-primary">
-                {relatedCountry.name} üzrə universitetlərə bax →
+                {relatedCountry.name} {s.relatedCta}
               </span>
               <p className="mt-1 text-sm text-foreground/70">
-                {relatedCountry.name}dəki universitetlər, qəbul şərtləri və xərclər haqqında ətraflı məlumat.
+                {relatedCountry.name}
+                {s.relatedDesc}
               </p>
             </Link>
           </FadeInUp>
         )}
 
         <div className="mt-14">
-          <h2 className="font-heading text-2xl font-bold text-foreground">Tez-tez Verilən Suallar</h2>
+          <h2 className="font-heading text-2xl font-bold text-foreground">{s.faqTitle}</h2>
           <div className="mt-6">
             <BlogFAQ faqs={article.faqs} />
           </div>
@@ -256,19 +302,22 @@ export default async function ArticlePage({ params }: PageProps) {
 
         {otherArticles.length > 0 && (
           <div className="mt-14">
-            <h2 className="font-heading text-2xl font-bold text-foreground">Digər Bələdçilər</h2>
+            <h2 className="font-heading text-2xl font-bold text-foreground">{s.otherGuides}</h2>
             <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
-              {otherArticles.map((a) => (
-                <Link
-                  key={a.slug}
-                  href={`/az/bloq/${a.slug}`}
-                  className="glass shadow-brand-hover block h-full rounded-2xl p-5 transition-colors hover:bg-white/10"
-                >
-                  <div className="text-2xl">{a.heroEmoji}</div>
-                  <h3 className="mt-2 font-heading text-base font-bold text-foreground">{a.title}</h3>
-                  <p className="mt-1 text-sm text-foreground/70">{a.excerpt}</p>
-                </Link>
-              ))}
+              {otherArticles.map((a) => {
+                const localized = getArticleBySlugLocalized(a.slug, locale) ?? a;
+                return (
+                  <Link
+                    key={a.slug}
+                    href={`/${locale}/bloq/${a.slug}`}
+                    className="glass shadow-brand-hover block h-full rounded-2xl p-5 transition-colors hover:bg-white/10"
+                  >
+                    <div className="text-2xl">{localized.heroEmoji}</div>
+                    <h3 className="mt-2 font-heading text-base font-bold text-foreground">{localized.title}</h3>
+                    <p className="mt-1 text-sm text-foreground/70">{localized.excerpt}</p>
+                  </Link>
+                );
+              })}
             </div>
           </div>
         )}
