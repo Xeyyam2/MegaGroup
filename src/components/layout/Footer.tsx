@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import { MessageCircle, Phone } from "lucide-react";
 import { InstagramIcon } from "@/components/ui/InstagramIcon";
 import { TikTokIcon } from "@/components/ui/TikTokIcon";
@@ -10,20 +10,21 @@ const DEFAULT_WHATSAPP_URL = "https://wa.me/994519999370";
 const DEFAULT_PHONE = "+994 51 572 35 54";
 
 export async function Footer({
+  locale,
   instagramUrl,
   tiktokUrl,
   footerDesc,
   whatsappUrl,
   phone,
 }: {
+  locale: Locale;
   instagramUrl?: string;
   tiktokUrl?: string;
   footerDesc?: string;
   whatsappUrl?: string;
   phone?: string;
 }) {
-  const locale = (await getLocale()) as Locale;
-  const t = await getTranslations("footer");
+  const t = await getTranslations({ locale, namespace: "footer" });
   const countries = await getCountries(locale);
 
   const igUrl = instagramUrl || "https://www.instagram.com/mega_xaricde_tehsil_merkezi/";

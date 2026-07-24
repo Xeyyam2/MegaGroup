@@ -220,7 +220,7 @@ async function HomeBody({ locale }: { locale: Locale }) {
         </div>
       </section>
 
-      <InstagramCTA />
+      <InstagramCTA locale={locale} />
 
       {locale === "az" && (
         <section className="mx-auto max-w-7xl px-6 py-16">

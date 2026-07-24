@@ -72,7 +72,11 @@ export default async function LocaleLayout({
   const locale = rawLocale as Locale;
   if (!routing.locales.includes(locale)) notFound();
   setRequestLocale(locale);
-  const messages = await getMessages();
+  // Eksplisit locale: force-static səhifələrdə requestLocale qırılır və
+  // getMessages() default (az) qaytarır — bu isə bütün client komponentlərə
+  // (Header, Hero, Calculator, CTA) yanlış mesaj ötürür. Params-dan gələn
+  // locale etibarlıdır, ona görə birbaşa veririk.
+  const messages = await getMessages({ locale });
   const content = await getSiteContentMap(locale);
   return (
     <div className={cn(inter.variable, jakarta.variable, "flex min-h-screen flex-col")}>
@@ -142,6 +146,7 @@ export default async function LocaleLayout({
           <Header />
           <main className="flex-1">{children}</main>
           <Footer
+            locale={locale}
             instagramUrl={content.contact_instagram}
             tiktokUrl={content.contact_tiktok}
             footerDesc={content.footer_description}

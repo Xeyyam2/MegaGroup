@@ -1,9 +1,10 @@
 import { getTranslations } from "next-intl/server";
+import type { Locale } from "@/i18n/routing";
 import { InstagramIcon } from "@/components/ui/InstagramIcon";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
 
-export async function InstagramCTA() {
-  const t = await getTranslations("instagram");
+export async function InstagramCTA({ locale }: { locale: Locale }) {
+  const t = await getTranslations({ locale, namespace: "instagram" });
 
   return (
     <section className="mx-auto max-w-7xl px-6 py-16">
