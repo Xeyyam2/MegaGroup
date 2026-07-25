@@ -3,10 +3,10 @@ import { MapPin, Clock, Navigation } from "lucide-react";
 import { LOCATION, ADDRESS, HOURS } from "@/data/location";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
 
-const STR: Record<Locale, { title: string; subtitle: string; openMaps: string; directions: string }> = {
-  az: { title: "Bizi Tapın", subtitle: "Ofisimiz Bakının mərkəzində yerləşir", openMaps: "Google Maps-də aç", directions: "Yol xəritəsi" },
-  ru: { title: "Найдите нас", subtitle: "Наш офис находится в центре Баку", openMaps: "Открыть в Google Maps", directions: "Маршрут" },
-  en: { title: "Find Us", subtitle: "Our office is located in central Baku", openMaps: "Open in Google Maps", directions: "Get directions" },
+const STR: Record<Locale, { title: string; subtitle: string; openMaps: string; directions: string; attribution: string }> = {
+  az: { title: "Bizi Tapın", subtitle: "Ofisimiz Bakının mərkəzində yerləşir", openMaps: "Google Maps-də aç", directions: "Yol xəritəsi", attribution: "© OpenStreetMap" },
+  ru: { title: "Найдите нас", subtitle: "Наш офис находится в центре Баку", openMaps: "Открыть в Google Maps", directions: "Маршрут", attribution: "© OpenStreetMap" },
+  en: { title: "Find Us", subtitle: "Our office is located in central Baku", openMaps: "Open in Google Maps", directions: "Get directions", attribution: "© OpenStreetMap" },
 };
 
 export function LocationSection({ locale }: { locale: Locale }) {
@@ -65,14 +65,19 @@ export function LocationSection({ locale }: { locale: Locale }) {
         <ScrollReveal direction="scale" className="lg:col-span-3">
           <div className="glass-strong overflow-hidden rounded-2xl">
             <iframe
-              title="MegaGroup — Google Maps"
-              src={LOCATION.embed(locale)}
+              title="MegaGroup — Xəritə"
+              src={LOCATION.embed}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               allowFullScreen
               className="h-[300px] w-full sm:h-[380px]"
               style={{ border: 0, filter: "saturate(1.05)" }}
             />
+            <div className="bg-white/5 px-3 py-1.5 text-right text-[11px] text-foreground/50">
+              <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer" className="hover:text-brand-primary">
+                {s.attribution}
+              </a>
+            </div>
           </div>
         </ScrollReveal>
       </div>
