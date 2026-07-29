@@ -29,7 +29,7 @@ export async function Footer({
   const countries = await getCountries(locale);
 
   const igUrl = instagramUrl || "https://www.instagram.com/mega_xaricde_tehsil_merkezi/";
-  const ttUrl = tiktokUrl || "https://www.tiktok.com/@mega_xaricde_tehsil_merkezi";
+  const ttUrl = tiktokUrl || "https://www.tiktok.com/@megaxaricdetehsil";
   const waUrl = whatsappUrl || DEFAULT_WHATSAPP_URL;
   // Edited from Admin → Sayt Məzmunu → "contact_phone". Falls back to a
   // sane default so the footer never shows a blank number if that key is

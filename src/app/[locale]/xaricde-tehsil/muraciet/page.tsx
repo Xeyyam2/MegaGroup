@@ -71,7 +71,7 @@ export default async function ApplicationPage({
             <InstagramIcon size={20} /> Instagram
           </a>
           <a
-            href="https://www.tiktok.com/@mega_xaricde_tehsil_merkezi"
+            href="https://www.tiktok.com/@megaxaricdetehsil"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-cyan-400 to-pink-500 px-6 py-3 font-semibold text-white"

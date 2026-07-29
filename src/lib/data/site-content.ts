@@ -21,7 +21,7 @@ const FALLBACK_AZ: Record<string, string> = {
   contact_email: "info@megagroup.az",
   contact_address: "Bakı, Azərbaycan",
   contact_instagram: "https://www.instagram.com/mega_xaricde_tehsil_merkezi/",
-  contact_tiktok: "https://www.tiktok.com/@mega_xaricde_tehsil_merkezi",
+  contact_tiktok: "https://www.tiktok.com/@megaxaricdetehsil",
   footer_description: "Azərbaycanlı tələbələr üçün xaricdə təhsil imkanlarını attestatla, imtahansız təqdim edirik.",
 };
 

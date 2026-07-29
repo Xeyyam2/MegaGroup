@@ -11,7 +11,7 @@
  */
 export const socialLinks = {
   instagram: "https://www.instagram.com/mega_xaricde_tehsil_merkezi/",
-  tiktok: "https://www.tiktok.com/@mega_xaricde_tehsil_merkezi",
+  tiktok: "https://www.tiktok.com/@megaxaricdetehsil",
   facebook: "https://www.facebook.com/megatehsil",
   linkedin: "https://www.linkedin.com/company/megagroup-xaricde-tehsil",
   // Google Business Profile (LocalBusiness) — yerli axtarış + xəritə üçün.

@@ -174,7 +174,7 @@ async function seed() {
     { key: "contact_email", az: "info@megagroup.az" },
     { key: "contact_address", az: "Bakı, Azərbaycan" },
     { key: "contact_instagram", az: "https://www.instagram.com/mega_xaricde_tehsil_merkezi/" },
-    { key: "contact_tiktok", az: "https://www.tiktok.com/@mega_xaricde_tehsil_merkezi" },
+    { key: "contact_tiktok", az: "https://www.tiktok.com/@megaxaricdetehsil" },
     { key: "footer_description", az: "Azərbaycanlı tələbələr üçün xaricdə təhsil imkanlarını attestatla, imtahansız təqdim edirik.", ru: "Мы предлагаем азербайджанским студентам обучение за рубежом по аттестату, без экзаменов.", en: "We offer Azerbaijani students study-abroad opportunities by certificate, exam-free." },
   ];
   for (const s of sc) {
