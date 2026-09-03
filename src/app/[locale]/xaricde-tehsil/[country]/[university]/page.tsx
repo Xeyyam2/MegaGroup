@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { SmartImage } from "@/components/SmartImage";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
@@ -9,6 +10,7 @@ import { CTASection } from "@/components/sections/CTASection";
 import { FadeInUp } from "@/components/motion/FadeInUp";
 import { getCountryBySlug } from "@/lib/data/countries";
 import { getUniversityBySlug } from "@/lib/data/universities";
+import { getArticleBySlugLocalized } from "@/data/articles";
 import { getFAQsByUniversity } from "@/lib/data/faqs";
 import { getTestimonialsByUniversity } from "@/lib/data/testimonials";
 import { routing, type Locale } from "@/i18n/routing";
@@ -76,9 +78,12 @@ export default async function UniversityPage({ params }: PageProps) {
 
   const faqs = await getFAQsByUniversity(university, locale);
   const stories = await getTestimonialsByUniversity(university, locale);
+  // Universitet haqqında bloq bələdçisi varsa, onu tap — səhifələrarası
+  // kontekstual link (internal linking) üçün. Məqalə slug-ı universitet slug-ı ilə eynidir.
+  const guide = getArticleBySlugLocalized(university, locale);
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "EducationalOrganization",
+    "@type": "CollegeOrUniversity",
     name: u.name,
     url: u.website_url,
     address: { "@type": "PostalAddress", addressCountry: c.name_en, addressLocality: u.city },
@@ -102,10 +107,32 @@ export default async function UniversityPage({ params }: PageProps) {
     ],
   };
 
+  // FAQPage JSON-LD — sual-cavab məzmununu AI/axtarış sistemlərinə açıq şəkildə təqdim edir.
+  const faqJsonLd = faqs.length
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: faqs.map((f) => ({
+          "@type": "Question",
+          name: f.question,
+          acceptedAnswer: { "@type": "Answer", text: f.answer },
+        })),
+      }
+    : null;
+
+  const guideStr = {
+    az: "Universitet haqqında ətraflı bələdçi",
+    ru: "Подробное руководство об университете",
+    en: "Detailed university guide",
+  };
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      {faqJsonLd && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      )}
 
       <section className="relative flex min-h-[55vh] items-center justify-center overflow-hidden">
         <SmartImage src={u.hero_image_url} alt={u.name} fill priority sizes="100vw" className="object-cover opacity-30" />
@@ -204,6 +231,20 @@ export default async function UniversityPage({ params }: PageProps) {
           <div className="rounded-2xl border border-brand-secondary/30 bg-brand-secondary/10 p-4 text-brand-secondary/90">
             ℹ️ {u.notes}
           </div>
+        </section>
+      )}
+
+      {guide && (
+        <section className="mx-auto max-w-7xl px-6 py-12">
+          <Link
+            href={`/${locale}/bloq/${guide.slug}`}
+            className="glass shadow-brand-hover block rounded-2xl p-6 transition-colors hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary"
+          >
+            <span className="text-sm font-semibold text-brand-primary">
+              {guideStr[locale] ?? guideStr.az} →
+            </span>
+            <p className="mt-1 text-sm text-foreground/70">{guide.excerpt}</p>
+          </Link>
         </section>
       )}
 

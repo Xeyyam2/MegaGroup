@@ -15,6 +15,19 @@ import xaricdeTibbTehsili from "./articles/xaricde-tibb-tehsili";
 import xaricdeTehsilSenedleri from "./articles/xaricde-tehsil-senedleri";
 import hansiOlkedeOxumaq from "./articles/hansi-olkede-oxumaq-serfelidir";
 
+// Universitet məqalələri — hər flaqman universitet üçün ayrıca bələdçi.
+// Məqalə slug-ı universitet slug-ı ilə eynidir (universitet səhifəsindən
+// kontekstual cross-link üçün). Fakültə və xərc cədvəlləri universitələrin
+// rəsmi datası ilə uyğundur.
+import giresunUniversiteti from "./articles/giresun-universiteti";
+import tbilisiDovletTibb from "./articles/tbilisi-dovlet-tibb-universiteti";
+import varshavaTibb from "./articles/varshava-tibb-universiteti";
+import munchenTexniki from "./articles/munchen-texniki-universiteti";
+import moskvaDovlet from "./articles/moskva-dovlet-universiteti";
+import kievTibb from "./articles/kiev-tibb-universiteti";
+import alFarabiQazax from "./articles/al-farabi-qazax-milli-universiteti";
+import hansiUniversitetiSecmek from "./articles/hansi-universiteti-secmek-lazimdir";
+
 export const ARTICLES: Article[] = [
   xaricdeTehsil,
   turkiyedeTehsil,
@@ -27,6 +40,16 @@ export const ARTICLES: Article[] = [
   xaricdeTibbTehsili,
   xaricdeTehsilSenedleri,
   hansiOlkedeOxumaq,
+  // Universitet bələdçiləri (məqalə slug-ı = universitet slug-ı)
+  giresunUniversiteti,
+  tbilisiDovletTibb,
+  varshavaTibb,
+  munchenTexniki,
+  moskvaDovlet,
+  kievTibb,
+  alFarabiQazax,
+  // Bütün universitetləri yan-yana müqayisə edən pillar məqalə (AI cədvəl çıxarışı)
+  hansiUniversitetiSecmek,
 ];
 
 // RU/EN tərcümələri. AZ bazadır; RU/EN yoxdursa AZ-a fallback.
@@ -52,6 +75,22 @@ import xaricdeTehsilSenedleriRu from "./articles/xaricde-tehsil-senedleri.ru";
 import xaricdeTehsilSenedleriEn from "./articles/xaricde-tehsil-senedleri.en";
 import hansiOlkedeOxumaqRu from "./articles/hansi-olkede-oxumaq-serfelidir.ru";
 import hansiOlkedeOxumaqEn from "./articles/hansi-olkede-oxumaq-serfelidir.en";
+import giresunUniversitetiRu from "./articles/giresun-universiteti.ru";
+import giresunUniversitetiEn from "./articles/giresun-universiteti.en";
+import tbilisiDovletTibbRu from "./articles/tbilisi-dovlet-tibb-universiteti.ru";
+import tbilisiDovletTibbEn from "./articles/tbilisi-dovlet-tibb-universiteti.en";
+import varshavaTibbRu from "./articles/varshava-tibb-universiteti.ru";
+import varshavaTibbEn from "./articles/varshava-tibb-universiteti.en";
+import munchenTexnikiRu from "./articles/munchen-texniki-universiteti.ru";
+import munchenTexnikiEn from "./articles/munchen-texniki-universiteti.en";
+import moskvaDovletRu from "./articles/moskva-dovlet-universiteti.ru";
+import moskvaDovletEn from "./articles/moskva-dovlet-universiteti.en";
+import kievTibbRu from "./articles/kiev-tibb-universiteti.ru";
+import kievTibbEn from "./articles/kiev-tibb-universiteti.en";
+import alFarabiQazaxRu from "./articles/al-farabi-qazax-milli-universiteti.ru";
+import alFarabiQazaxEn from "./articles/al-farabi-qazax-milli-universiteti.en";
+import hansiUniversitetiSecmekRu from "./articles/hansi-universiteti-secmek-lazimdir.ru";
+import hansiUniversitetiSecmekEn from "./articles/hansi-universiteti-secmek-lazimdir.en";
 
 const TRANSLATIONS: Record<string, { ru?: Article; en?: Article }> = {
   "xaricde-tehsil-2026-beledcisi": { ru: xaricdeTehsilRu, en: xaricdeTehsilEn },
@@ -65,6 +104,14 @@ const TRANSLATIONS: Record<string, { ru?: Article; en?: Article }> = {
   "xaricde-tibb-tehsili": { ru: xaricdeTibbTehsiliRu, en: xaricdeTibbTehsiliEn },
   "xaricde-tehsil-senedleri": { ru: xaricdeTehsilSenedleriRu, en: xaricdeTehsilSenedleriEn },
   "hansi-olkede-oxumaq-serfelidir": { ru: hansiOlkedeOxumaqRu, en: hansiOlkedeOxumaqEn },
+  "giresun-universiteti": { ru: giresunUniversitetiRu, en: giresunUniversitetiEn },
+  "tbilisi-dovlet-tibb-universiteti": { ru: tbilisiDovletTibbRu, en: tbilisiDovletTibbEn },
+  "varshava-tibb-universiteti": { ru: varshavaTibbRu, en: varshavaTibbEn },
+  "munchen-texniki-universiteti": { ru: munchenTexnikiRu, en: munchenTexnikiEn },
+  "moskva-dovlet-universiteti": { ru: moskvaDovletRu, en: moskvaDovletEn },
+  "kiev-tibb-universiteti": { ru: kievTibbRu, en: kievTibbEn },
+  "al-farabi-qazax-milli-universiteti": { ru: alFarabiQazaxRu, en: alFarabiQazaxEn },
+  "hansi-universiteti-secmek-lazimdir": { ru: hansiUniversitetiSecmekRu, en: hansiUniversitetiSecmekEn },
 };
 
 export function getArticleBySlug(slug: string): Article | undefined {

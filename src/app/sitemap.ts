@@ -53,21 +53,30 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     });
   }
 
-  // Cornerstone SEO articles (blog) — az-only, high priority since these
-  // directly target the primary keywords the business wants to rank for.
-  entries.push({
-    url: `${baseUrl}/az/bloq`,
-    lastModified: STATIC_LASTMOD,
-    changeFrequency: "weekly",
-    priority: 0.9,
-  });
+  // Cornerstone SEO articles (blog) — hər lokaldə (AZ/RU/EN), hreflang
+  // alternates ilə. Məqalələrin RU/EN tərcümələri mövcuddur, ona görə hər
+  // dil üçün ayrı URL sitemap-də olmalıdır (əks halda indexlənmə gecikir).
+  for (const l of locales) {
+    entries.push({
+      url: `${baseUrl}/${l}/bloq`,
+      lastModified: STATIC_LASTMOD,
+      changeFrequency: "weekly",
+      priority: 0.9,
+      alternates: {
+        languages: Object.fromEntries(locales.map((x) => [x, `${baseUrl}/${x}/bloq`])),
+      },
+    });
+  }
   for (const a of ARTICLES) {
     entries.push({
       url: `${baseUrl}/az/bloq/${a.slug}`,
-      // Hər məqalənin real yenilənmə tarixi — crawl ə_priority üçün vacib.
+      // Hər məqalənin real yenilənmə tarixi — crawl prioriteti üçün vacib.
       lastModified: new Date(a.updatedAt),
       changeFrequency: "monthly",
       priority: 0.9,
+      alternates: {
+        languages: Object.fromEntries(locales.map((l) => [l, `${baseUrl}/${l}/bloq/${a.slug}`])),
+      },
     });
   }
 

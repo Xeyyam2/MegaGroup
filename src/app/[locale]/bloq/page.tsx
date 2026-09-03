@@ -79,9 +79,24 @@ export default async function BlogIndexPage({ params }: PageProps) {
     ],
   };
 
+  // ItemList — bütün məqalələrin siyahısı (AI çıxarışı və zəngin nəticələr üçün).
+  const itemListJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: m.h1,
+    numberOfItems: articles.length,
+    itemListElement: articles.map((a, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: a.title,
+      url: `${siteUrl}/${locale}/bloq/${a.slug}`,
+    })),
+  };
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }} />
 
       <section className="mx-auto max-w-5xl px-6 py-24 text-center">
         <h1 className="text-balance font-heading text-4xl font-extrabold text-foreground sm:text-5xl">
