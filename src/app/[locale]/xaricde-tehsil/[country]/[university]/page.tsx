@@ -100,11 +100,16 @@ export default async function UniversityPage({ params }: PageProps) {
     },
   };
 
+  const crumbRoot =
+    locale === "az" ? "Xaricdə Təhsil" : locale === "ru" ? "Учёба за рубежом" : "Study Abroad";
+  const crumbLabel =
+    locale === "az" ? "Keçid yolu" : locale === "ru" ? "Хлебные крошки" : "Breadcrumb";
+
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Xaricdə Təhsil", item: `${siteUrl}/${locale}/xaricde-tehsil` },
+      { "@type": "ListItem", position: 1, name: crumbRoot, item: `${siteUrl}/${locale}/xaricde-tehsil` },
       { "@type": "ListItem", position: 2, name: c.name, item: `${siteUrl}/${locale}/xaricde-tehsil/${c.slug}` },
       { "@type": "ListItem", position: 3, name: u.name, item: `${siteUrl}/${locale}/xaricde-tehsil/${c.slug}/${u.slug}` },
     ],
@@ -136,6 +141,27 @@ export default async function UniversityPage({ params }: PageProps) {
       {faqJsonLd && (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       )}
+
+      <nav aria-label={crumbLabel} className="mx-auto max-w-7xl px-6 pt-6">
+        <ol className="flex flex-wrap items-center gap-2 text-xs text-foreground/50">
+          <li>
+            <Link href={`/${locale}/xaricde-tehsil`} className="hover:text-brand-primary">
+              {crumbRoot}
+            </Link>
+          </li>
+          <li aria-hidden>/</li>
+          <li>
+            <Link
+              href={`/${locale}/xaricde-tehsil/${c.slug}`}
+              className="hover:text-brand-primary"
+            >
+              {c.name}
+            </Link>
+          </li>
+          <li aria-hidden>/</li>
+          <li className="text-foreground/70">{u.name}</li>
+        </ol>
+      </nav>
 
       <section className="relative flex min-h-[55vh] items-center justify-center overflow-hidden">
         <SmartImage src={u.hero_image_url} alt={u.name} fill priority sizes="100vw" className="object-cover opacity-30" />

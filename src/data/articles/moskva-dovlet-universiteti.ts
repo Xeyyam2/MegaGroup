@@ -19,6 +19,7 @@ const article: Article = {
     "Moskva Dövlət Universiteti haqqında tam bələdçi: attestatla qəbul, güclü tibb və təbiət elmləri fakültələri, təhsil haqqı və Moskvada tələbə həyatı.",
   heroEmoji: "🏛️",
   updatedAt: "2026-09-04",
+  publishedAt: "2026-07-16",
   readingMinutes: 9,
   relatedArticleSlugs: ["rusiyada-tehsil", "xaricde-tibb-tehsili"],
   intro: [

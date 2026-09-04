@@ -20,6 +20,7 @@ const article: Article = {
     "How is studying in Poland possible? A complete guide to English-taught medical programs, admission with a school certificate, top universities, costs, the visa and job opportunities.",
   heroEmoji: "🇵🇱",
   updatedAt: "2026-07-16",
+  publishedAt: "2026-07-16",
   readingMinutes: 16,
   relatedCountrySlug: "polsa",
   intro: [

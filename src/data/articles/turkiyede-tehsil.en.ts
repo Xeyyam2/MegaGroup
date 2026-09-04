@@ -20,6 +20,7 @@ const article: Article = {
     "Advantages of studying in Turkey, public and private universities, YÖS vs admission by certificate, full cost table, visa process and student life — an updated guide for 2026.",
   heroEmoji: "🇹🇷",
   updatedAt: "2026-07-16",
+  publishedAt: "2026-07-16",
   readingMinutes: 18,
   relatedCountrySlug: "turkiye",
   intro: [

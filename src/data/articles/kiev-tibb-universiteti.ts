@@ -19,6 +19,7 @@ const article: Article = {
     "Kiev Tibb Universiteti haqqında tam bələdçi: ingilis dilində tibb proqramı, attestatla qəbul, Avropada tanınan diplom, xərclər və cari təhlükəsizlik vəziyyəti haqqında qeydlər.",
   heroEmoji: "🩺",
   updatedAt: "2026-09-04",
+  publishedAt: "2026-07-16",
   readingMinutes: 8,
   relatedArticleSlugs: ["ukraynada-tehsil", "xaricde-tibb-tehsili"],
   intro: [

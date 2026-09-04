@@ -19,6 +19,7 @@ const article: Article = {
     "Krakov Tibb Universiteti haqqında tam bələdçi: ingilis dilində tibb proqramı, EU diplomu, attestat + IELTS ilə qəbul, xərclər və Krakovda tələbə həyatı.",
   heroEmoji: "🩺",
   updatedAt: "2026-09-04",
+  publishedAt: "2026-07-16",
   readingMinutes: 9,
   relatedArticleSlugs: ["polsada-tehsil", "xaricde-tibb-tehsili"],
   intro: [

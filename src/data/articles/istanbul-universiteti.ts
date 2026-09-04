@@ -19,6 +19,7 @@ const article: Article = {
     "İstanbul Universiteti haqqında tam bələdçi: Türkiyənin ən köhnə universitetində qəbul prosesi, tibb və hüquq fakültələri, xərclər və İstanbulda tələbə həyatı.",
   heroEmoji: "🏛️",
   updatedAt: "2026-09-04",
+  publishedAt: "2026-07-16",
   readingMinutes: 8,
   relatedArticleSlugs: ["turkiyede-tehsil", "xaricde-tibb-tehsili"],
   intro: [

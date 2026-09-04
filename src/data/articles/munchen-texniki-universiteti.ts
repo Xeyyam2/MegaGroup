@@ -19,6 +19,7 @@ const article: Article = {
     "Münxen Texniki Universiteti haqqında tam bələdçi: pulsuz dövlət təhsili, Studienkolleg, qəbul şərtləri, ingilis dilində proqramlar və Münxendə yaşayış xərcləri.",
   heroEmoji: "⚙️",
   updatedAt: "2026-09-04",
+  publishedAt: "2026-07-16",
   readingMinutes: 9,
   relatedArticleSlugs: ["almaniyada-tehsil"],
   intro: [

@@ -20,6 +20,7 @@ const article: Article = {
     "Qazaxıstanda təhsilin üstünlükləri, Almatı və Astanadakı universitetlər, qəbul şərtləri, xərclər və viza prosesi — tam bələdçi.",
   heroEmoji: "🇰🇿",
   updatedAt: "2026-07-16",
+  publishedAt: "2026-07-16",
   readingMinutes: 12,
   intro: [
     "Qazaxıstan, türk dünyasına yaxın mədəniyyəti, əlçatan təhsil haqqı və getdikcə güclənən beynəlxalq universitet şəbəkəsi ilə Azərbaycan məzunları arasında son illər populyarlaşan bir istiqamətdir. Mədəniyyət və mentalitet baxımından Azərbaycana yaxın olması adaptasiya prosesini asanlaşdırır.",

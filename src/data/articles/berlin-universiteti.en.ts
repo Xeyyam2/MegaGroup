@@ -19,6 +19,7 @@ const article: Article = {
     "A complete guide to Humboldt University of Berlin: free education in the capital, the Studienkolleg process, philosophy and biology faculties, costs and Berlin's international environment.",
   heroEmoji: "🏛️",
   updatedAt: "2026-09-04",
+  publishedAt: "2026-07-16",
   readingMinutes: 8,
   relatedArticleSlugs: ["almaniyada-tehsil"],
   intro: [

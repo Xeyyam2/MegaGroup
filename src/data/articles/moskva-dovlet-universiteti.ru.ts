@@ -19,6 +19,7 @@ const article: Article = {
     "Полный гид по Московскому государственному университету: поступление по аттестату, сильные факультеты медицины и естественных наук, плата за обучение и студенческая жизнь в Москве.",
   heroEmoji: "🏛️",
   updatedAt: "2026-09-04",
+  publishedAt: "2026-07-16",
   readingMinutes: 9,
   relatedArticleSlugs: ["rusiyada-tehsil", "xaricde-tibb-tehsili"],
   intro: [

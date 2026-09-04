@@ -18,6 +18,7 @@ const article: Article = {
     "A comparison table of 14 universities across Turkey, Russia, Georgia, Ukraine, Kazakhstan, Germany and Poland — a selection guide by cost, admission, language and programs.",
   heroEmoji: "⚖️",
   updatedAt: "2026-09-04",
+  publishedAt: "2026-07-16",
   readingMinutes: 10,
   relatedArticleSlugs: ["hansi-olkede-oxumaq-serfelidir", "xaricde-tehsil-2026-beledcisi", "xaricde-tibb-tehsili"],
   intro: [

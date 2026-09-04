@@ -20,6 +20,7 @@ const article: Article = {
     "A 3500+ word guide to the benefits of studying in Russia, the strongest universities, medicine and engineering programs, a full cost breakdown and a step-by-step admission process.",
   heroEmoji: "🇷🇺",
   updatedAt: "2026-07-16",
+  publishedAt: "2026-07-16",
   readingMinutes: 18,
   relatedCountrySlug: "rusiya",
   intro: [

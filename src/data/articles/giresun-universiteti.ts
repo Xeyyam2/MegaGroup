@@ -19,6 +19,7 @@ const article: Article = {
     "Giresun Universiteti haqqında tam bələdçi: attestatla birbaşa qəbul, fakültələr və ixtisaslar, təhsil haqqı və Qara dəniz sahilində tələbə həyatı.",
   heroEmoji: "🏫",
   updatedAt: "2026-09-04",
+  publishedAt: "2026-07-16",
   readingMinutes: 8,
   relatedArticleSlugs: ["turkiyede-tehsil", "xaricde-tibb-tehsili"],
   intro: [

@@ -19,6 +19,7 @@ const article: Article = {
     "Tbilisi Dövlət Tibb Universiteti (TSMU) haqqında tam bələdçi: attestatla qəbul, ingilis dilində tibb proqramı, WHO tanınması, xərclər və tələbə həyatı.",
   heroEmoji: "🩺",
   updatedAt: "2026-09-04",
+  publishedAt: "2026-07-16",
   readingMinutes: 9,
   relatedArticleSlugs: ["gurcustanda-tehsil", "xaricde-tibb-tehsili"],
   intro: [

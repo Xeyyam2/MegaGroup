@@ -19,6 +19,7 @@ const article: Article = {
     "Berlin Humboldt Universiteti haqqında tam bələdçi: paytaxtda pulsuz təhsil, Studienkolleg prosesi, fəlsəfə və biologiya fakültələri, xərclər və Berlinin beynəlxalq mühiti.",
   heroEmoji: "🏛️",
   updatedAt: "2026-09-04",
+  publishedAt: "2026-07-16",
   readingMinutes: 8,
   relatedArticleSlugs: ["almaniyada-tehsil"],
   intro: [

@@ -20,6 +20,7 @@ const article: Article = {
     "The advantages of studying in Georgia, universities in Tbilisi and Batumi, English-taught medical programs, costs and admission requirements — a complete guide.",
   heroEmoji: "🇬🇪",
   updatedAt: "2026-07-16",
+  publishedAt: "2026-07-16",
   readingMinutes: 14,
   intro: [
     "Georgia has become an increasingly popular destination for studying abroad in recent years, thanks to its proximity to Azerbaijan, low cost of living, and academic programs aligned with European standards. In particular, English-taught medical programs at universities in Tbilisi and Batumi attract international students.",

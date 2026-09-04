@@ -19,6 +19,7 @@ const article: Article = {
     "A complete guide to Al-Farabi Kazakh National University: direct admission by certificate, English-taught programs, faculties, tuition fees and student life in Almaty.",
   heroEmoji: "🎓",
   updatedAt: "2026-09-04",
+  publishedAt: "2026-07-16",
   readingMinutes: 9,
   relatedArticleSlugs: ["qazaxistanda-tehsil", "xaricde-tibb-tehsili"],
   intro: [

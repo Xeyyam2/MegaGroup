@@ -19,6 +19,7 @@ const article: Article = {
     "Полный гид по Назарбаев Университету: полностью англоязычное обучение, конкурсный процесс поступления, инженерные и научные факультеты, расходы и студенческая жизнь в Астане.",
   heroEmoji: "🎓",
   updatedAt: "2026-09-04",
+  publishedAt: "2026-07-16",
   readingMinutes: 8,
   relatedArticleSlugs: ["qazaxistanda-tehsil"],
   intro: [

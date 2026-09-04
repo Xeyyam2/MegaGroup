@@ -19,6 +19,7 @@ const article: Article = {
     "Lvov Universiteti haqqında tam bələdçi: Qərbi Ukraynanın ən təhlükəsiz şəhərində təhsil, iqtisadiyyat və hüquq fakültələri, attestatla qəbul və xərclər.",
   heroEmoji: "🏛️",
   updatedAt: "2026-09-04",
+  publishedAt: "2026-07-16",
   readingMinutes: 8,
   relatedArticleSlugs: ["ukraynada-tehsil"],
   intro: [

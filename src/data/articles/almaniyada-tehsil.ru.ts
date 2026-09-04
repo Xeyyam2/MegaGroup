@@ -20,6 +20,7 @@ const article: Article = {
     "Возможно ли обучение в Германии? Полное руководство о бесплатных государственных университетах, Studienkolleg, APS, языковых требованиях, расходах, визе и возможностях работы после выпуска.",
   heroEmoji: "🇩🇪",
   updatedAt: "2026-07-16",
+  publishedAt: "2026-07-16",
   readingMinutes: 16,
   relatedCountrySlug: "almaniya",
   intro: [

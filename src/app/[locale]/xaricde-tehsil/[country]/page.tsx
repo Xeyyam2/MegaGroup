@@ -116,11 +116,16 @@ export default async function CountryPage({ params }: PageProps) {
             ? "Сложная"
             : "Hard";
 
+  const crumbRoot =
+    locale === "az" ? "Xaricdə Təhsil" : locale === "ru" ? "Учёба за рубежом" : "Study Abroad";
+  const crumbLabel =
+    locale === "az" ? "Keçid yolu" : locale === "ru" ? "Хлебные крошки" : "Breadcrumb";
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Xaricdə Təhsil", item: `${siteUrl}/${locale}/xaricde-tehsil` },
+      { "@type": "ListItem", position: 1, name: crumbRoot, item: `${siteUrl}/${locale}/xaricde-tehsil` },
       { "@type": "ListItem", position: 2, name: c.name, item: `${siteUrl}/${locale}/xaricde-tehsil/${c.slug}` },
     ],
   };
@@ -175,6 +180,18 @@ export default async function CountryPage({ params }: PageProps) {
       {itemListJsonLd && (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }} />
       )}
+
+      <nav aria-label={crumbLabel} className="mx-auto max-w-7xl px-6 pt-6">
+        <ol className="flex flex-wrap items-center gap-2 text-xs text-foreground/50">
+          <li>
+            <Link href={`/${locale}/xaricde-tehsil`} className="hover:text-brand-primary">
+              {crumbRoot}
+            </Link>
+          </li>
+          <li aria-hidden>/</li>
+          <li className="text-foreground/70">{c.name}</li>
+        </ol>
+      </nav>
 
       <section className="country-hero-intro relative flex min-h-[60vh] items-center justify-center overflow-hidden">
         <Image src={c.hero_image_url} alt={locale === "az" && seo ? `${seo.h1} — ${c.name}` : c.name} fill priority sizes="100vw" className="object-cover opacity-30" />

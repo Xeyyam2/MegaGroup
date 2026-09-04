@@ -19,6 +19,7 @@ const article: Article = {
     "A complete guide to Istanbul University: admission to Turkey's oldest university, medicine and law faculties, costs and student life in Istanbul.",
   heroEmoji: "🏛️",
   updatedAt: "2026-09-04",
+  publishedAt: "2026-07-16",
   readingMinutes: 8,
   relatedArticleSlugs: ["turkiyede-tehsil", "xaricde-tibb-tehsili"],
   intro: [

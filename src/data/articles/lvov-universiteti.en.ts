@@ -19,6 +19,7 @@ const article: Article = {
     "A complete guide to Lviv University: study in western Ukraine's safest city, economics and law faculties, certificate-based admission and costs.",
   heroEmoji: "🏛️",
   updatedAt: "2026-09-04",
+  publishedAt: "2026-07-16",
   readingMinutes: 8,
   relatedArticleSlugs: ["ukraynada-tehsil"],
   intro: [

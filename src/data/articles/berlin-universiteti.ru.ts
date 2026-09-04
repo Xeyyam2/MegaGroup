@@ -19,6 +19,7 @@ const article: Article = {
     "Полный гид по Берлинскому университету Гумбольдта: бесплатное образование в столице, процесс Studienkolleg, факультеты философии и биологии, расходы и международная среда Берлина.",
   heroEmoji: "🏛️",
   updatedAt: "2026-09-04",
+  publishedAt: "2026-07-16",
   readingMinutes: 8,
   relatedArticleSlugs: ["almaniyada-tehsil"],
   intro: [

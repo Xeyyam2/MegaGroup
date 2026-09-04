@@ -20,6 +20,7 @@ const article: Article = {
     "We compare 7 countries by cost, language of instruction, admission difficulty, visa and diploma recognition. A detailed guide to choosing the country that fits your budget and major.",
   heroEmoji: "🌍",
   updatedAt: "2026-07-16",
+  publishedAt: "2026-07-16",
   readingMinutes: 14,
   intro: [
     "After deciding to study abroad, the hardest question is: which country is most profitable to study in? There is no single right answer, because it depends on your budget, the major you want, your language skills and your future goals. In this article we compare in detail the 7 most popular countries for Azerbaijani graduates — Turkey, Russia, Georgia, Ukraine, Kazakhstan, Germany and Poland.",

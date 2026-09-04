@@ -19,6 +19,7 @@ const article: Article = {
     "Batumi Şota Rustaveli Dövlət Universiteti haqqında tam bələdçi: attestatla birbaşa qəbul, Qara dəniz sahilində təhsil, mühəndislik və turizm fakültələri, xərclər.",
   heroEmoji: "🌊",
   updatedAt: "2026-09-04",
+  publishedAt: "2026-07-16",
   readingMinutes: 8,
   relatedArticleSlugs: ["gurcustanda-tehsil"],
   intro: [

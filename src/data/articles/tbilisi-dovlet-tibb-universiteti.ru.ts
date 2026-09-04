@@ -19,6 +19,7 @@ const article: Article = {
     "Полный гид по Тбилисскому государственному медицинскому университету (TSMU): поступление по аттестату, медицинская программа на английском, признание WHO, расходы и студенческая жизнь.",
   heroEmoji: "🩺",
   updatedAt: "2026-09-04",
+  publishedAt: "2026-07-16",
   readingMinutes: 9,
   relatedArticleSlugs: ["gurcustanda-tehsil", "xaricde-tibb-tehsili"],
   intro: [

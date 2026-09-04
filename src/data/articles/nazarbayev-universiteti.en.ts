@@ -19,6 +19,7 @@ const article: Article = {
     "A complete guide to Nazarbayev University: fully English-taught education, the competitive admission process, engineering and science faculties, costs and student life in Astana.",
   heroEmoji: "🎓",
   updatedAt: "2026-09-04",
+  publishedAt: "2026-07-16",
   readingMinutes: 8,
   relatedArticleSlugs: ["qazaxistanda-tehsil"],
   intro: [

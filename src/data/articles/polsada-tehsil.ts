@@ -20,6 +20,7 @@ const article: Article = {
     "Polşada təhsil necə mümkündür? İngilis dilində tibb proqramları, attestatla qəbul, top universitetlər, xərclər, viza və iş imkanları barədə tam bələdçi.",
   heroEmoji: "🇵🇱",
   updatedAt: "2026-07-16",
+  publishedAt: "2026-07-16",
   readingMinutes: 16,
   relatedCountrySlug: "polsa",
   intro: [

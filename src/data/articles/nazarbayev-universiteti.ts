@@ -19,6 +19,7 @@ const article: Article = {
     "Nazarbayev Universiteti haqqında tam bələdçi: tam ingilis dilində tədris, rəqabətli qəbul prosesi, mühəndislik və elm fakültələri, xərclər və Astanada tələbə həyatı.",
   heroEmoji: "🎓",
   updatedAt: "2026-09-04",
+  publishedAt: "2026-07-16",
   readingMinutes: 8,
   relatedArticleSlugs: ["qazaxistanda-tehsil"],
   intro: [

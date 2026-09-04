@@ -18,6 +18,7 @@ const article: Article = {
     "Türkiyə, Rusiya, Gürcüstan, Ukrayna, Qazaxıstan, Almaniya və Polşadakı 14 universitetin yan-yana müqayisə cədvəli — qiymət, qəbul, dil və ixtisas üzrə seçim bələdçisi.",
   heroEmoji: "⚖️",
   updatedAt: "2026-09-04",
+  publishedAt: "2026-07-16",
   readingMinutes: 10,
   relatedArticleSlugs: ["hansi-olkede-oxumaq-serfelidir", "xaricde-tehsil-2026-beledcisi", "xaricde-tibb-tehsili"],
   intro: [

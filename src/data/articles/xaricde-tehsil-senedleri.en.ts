@@ -19,6 +19,7 @@ const article: Article = {
     "What documents do you need to study abroad? A complete step-by-step guide covering your school certificate, passport, medical certificate, motivation letter, apostille and the translation process.",
   heroEmoji: "📋",
   updatedAt: "2026-07-16",
+  publishedAt: "2026-07-16",
   readingMinutes: 12,
   intro: [
     "After you decide to study abroad, the most important — and most stressful — step is preparing your documents. A poorly prepared, expired or improperly certified document can slow down the entire admission process, and sometimes even lead to your application being rejected. In this article we explain in detail all the documents required to study abroad, how to prepare them and the most common mistakes to avoid.",

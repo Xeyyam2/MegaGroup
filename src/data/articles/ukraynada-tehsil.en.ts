@@ -20,6 +20,7 @@ const article: Article = {
     "A 3000+ word guide covering the advantages of studying in Ukraine, WHO-listed medical universities, English programs, cost comparisons and the current security situation.",
   heroEmoji: "🇺🇦",
   updatedAt: "2026-07-16",
+  publishedAt: "2026-07-16",
   readingMinutes: 15,
   relatedCountrySlug: "ukrayna",
   intro: [

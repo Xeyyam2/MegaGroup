@@ -19,6 +19,7 @@ const article: Article = {
     "Varşava Tibb Universiteti haqqında tam bələdçi: ingilis dilində tibb proqramı, EU diplomu, attestat + IELTS ilə qəbul, xərclər və karyera imkanları.",
   heroEmoji: "🩺",
   updatedAt: "2026-09-04",
+  publishedAt: "2026-07-16",
   readingMinutes: 9,
   relatedArticleSlugs: ["polsada-tehsil", "xaricde-tibb-tehsili"],
   intro: [

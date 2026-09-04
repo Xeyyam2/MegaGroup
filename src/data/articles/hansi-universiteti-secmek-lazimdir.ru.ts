@@ -18,6 +18,7 @@ const article: Article = {
     "Сравнительная таблица 14 университетов Турции, России, Грузии, Украины, Казахстана, Германии и Польши — гид по выбору по цене, поступлению, языку и специальностям.",
   heroEmoji: "⚖️",
   updatedAt: "2026-09-04",
+  publishedAt: "2026-07-16",
   readingMinutes: 10,
   relatedArticleSlugs: ["hansi-olkede-oxumaq-serfelidir", "xaricde-tehsil-2026-beledcisi", "xaricde-tibb-tehsili"],
   intro: [

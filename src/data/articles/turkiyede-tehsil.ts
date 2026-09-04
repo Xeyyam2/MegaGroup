@@ -20,6 +20,7 @@ const article: Article = {
     "Türkiyədə təhsilin üstünlükləri, dövlət və özəl universitetlər, YÖS vs attestatla qəbul, tam xərc cədvəli, viza prosesi və tələbə həyatı haqqında 2026 üçün yenilənmiş bələdçi.",
   heroEmoji: "🇹🇷",
   updatedAt: "2026-07-16",
+  publishedAt: "2026-07-16",
   readingMinutes: 18,
   relatedCountrySlug: "turkiye",
   intro: [

@@ -19,6 +19,7 @@ const article: Article = {
     "Əl-Farabi Qazax Milli Universiteti haqqında tam bələdçi: attestatla birbaşa qəbul, ingilis dilində proqramlar, fakültələr, təhsil haqqı və Almatıda tələbə həyatı.",
   heroEmoji: "🎓",
   updatedAt: "2026-09-04",
+  publishedAt: "2026-07-16",
   readingMinutes: 9,
   relatedArticleSlugs: ["qazaxistanda-tehsil", "xaricde-tibb-tehsili"],
   intro: [

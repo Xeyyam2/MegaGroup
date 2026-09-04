@@ -20,6 +20,7 @@ const article: Article = {
     "Benefits of studying in Kazakhstan, universities in Almaty and Astana, admission requirements, costs and visa process — a complete guide.",
   heroEmoji: "🇰🇿",
   updatedAt: "2026-07-16",
+  publishedAt: "2026-07-16",
   readingMinutes: 12,
   intro: [
     "Kazakhstan has become a popular destination among Azerbaijani graduates in recent years thanks to its culture close to the Turkic world, affordable tuition and a growing network of international universities. Its closeness to Azerbaijan in culture and mentality makes the adaptation process easier.",

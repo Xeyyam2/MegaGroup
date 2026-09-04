@@ -19,6 +19,7 @@ const article: Article = {
     "Sankt-Peterburq Dövlət Universiteti haqqında tam bələdçi: attestatla qəbul, hüquq və filologiya fakültələri, xərclər və Rusiyanın mədəni paytaxtında tələbə həyatı.",
   heroEmoji: "🏛️",
   updatedAt: "2026-09-04",
+  publishedAt: "2026-07-16",
   readingMinutes: 8,
   relatedArticleSlugs: ["rusiyada-tehsil"],
   intro: [

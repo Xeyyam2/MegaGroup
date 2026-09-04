@@ -19,6 +19,7 @@ const article: Article = {
     "Полный гид по университету Гиресун: прямое поступление по аттестату, факультеты и специальности, плата за обучение и студенческая жизнь на побережье Чёрного моря.",
   heroEmoji: "🏫",
   updatedAt: "2026-09-04",
+  publishedAt: "2026-07-16",
   readingMinutes: 8,
   relatedArticleSlugs: ["turkiyede-tehsil", "xaricde-tibb-tehsili"],
   intro: [

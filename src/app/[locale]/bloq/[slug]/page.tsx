@@ -176,7 +176,7 @@ export default async function ArticlePage({ params }: PageProps) {
     description: article.metaDescription,
     keywords: article.keywords.join(", "),
     dateModified: article.updatedAt,
-    datePublished: article.updatedAt,
+    datePublished: article.publishedAt,
     inLanguage: locale,
     author: authorPerson,
     publisher: {

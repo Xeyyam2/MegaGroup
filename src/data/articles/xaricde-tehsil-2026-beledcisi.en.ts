@@ -20,6 +20,7 @@ const article: Article = {
     "How is it possible to study abroad with a certificate, without exams? A complete guide on costs across 7 countries, the document checklist, the admission process, visa, and scholarship opportunities.",
   heroEmoji: "🎓",
   updatedAt: "2026-07-16",
+  publishedAt: "2026-07-16",
   readingMinutes: 20,
   intro: [
     "Studying abroad is no longer the privilege of a few families — every year thousands of Azerbaijani graduates are admitted to foreign universities based on their school certificate, without centralized exams. This is a real and fast alternative, especially for applicants who could not achieve their desired score in the DIM exam or do not want to lose time. In this guide, we explain every stage of studying abroad — from choosing a country to obtaining a visa — in simple and clear language.",

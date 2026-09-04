@@ -19,6 +19,7 @@ const article: Article = {
     "Полный гид по Киевскому медицинскому университету: медицинская программа на английском, поступление по аттестату, диплом, признаваемый в Европе, расходы и примечания о текущей ситуации с безопасностью.",
   heroEmoji: "🩺",
   updatedAt: "2026-09-04",
+  publishedAt: "2026-07-16",
   readingMinutes: 8,
   relatedArticleSlugs: ["ukraynada-tehsil", "xaricde-tibb-tehsili"],
   intro: [

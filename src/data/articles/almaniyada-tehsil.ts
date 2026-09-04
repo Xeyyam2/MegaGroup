@@ -20,6 +20,7 @@ const article: Article = {
     "Almaniyada təhsil necə mümkündür? Pulsuz dövlət universitetləri, Studienkolleg, APS, dil tələbləri, xərclər, viza və məzuniyyətdən sonrakı iş imkanları barədə tam bələdçi.",
   heroEmoji: "🇩🇪",
   updatedAt: "2026-07-16",
+  publishedAt: "2026-07-16",
   readingMinutes: 16,
   relatedCountrySlug: "almaniya",
   intro: [

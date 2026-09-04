@@ -22,6 +22,7 @@ const article: Article = {
     "How do you get a medical education abroad? The most comprehensive guide on a doctor's diploma, costs, admission requirements and WHO recognition in Turkey, Russia, Georgia, Ukraine and Poland.",
   heroEmoji: "🏥",
   updatedAt: "2026-07-16",
+  publishedAt: "2026-07-16",
   readingMinutes: 16,
   intro: [
     "Every year tens of thousands of Azerbaijani applicants prepare for the DİM exam to enter a medical faculty, yet because the number of places is limited to only a few thousand, many young people are left outside the specialty they dream of. In this situation, medical education abroad is not merely an alternative but a real and decisive step. In this article we examine in detail the most suitable countries, universities, tuition fees, admission requirements and diploma recognition for citizens of Azerbaijan.",

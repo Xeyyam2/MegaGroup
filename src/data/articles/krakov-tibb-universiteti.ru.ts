@@ -19,6 +19,7 @@ const article: Article = {
     "Полный гид по Краковскому медицинскому университету: медицинская программа на английском, диплом ЕС, поступление по аттестату + IELTS, расходы и студенческая жизнь в Кракове.",
   heroEmoji: "🩺",
   updatedAt: "2026-09-04",
+  publishedAt: "2026-07-16",
   readingMinutes: 9,
   relatedArticleSlugs: ["polsada-tehsil", "xaricde-tibb-tehsili"],
   intro: [

@@ -20,6 +20,7 @@ const article: Article = {
     "Attestatla, imtahansız xaricdə təhsil necə mümkündür? 7 ölkə üzrə xərclər, sənəd siyahısı, qəbul prosesi, viza və təqaüd imkanları barədə tam bələdçi.",
   heroEmoji: "🎓",
   updatedAt: "2026-07-16",
+  publishedAt: "2026-07-16",
   readingMinutes: 20,
   intro: [
     "Xaricdə təhsil artıq bir neçə ailənin imtiyazı deyil — hər il minlərlə Azərbaycan məzunu attestat əsasında, mərkəzləşdirilmiş imtahan olmadan xarici universitetlərə qəbul olur. Bu, xüsusilə DİM imtahanında istədiyi balı toplaya bilməyən və ya vaxtını itirmək istəməyən abituriyentlər üçün real və sürətli alternativdir. Bu bələdçidə xaricdə təhsilin bütün mərhələlərini — ölkə seçimindən tutmuş viza alımına qədər — sadə və anlaşıqlı dildə izah edirik.",

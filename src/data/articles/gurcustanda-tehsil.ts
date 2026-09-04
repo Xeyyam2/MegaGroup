@@ -20,6 +20,7 @@ const article: Article = {
     "Gürcüstanda təhsilin üstünlükləri, Tbilisi və Batumidəki universitetlər, ingilis dilində tibb proqramları, xərclər və qəbul şərtləri — tam bələdçi.",
   heroEmoji: "🇬🇪",
   updatedAt: "2026-07-16",
+  publishedAt: "2026-07-16",
   readingMinutes: 14,
   intro: [
     "Gürcüstan, Azərbaycana yaxınlığı, aşağı yaşayış xərcləri və Avropa standartlarına uyğun tədris proqramları sayəsində son illər xaricdə təhsil üçün getdikcə populyarlaşan bir istiqamətdir. Xüsusilə tibb ixtisası üçün Tbilisi və Batumidəki ingilis dilində tədris olunan universitetlər beynəlxalq tələbələri cəlb edir.",

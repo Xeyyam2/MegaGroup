@@ -19,6 +19,7 @@ const article: Article = {
     "Полный гид по Стамбульскому университету: процесс поступления в старейший университет Турции, медицинский и юридический факультеты, расходы и студенческая жизнь в Стамбуле.",
   heroEmoji: "🏛️",
   updatedAt: "2026-09-04",
+  publishedAt: "2026-07-16",
   readingMinutes: 8,
   relatedArticleSlugs: ["turkiyede-tehsil", "xaricde-tibb-tehsili"],
   intro: [

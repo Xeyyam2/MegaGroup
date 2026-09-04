@@ -20,6 +20,7 @@ const article: Article = {
     "Rusiyada təhsilin üstünlükləri, ən güclü universitetlər, tibb və mühəndislik proqramları, tam xərc bölgüsü və addım-addım qəbul prosesi haqqında 3500+ sözlük bələdçi.",
   heroEmoji: "🇷🇺",
   updatedAt: "2026-07-16",
+  publishedAt: "2026-07-16",
   readingMinutes: 18,
   relatedCountrySlug: "rusiya",
   intro: [

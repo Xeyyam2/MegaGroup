@@ -20,6 +20,7 @@ const article: Article = {
     "Ukraynada təhsilin üstünlükləri, WHO-siyahılı tibb universitetləri, ingilis proqramları, xərc müqayisəsi və mövcud təhlükəsizlik vəziyyəti haqqında 3000+ sözlük bələdçi.",
   heroEmoji: "🇺🇦",
   updatedAt: "2026-07-16",
+  publishedAt: "2026-07-16",
   readingMinutes: 15,
   relatedCountrySlug: "ukrayna",
   intro: [

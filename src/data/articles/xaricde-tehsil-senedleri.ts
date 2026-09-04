@@ -19,6 +19,7 @@ const article: Article = {
     "Xaricdə oxumaq üçün hansı sənədlər lazımdır? Attestat, pasport, tibbi arayış, motivasiya məktubu, apostil və tərcümə prosesi barədə addım-addım tam bələdçi.",
   heroEmoji: "📋",
   updatedAt: "2026-07-16",
+  publishedAt: "2026-07-16",
   readingMinutes: 12,
   intro: [
     "Xaricdə təhsil qərarını verdikdən sonra qarşıya çıxan ən vacib və ən çox gərginlik yaradan mərhələ sənədlərin hazırlanmasıdır. Yanlış hazırlanmış, vaxtı keçmiş və ya düzgün təsdiqlənməmiş bir sənəd bütün qəbul prosesini ləngidə bilər, bəzən isə müraciətin rədd edilməsinə səbəb ola bilər. Bu məqalədə xaricdə təhsil üçün lazım olan bütün sənədləri, onların hazırlanma qaydasını və tez-tez edilən səhvləri ətraflı şəkildə izah edirik.",

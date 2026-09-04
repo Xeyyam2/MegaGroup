@@ -20,6 +20,7 @@ const article: Article = {
     "How is studying in Germany possible? A complete guide to free public universities, Studienkolleg, APS, language requirements, costs, the visa and post-graduation work opportunities.",
   heroEmoji: "🇩🇪",
   updatedAt: "2026-07-16",
+  publishedAt: "2026-07-16",
   readingMinutes: 16,
   relatedCountrySlug: "almaniya",
   intro: [

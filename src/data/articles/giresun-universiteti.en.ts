@@ -19,6 +19,7 @@ const article: Article = {
     "A complete guide to Giresun University: direct admission by certificate, faculties and programs, tuition fees and student life on the Black Sea coast.",
   heroEmoji: "🏫",
   updatedAt: "2026-09-04",
+  publishedAt: "2026-07-16",
   readingMinutes: 8,
   relatedArticleSlugs: ["turkiyede-tehsil", "xaricde-tibb-tehsili"],
   intro: [

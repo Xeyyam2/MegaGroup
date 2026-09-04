@@ -19,6 +19,7 @@ const article: Article = {
     "A complete guide to Lomonosov Moscow State University: admission by certificate, strong medicine and natural science faculties, tuition fees and student life in Moscow.",
   heroEmoji: "🏛️",
   updatedAt: "2026-09-04",
+  publishedAt: "2026-07-16",
   readingMinutes: 9,
   relatedArticleSlugs: ["rusiyada-tehsil", "xaricde-tibb-tehsili"],
   intro: [

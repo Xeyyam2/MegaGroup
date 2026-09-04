@@ -19,6 +19,7 @@ const article: Article = {
     "A complete guide to the Medical University of Warsaw: an English-taught medical program, EU diploma, admission by certificate + IELTS, costs and career opportunities.",
   heroEmoji: "🩺",
   updatedAt: "2026-09-04",
+  publishedAt: "2026-07-16",
   readingMinutes: 9,
   relatedArticleSlugs: ["polsada-tehsil", "xaricde-tibb-tehsili"],
   intro: [

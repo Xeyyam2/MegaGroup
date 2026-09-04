@@ -20,6 +20,7 @@ const article: Article = {
     "Как возможна учеба в Польше? Полный гид об англоязычных медицинских программах, поступлении по аттестату, топ-университетах, расходах, визе и возможностях работы.",
   heroEmoji: "🇵🇱",
   updatedAt: "2026-07-16",
+  publishedAt: "2026-07-16",
   readingMinutes: 16,
   relatedCountrySlug: "polsa",
   intro: [

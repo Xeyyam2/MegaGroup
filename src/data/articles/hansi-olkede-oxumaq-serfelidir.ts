@@ -20,6 +20,7 @@ const article: Article = {
     "7 ölkəni xərc, dil, qəbul çətinliyi, viza və diplom tanınmasına görə müqayisə edirik. Büdcənizə və ixtisasınıza uyğun ölkəni seçmək üçün geniş bələdçi.",
   heroEmoji: "🌍",
   updatedAt: "2026-07-16",
+  publishedAt: "2026-07-16",
   readingMinutes: 14,
   intro: [
     "Xaricdə təhsil qərarını verdikdən sonra ən çətin sual budur: hansı ölkədə oxumaq daha sərfəlidir? Bu sualın tək doğru cavabı yoxdur, çünki cavab sizin büdcənizdən, istədiyiniz ixtisasdan, dil bacarığınızdan və gələcək məqsədlərinizdən asılıdır. Bu məqalədə Azərbaycan məzunları üçün ən populyar 7 ölkəni — Türkiyə, Rusiya, Gürcüstan, Ukrayna, Qazaxıstan, Almaniya və Polşanı — detallı müqayisə edirik.",

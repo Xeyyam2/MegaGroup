@@ -19,6 +19,7 @@ const article: Article = {
     "A complete guide to the Technical University of Munich: free public education, Studienkolleg, admission requirements, English-taught programs and living costs in Munich.",
   heroEmoji: "⚙️",
   updatedAt: "2026-09-04",
+  publishedAt: "2026-07-16",
   readingMinutes: 9,
   relatedArticleSlugs: ["almaniyada-tehsil"],
   intro: [

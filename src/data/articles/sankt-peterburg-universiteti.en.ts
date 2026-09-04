@@ -19,6 +19,7 @@ const article: Article = {
     "A complete guide to Saint Petersburg State University: admission by certificate, law and philology faculties, costs and student life in Russia's cultural capital.",
   heroEmoji: "🏛️",
   updatedAt: "2026-09-04",
+  publishedAt: "2026-07-16",
   readingMinutes: 8,
   relatedArticleSlugs: ["rusiyada-tehsil"],
   intro: [

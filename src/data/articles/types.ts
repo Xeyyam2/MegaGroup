@@ -24,6 +24,9 @@ export interface Article {
   keywords: string[];
   excerpt: string;
   heroEmoji: string;
+  /** İlk dərc tarixi (BlogPosting.datePublished üçün). */
+  publishedAt: string;
+  /** Son yenilənmə tarixi (dateModified / sitemap lastmod üçün). */
   updatedAt: string;
   readingMinutes: number;
   relatedCountrySlug?: string;

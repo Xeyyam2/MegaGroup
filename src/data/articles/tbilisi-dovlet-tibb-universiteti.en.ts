@@ -19,6 +19,7 @@ const article: Article = {
     "A complete guide to Tbilisi State Medical University (TSMU): admission by certificate, an English-taught medical program, WHO recognition, costs and student life.",
   heroEmoji: "🩺",
   updatedAt: "2026-09-04",
+  publishedAt: "2026-07-16",
   readingMinutes: 9,
   relatedArticleSlugs: ["gurcustanda-tehsil", "xaricde-tibb-tehsili"],
   intro: [

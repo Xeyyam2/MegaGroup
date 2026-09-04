@@ -19,6 +19,7 @@ const article: Article = {
     "A complete guide to Kyiv Medical University: an English-taught medical program, admission by certificate, a Europe-recognized diploma, costs and notes on the current safety situation.",
   heroEmoji: "🩺",
   updatedAt: "2026-09-04",
+  publishedAt: "2026-07-16",
   readingMinutes: 8,
   relatedArticleSlugs: ["ukraynada-tehsil", "xaricde-tibb-tehsili"],
   intro: [

@@ -22,6 +22,7 @@ const article: Article = {
     "Xaricdə tibb təhsili necə alınır? Türkiyə, Rusiya, Gürcüstan, Ukrayna və Polşada həkimlik diplomu, qiymətlər, qəbul şərtləri və WHO tanınması barədə ən geniş bələdçi.",
   heroEmoji: "🏥",
   updatedAt: "2026-07-16",
+  publishedAt: "2026-07-16",
   readingMinutes: 16,
   intro: [
     "Hər il on minlərlə Azərbaycan abituriyenti tibb fakültəsinə daxil olmaq üçün DİM imtahanına hazırlaşır, lakin kontingentlərin sayı cəmi bir neçə min nəfərlə məhdudlaşdığından, çoxsaylı gənclər arzuladığı ixtisasın kənarında qalır. Bu vəziyyətdə xaricdə tibb təhsili yalnız bir alternativ deyil, həm də real və qəti bir addımdır. Bu məqalədə Azərbaycan vətəndaşları üçün ən uyğun ölkələri, universitetləri, təhsil haqqını, qəbul şərtlərini və diplomun tanınmasını ətraflı şəkildə araşdırırıq.",

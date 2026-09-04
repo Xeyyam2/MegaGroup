@@ -19,6 +19,7 @@ const article: Article = {
     "Полный гид по Казахскому национальному университету имени аль-Фараби: прямое поступление по аттестату, программы на английском, факультеты, плата за обучение и студенческая жизнь в Алматы.",
   heroEmoji: "🎓",
   updatedAt: "2026-09-04",
+  publishedAt: "2026-07-16",
   readingMinutes: 9,
   relatedArticleSlugs: ["qazaxistanda-tehsil", "xaricde-tibb-tehsili"],
   intro: [

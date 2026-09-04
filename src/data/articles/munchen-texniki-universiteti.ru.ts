@@ -19,6 +19,7 @@ const article: Article = {
     "Полный гид по Мюнхенскому техническому университету: бесплатное государственное образование, Studienkolleg, условия поступления, программы на английском и расходы на проживание в Мюнхене.",
   heroEmoji: "⚙️",
   updatedAt: "2026-09-04",
+  publishedAt: "2026-07-16",
   readingMinutes: 9,
   relatedArticleSlugs: ["almaniyada-tehsil"],
   intro: [
