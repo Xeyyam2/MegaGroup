@@ -109,7 +109,7 @@ const article: Article = {
         "TSMU was founded in 1918 and has trained more than 40,000 doctors over more than 100 years of history. It ranks 8th among Georgia's 55 higher-education institutions and appears on WHO/FAIMER lists.",
       paragraphs: [
         "Tbilisi State Medical University was founded in 1918 and is Georgia's oldest and largest medical university. Over more than 100 years of activity it has trained over 40,000 doctors — many of whom work in different countries of the world today.",
-        "Among Georgia's 55 higher-education institutions, TSMU ranks 8th and is considered the country's number one university for medical education. The university appears on the WHO, FAIMER and ECFMG lists — the official guarantee that its diploma is recognized internationally.",
+        "Among Georgia's 55 higher-education institutions, TSMU ranks 8th and is considered the country's number one university for medical education. The university appears on the WHO, FAIMER and ECFMG lists — an important prerequisite for international recognition of its diploma (graduates become eligible for the USMLE in the USA and the PLAB in the UK; the right to practice depends on the target country's licensing rules).",
         "TSMU's English-language MD program is especially popular among students preparing for licensing exams in the USA, UK and other countries (USMLE, PLAB).",
       ],
     },

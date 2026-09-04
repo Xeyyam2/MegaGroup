@@ -560,7 +560,7 @@ export const UNIVERSITY_CONTENT_EN: Record<string, UniversityContent> = {
     slug: "varshava-tibb-universiteti",
     intro: [
       "Medical University of Warsaw (WUM) is Poland's largest and most prestigious medical university. Its main advantages are a European Union diploma, a modern hospital base and PMQ/USMLE preparation support.",
-      "The university offers a 6-year medicine program and a 5-year dentistry program in English. Clinical practice takes place in Warsaw's leading hospitals, and the diploma is recognized across the EU.",
+      "The university offers a 6-year medicine program and a 5-year dentistry program in English. Clinical practice takes place in Warsaw's leading hospitals, and the diploma is academically recognized across the EU (Bologna/ECTS); practicing medicine abroad requires the target country's licensing procedure.",
     ],
     admission: [
       {

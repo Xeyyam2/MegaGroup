@@ -109,7 +109,7 @@ const article: Article = {
         "TSMU 1918-ci ildə yaradılıb və 100 ildən artıq tarixi ərzində 40 mindən çox həkim yetişdirib. Gürcüstanın 55 ali məktəbi arasında 8-ci yerdədir və WHO/FAIMER siyahısındadır.",
       paragraphs: [
         "Tbilisi Dövlət Tibb Universiteti 1918-ci ildə yaradılıb və Gürcüstanın ən qədim, ən böyük tibb universitetidir. 100 ildən artıq fəaliyyəti ərzində universitet 40 mindən çox həkim yetişdirib — onların bir çoxu bu gün dünyanın müxtəlif ölkələrində çalışır.",
-        "Gürcüstanın 55 ali məktəbi arasında TSMU 8-ci yerdə qərarlaşıb və ölkənin tibb təhsilində bir nömrəli universiteti hesab olunur. Universitet WHO, FAIMER və ECFMG siyahılarındadır — bu, diplomun beynəlxalq səviyyədə tanınmasının rəsmi təminatıdır.",
+        "Gürcüstanın 55 ali məktəbi arasında TSMU 8-ci yerdə qərarlaşıb və ölkənin tibb təhsilində bir nömrəli universiteti hesab olunur. Universitet WHO, FAIMER və ECFMG siyahılarındadır — bu, diplomun beynəlxalq səviyyədə tanınması üçün mühüm ilkin şərtdir (məzunlar ABŞ-da USMLE, Böyük Britaniyada PLAB imtahanlarına girmək hüququ qazanır; praktika hüququ hədəf ölkənin lisenziya qaydalarından asılıdır).",
         "TSMU-nun ingilis dilində MD proqramı ABŞ, Böyük Britaniya və digər ölkələrin lisenziya imtahanlarına (USMLE, PLAB) hazırlaşan tələbələr arasında xüsusilə populyardır.",
       ],
     },

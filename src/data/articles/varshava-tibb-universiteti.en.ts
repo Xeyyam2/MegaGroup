@@ -32,7 +32,7 @@ const article: Article = {
         "WUM is one of the largest medical universities in the European Union. Its key advantages are an English-taught medical program, an EU diploma, a modern hospital base and PMQ/USMLE preparation support.",
       paragraphs: [
         "The Medical University of Warsaw was founded in 1950 and is today Poland's largest medical center. The university has its own clinical base — students do practical training in real hospitals from the first years.",
-        "WUM's biggest advantage is the European Union diploma: graduates earn a degree directly recognized in EU countries and gain the opportunity to work in any European country.",
+        "WUM's biggest advantage is the European Union diploma: the degree is academically recognized across the EU (Bologna/ECTS), giving graduates a strong basis to seek work in European countries — subject to each country's professional licensing requirements for medicine.",
       ],
     },
     {
@@ -98,8 +98,8 @@ const article: Article = {
       summary:
         "WUM graduates can work directly in Europe with an EU diploma. The university supports preparation for PMQ (UK) and USMLE (USA); the diploma is also nostrified in Azerbaijan.",
       paragraphs: [
-        "Graduates of the Medical University of Warsaw earn a diploma recognized across the European Union and a strong foundation for obtaining a medical license in EU countries. The university offers dedicated support programs for the PMQ and USMLE exams.",
-        "The diploma is also recognized and nostrified in Azerbaijan. WUM graduates can build a medical career in Europe, the USA and Azerbaijan.",
+        "Graduates of the Medical University of Warsaw earn a diploma academically recognized across the European Union (Bologna/ECTS) and a strong foundation for obtaining a medical license through each EU country's registration procedures. The university offers dedicated support programs for the PMQ and USMLE exams.",
+        "The diploma is also nostrified in Azerbaijan. WUM graduates can build a medical career in Europe or the USA after meeting each country's licensing requirements, or in Azerbaijan after nostrification.",
       ],
     },
     {

@@ -98,7 +98,7 @@ const article: Article = {
       summary:
         "Kraków Medical University graduates can work directly in Europe with an EU diploma. They have a strong foundation for the PMQ (UK) and USMLE (USA) exams.",
       paragraphs: [
-        "Graduates of the Jagiellonian Medical College earn a diploma recognized across the European Union and a strong foundation for obtaining a medical license in EU countries. The university's 600-year reputation is a powerful asset on a CV.",
+        "Graduates of the Jagiellonian Medical College earn a diploma academically recognized across the European Union (Bologna/ECTS) and a strong foundation for obtaining a medical license through each EU country's registration procedures. The university's 600-year reputation is a powerful asset on a CV.",
         "The diploma is recognized and nostrified in Azerbaijan. Graduates can build a medical career in Europe, the USA and Azerbaijan.",
       ],
     },
@@ -109,7 +109,7 @@ const article: Article = {
       paragraphs: [
         "The Jagiellonian University was founded in 1364 by King Casimir III and is Poland's oldest — and one of the world's oldest continuously operating — universities. Its medical college carries a tradition of over 600 years of medical education.",
         "The university's famous alumni include Nicolaus Copernicus and Pope John Paul II — the brightest proof of the Jagiellonian University's influence on European science over the centuries.",
-        "Kraków Medical University's English-language medicine and pharmacy programs meet modern European standards, and the diploma is recognized in all EU countries.",
+        "Kraków Medical University's English-language medicine and pharmacy programs meet modern European standards, and the diploma is academically recognized across the EU (Bologna/ECTS); practicing medicine abroad requires the target country's licensing procedure.",
       ],
     },
     {

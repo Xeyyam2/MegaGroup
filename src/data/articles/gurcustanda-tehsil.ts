@@ -101,9 +101,9 @@ const article: Article = {
     {
       heading: "Gürcüstan universitet diplomu harada tanınır?",
       summary:
-        "Gürcüstan universitet diplomları Azərbaycanda tanınır və ekvivalentləşdirilir. Tibb universitetlərinin diplomları isə ECFMG/WFME siyahısında olduğundan ABŞ, Böyük Britaniya, Almaniya və digər Avropa ölkələrində də tanınır.",
+        "Gürcüstan universitet diplomları Azərbaycanda nostrifikasiya yolu ilə ekvivalentləşdirilir. Tibb universitetlərinin diplomları isə ECFMG/WFME siyahısında olduğundan məzunlar ABŞ-da USMLE, Böyük Britaniyada PLAB imtahanlarına girmək hüququ qazanır; faktiki praktika hüququ hədəf ölkənin lisenziya prosedurundan asılıdır.",
       paragraphs: [
-        "Gürcüstan universitetlərinin diplomları Azərbaycanda tanınır və ekvivalentləşdirilə bilər. Tibb universitetlərinin diplomları isə ECFMG/WFME siyahısında olduğundan dünyanın bir çox ölkəsində, o cümlədən ABŞ, Böyük Britaniya, Almaniya və digər Avropa ölkələrində tanınır.",
+        "Gürcüstan universitetlərinin diplomları Azərbaycanda nostrifikasiya ilə ekvivalentləşdirilə bilər. Tibb universitetlərinin diplomları isə ECFMG/WFME siyahısında olduğundan məzunlar ABŞ (USMLE), Böyük Britaniya (PLAB) və bir çox ölkənin lisenziya imtahanlarına girmək hüququ qazanır; faktiki praktika hüququ hədəf ölkənin qaydalarından asılıdır.",
       ],
     },
     {

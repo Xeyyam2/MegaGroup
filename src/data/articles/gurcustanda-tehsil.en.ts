@@ -101,9 +101,9 @@ const article: Article = {
     {
       heading: "Where is a Georgian university diploma recognized?",
       summary:
-        "Diplomas from Georgian universities are recognized and can be equated in Azerbaijan. Diplomas from medical universities, since they are listed by ECFMG/WFME, are also recognized in the United States, the United Kingdom, Germany, and other European countries.",
+        "Diplomas from Georgian universities can be equated in Azerbaijan through nostrification. Diplomas from medical universities are listed by ECFMG/WFME, so graduates become eligible for the USMLE (USA) and PLAB (UK); the right to practice depends on the target country's licensing procedures.",
       paragraphs: [
-        "Diplomas from Georgian universities are recognized and can be equated in Azerbaijan. Diplomas from medical universities, since they are listed by ECFMG/WFME, are recognized in many countries around the world, including the United States, the United Kingdom, Germany, and other European countries.",
+        "Diplomas from Georgian universities can be equated in Azerbaijan through nostrification. Diplomas from medical universities are listed by ECFMG/WFME, so graduates become eligible for licensing exams in the United States (USMLE), the United Kingdom (PLAB) and many other countries; the right to practice depends on the target country's rules.",
       ],
     },
     {

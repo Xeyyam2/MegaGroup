@@ -109,7 +109,7 @@ const article: Article = {
       paragraphs: [
         "Varşava Tibb Universitetinin tarixi 1809-cu ildə akademik tibb kafedrasının yaradılması ilə başlayır. 1949-cu ildən müstəqil tibb universiteti kimi fəaliyyət göstərir və Polşanın ən böyük tibb məktəbidir.",
         "QS World University Rankings by Subject 2026-da WUM dünya tibb universitetləri arasında 451-500 qrupundadır. Universitetdə 4 mindən çox tələbə təhsil alır və onların əhəmiyyətli hissəsini beynəlxalq tələbələr təşkil edir.",
-        "WUM-un ingilis dilində tibb və stomatologiya proqramları Avropa standartlarına tam uyğundur və diplom bütün EU ölkələrində birbaşa tanınır — bu, məzunlar üçün ən böyük üstünlükdür.",
+        "WUM-un ingilis dilində tibb və stomatologiya proqramları Avropa standartlarına uyğundur və diplom Bolonya/ECTS çərçivəsində AB ölkələrində akademik tanınır — məzunlar üçün ən böyük üstünlükdür. Qeyd: tibb kimi tənzimlənən peşələrdə xaricdə praktika üçün hədəf ölkənin lisenziya/registrasiya proseduru tələb olunur.",
       ],
     },
     {
@@ -140,7 +140,7 @@ const article: Article = {
     {
       question: "WUM diplomu harada tanınır?",
       answer:
-        "WUM diplomu Avropa İttifaqında birbaşa tanınır, PMQ (Böyük Britaniya) və USMLE (ABŞ) üçün uyğundur və Azərbaycanda nostrifikasiya olunur.",
+        "WUM diplomu Bolonya çərçivəsində AB-də akademik tanınır; Böyük Britaniyada praktika üçün PMQ, ABŞ-da USMLE kimi lisenziya imtahanları lazımdır. Diplom Azərbaycanda nostrifikasiya olunur.",
     },
     {
       question: "Polşaya tələbə vizası necə alınır?",

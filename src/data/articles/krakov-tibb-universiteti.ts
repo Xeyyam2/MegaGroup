@@ -109,7 +109,7 @@ const article: Article = {
       paragraphs: [
         "Yagellon Universiteti 1364-cü ildə kral III Kazimir tərəfindən yaradılıb və Polşanın ən qədim, dünyanın isə fasiləsiz fəaliyyət göstərən ən qədim universitetlərindən biridir. Onun tibb kolleci 600 ildən artıq tibb təhsili ənənəsinə malikdir.",
         "Universitetin məşhur məzunları arasında Nikolay Kopernik və Papa II İohann Pavel də var — bu, Yagellon Universitetinin əsrlər boyu Avropa elminə təsirinin ən parlaq sübutudur.",
-        "Krakov Tibb Universitetinin ingilis dilində tibb və əczaçılıq proqramları müasir Avropa standartlarına uyğundur və diplom bütün EU ölkələrində tanınır.",
+        "Krakov Tibb Universitetinin ingilis dilində tibb və əczaçılıq proqramları müasir Avropa standartlarına uyğundur və diplom Bolonya/ECTS çərçivəsində AB ölkələrində akademik tanınır; tibb praktikası üçün hədəf ölkənin lisenziya proseduru tələb olunur.",
       ],
     },
     {
@@ -140,7 +140,7 @@ const article: Article = {
     {
       question: "Krakov Tibb Universitetinin diplomu harada tanınır?",
       answer:
-        "Diplom Avropa İttifaqında birbaşa tanınır, PMQ (Böyük Britaniya) və USMLE (ABŞ) üçün uyğundur və Azərbaycanda nostrifikasiya olunur.",
+        "Diplom Bolonya çərçivəsində AB-də akademik tanınır; Böyük Britaniyada praktika üçün PMQ, ABŞ-da USMLE kimi lisenziya imtahanları lazımdır. Diplom Azərbaycanda nostrifikasiya olunur.",
     },
     {
       question: "Krakovda yaşayış xərcləri nə qədərdir?",

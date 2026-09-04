@@ -305,7 +305,7 @@ export const COUNTRY_CONTENT: Record<string, CountryContent> = {
       { step: 3, title: "Viza müraciəti", description: "Bakıdakı Almaniya səfirliyinə tələbə vizası (4-8 həftə)." },
     ],
     studentLife: [
-      "Almaniyada tələbə həyatı intizamlı və akademik cəhətdən tələbkarlıdır, lakin tələbələrə geniş imkanlar (iş icazəsi 140 gün/il, tədqiqat) təklif olunur. Diplom bütün Avropa İttifaqında və qlobal miqyasda tanınır.",
+      "Almaniyada tələbə həyatı intizamlı və akademik cəhətdən tələbkarlıdır, lakin tələbələrə geniş imkanlar (iş icazəsi 140 gün/il, tədqiqat) təklif olunur. Diplom Bolonya/ECTS çərçivəsində Avropa İttifaqında akademik tanınır; mühəndislik kimi tənzimlənən peşələrdə iş üçün hədəf ölkənin tanınma/lisenziya proseduru tələb oluna bilər.",
     ],
   },
 
@@ -344,7 +344,7 @@ export const COUNTRY_CONTENT: Record<string, CountryContent> = {
       { step: 3, title: "Viza", description: "Polşa səfirliyində D tipli tələbə vizası." },
     ],
     studentLife: [
-      "Polşa Avropa İttifaqının ucuz yaşayış xərcinə malik ölkələrindən biridir. Tələbələrə iş icazəsi verilir və diplom bütün EU-da tanınır. Tibb tələbələri PMQ/USMLE imtahanlarına hazırlaşmaq üçün güclü baza alır.",
+      "Polşa Avropa İttifaqının ucuz yaşayış xərcinə malik ölkələrindən biridir. Tələbələrə iş icazəsi verilir və diplom Bolonya/ECTS çərçivəsində AB ölkələrində akademik tanınır (tibbi praktika üçün hədəf ölkənin lisenziyası tələb olunur). Tibb tələbələri PMQ/USMLE imtahanlarına hazırlaşmaq üçün güclü baza alır.",
     ],
   },
 };

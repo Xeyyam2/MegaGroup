@@ -11,6 +11,7 @@ import { BlogFAQ } from "@/components/sections/BlogFAQ";
 import { AuthorBio } from "@/components/sections/AuthorBio";
 import { siteUrl } from "@/lib/site";
 import { authorPersonJsonLd, editorialAuthor } from "@/data/site-authors";
+import { countryOfficialSources, officialUniversitySite } from "@/data/article-sources";
 import { locales } from "@/i18n/routing";
 import type { Locale } from "@/i18n/routing";
 
@@ -33,6 +34,9 @@ const STR: Record<Locale, {
   relatedDesc: string;
   faqCitation: string;
   dateLocale: string;
+  sourcesTitle: string;
+  officialSite: string;
+  sourcesNote: string;
 }> = {
   az: {
     notFound: "Tapılmadı",
@@ -46,6 +50,10 @@ const STR: Record<Locale, {
     relatedDesc: "dakı universitetlər, qəbul şərtləri və xərclər haqqında ətraflı məlumat.",
     faqCitation: "Tez-tez verilən suallar",
     dateLocale: "az-AZ",
+    sourcesTitle: "Rəsmi Mənbələr",
+    officialSite: "Universitetin rəsmi saytı",
+    sourcesNote:
+      "Qəbul, viza və diplom tanınması qaydaları dəyişə bilər — müraciət etməzdən əvvəl rəsmi mənbələrdən son vəziyyəti yoxlayın.",
   },
   ru: {
     notFound: "Не найдено",
@@ -59,6 +67,10 @@ const STR: Record<Locale, {
     relatedDesc: "Подробная информация о вузах, условиях поступления и расходах.",
     faqCitation: "Часто задаваемые вопросы",
     dateLocale: "ru-RU",
+    sourcesTitle: "Официальные источники",
+    officialSite: "Официальный сайт университета",
+    sourcesNote:
+      "Правила приёма, визы и признания дипломов могут меняться — перед подачей документов проверяйте актуальные требования на официальных сайтах.",
   },
   en: {
     notFound: "Not Found",
@@ -72,6 +84,10 @@ const STR: Record<Locale, {
     relatedDesc: "Detailed information about universities, admission requirements and costs.",
     faqCitation: "Frequently asked questions",
     dateLocale: "en-US",
+    sourcesTitle: "Official sources",
+    officialSite: "University official website",
+    sourcesNote:
+      "Admission, visa and diploma-recognition rules can change — always verify current requirements on the official sources before applying.",
   },
 };
 
@@ -117,7 +133,21 @@ export default async function ArticlePage({ params }: PageProps) {
     ? await getCountryBySlug(article.relatedCountrySlug, locale)
     : null;
 
-  const otherArticles = ARTICLES.filter((a) => a.slug !== article.slug).slice(0, 4);
+  // Əlaqəli bələdçilər: əvvəlcə EYNİ ölkənin digər bələdçiləri (topik
+  // klaster + internal linking gücü), sonra qalanlar. Əvvəlki versiya
+  // sadəcə ilk 4 məqaləni götürürdü — çox vaxt əlaqəsiz idi.
+  const otherPool = ARTICLES.filter((a) => a.slug !== article.slug);
+  const sameCountry =
+    article.relatedCountrySlug
+      ? otherPool.filter((a) => a.relatedCountrySlug === article.relatedCountrySlug)
+      : [];
+  const otherArticles = [...sameCountry, ...otherPool.filter((a) => !sameCountry.includes(a))].slice(0, 4);
+
+  // Rəsmi mənbələr: universitetin öz saytı + ölkənin dövlət qurumları.
+  const sources: { name: string; url: string }[] = [];
+  const uniSite = officialUniversitySite(article.slug);
+  if (uniSite) sources.push({ name: s.officialSite, url: uniSite.url });
+  sources.push(...countryOfficialSources(article.relatedCountrySlug));
 
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
@@ -297,6 +327,28 @@ export default async function ArticlePage({ params }: PageProps) {
             <BlogFAQ faqs={article.faqs} />
           </div>
         </div>
+
+        {sources.length > 0 && (
+          <section className="mt-14">
+            <h2 className="font-heading text-2xl font-bold text-foreground">{s.sourcesTitle}</h2>
+            <p className="mt-2 text-sm text-foreground/60">{s.sourcesNote}</p>
+            <ul className="mt-4 space-y-2 text-sm">
+              {sources.map((src) => (
+                <li key={src.url} className="flex items-start gap-2 text-foreground/80">
+                  <span aria-hidden>🔗</span>
+                  <a
+                    href={src.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="break-all text-brand-primary hover:underline"
+                  >
+                    {src.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
 
         <AuthorBio locale={locale} />
 

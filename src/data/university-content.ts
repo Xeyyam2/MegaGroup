@@ -590,7 +590,7 @@ export const UNIVERSITY_CONTENT: Record<string, UniversityContent> = {
     slug: "varshava-tibb-universiteti",
     intro: [
       "Varşava Tibb Universiteti (WUM) Polşanın ən böyük və ən nüfuzlu tibb universitetidir. Avropa İttifaqı diplomu, müasir xəstəxana bazası və PMQ/USMLE hazırlıq dəstəyi əsas üstünlükləridir.",
-      "Universitet ingilis dilində 6 illik tibb və 5 illik stomatologiya proqramları təklif edir. Klinik təcrübə Varşavanın aparıcı xəstəxanalarında keçirilir və diplom bütün EU ölkələrində tanınır.",
+      "Universitet ingilis dilində 6 illik tibb və 5 illik stomatologiya proqramları təklif edir. Klinik təcrübə Varşavanın aparıcı xəstəxanalarında keçirilir və diplom Bolonya/ECTS çərçivəsində AB ölkələrində akademik tanınır; tibb praktikası üçün hədəf ölkənin lisenziya proseduru tələb olunur.",
     ],
     admission: [
       {
