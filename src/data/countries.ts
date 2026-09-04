@@ -139,7 +139,7 @@ const rawCountries: RawCountry[] = [
     description_az: "İngilis dilində təhsil — xüsusilə tibb və stomatologiya. Avropa ittifaqı ölkəsi.",
     description_ru: "Обучение на английском языке — особенно медицина и стоматология. Страна Евросоюза.",
     description_en: "English-language education — especially medicine and dentistry. An EU member state.",
-    hero_image_url: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=1200&q=80",
+    hero_image_url: "/images/countries/polsa.jpg",
     sort_order: 5, is_active: true, is_featured: false,
     quick_stats: {
       universities: 60,
@@ -167,7 +167,7 @@ const rawCountries: RawCountry[] = [
     description_az: "Attestatla, imtahansız qəbul — Azərbaycana ən yaxın ölkələrdən biri. Tbilisi və Batumidə ingilis dilində tibb təhsili, əlçatan yaşayış xərcləri.",
     description_ru: "Поступление по аттестату, без экзаменов — одна из ближайших к Азербайджану стран. Медицина на английском в Тбилиси и Батуми, доступная стоимость жизни.",
     description_en: "Admission by certificate, exam-free — one of the closest countries to Azerbaijan. English-language medicine in Tbilisi and Batumi, affordable cost of living.",
-    hero_image_url: "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=1200&q=80",
+    hero_image_url: "/images/countries/gurcustan.jpg",
     sort_order: 6, is_active: true, is_featured: false,
     quick_stats: {
       universities: 25,

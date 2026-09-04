@@ -74,3 +74,34 @@ export const getFAQsByUniversity = unstable_cache(fetchFAQsByUniversity, ["faqs:
   revalidate: REVALIDATE,
   tags: ["faqs"],
 });
+
+/**
+ * seo.md 2.2 + 9 (P0-1): Universitet səhifəsi üçün birləşdirilmiş FAQ (8-10 sual).
+ * Universitet-xüsusi + ölkə + ümumi FAQ-ları birləşdirir, təkrarları silir və
+ * maksimum 10 suala qədər sıralayır. Yalan rəqəm yoxdur — yalnız mövcud
+ * etibarlı data. Fakültə/qiymət kimi spesifik məlumat hələ yazılmayıbsa,
+ * heç bir uydurma dəyər əlavə edilmir.
+ */
+async function fetchFAQsByUniversityWithCountry(
+  universitySlug: string,
+  countrySlug: string,
+  locale: Locale,
+): Promise<FAQ[]> {
+  const uniFaqs = await fetchFAQsByUniversity(universitySlug, locale);
+  const countryFaqs = await fetchFAQsByCountry(countrySlug, locale);
+  // Birləşdir, id üzrə təkrarları sil, əvvəlcə universitet-xüsusi, sonra ölkə/ümumi.
+  const seen = new Set<string>();
+  const merged: FAQ[] = [];
+  for (const f of [...uniFaqs, ...countryFaqs]) {
+    if (seen.has(f.id)) continue;
+    seen.add(f.id);
+    merged.push(f);
+  }
+  return merged.slice(0, 10);
+}
+
+export const getFAQsByUniversityWithCountry = unstable_cache(
+  fetchFAQsByUniversityWithCountry,
+  ["faqs:by-university-with-country"],
+  { revalidate: REVALIDATE, tags: ["faqs"] },
+);

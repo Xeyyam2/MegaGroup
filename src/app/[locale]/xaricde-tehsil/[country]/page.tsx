@@ -13,8 +13,9 @@ import { getUniversitiesByCountry, getFeaturedUniversity } from "@/lib/data/univ
 import { getFAQsByCountry } from "@/lib/data/faqs";
 import { routing, type Locale } from "@/i18n/routing";
 import { countries as staticCountries } from "@/data/countries";
-import { ARTICLES } from "@/data/articles";
-import { getCountryContent } from "@/data/country-content";
+import { ARTICLES, getArticleBySlugLocalized } from "@/data/articles";
+import { getCountryContentByLocale } from "@/data/country-content";
+import { COUNTRY_TOPICS } from "@/data/country-topics";
 import { siteUrl } from "@/lib/site";
 import { getCountrySeo } from "@/lib/seo";
 
@@ -88,14 +89,15 @@ export default async function CountryPage({ params }: PageProps) {
   // RU/EN üçün əvvəlki dinamik forma saxlanılır.
   const seo = locale === "az" ? getCountrySeo(country) : undefined;
   const h1 = seo?.h1 ?? c.name;
-  // Dərin AZ məzmunu (yalnız az dilində — hədəf açar sözlər AZ-dildir).
-  const content = locale === "az" ? getCountryContent(country) : undefined;
+  // Dərin ölkə məzmunu — hər dildə (AZ/RU/EN variantları ayrı modullardadır).
+  const content = getCountryContentByLocale(country, locale);
 
   const allCountries = await getCountries(locale);
   const unis = await getUniversitiesByCountry(country, locale);
   const featured = await getFeaturedUniversity(country, locale);
   const faqs = await getFAQsByCountry(country, locale);
-  const relatedArticle = locale === "az" ? ARTICLES.find((a) => a.relatedCountrySlug === c.slug) : undefined;
+  const azRelatedArticle = ARTICLES.find((a) => a.relatedCountrySlug === c.slug);
+  const relatedArticle = azRelatedArticle ? getArticleBySlugLocalized(azRelatedArticle.slug, locale) : undefined;
 
   const visaLabel =
     c.quick_stats.visa_difficulty === "easy"
@@ -435,16 +437,48 @@ export default async function CountryPage({ params }: PageProps) {
         </div>
       </section>
 
+      {/* seo.md 4 (P1): silo nav — ölkənin bütün alt-mövzu landing page-ləri. */}
+      <nav aria-label={locale === "az" ? "Ətraflı mövzular" : locale === "ru" ? "Подробные темы" : "Detailed topics"} className="mx-auto max-w-7xl px-6 py-8">
+        <h2 className="font-heading text-xl font-bold text-foreground">
+          {locale === "az" ? `${c.name} üzrə ətraflı bələdçilər` : locale === "ru" ? `Подробные гиды — ${c.name_ru}` : `Detailed guides — ${c.name_en}`}
+        </h2>
+        <div className="mt-4 flex flex-wrap gap-2">
+          {COUNTRY_TOPICS.map((t) => (
+            <Link
+              key={t.slug}
+              href={`/${locale}/xaricde-tehsil/${c.slug}/${t.slug}`}
+              className="glass rounded-full px-4 py-1.5 text-sm text-foreground/80 transition-colors hover:bg-white/10 hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary"
+            >
+              {t.slug === "universitetler"
+                ? locale === "az" ? "Universitetlər" : locale === "ru" ? "Университеты" : "Universities"
+                : t.slug === "tibb"
+                  ? locale === "az" ? "Tibb təhsili" : locale === "ru" ? "Медицина" : "Medical education"
+                  : t.slug === "attestatla-qebul"
+                    ? locale === "az" ? "Attestatla qəbul" : locale === "ru" ? "По аттестату" : "Certificate admission"
+                    : t.slug === "tehsil-haqqi"
+                      ? locale === "az" ? "Təhsil haqqı" : locale === "ru" ? "Стоимость" : "Tuition fees"
+                      : t.slug === "teqaud"
+                        ? locale === "az" ? "Təqaüdlər" : locale === "ru" ? "Стипендии" : "Scholarships"
+                        : locale === "az" ? "Yaşayış xərcləri" : locale === "ru" ? "Расходы на проживание" : "Living costs"}
+            </Link>
+          ))}
+        </div>
+      </nav>
+
       {relatedArticle && (
         <section className="mx-auto max-w-3xl px-6 pb-12">
           <FadeInUp>
             <Link
-              href={`/az/bloq/${relatedArticle.slug}`}
+              href={`/${locale}/bloq/${relatedArticle.slug}`}
               className="glass shadow-brand-hover block h-full rounded-2xl p-6 transition-colors hover:bg-white/10"
             >
               <span className="text-sm font-semibold text-brand-primary">
-                {/* Açar sözlü anchor text — blog məqaləsinə kontekstual link */}
-                {seo?.primaryKeyword ?? c.name} haqqında ətraflı bələdçini oxu →
+                {/* Açar sözlü anchor text — blog məqaləsinə kontekstual link (lokallaşdırılmış) */}
+                {locale === "az"
+                  ? `${seo?.primaryKeyword ?? c.name} haqqında ətraflı bələdçini oxu →`
+                  : locale === "ru"
+                    ? `Читайте подробный гид о стране — ${c.name_ru} →`
+                    : `Read the detailed study guide about ${c.name_en} →`}
               </span>
               <p className="mt-1 text-sm text-foreground/70">{relatedArticle.excerpt}</p>
             </Link>

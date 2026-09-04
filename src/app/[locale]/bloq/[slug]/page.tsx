@@ -3,12 +3,15 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { ARTICLES, getArticleBySlugLocalized } from "@/data/articles";
+import { COUNTRY_TOPICS } from "@/data/country-topics";
+import { PROGRAMS, programName } from "@/data/country-programs";
 import { getCountryBySlug } from "@/lib/data/countries";
 import { FadeInUp } from "@/components/motion/FadeInUp";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
 import { CTASection } from "@/components/sections/CTASection";
 import { BlogFAQ } from "@/components/sections/BlogFAQ";
 import { AuthorBio } from "@/components/sections/AuthorBio";
+import { CommentSection } from "@/components/sections/CommentSection";
 import { siteUrl } from "@/lib/site";
 import { authorPersonJsonLd, editorialAuthor } from "@/data/site-authors";
 import { countryOfficialSources, officialUniversitySite } from "@/data/article-sources";
@@ -328,6 +331,11 @@ export default async function ArticlePage({ params }: PageProps) {
           </div>
         </div>
 
+        {/* seo.md 5.5 (P2): UGC sual-cavab — moderasiyalı şərh bölməsi. */}
+        <div className="mt-6">
+          <CommentSection articleSlug={article.slug} locale={locale} />
+        </div>
+
         {sources.length > 0 && (
           <section className="mt-14">
             <h2 className="font-heading text-2xl font-bold text-foreground">{s.sourcesTitle}</h2>
@@ -351,6 +359,47 @@ export default async function ArticlePage({ params }: PageProps) {
         )}
 
         <AuthorBio locale={locale} />
+
+        {/* seo.md 4 (P2): Əlaqəli səhifələr — məqalənin ölkəsinin silo topic-ləri
+            + ixtisas səhifələri. Bloqdan saytın struktur səhifələrinə kross-link
+            (PageRank yayma + crawler-in dərin səhifələri kəşf etməsi). */}
+        {relatedCountry && (
+          <div className="mt-12">
+            <h2 className="font-heading text-2xl font-bold text-foreground">
+              {locale === "az" ? "Əlaqəli səhifələr" : locale === "ru" ? "Связанные страницы" : "Related pages"}
+            </h2>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {COUNTRY_TOPICS.map((t) => (
+                <Link
+                  key={t.slug}
+                  href={`/${locale}/xaricde-tehsil/${relatedCountry.slug}/${t.slug}`}
+                  className="glass rounded-full px-4 py-1.5 text-sm text-foreground/80 transition-colors hover:bg-white/10 hover:text-foreground"
+                >
+                  {t.slug === "universitetler"
+                    ? locale === "az" ? `${relatedCountry.name} universitetləri` : locale === "ru" ? `Университеты ${relatedCountry.name_ru}` : `${relatedCountry.name_en} universities`
+                    : t.slug === "tibb"
+                      ? locale === "az" ? "Tibb təhsili" : locale === "ru" ? "Медицина" : "Medical education"
+                      : t.slug === "attestatla-qebul"
+                        ? locale === "az" ? "Attestatla qəbul" : locale === "ru" ? "По аттестату" : "Certificate admission"
+                        : t.slug === "tehsil-haqqi"
+                          ? locale === "az" ? "Təhsil haqqı" : locale === "ru" ? "Стоимость" : "Tuition fees"
+                          : t.slug === "teqaud"
+                            ? locale === "az" ? "Təqaüdlər" : locale === "ru" ? "Стипендии" : "Scholarships"
+                            : locale === "az" ? "Yaşayış xərcləri" : locale === "ru" ? "Расходы на проживание" : "Living costs"}
+                </Link>
+              ))}
+              {PROGRAMS.map((p) => (
+                <Link
+                  key={p.slug}
+                  href={`/${locale}/xaricde-tehsil/${relatedCountry.slug}/ixtisas/${p.slug}`}
+                  className="glass rounded-full px-4 py-1.5 text-sm text-foreground/80 transition-colors hover:bg-white/10 hover:text-foreground"
+                >
+                  {locale === "az" ? `${relatedCountry.name} ${programName(p, locale)}` : programName(p, locale)}
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
 
         {otherArticles.length > 0 && (
           <div className="mt-14">

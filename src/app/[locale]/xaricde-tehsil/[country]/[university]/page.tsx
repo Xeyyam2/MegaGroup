@@ -9,10 +9,10 @@ import { SuccessStories } from "@/components/sections/SuccessStories";
 import { CTASection } from "@/components/sections/CTASection";
 import { FadeInUp } from "@/components/motion/FadeInUp";
 import { getCountryBySlug } from "@/lib/data/countries";
-import { getUniversityBySlug } from "@/lib/data/universities";
+import { getUniversityBySlug, getUniversitiesByCountry } from "@/lib/data/universities";
 import { getUniversityContentByLocale } from "@/data/university-content";
 import { getArticleBySlugLocalized } from "@/data/articles";
-import { getFAQsByUniversity } from "@/lib/data/faqs";
+import { getFAQsByUniversityWithCountry } from "@/lib/data/faqs";
 import { getTestimonialsByUniversity } from "@/lib/data/testimonials";
 import { routing, type Locale } from "@/i18n/routing";
 import { universities as staticUniversities } from "@/data/universities";
@@ -130,8 +130,15 @@ export default async function UniversityPage({ params }: PageProps) {
   const c = await getCountryBySlug(country, locale);
   if (!u || !c) notFound();
 
-  const faqs = await getFAQsByUniversity(university, locale);
+  const faqs = await getFAQsByUniversityWithCountry(university, country, locale);
   const stories = await getTestimonialsByUniversity(university, locale);
+  // seo.md 4 (P0-1): "Əlaqəli universitetlər" — hər universitet səhifəsindən
+  // 8-12 internal link ilə PageRank-i ölkənin digər universitet profillərinə
+  // yayırıq (qebulol.az modeli). Qəbul sistemi ilə paylaşmayan köhnə
+  // universitetlər linklənir, səhifə özü də daxil olmamaqla.
+  const siblingUniversities = (await getUniversitiesByCountry(country, locale))
+    .filter((x) => x.slug !== u.slug)
+    .slice(0, 12);
   // Universitet haqqında bloq bələdçisi varsa, onu tap — səhifələrarası
   // kontekstual link (internal linking) üçün. Məqalə slug-ı universitet slug-ı ilə eynidir.
   const guide = getArticleBySlugLocalized(university, locale);
@@ -525,6 +532,42 @@ export default async function UniversityPage({ params }: PageProps) {
           <div className="mt-8">
             <FAQSection faqs={faqs} />
           </div>
+        </section>
+      )}
+
+      {/* seo.md 4 (P0-1): Əlaqəli universitetlər — internal linking şəbəkəsi. */}
+      {siblingUniversities.length > 0 && (
+        <section className="mx-auto max-w-7xl px-6 py-12">
+          <h2 className="font-heading text-3xl font-bold text-foreground">
+            {locale === "az"
+              ? `Digər ${c.name} Universitetləri`
+              : locale === "ru"
+                ? `Другие вузы — ${c.name_en}`
+                : `Other Universities in ${c.name_en}`}
+          </h2>
+          <p className="mt-2 max-w-3xl text-sm text-foreground/60">
+            {locale === "az"
+              ? "Attestatla və imtahansız qəbul imkanları olan digər universitetlər — qəbul şərtləri, təhsil haqqı və fakültələr üçün keçid edin."
+              : locale === "ru"
+                ? "Другие вузы с поступлением по аттестату и без экзаменов — условия, стоимость и факультеты."
+                : "Other universities with certificate-based, exam-free admission — requirements, tuition and faculties."}
+          </p>
+          <ul className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {siblingUniversities.map((x) => (
+              <li key={x.slug}>
+                <Link
+                  href={`/${locale}/xaricde-tehsil/${c.slug}/${x.slug}`}
+                  className="glass shadow-brand-hover block h-full rounded-2xl p-5 transition-colors hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary"
+                >
+                  <h3 className="font-heading text-base font-bold text-foreground">{x.name}</h3>
+                  <p className="mt-1 text-sm text-foreground/70">{x.city}</p>
+                  <span className="mt-3 inline-block text-sm font-semibold text-brand-primary">
+                    {locale === "az" ? "Profile bax →" : locale === "ru" ? "Смотреть →" : "View profile →"}
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </section>
       )}
 

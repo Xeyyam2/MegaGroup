@@ -1,12 +1,16 @@
 /**
- * Ölkə səhifələri üçün dərin AZ məzmunu (SEO üçün).
+ * Ölkə səhifələri üçün dərin məzmun (SEO üçün).
  *
  * Landing səhifələri `/xaricde-tehsil/[country]` rank olmalı olduğu üçün
  * 1500+ söz həcmində, açar sözlə zəngin, unikal məzmun tələb olunur.
- * Bu fayl yalnız AZ dilindədir (hədəf açar sözlər AZ-dildir).
+ * AZ variantı əsasdır; RU/EN variantları `country-content.ru.ts` və
+ * `country-content.en.ts` fayllarındadır (locale-ə uyğun getter aşağıda).
  *
  *countries.ts-i şişirtməmək üçün ayrı saxlanılır.
  */
+
+import { COUNTRY_CONTENT_RU } from "./country-content.ru";
+import { COUNTRY_CONTENT_EN } from "./country-content.en";
 
 export interface CostRow {
   label: string;
@@ -350,5 +354,11 @@ export const COUNTRY_CONTENT: Record<string, CountryContent> = {
 };
 
 export function getCountryContent(slug: string): CountryContent | undefined {
+  return COUNTRY_CONTENT[slug];
+}
+
+export function getCountryContentByLocale(slug: string, locale: string): CountryContent | undefined {
+  if (locale === "ru") return COUNTRY_CONTENT_RU[slug];
+  if (locale === "en") return COUNTRY_CONTENT_EN[slug];
   return COUNTRY_CONTENT[slug];
 }

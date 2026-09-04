@@ -3,6 +3,8 @@ import { locales } from "@/i18n/routing";
 import { getCountries } from "@/lib/data/countries";
 import { getAllUniversitySlugs } from "@/lib/data/universities";
 import { ARTICLES } from "@/data/articles";
+import { COUNTRY_TOPICS } from "@/data/country-topics";
+import { PROGRAMS } from "@/data/country-programs";
 import { siteUrl } from "@/lib/site";
 
 const baseUrl = siteUrl;
@@ -56,6 +58,24 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "weekly",
       priority: 0.8,
     });
+  }
+  // seo.md 9 (P1): ölkə alt-səhifə siloları (universitetler, tibb, tehsil-haqqi...).
+  for (const c of countries) {
+    for (const t of COUNTRY_TOPICS) {
+      pushAllLocales(entries, `/xaricde-tehsil/${c.slug}/${t.slug}`, {
+        lastModified: STATIC_LASTMOD,
+        changeFrequency: "weekly",
+        priority: 0.8,
+      });
+    }
+    // seo.md 2.3 (P1): ixtisas səhifələri.
+    for (const p of PROGRAMS) {
+      pushAllLocales(entries, `/xaricde-tehsil/${c.slug}/ixtisas/${p.slug}`, {
+        lastModified: STATIC_LASTMOD,
+        changeFrequency: "weekly",
+        priority: 0.7,
+      });
+    }
   }
   for (const u of universities) {
     pushAllLocales(entries, `/xaricde-tehsil/${u.country_slug}/${u.slug}`, {

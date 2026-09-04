@@ -132,5 +132,16 @@ const COUNTRY_SEO: Record<string, CountrySeo> = {
 };
 
 export function getCountrySeo(slug: string): CountrySeo | undefined {
-  return COUNTRY_SEO[slug];
+  const entry = COUNTRY_SEO[slug];
+  if (!entry) return undefined;
+  // seo.md 6.3 (P1): başlıqlardakı il statik yazılmır — server vaxtından
+  // inject olunur. Data faylında "2026" referans dəyər kimi qalır, hər
+  // build-da cari illə əvəz olunur (əl ilə dəyişmə ehtiyacı yoxdur).
+  const year = String(new Date().getFullYear());
+  return {
+    ...entry,
+    h1: entry.h1.replaceAll("2026", year),
+    title: entry.title.replaceAll("2026", year),
+    metaDescription: entry.metaDescription.replaceAll("2026", year),
+  };
 }

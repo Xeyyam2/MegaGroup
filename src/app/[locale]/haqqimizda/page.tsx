@@ -102,6 +102,55 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
         </div>
       </section>
 
+      {/* seo.md 5.1 + 8 (P2): Trust / E-E-A-T — şəffaf biznes məlumatı.
+           YMYL (pul/təhsil) sahəsində VÖEN + ünvan açıq mətndə göstərilir.
+           Data müvəqqəti nümunədir — real hüquqi məlumatla əvəz edin. */}
+      <section className="mx-auto max-w-4xl px-6 py-12">
+        <div className="glass-strong rounded-3xl p-8">
+          <h2 className="font-heading text-2xl font-bold text-foreground sm:text-3xl">
+            {locale === "az" ? "Rəsmi Məlumat (Etibar)" : locale === "ru" ? "Официальная информация" : "Official Information"}
+          </h2>
+          <p className="mt-3 text-sm text-foreground/60">
+            {locale === "az"
+              ? "MegaGroup dövlət qeydiyyatından keçmiş, lisenziyalı təhsil konsaltinqi şirkətidir."
+              : locale === "ru"
+                ? "MegaGroup — зарегистрированная лицензированная образовательная консалтинговая компания."
+                : "MegaGroup is a registered, licensed education consulting company."}
+          </p>
+          <dl className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div>
+              <dt className="text-xs uppercase tracking-wide text-foreground/50">{locale === "az" ? "VÖEN" : "VAT / VÖEN"}</dt>
+              <dd className="mt-1 font-medium text-foreground">0000000000</dd>
+            </div>
+            <div>
+              <dt className="text-xs uppercase tracking-wide text-foreground/50">{locale === "az" ? "Hüquqi ünvan" : locale === "ru" ? "Юр. адрес" : "Legal address"}</dt>
+              <dd className="mt-1 font-medium text-foreground">
+                {locale === "az" ? "Bakı, Məhəmməd Naxçıvani küç." : locale === "ru" ? "Баку, ул. М. Нахичевани" : "Baku, M. Nakhchivani st."}
+              </dd>
+            </div>
+            <div>
+              <dt className="text-xs uppercase tracking-wide text-foreground/50">{locale === "az" ? "Lisenziya" : locale === "ru" ? "Лицензия" : "License"}</dt>
+              <dd className="mt-1 font-medium text-foreground">
+                {locale === "az" ? "AZ — Təhsil Xidmətləri Lisenziyası" : locale === "ru" ? "AZ — Лицензия на образовательные услуги" : "AZ — Education Services License"}
+              </dd>
+            </div>
+            <div>
+              <dt className="text-xs uppercase tracking-wide text-foreground/50">{locale === "az" ? "Fəaliyyət" : locale === "ru" ? "Деятельность" : "Activity"}</dt>
+              <dd className="mt-1 font-medium text-foreground">
+                {locale === "az" ? "Xaricdə təhsil üzrə konsaltinq və qəbul dəstəyi" : locale === "ru" ? "Консалтинг по обучению за рубежом" : "Study abroad consulting & admission support"}
+              </dd>
+            </div>
+          </dl>
+          <p className="mt-6 rounded-xl bg-brand-primary/5 p-4 text-sm text-foreground/70">
+            {locale === "az"
+              ? "Hüquqi məlumatlar açıq şəkildə yoxlana bilər. Tələbələrin real qəbul məktubları Qəbullarımız bölməsində dərc olunur — söz yox, sənəd."
+              : locale === "ru"
+                ? "Юридические данные можно проверить публично. Реальные письма о зачислении публикуются в разделе «Наши зачисления»."
+                : "Legal details are publicly verifiable. Students' real acceptance letters are published in the 'Our Acceptances' section — proof, not promises."}
+          </p>
+        </div>
+      </section>
+
       <CTASection />
     </>
   );
