@@ -21,6 +21,60 @@ import { siteUrl } from "@/lib/site";
 export const revalidate = 3600;
 export const dynamic = "force-static";
 
+// Tədris dilləri bazada bir dildə saxlanılır (adətən AZ forması).
+// Qısa faktlar blokunda hər lokal üçün doğru dil adı göstərilir.
+const LANGUAGE_IDS: Record<Locale, Record<string, string>> = {
+  az: {
+    english: "İngilis dili",
+    russian: "Rus dili",
+    turkish: "Türk dili",
+    german: "Alman dili",
+    polish: "Polyak dili",
+    ukrainian: "Ukrayna dili",
+    kazakh: "Qazax dili",
+    georgian: "Gürcü dili",
+  },
+  ru: {
+    english: "Английский",
+    russian: "Русский",
+    turkish: "Турецкий",
+    german: "Немецкий",
+    polish: "Польский",
+    ukrainian: "Украинский",
+    kazakh: "Казахский",
+    georgian: "Грузинский",
+  },
+  en: {
+    english: "English",
+    russian: "Russian",
+    turkish: "Turkish",
+    german: "German",
+    polish: "Polish",
+    ukrainian: "Ukrainian",
+    kazakh: "Kazakh",
+    georgian: "Georgian",
+  },
+};
+
+function localizeLanguage(raw: string, locale: Locale): string {
+  // Diakritik işarələri silirik: "İ".toLowerCase() JS-də "i" + birləşən nöqtə
+  // (U+0307) verir və "ingilis"-i tapmır — normalize etmədən müqayisə səhvdir.
+  const s = raw.toLowerCase().replace(/[\u0300-\u036f]/g, "");
+  const pick = (keys: string[], id: string): string | null =>
+    keys.some((k) => s.includes(k)) ? LANGUAGE_IDS[locale][id] ?? raw : null;
+  return (
+    pick(["ingilis", "english", "английск"], "english") ??
+    pick(["rus", "russian", "русск"], "russian") ??
+    pick(["türk", "turk", "türkiyə"], "turkish") ??
+    pick(["alman", "german", "немецк"], "german") ??
+    pick(["polyak", "polish", "польск"], "polish") ??
+    pick(["ukrayn", "ukrain", "украинск"], "ukrainian") ??
+    pick(["qazax", "kazakh", "казахск"], "kazakh") ??
+    pick(["gürcü", "gurcu", "georgian", "грузинск"], "georgian") ??
+    raw
+  );
+}
+
 interface PageProps {
   params: Promise<{ locale: string; country: string; university: string }>;
 }
@@ -134,6 +188,81 @@ export default async function UniversityPage({ params }: PageProps) {
     en: "Detailed university guide",
   };
 
+  // AEO: qısa faktlar bloku — AI/axtarış sistemləri üçün asan çıxarış olunan
+  // konkret məlumat (şəhər, qiymət, dil, müddət). Yalnız mövcud datadan
+  // götürülür — yeni/uydurulmuş rəqəm yoxdur.
+  const LBL: Record<Locale, { title: string; city: string; tuition: string; language: string; duration: string; programs: string; year: string }> = {
+    az: {
+      title: "Qısa Faktlar",
+      city: "Şəhər",
+      tuition: "Təhsil haqqı (USD/il)",
+      language: "Tədris dili",
+      duration: "Proqram müddəti",
+      programs: "Fakültə / proqram",
+      year: "il",
+    },
+    ru: {
+      title: "Основные факты",
+      city: "Город",
+      tuition: "Стоимость обучения (USD/год)",
+      language: "Язык обучения",
+      duration: "Длительность программы",
+      programs: "Факультетов / программ",
+      year: "лет",
+    },
+    en: {
+      title: "Quick Facts",
+      city: "City",
+      tuition: "Tuition (USD/year)",
+      language: "Language of instruction",
+      duration: "Program duration",
+      programs: "Faculties / programs",
+      year: "years",
+    },
+  };
+  const lbl = LBL[locale] ?? LBL.az;
+
+  const factRows: { label: string; value: string }[] = [];
+  if (u.city) factRows.push({ label: lbl.city, value: `${u.city}, ${c.name}` });
+  if (u.fees) {
+    const min = u.fees.tuition_min_usd ?? 0;
+    const max = u.fees.tuition_max_usd ?? 0;
+    if (min > 0 || max > 0) {
+      const range = max > min ? `$${min}–$${max}` : `$${Math.max(min, max)}`;
+      factRows.push({ label: lbl.tuition, value: `${range} / ${locale === "az" ? "il" : locale === "ru" ? "год" : "yr"}` });
+    }
+  }
+  const languages = [
+    ...new Set(u.faculties.map((f) => localizeLanguage(f.language, locale)).filter(Boolean)),
+  ];
+  if (languages.length) {
+    factRows.push({ label: lbl.language, value: languages.join(", ") });
+  }
+  const durations = u.faculties.map((f) => f.duration_years).filter((n) => n > 0);
+  if (durations.length) {
+    const minDur = Math.min(...durations);
+    const maxDur = Math.max(...durations);
+    factRows.push({
+      label: lbl.duration,
+      value: `${minDur === maxDur ? minDur : `${minDur}–${maxDur}`} ${lbl.year}`,
+    });
+  }
+  if (u.faculties.length) {
+    factRows.push({ label: lbl.programs, value: String(u.faculties.length) });
+  }
+
+  // AEO: speakable — səhifənin ən yaxşı qısa cavab hissəsi (AI/səsli
+  // assistantlar üçün), giriş paraqrafları blokuna işarə edir.
+  const speakableJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    url: `${siteUrl}/${locale}/xaricde-tehsil/${c.slug}/${u.slug}`,
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: [".uni-quick-answer"],
+    },
+  };
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
@@ -141,6 +270,7 @@ export default async function UniversityPage({ params }: PageProps) {
       {faqJsonLd && (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       )}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableJsonLd) }} />
 
       <nav aria-label={crumbLabel} className="mx-auto max-w-7xl px-6 pt-6">
         <ol className="flex flex-wrap items-center gap-2 text-xs text-foreground/50">
@@ -181,9 +311,25 @@ export default async function UniversityPage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* Giriş paraqrafları — ilk 100 sözdə açar söz (SEO üçün kritik). */}
+      {/* AEO: Qısa faktlar — strukturlaşdırılmış, çıxarışı asan məlumat. */}
+      {factRows.length > 0 && (
+        <section className="mx-auto max-w-7xl px-6 pt-10">
+          <h2 className="font-heading text-xl font-bold text-foreground">{lbl.title}</h2>
+          <dl className="glass mt-4 grid grid-cols-1 gap-x-8 gap-y-4 rounded-2xl p-6 sm:grid-cols-2 lg:grid-cols-3">
+            {factRows.map((row) => (
+              <div key={row.label}>
+                <dt className="text-xs uppercase tracking-wide text-foreground/50">{row.label}</dt>
+                <dd className="mt-1 font-medium text-foreground">{row.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      )}
+
+      {/* Giriş paraqrafları — ilk 100 sözdə açar söz (SEO üçün kritik).
+          uni-quick-answer: speakable/AEO çıxarışı üçün hədəf blok. */}
       {content?.intro && content.intro.length > 0 && (
-        <section className="mx-auto max-w-3xl px-6 py-10">
+        <section className="uni-quick-answer mx-auto max-w-3xl px-6 py-10">
           <div className="space-y-4 text-base leading-relaxed text-foreground/80">
             {content.intro.map((p, i) => (
               <p key={i}>{p}</p>
