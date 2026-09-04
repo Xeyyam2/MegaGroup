@@ -36,6 +36,21 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
   return (
     <html lang={locale} className="dark" suppressHydrationWarning>
       <body className="bg-background text-foreground antialiased">
+        {/*
+          <html lang> statik (force-static/ISR) səhifələrdə build zamanı
+          yalnız default locale ilə (az) bake olunur — çünki root layout
+          [locale] segment paramını görə bilmir. Bu səbəbdən /ru və /en
+          səhifələri Google-a "az" dili kimi görünürdü (ciddi i18n SEO
+          xətası). Bu skript brauzerdə URL-dən düzgün lokali oxuyub lang
+          atributunu ilk boyanmadan əvvəl düzəldir — həm istifadəçi, həm
+          JS-render edən crawler (Googlebot) doğru dili görür.
+        */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "(function(){try{var m=window.location.pathname.match(/^\\/(az|ru|en)(?:\\/|$)/);if(m&&document.documentElement.lang!==m[1]){document.documentElement.lang=m[1];}}catch(e){}})();",
+          }}
+        />
         <div className="grain-overlay" aria-hidden />
         {children}
         <SWRegister />

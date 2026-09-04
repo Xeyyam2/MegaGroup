@@ -53,8 +53,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { locale } = await params;
   const m = META[locale as Locale] ?? META.az;
   return {
-    title: m.title,
-    alternates: { canonical: `${siteUrl}/${locale}/bloq` },
+    title: `${m.title} | MegaGroup`,
+    alternates: {
+      canonical: `${siteUrl}/${locale}/bloq`,
+      languages: {
+        az: `${siteUrl}/az/bloq`,
+        ru: `${siteUrl}/ru/bloq`,
+        en: `${siteUrl}/en/bloq`,
+        "x-default": `${siteUrl}/az/bloq`,
+      },
+    },
     openGraph: {
       title: m.title,
       type: "website",

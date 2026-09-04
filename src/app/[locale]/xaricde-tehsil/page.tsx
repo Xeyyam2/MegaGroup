@@ -19,10 +19,10 @@ export async function generateMetadata({
   const locale = (await params).locale as Locale;
   const title =
     locale === "az"
-      ? "Xaricdə Təhsil — Türkiyə, Rusiya, Gürcüstan, Ukrayna, Qazaxıstan"
+      ? "Xaricdə Təhsil — Türkiyə, Rusiya, Gürcüstan, Ukrayna, Qazaxıstan | MegaGroup"
       : locale === "ru"
-        ? "Учеба за рубежом"
-        : "Study Abroad";
+        ? "Учеба за рубежом | MegaGroup"
+        : "Study Abroad | MegaGroup";
   return {
     title,
     description:

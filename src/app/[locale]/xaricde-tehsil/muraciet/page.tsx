@@ -14,8 +14,16 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const locale = (await params).locale as Locale;
   return {
-    title: locale === "az" ? "Müraciət" : locale === "ru" ? "Заявка" : "Apply",
-    alternates: { canonical: `${siteUrl}/${locale}/xaricde-tehsil/muraciet` },
+    title: `${locale === "az" ? "Müraciət" : locale === "ru" ? "Заявка" : "Apply"} | MegaGroup`,
+    alternates: {
+      canonical: `${siteUrl}/${locale}/xaricde-tehsil/muraciet`,
+      languages: {
+        az: `${siteUrl}/az/xaricde-tehsil/muraciet`,
+        ru: `${siteUrl}/ru/xaricde-tehsil/muraciet`,
+        en: `${siteUrl}/en/xaricde-tehsil/muraciet`,
+        "x-default": `${siteUrl}/az/xaricde-tehsil/muraciet`,
+      },
+    },
   };
 }
 

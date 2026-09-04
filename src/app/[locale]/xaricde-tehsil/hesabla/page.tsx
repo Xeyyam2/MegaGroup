@@ -16,8 +16,16 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const locale = (await params).locale as Locale;
   return {
-    title: locale === "az" ? "Xərc Kalkulatoru" : locale === "ru" ? "Калькулятор расходов" : "Cost Calculator",
-    alternates: { canonical: `${siteUrl}/${locale}/xaricde-tehsil/hesabla` },
+    title: `${locale === "az" ? "Xərc Kalkulatoru" : locale === "ru" ? "Калькулятор расходов" : "Cost Calculator"} | MegaGroup`,
+    alternates: {
+      canonical: `${siteUrl}/${locale}/xaricde-tehsil/hesabla`,
+      languages: {
+        az: `${siteUrl}/az/xaricde-tehsil/hesabla`,
+        ru: `${siteUrl}/ru/xaricde-tehsil/hesabla`,
+        en: `${siteUrl}/en/xaricde-tehsil/hesabla`,
+        "x-default": `${siteUrl}/az/xaricde-tehsil/hesabla`,
+      },
+    },
   };
 }
 

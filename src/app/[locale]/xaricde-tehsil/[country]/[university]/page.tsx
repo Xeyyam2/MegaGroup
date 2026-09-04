@@ -37,15 +37,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const u = await getUniversityBySlug(university, locale);
   if (!u) return { title: locale === "az" ? "Tapılmadı" : "Not found" };
   const titleSuffix =
-    locale === "az" ? "Attestatla Qəbul" : locale === "ru" ? "Поступление" : "Admission";
-  const descriptions = {
+    locale === "az" ? "Attestatla Qəbul" : locale === "ru" ? "Поступление" : "Admission";  const descriptions = {
     az: `${u.name} (${u.city}) — attestatla, imtahansız qəbul. Fakültələr, təhsil haqqı, qəbul şərtləri və xərclər. MegaGroup — Xaricdə Təhsil Mərkəzi.`,
     ru: `${u.name} (${u.city}) — поступление по аттестату, без экзаменов. Факультеты, стоимость, условия поступления. MegaGroup.`,
     en: `${u.name} (${u.city}) — certificate-based admission, exam-free. Faculties, tuition, requirements. MegaGroup — Study Abroad Center.`,
   };
   const path = `xaricde-tehsil/${u.country_slug}/${u.slug}`;
   return {
-    title: `${u.name} — ${titleSuffix}`,
+    title: `${u.name} — ${titleSuffix} | MegaGroup`,
     description: descriptions[locale],
     alternates: {
       canonical: `${siteUrl}/${locale}/${path}`,

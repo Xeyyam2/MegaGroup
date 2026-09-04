@@ -8,8 +8,9 @@ import { siteUrl } from "@/lib/site";
 const baseUrl = siteUrl;
 
 // Sitemap-də real lastModified istifadə olunur — `new Date()` deyil.
-// Statik səhifələrin son yenilənmə tarixi.
-const STATIC_LASTMOD = new Date("2026-07-01");
+// Statik səhifələrin son yenilənmə tarixi (2026-07 sonunda ana səhifə,
+// ölkə və universitet profilləri böyük məzmun yeniləməsindən keçib).
+const STATIC_LASTMOD = new Date("2026-08-01");
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const countries = await getCountries("az");

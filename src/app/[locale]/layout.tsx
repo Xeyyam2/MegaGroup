@@ -51,7 +51,13 @@ export async function generateMetadata({
   };
   const t = titles[locale] ?? titles.az;
   return {
-    title: { default: t.title, template: `%s | ${t.title}` },
+    // title.template BİLƏRƏKDƏN çıxarılıb: page-lər öz metadata-sında
+    // tam, vahid brendli title qaytarır ("… | MegaGroup"). Template saxlanıb
+    // page-lərin title-na əlavə edilsəydi, ikiqat brend yaranırdı
+    // ("… | MegaGroup | MegaGroup — Xaricdə Təhsil Mərkəzi") və title 120+
+    // simvola uzanırdı (SERP-də truncation). default yalnız metadata-sız
+    // səhifələr (404, error) üçündür.
+    title: { default: t.title, template: "%s" },
     description: t.desc,
     openGraph: {
       title: t.title,
