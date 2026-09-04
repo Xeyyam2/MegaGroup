@@ -104,6 +104,16 @@ const article: Article = {
       ],
     },
     {
+      heading: "TSMU by numbers: history and international recognition",
+      summary:
+        "TSMU was founded in 1918 and has trained more than 40,000 doctors over more than 100 years of history. It ranks 8th among Georgia's 55 higher-education institutions and appears on WHO/FAIMER lists.",
+      paragraphs: [
+        "Tbilisi State Medical University was founded in 1918 and is Georgia's oldest and largest medical university. Over more than 100 years of activity it has trained over 40,000 doctors — many of whom work in different countries of the world today.",
+        "Among Georgia's 55 higher-education institutions, TSMU ranks 8th and is considered the country's number one university for medical education. The university appears on the WHO, FAIMER and ECFMG lists — the official guarantee that its diploma is recognized internationally.",
+        "TSMU's English-language MD program is especially popular among students preparing for licensing exams in the USA, UK and other countries (USMLE, PLAB).",
+      ],
+    },
+    {
       heading: "How MegaGroup helps with admission to TSMU",
       summary:
         "MegaGroup manages the entire process: certificate and document preparation, university application, acceptance letter, student status in Georgia and accommodation in Tbilisi. The initial consultation is free.",
@@ -142,6 +152,11 @@ const article: Article = {
       question: "How much does it cost to live in Tbilisi?",
       answer:
         "Monthly living costs (dormitory, food, transport) are approximately $220–420 — significantly lower than in Western Europe.",
+    },
+    {
+      question: "How many doctors has TSMU trained and on which international lists does it appear?",
+      answer:
+        "Since 1918 TSMU has trained more than 40,000 doctors. It is listed by WHO, FAIMER and ECFMG and ranks 8th among Georgia's 55 higher-education institutions.",
     },
   ],
 };

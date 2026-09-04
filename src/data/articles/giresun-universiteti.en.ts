@@ -106,6 +106,16 @@ const article: Article = {
       ],
     },
     {
+      heading: "Giresun University by numbers: history and rankings",
+      summary:
+        "Giresun University was founded in 2006 and today teaches more than 25,000 students — one of the largest universities in the Black Sea region. In the international CWUR 2025 ranking it ranks within the world's top 9.1%.",
+      paragraphs: [
+        "Giresun University was established in 2006, though its roots go back to faculties opened in 1992. Today it teaches more than 25,000 students across 13 faculties and several colleges, making it one of the region's largest higher-education institutions.",
+        "Although it is a young university internationally, Giresun University entered the top 9.1% of more than 21,000 universities worldwide in the CWUR 2025 ranking and placed 43rd among Turkish universities.",
+        "What matters for international students: the university keeps admitting foreign applicants to competitive programs such as medicine and dentistry — and direct certificate-based admission makes it especially accessible.",
+      ],
+    },
+    {
       heading: "How MegaGroup helps with admission",
       summary:
         "MegaGroup manages the entire process from document preparation to enrollment, student visa and accommodation. The initial consultation is completely free.",
@@ -144,6 +154,11 @@ const article: Article = {
       question: "Is a Giresun University diploma recognized in Azerbaijan?",
       answer:
         "Yes, diplomas from Turkish universities are recognized by YÖK and nostrified in Azerbaijan.",
+    },
+    {
+      question: "When was Giresun University founded and how many students does it have?",
+      answer:
+        "Giresun University was founded in 2006 and today teaches more than 25,000 students across 13 faculties. In the CWUR 2025 ranking it ranks within the world's top 9.1%.",
     },
   ],
 };

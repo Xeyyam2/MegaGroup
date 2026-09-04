@@ -103,6 +103,16 @@ const article: Article = {
       ],
     },
     {
+      heading: "Krakov Tibb Universiteti rəqəmlərlə: tarix və ənənə",
+      summary:
+        "Krakov Tibb Universiteti 1364-cü ildə yaradılmış Yagellon Universitetinin tibb məktəbidir — Polşanın ən qədim, dünyanın isə fasiləsiz fəaliyyət göstərən ən qədim universitetlərindəndir.",
+      paragraphs: [
+        "Yagellon Universiteti 1364-cü ildə kral III Kazimir tərəfindən yaradılıb və Polşanın ən qədim, dünyanın isə fasiləsiz fəaliyyət göstərən ən qədim universitetlərindən biridir. Onun tibb kolleci 600 ildən artıq tibb təhsili ənənəsinə malikdir.",
+        "Universitetin məşhur məzunları arasında Nikolay Kopernik və Papa II İohann Pavel də var — bu, Yagellon Universitetinin əsrlər boyu Avropa elminə təsirinin ən parlaq sübutudur.",
+        "Krakov Tibb Universitetinin ingilis dilində tibb və əczaçılıq proqramları müasir Avropa standartlarına uyğundur və diplom bütün EU ölkələrində tanınır.",
+      ],
+    },
+    {
       heading: "MegaGroup Krakov Tibb Universitetinə qəbulda necə kömək edir?",
       summary:
         "MegaGroup sənədlərin hazırlanması, müraciət, qəbul məktubu, D tipli tələbə vizası və Krakovda yerləşmə daxil bütün prosesi idarə edir. İlkin konsultasiya pulsuzdur.",
@@ -141,6 +151,11 @@ const article: Article = {
       question: "Krakov Tibb Universiteti ilə Yagellon Universiteti eynidirmi?",
       answer:
         "Krakov Tibb Universiteti Yagellon Universitetinin Tibb Kollecidir — 1364-cü ildə yaradılmış Avropanın ən qədim universitetlərinin tibb məktəbi.",
+    },
+    {
+      question: "Krakov Tibb Universitetinin tarixi nə qədər qədimdir?",
+      answer:
+        "Krakov Tibb Universiteti 1364-cü ildə yaradılmış Yagellon Universitetinin tibb məktəbidir — Polşanın ən qədim universiteti. Məzunları arasında Nikolay Kopernik və Papa II İohann Pavel var.",
     },
   ],
 };

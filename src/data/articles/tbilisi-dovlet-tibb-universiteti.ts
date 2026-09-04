@@ -104,6 +104,16 @@ const article: Article = {
       ],
     },
     {
+      heading: "TSMU rəqəmlərlə: tarix və beynəlxalq tanınma",
+      summary:
+        "TSMU 1918-ci ildə yaradılıb və 100 ildən artıq tarixi ərzində 40 mindən çox həkim yetişdirib. Gürcüstanın 55 ali məktəbi arasında 8-ci yerdədir və WHO/FAIMER siyahısındadır.",
+      paragraphs: [
+        "Tbilisi Dövlət Tibb Universiteti 1918-ci ildə yaradılıb və Gürcüstanın ən qədim, ən böyük tibb universitetidir. 100 ildən artıq fəaliyyəti ərzində universitet 40 mindən çox həkim yetişdirib — onların bir çoxu bu gün dünyanın müxtəlif ölkələrində çalışır.",
+        "Gürcüstanın 55 ali məktəbi arasında TSMU 8-ci yerdə qərarlaşıb və ölkənin tibb təhsilində bir nömrəli universiteti hesab olunur. Universitet WHO, FAIMER və ECFMG siyahılarındadır — bu, diplomun beynəlxalq səviyyədə tanınmasının rəsmi təminatıdır.",
+        "TSMU-nun ingilis dilində MD proqramı ABŞ, Böyük Britaniya və digər ölkələrin lisenziya imtahanlarına (USMLE, PLAB) hazırlaşan tələbələr arasında xüsusilə populyardır.",
+      ],
+    },
+    {
       heading: "MegaGroup TSMU-ya qəbulda necə kömək edir?",
       summary:
         "MegaGroup attestat və sənədlərin hazırlanması, universitetə müraciət, qəbul məktubu, tələbə statusu və Tbilisidə yerləşmə daxil bütün prosesi idarə edir. İlkin konsultasiya pulsuzdur.",
@@ -142,6 +152,11 @@ const article: Article = {
       question: "Tbilisidə yaşayış xərcləri nə qədərdir?",
       answer:
         "Aylıq yaşayış xərcləri (yataqxana, qida, nəqliyyat) təxminən 220-420 USD təşkil edir — Qərbi Avropadan xeyli aşağıdır.",
+    },
+    {
+      question: "TSMU neçə həkim yetişdirib və hansı beynəlxalq siyahılardadır?",
+      answer:
+        "TSMU 1918-ci ildən 40 mindən çox həkim yetişdirib. Universitet WHO, FAIMER və ECFMG siyahılarındadır və Gürcüstanın 55 ali məktəbi arasında 8-ci yerdədir.",
     },
   ],
 };

@@ -103,6 +103,16 @@ const article: Article = {
       ],
     },
     {
+      heading: "Kyiv Medical University by numbers: history and international students",
+      summary:
+        "Kyiv Medical University was founded in 1992 and is the first private university in the former USSR. Today about 35% of its students are international students from more than 40 countries.",
+      paragraphs: [
+        "Kyiv Medical University was founded in 1992 and went down in history as the first private university in the former Soviet space. For more than 30 years it has been teaching medicine and dentistry, with over 3,500 students.",
+        "Approximately 35% of the university's students are international — they come from more than 40 countries. Teaching is conducted entirely in English, attracting students from Europe to America.",
+        "Since 2024 the university has built a new campus in Poland — to ensure continuity of education during the war. This creates an additional layer of security for international students.",
+      ],
+    },
+    {
       heading: "How MegaGroup helps with admission to Kyiv Medical University",
       summary:
         "MegaGroup manages the entire process: document preparation, application, acceptance letter and accommodation, and continuously monitors the safety situation. The initial consultation is free.",
@@ -141,6 +151,11 @@ const article: Article = {
       question: "How do I get a student visa for Ukraine?",
       answer:
         "Based on the university's invitation, a student visa is issued at the Ukrainian embassy in Baku. MegaGroup manages this process.",
+    },
+    {
+      question: "When was Kyiv Medical University founded and how many international students does it have?",
+      answer:
+        "Founded in 1992, it was the first private university in the former USSR. About 35% of its students are international students from more than 40 countries.",
     },
   ],
 };

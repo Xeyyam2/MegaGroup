@@ -103,6 +103,16 @@ const article: Article = {
       ],
     },
     {
+      heading: "SPbU by numbers: history, rankings and alumni",
+      summary:
+        "SPbU was founded in 1724 by Peter the Great and is Russia's oldest university. Its alumni include two Russian presidents, six prime ministers, Nobel laureates and Fields Medalists.",
+      paragraphs: [
+        "Saint Petersburg State University was founded by decree of Peter the Great in 1724 and is Russia's oldest higher-education institution. It ranks in the 501-600 band of the Academic Ranking of World Universities (ARWU 2026).",
+        "SPbU's alumni include two presidents of Russia, six prime ministers and more than 600 academicians. Nobel laureates Ivan Pavlov and Joseph Brodsky, as well as Fields Medalists Grigori Perelman and Stanislav Smirnov, are connected to the university.",
+        "Over its 300-year history, SPbU has played a key role in shaping Russian science and its law school — and today its law and philology faculties remain among the strongest in the country.",
+      ],
+    },
+    {
       heading: "How MegaGroup helps with admission to SPbU",
       summary:
         "MegaGroup manages the entire process: document preparation, university application, acceptance letter, student visa and accommodation in Saint Petersburg. The initial consultation is free.",
@@ -141,6 +151,11 @@ const article: Article = {
       question: "How does MegaGroup help with admission to SPbU?",
       answer:
         "MegaGroup manages the entire process: document preparation, application, acceptance letter, student visa and accommodation. The initial consultation is free.",
+    },
+    {
+      question: "When was SPbU founded and who are its famous alumni?",
+      answer:
+        "SPbU was founded in 1724 — Russia's oldest university. Its alumni include two Russian presidents, Nobel laureates Ivan Pavlov and Joseph Brodsky, and Fields Medalists Perelman and Smirnov.",
     },
   ],
 };

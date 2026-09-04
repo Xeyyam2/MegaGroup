@@ -103,6 +103,16 @@ const article: Article = {
       ],
     },
     {
+      heading: "Kiev Tibb Universiteti rəqəmlərlə: tarix və beynəlxalq tələbələr",
+      summary:
+        "Kiev Tibb Universiteti 1992-ci ildə yaradılıb və keçmiş SSRİ məkanında ilk özəl universitetdir. Bu gün tələbələrinin ~35%-i 40-dan çox ölkədən gələn beynəlxalq tələbələrdir.",
+      paragraphs: [
+        "Kiev Tibb Universiteti 1992-ci ildə yaradılıb və keçmiş Sovet məkanında ilk özəl universitet olaraq tarixə düşüb. 30 ildən çoxdur ki, tibb və stomatologiya təhsili verir və 3,500-dən çox tələbəsi var.",
+        "Universitetin tələbələrinin təxminən 35%-i beynəlxalq tələbələrdir — onlar 40-dan çox ölkədən gəlir. Tədris tam ingilis dilində aparılır və bu, Avropadan Amerikaya qədər tələbələri cəlb edir.",
+        "2024-cü ildən etibarən universitet Polşada yeni kampus qurub — müharibə şəraitində təhsilin davamlılığını təmin etmək üçün. Bu, beynəlxalq tələbələr üçün əlavə təhlükəsizlik qatı yaradır.",
+      ],
+    },
+    {
       heading: "MegaGroup Kiev Tibb Universitetinə qəbulda necə kömək edir?",
       summary:
         "MegaGroup sənədlərin hazırlanması, müraciət, qəbul məktubu və yerləşmə daxil bütün prosesi idarə edir və təhlükəsizlik vəziyyətini mütəmadi izləyir. İlkin konsultasiya pulsuzdur.",
@@ -141,6 +151,11 @@ const article: Article = {
       question: "Ukraynaya tələbə vizası necə alınır?",
       answer:
         "Universitetin dəvət məktubu əsasında Bakıdakı Ukrayna səfirliyində tələbə vizası alınır. MegaGroup bu prosesi idarə edir.",
+    },
+    {
+      question: "Kiev Tibb Universiteti nə vaxt yaradılıb və neçə beynəlxalq tələbəsi var?",
+      answer:
+        "Universitet 1992-ci ildə yaradılıb — keçmiş SSRİ məkanında ilk özəl universitet. Tələbələrinin təxminən 35%-i 40-dan çox ölkədən gələn beynəlxalq tələbələrdir.",
     },
   ],
 };

@@ -105,6 +105,16 @@ const article: Article = {
       ],
     },
     {
+      heading: "TUM by numbers: history and rankings",
+      summary:
+        "TUM was founded in 1868 and ranks among the world's best 25 universities in QS World 2026 — the number one university in the European Union. 19 Nobel laureates and 26 Leibniz Prize winners are linked to TUM.",
+      paragraphs: [
+        "The Technical University of Munich was founded in 1868 as a polytechnic school and has grown into one of Europe's strongest technical universities. In the QS World University Rankings 2026, TUM ranks 25th worldwide — the highest figure in the European Union.",
+        "The university has been awarded Germany's 'University of Excellence' title in 2006, 2012, 2019 and 2026 — a title given only to the country's strongest universities. 19 Nobel laureates and 26 Leibniz Prize winners are linked to TUM.",
+        "In the QS Europe 2026 ranking, TUM takes 12th place in Europe. Close cooperation with Siemens, BMW, Bosch and Google gives students the chance to take part in real industry projects during their studies.",
+      ],
+    },
+    {
       heading: "How MegaGroup helps with admission to TUM",
       summary:
         "MegaGroup manages the entire process: choosing Studienkolleg, apostilling and translating documents, applying via Uni-assist, language preparation and opening a blocked account. The initial consultation is free.",
@@ -143,6 +153,11 @@ const article: Article = {
       question: "What are the career prospects for TUM graduates?",
       answer:
         "TUM graduates work at the world's leading technology companies. After graduation, an 18-month job-seeking visa is granted.",
+    },
+    {
+      question: "What position does TUM hold in world rankings?",
+      answer:
+        "TUM ranks 25th worldwide in QS World 2026 — the number one university in the European Union. It has been awarded the 'University of Excellence' title in 2006, 2012, 2019 and 2026.",
     },
   ],
 };

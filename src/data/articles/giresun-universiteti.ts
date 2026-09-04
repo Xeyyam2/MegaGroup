@@ -106,6 +106,16 @@ const article: Article = {
       ],
     },
     {
+      heading: "Giresun Universiteti rəqəmlərlə: tarix və reytinqlər",
+      summary:
+        "Giresun Universiteti 2006-cı ildə qurulub və bu gün 25 mindən çox tələbəsi ilə Qara dəniz regionunun ən böyük universitetlərindəndir. CWUR 2025 beynəlxalq reytinqində dünya universitetlərinin top 9.1%-inə daxildir.",
+      paragraphs: [
+        "Giresun Universiteti 2006-cı ildə yaradılsa da, kökləri 1992-ci ildə açılan fakültələrə gedib çıxır. Bu gün universitet 13 fakültə və bir neçə kollecdə 25 mindən çox tələbəyə təhsil verir və regionun ən böyük ali təhsil müəssisələrindəndir.",
+        "Beynəlxalq aləmdə gənc universitet hesab edilsə də, Giresun Universiteti CWUR 2025 reytinqində dünya universitetlərinin top 9.1%-inə daxil olub və Türkiyə universitetləri arasında 43-cü yerdə qərarlaşıb.",
+        "Xarici tələbələr üçün əhəmiyyətlisi odur ki, universitet tibb və stomatologiya kimi rəqabətli ixtisaslarda beynəlxalq tələbə qəbulunu davam etdirir — attestatla birbaşa qəbul imkanı bu universiteti əlçatan edən əsas amildir.",
+      ],
+    },
+    {
       heading: "MegaGroup Giresun Universitetinə qəbulda necə kömək edir?",
       summary:
         "MegaGroup sənədlərin hazırlanmasından tutmuş universitetə qəbul, tələbə vizası və yerləşməyə qədər bütün prosesi idarə edir. İlkin konsultasiya tamamilə pulsuzdur.",
@@ -144,6 +154,11 @@ const article: Article = {
       question: "Giresun Universitetinin diplomu Azərbaycanda tanınır?",
       answer:
         "Bəli, Türkiyə universitetlərinin diplomları YÖK tərəfindən tanınır və Azərbaycanda nostrifikasiya olunur.",
+    },
+    {
+      question: "Giresun Universiteti hansı ildə yaradılıb və nə qədər tələbəsi var?",
+      answer:
+        "Giresun Universiteti 2006-cı ildə qurulub və bu gün 13 fakültədə 25 mindən çox tələbəyə təhsil verir. CWUR 2025 reytinqində dünya universitetlərinin top 9.1%-i arasındadır.",
     },
   ],
 };

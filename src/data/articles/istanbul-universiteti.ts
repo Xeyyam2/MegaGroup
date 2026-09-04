@@ -104,6 +104,16 @@ const article: Article = {
       ],
     },
     {
+      heading: "İstanbul Universiteti rəqəmlərlə: tarix və reytinqlər",
+      summary:
+        "İstanbul Universiteti dünyanın ən qədim 20 universitetindən biridir — 1453-cü ildə Sultan II Mehmed tərəfindən qurulub. QS World 2027 reytinqində ≈629-cu, ARWU 2026-da isə 601-700 qrupundadır.",
+      paragraphs: [
+        "İstanbul Universitetinin tarixi 1453-cü ildə Sultan II Mehmedin İstanbulu fəth etməsi ilə başlayır — bu da onu dünyanın fasiləsiz fəaliyyət göstərən ən qədim 20 universitetindən biri edir. Türkiyə Respublikasının ilk müasir universiteti də məhz İstanbul Universitetidir.",
+        "Reytinqlərə gəldikdə, İstanbul Universiteti QS World University Rankings 2027-də dünya üzrə 629-cu, Akademik Dünya Reytinqində (ARWU) isə 601-700 qrupunda qərarlaşıb. Tibb fakültəsi xüsusilə güclüdür və klinik təbabətdə dünya miqyasında 401-500 qrupundadır.",
+        "Universitetin məzunları arasında Nobel mükafatçıları da var — 17 fakültəsi və yüz mindən çox tələbəsi ilə İstanbul Universiteti Türkiyənin akademik cəhətdən ən zəngin tarixinə malik ali məktəbidir.",
+      ],
+    },
+    {
       heading: "MegaGroup İstanbul Universitetinə qəbulda necə kömək edir?",
       summary:
         "MegaGroup sənədlərin hazırlanması, attestat və transkriptin tərcüməsi, müraciət, qəbul məktubu və İstanbulda yerləşmə daxil bütün prosesi idarə edir. İlkin konsultasiya pulsuzdur.",
@@ -142,6 +152,11 @@ const article: Article = {
       question: "İstanbul Universitetinə qəbulda MegaGroup necə kömək edir?",
       answer:
         "MegaGroup sənədlərin hazırlanması, tərcümə, müraciət, qəbul məktubu və yerləşmə daxil bütün prosesi idarə edir. İlkin konsultasiya pulsuzdur.",
+    },
+    {
+      question: "İstanbul Universiteti dünya reytinqlərində necə qiymətləndirilir?",
+      answer:
+        "İstanbul Universiteti QS World University Rankings 2027-də dünyada təxminən 629-cu yerdədir və ARWU 2026-da 601-700 qrupundadır. O, dünyanın fasiləsiz fəaliyyət göstərən ən qədim 20 universitetindən biridir.",
     },
   ],
 };

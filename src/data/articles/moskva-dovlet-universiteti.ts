@@ -104,6 +104,16 @@ const article: Article = {
       ],
     },
     {
+      heading: "MDU rəqəmlərlə: tarix, reytinqlər və məzunlar",
+      summary:
+        "MDU 1755-ci ildə yaradılıb və QS World 2027 reytinqində ≈115-ci yerdədir — Rusiyanın ən yüksək reytinqli universiteti. 13 Nobel mükafatçısı və 6 Fields medalçısı MDU ilə bağlıdır.",
+      paragraphs: [
+        "Moskva Dövlət Universiteti 1755-ci ildə Mixail Lomonosovun təşəbbüsü ilə yaradılıb və Rusiyanın ən qədim universitetidir. QS World University Rankings 2027-də MDU dünyada 115-ci, 2026-cı ildə isə 105-ci yerdə qərarlaşıb — bu, Rusiya universitetləri arasında ən yüksək göstəricidir.",
+        "Universitetlə 13 Nobel mükafatçısı və 6 Fields medalçısı bağlıdır. MDU-nun məşhur məzunları arasında görkəmli alimlər, yazıçılar və dövlət xadimləri var — bu, diplomun beynəlxalq səviyyədə tanınmasının ən güclü sübutudur.",
+        "Akademik Dünya Reytinqində (ARWU) MDU dünyanın 101-150 qrupundadır. 40-dan çox fakültə və 50 mindən çox tələbəsi ilə o, Rusiyanın ən böyük universitetlərindən biridir.",
+      ],
+    },
+    {
       heading: "MegaGroup MDU-ya qəbulda necə kömək edir?",
       summary:
         "MegaGroup sənədlərin hazırlanması, universitetə müraciət, qəbul məktubu, tələbə vizası və Moskvada yerləşmə daxil bütün prosesi idarə edir. İlkin konsultasiya pulsuzdur.",
@@ -142,6 +152,11 @@ const article: Article = {
       question: "Moskvada yaşayış xərcləri nə qədərdir?",
       answer:
         "Aylıq yaşayış xərcləri (yataqxana, qida, nəqliyyat) təxminən 190-330 USD təşkil edir.",
+    },
+    {
+      question: "MDU dünya reytinqlərində hansı yerdədir?",
+      answer:
+        "MDU QS World 2027 reytinqində dünyada 115-ci yerdədir — Rusiyanın ən yüksək reytinqli universiteti. Universitetlə 13 Nobel mükafatçısı və 6 Fields medalçısı bağlıdır.",
     },
   ],
 };

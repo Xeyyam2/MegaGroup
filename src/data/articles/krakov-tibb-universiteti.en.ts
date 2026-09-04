@@ -103,6 +103,16 @@ const article: Article = {
       ],
     },
     {
+      heading: "Kraków Medical University by numbers: history and tradition",
+      summary:
+        "Kraków Medical University is the medical school of the Jagiellonian University founded in 1364 — Poland's oldest and one of the world's oldest continuously operating universities.",
+      paragraphs: [
+        "The Jagiellonian University was founded in 1364 by King Casimir III and is Poland's oldest — and one of the world's oldest continuously operating — universities. Its medical college carries a tradition of over 600 years of medical education.",
+        "The university's famous alumni include Nicolaus Copernicus and Pope John Paul II — the brightest proof of the Jagiellonian University's influence on European science over the centuries.",
+        "Kraków Medical University's English-language medicine and pharmacy programs meet modern European standards, and the diploma is recognized in all EU countries.",
+      ],
+    },
+    {
       heading: "How MegaGroup helps with admission to Kraków Medical University",
       summary:
         "MegaGroup manages the entire process: document preparation, university application, acceptance letter, a Polish type-D student visa and accommodation in Kraków. The initial consultation is free.",
@@ -141,6 +151,11 @@ const article: Article = {
       question: "Are Kraków Medical University and Jagiellonian University the same?",
       answer:
         "Kraków Medical University is the Medical College of the Jagiellonian University, founded in 1364 — one of Europe's oldest universities.",
+    },
+    {
+      question: "How old is the Kraków Medical University tradition?",
+      answer:
+        "Kraków Medical University is the Medical College of the Jagiellonian University founded in 1364 — Poland's oldest university. Its alumni include Nicolaus Copernicus and Pope John Paul II.",
     },
   ],
 };

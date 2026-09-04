@@ -103,6 +103,16 @@ const article: Article = {
       ],
     },
     {
+      heading: "WUM by numbers: history and rankings",
+      summary:
+        "The Medical University of Warsaw was founded in 1809 and is Poland's largest and oldest medical school. It sits in the 451-500 group of the QS 2026 subject ranking and has more than 4,000 students.",
+      paragraphs: [
+        "The Medical University of Warsaw's history begins in 1809 with the creation of an academic medical department. Since 1949 it has operated as an independent medical university and is Poland's largest medical school.",
+        "In the QS World University Rankings by Subject 2026, WUM sits in the 451-500 group among the world's medical universities. More than 4,000 students study at the university, and a significant share of them are international students.",
+        "WUM's English-language medicine and dentistry programs fully meet European standards, and the diploma is directly recognized in all EU countries — the biggest advantage for graduates.",
+      ],
+    },
+    {
       heading: "How MegaGroup helps with admission to WUM",
       summary:
         "MegaGroup manages the entire process: document preparation, university application, acceptance letter, a Polish type-D student visa and accommodation in Warsaw. The initial consultation is free.",
@@ -141,6 +151,11 @@ const article: Article = {
       question: "How much does it cost to live in Warsaw?",
       answer:
         "Monthly living costs (dormitory, food, transport) are approximately $250–500 — significantly lower than in Western Europe.",
+    },
+    {
+      question: "When was the Medical University of Warsaw founded and what is its ranking?",
+      answer:
+        "WUM's history goes back to 1809; it has been an independent medical university since 1949. It ranks in the 451-500 band of QS 2026 by subject and is Poland's largest medical school.",
     },
   ],
 };

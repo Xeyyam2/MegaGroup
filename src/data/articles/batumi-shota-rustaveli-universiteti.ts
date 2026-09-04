@@ -103,6 +103,16 @@ const article: Article = {
       ],
     },
     {
+      heading: "Batumi Universiteti rəqəmlərlə: tarix və strukturu",
+      summary:
+        "Batumi Şota Rustaveli Dövlət Universitetinin tarixi 1895-ci ilə gedib çıxır — universitet statusunu 1935-ci ildə alıb. Bu gün 7 fakültə və 3 elmi-tədqiqat institutunda 6 mindən çox tələbə təhsil alır.",
+      paragraphs: [
+        "Batumi Şota Rustaveli Dövlət Universitetinin kökləri 1895-ci ildə açılan gimnaziyaya gedib çıxır. 1923-cü ildə pedaqoji instituta, 1935-ci ildə isə dövlət universitetinə çevrilib — bu gün regionun ən böyük elm və təhsil mərkəzidir.",
+        "Universitetin 7 fakültəsi və 3 elmi-tədqiqat institutu var; burada 6 mindən çox tələbə təhsil alır və 700-dən çox akademik heyət çalışır. Hüquq, iqtisadiyyat və tibb fakültələri ən böyük fakültələrdəndir.",
+        "Batumi Universiteti beynəlxalq əməkdaşlığa açıqdır və xarici tələbələr üçün ingilis dilində proqramlar təklif edir — Qara dəniz regionunda əlçatan təhsilin simvoluna çevrilib.",
+      ],
+    },
+    {
       heading: "MegaGroup Batumi Universitetinə qəbulda necə kömək edir?",
       summary:
         "MegaGroup sənədlərin hazırlanması, müraciət, qəbul məktubu, Gürcüstanda tələbə statusu və Batumidə yerləşmə daxil bütün prosesi idarə edir. İlkin konsultasiya pulsuzdur.",
@@ -141,6 +151,11 @@ const article: Article = {
       question: "Batumi Universitetinə qəbulda MegaGroup necə kömək edir?",
       answer:
         "MegaGroup sənədlərin hazırlanması, müraciət, qəbul məktubu, tələbə statusu və yerləşmə daxil bütün prosesi idarə edir. İlkin konsultasiya pulsuzdur.",
+    },
+    {
+      question: "Batumi Universiteti nə vaxt yaradılıb və neçə tələbəsi var?",
+      answer:
+        "Universitetin tarixi 1895-ci ilə gedib çıxır; dövlət universiteti statusunu 1935-ci ildə alıb. Bu gün 7 fakültədə 6 mindən çox tələbə təhsil alır.",
     },
   ],
 };

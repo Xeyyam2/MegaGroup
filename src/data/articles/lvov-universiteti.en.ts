@@ -112,6 +112,16 @@ const article: Article = {
       ],
     },
     {
+      heading: "Lviv University by numbers: history and rankings",
+      summary:
+        "Founded in 1661, Lviv University is one of Eastern Europe's oldest universities. It ranks in the 1201-1400 group of QS World 2026 and leads among Ukrainian classical universities.",
+      paragraphs: [
+        "Lviv University's history begins in 1661 as a Jesuit college — making it one of the oldest higher-education institutions in Eastern Europe. Since 1940 the university has carried the name of the Ukrainian poet Ivan Franko.",
+        "In the QS World University Rankings 2026, Lviv University sits in the 1201-1400 group and is considered one of Ukraine's leading classical universities. More than 20,000 students study across its 19 faculties.",
+        "The university's alumni include Leonid Kravchuk, the first president of Ukraine. Over more than 360 years of history, Lviv University has given Ukrainian science and culture dozens of prominent figures.",
+      ],
+    },
+    {
       heading: "How MegaGroup helps with admission to Lviv University",
       summary:
         "MegaGroup manages the entire process: document preparation, application, acceptance letter, student visa and accommodation in Lviv, while monitoring the safety situation. The initial consultation is free.",
@@ -150,6 +160,11 @@ const article: Article = {
       question: "How much does it cost to live in Lviv?",
       answer:
         "Monthly living costs (dormitory, food, transport) are approximately $190–400.",
+    },
+    {
+      question: "When was Lviv University founded and how is it ranked worldwide?",
+      answer:
+        "Lviv University was founded in 1661 — one of Eastern Europe's oldest universities. It sits in the 1201-1400 band of QS World 2026, and its alumni include the first president of Ukraine.",
     },
   ],
 };

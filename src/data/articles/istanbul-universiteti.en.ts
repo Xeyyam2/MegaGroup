@@ -104,6 +104,16 @@ const article: Article = {
       ],
     },
     {
+      heading: "Istanbul University by numbers: history and rankings",
+      summary:
+        "Istanbul University is one of the 20 oldest universities in the world — founded in 1453 by Sultan Mehmed II. It ranks ≈629th in QS World 2027 and sits in the 601-700 band of ARWU 2026.",
+      paragraphs: [
+        "Istanbul University's history begins in 1453 with Sultan Mehmed II's conquest of the city — making it one of the world's 20 oldest continuously operating universities. It was also the first modern university of the Republic of Türkiye.",
+        "In rankings, Istanbul University holds roughly 629th place worldwide in the QS World University Rankings 2027 and the 601-700 band in the Academic Ranking of World Universities (ARWU). Its medical faculty is especially strong, ranking 401-500 worldwide in clinical medicine.",
+        "The university's alumni include Nobel laureates. With 17 faculties and over a hundred thousand students, Istanbul University carries the richest academic history in Türkiye.",
+      ],
+    },
+    {
       heading: "How MegaGroup helps with admission to Istanbul University",
       summary:
         "MegaGroup manages the entire process: document preparation, translation of the certificate and transcript, application, acceptance letter and accommodation in Istanbul. The initial consultation is free.",
@@ -142,6 +152,11 @@ const article: Article = {
       question: "How does MegaGroup help with admission to Istanbul University?",
       answer:
         "MegaGroup manages the entire process: document preparation, translation, application, acceptance letter and accommodation. The initial consultation is free.",
+    },
+    {
+      question: "How is Istanbul University ranked internationally?",
+      answer:
+        "Istanbul University ranks about 629th worldwide in QS World University Rankings 2027 and in the 601-700 band of ARWU 2026. It is one of the 20 oldest continuously operating universities in the world.",
     },
   ],
 };

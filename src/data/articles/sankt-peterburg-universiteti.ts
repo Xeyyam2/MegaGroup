@@ -103,6 +103,16 @@ const article: Article = {
       ],
     },
     {
+      heading: "SPbGU rəqəmlərlə: tarix, reytinqlər və məzunlar",
+      summary:
+        "SPbGU 1724-cü ildə Pyotr I tərəfindən yaradılıb və Rusiyanın ən qədim universitetidir. Məzunları arasında Rusiyanın iki prezidenti, 6 baş naziri, Nobel mükafatçıları və Fields medalçıları var.",
+      paragraphs: [
+        "Sankt-Peterburq Dövlət Universiteti 1724-cü ildə Pyotr I-in fərmanı ilə yaradılıb və Rusiyanın ən qədim ali təhsil müəssisəsidir. Akademik Dünya Reytinqində (ARWU 2026) SPbGU dünya universitetlərinin 501-600 qrupundadır.",
+        "SPbGU-nun məzunları arasında Rusiyanın iki prezidenti, 6 baş naziri və 600-dən çox akademiki var. Nobel mükafatçıları İvan Pavlov və İosif Brodski, Fields medalçıları Qriori Perelman və Stanislav Smirnov da bu universitetlə bağlıdır.",
+        "300 illik tarixi ərzində SPbGU Rusiya elminin və hüquq məktəbinin formalaşmasında mühüm rol oynayıb — bu gün də hüquq və filologiya fakültələri ölkənin ən güclü proqramları arasındadır.",
+      ],
+    },
+    {
       heading: "MegaGroup SPbGU-ya qəbulda necə kömək edir?",
       summary:
         "MegaGroup sənədlərin hazırlanması, müraciət, qəbul məktubu, tələbə vizası və Sankt-Peterburqda yerləşmə daxil bütün prosesi idarə edir. İlkin konsultasiya pulsuzdur.",
@@ -141,6 +151,11 @@ const article: Article = {
       question: "SPbGU-ya qəbulda MegaGroup necə kömək edir?",
       answer:
         "MegaGroup sənədlərin hazırlanması, müraciət, qəbul məktubu, tələbə vizası və yerləşmə daxil bütün prosesi idarə edir. İlkin konsultasiya pulsuzdur.",
+    },
+    {
+      question: "SPbGU hansı ildə yaradılıb və məşhur məzunları kimlərdir?",
+      answer:
+        "SPbGU 1724-cü ildə yaradılıb — Rusiyanın ən qədim universiteti. Məzunları arasında Rusiyanın iki prezidenti, Nobel mükafatçıları İvan Pavlov və İosif Brodski, Fields medalçıları Perelman və Smirnov var.",
     },
   ],
 };

@@ -103,6 +103,16 @@ const article: Article = {
       ],
     },
     {
+      heading: "Batumi University by numbers: history and structure",
+      summary:
+        "Batumi Shota Rustaveli State University's history goes back to 1895 — it gained university status in 1935. Today more than 6,000 students study across 7 faculties and 3 research institutes.",
+      paragraphs: [
+        "Batumi Shota Rustaveli State University's roots go back to the gymnasium opened in 1895. In 1923 it became a pedagogical institute and in 1935 a state university — today it is the region's largest center of science and education.",
+        "The university has 7 faculties and 3 research institutes; more than 6,000 students study here and over 700 members of the academic staff work here. The law, economics and medicine faculties are among the largest.",
+        "Batumi University is open to international cooperation and offers English-language programs for international students — it has become a symbol of accessible education in the Black Sea region.",
+      ],
+    },
+    {
       heading: "How MegaGroup helps with admission to Batumi University",
       summary:
         "MegaGroup manages the entire process: document preparation, application, acceptance letter, student status in Georgia and accommodation in Batumi. The initial consultation is free.",
@@ -141,6 +151,11 @@ const article: Article = {
       question: "How does MegaGroup help with admission to Batumi University?",
       answer:
         "MegaGroup manages the entire process: document preparation, application, acceptance letter, student status and accommodation. The initial consultation is free.",
+    },
+    {
+      question: "When was Batumi University founded and how many students does it have?",
+      answer:
+        "The university's history goes back to 1895; it gained state-university status in 1935. Today more than 6,000 students study across its 7 faculties.",
     },
   ],
 };

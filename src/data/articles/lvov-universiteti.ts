@@ -112,6 +112,16 @@ const article: Article = {
       ],
     },
     {
+      heading: "Lvov Universiteti rəqəmlərlə: tarix və reytinqlər",
+      summary:
+        "Lvov Universiteti 1661-ci ildə yaradılıb və Şərqi Avropanın ən qədim universitetlərindəndir. QS World 2026 reytinqində dünyanın 1201-1400 qrupunda, Ukrayna universitetləri arasında isə öndədir.",
+      paragraphs: [
+        "Lvov Universitetinin tarixi 1661-ci ildə yezuit kolleci kimi başlayır — bu da onu Şərqi Avropanın ən qədim ali məktəblərindən birinə çevirir. 1940-cı ildən universitet Ukrayna şairi İvan Frankonun adını daşıyır.",
+        "QS World University Rankings 2026-da Lvov Universiteti dünyanın 1201-1400 qrupundadır və Ukraynanın aparıcı klassik universitetlərindən biri sayılır. 19 fakültəsində 20 mindən çox tələbə təhsil alır.",
+        "Universitetin məzunları arasında Ukraynanın ilk prezidenti Leonid Kravçuk da var. 360 ildən artıq tarixi ərzində Lvov Universiteti Ukrayna elminə və mədəniyyətinə onlarla görkəmli şəxsiyyət bəxş edib.",
+      ],
+    },
+    {
       heading: "MegaGroup Lvov Universitetinə qəbulda necə kömək edir?",
       summary:
         "MegaGroup sənədlərin hazırlanması, müraciət, qəbul məktubu, tələbə vizası və Lvovda yerləşmə daxil bütün prosesi idarə edir və təhlükəsizlik vəziyyətini izləyir. İlkin konsultasiya pulsuzdur.",
@@ -150,6 +160,11 @@ const article: Article = {
       question: "Lvovda yaşayış xərcləri nə qədərdir?",
       answer:
         "Aylıq yaşayış xərcləri (yataqxana, qida, nəqliyyat) təxminən 190-400 USD təşkil edir.",
+    },
+    {
+      question: "Lvov Universiteti nə vaxt yaradılıb və dünya reytinqində necə qiymətləndirilir?",
+      answer:
+        "Lvov Universiteti 1661-ci ildə yaradılıb — Şərqi Avropanın ən qədim universitetlərindəndir. QS World 2026-da dünyanın 1201-1400 qrupundadır və məzunları arasında Ukraynanın ilk prezidenti var.",
     },
   ],
 };

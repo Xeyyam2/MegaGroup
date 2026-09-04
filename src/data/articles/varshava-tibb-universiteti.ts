@@ -103,6 +103,16 @@ const article: Article = {
       ],
     },
     {
+      heading: "Varşava Tibb Universiteti rəqəmlərlə: tarix və reytinqlər",
+      summary:
+        "Varşava Tibb Universiteti 1809-cu ildə yaradılıb və Polşanın ən böyük, ən qədim tibb məktəbidir. QS 2026 fənn reytinqində dünyanın 451-500 qrupundadır və 4 mindən çox tələbəsi var.",
+      paragraphs: [
+        "Varşava Tibb Universitetinin tarixi 1809-cu ildə akademik tibb kafedrasının yaradılması ilə başlayır. 1949-cu ildən müstəqil tibb universiteti kimi fəaliyyət göstərir və Polşanın ən böyük tibb məktəbidir.",
+        "QS World University Rankings by Subject 2026-da WUM dünya tibb universitetləri arasında 451-500 qrupundadır. Universitetdə 4 mindən çox tələbə təhsil alır və onların əhəmiyyətli hissəsini beynəlxalq tələbələr təşkil edir.",
+        "WUM-un ingilis dilində tibb və stomatologiya proqramları Avropa standartlarına tam uyğundur və diplom bütün EU ölkələrində birbaşa tanınır — bu, məzunlar üçün ən böyük üstünlükdür.",
+      ],
+    },
+    {
       heading: "MegaGroup Varşava Tibb Universitetinə qəbulda necə kömək edir?",
       summary:
         "MegaGroup sənədlərin hazırlanması, universitetə müraciət, qəbul məktubu, D tipli tələbə vizası və Varşavada yerləşmə daxil bütün prosesi idarə edir. İlkin konsultasiya pulsuzdur.",
@@ -141,6 +151,11 @@ const article: Article = {
       question: "Varşavada yaşayış xərcləri nə qədərdir?",
       answer:
         "Aylıq yaşayış xərcləri (yataqxana, qida, nəqliyyat) təxminən 250-500 USD təşkil edir — Qərbi Avropadan xeyli aşağıdır.",
+    },
+    {
+      question: "Varşava Tibb Universiteti nə vaxt yaradılıb və reytinqi necədir?",
+      answer:
+        "WUM-un tarixi 1809-cu ilə gedib çıxır; 1949-cu ildən müstəqil tibb universitetidir. QS 2026 fənn reytinqində dünyada 451-500 qrupundadır və Polşanın ən böyük tibb məktəbidir.",
     },
   ],
 };

@@ -104,6 +104,16 @@ const article: Article = {
       ],
     },
     {
+      heading: "MSU by numbers: history, rankings and alumni",
+      summary:
+        "MSU was founded in 1755 and ranks ≈115th in QS World 2027 — Russia's highest-ranked university. Thirteen Nobel laureates and 6 Fields Medalists are connected to the university.",
+      paragraphs: [
+        "Lomonosov Moscow State University was founded in 1755 on Mikhail Lomonosov's initiative and is Russia's oldest university. It ranked 115th worldwide in QS World University Rankings 2027 and 105th in 2026 — the best result of any Russian university.",
+        "Thirteen Nobel laureates and 6 Fields Medalists are connected to MSU. Its famous alumni include prominent scientists, writers and statesmen — the strongest proof of the diploma's international recognition.",
+        "MSU sits in the 101-150 band of the Academic Ranking of World Universities (ARWU). With more than 40 faculties and over 50,000 students, it is one of Russia's largest universities.",
+      ],
+    },
+    {
       heading: "How MegaGroup helps with admission to MSU",
       summary:
         "MegaGroup manages the entire process: document preparation, university application, acceptance letter, student visa and accommodation in Moscow. The initial consultation is free.",
@@ -142,6 +152,11 @@ const article: Article = {
       question: "How much does it cost to live in Moscow?",
       answer:
         "Monthly living costs (dormitory, food, transport) are approximately $190–330.",
+    },
+    {
+      question: "Where does MSU rank worldwide?",
+      answer:
+        "MSU ranks 115th worldwide in QS World 2027 — Russia's highest-ranked university. Thirteen Nobel laureates and 6 Fields Medalists are connected to the university.",
     },
   ],
 };

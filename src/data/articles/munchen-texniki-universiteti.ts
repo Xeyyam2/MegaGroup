@@ -105,6 +105,16 @@ const article: Article = {
       ],
     },
     {
+      heading: "TUM rəqəmlərlə: tarix və reytinqlər",
+      summary:
+        "TUM 1868-ci ildə yaradılıb və QS World 2026 reytinqində dünyanın ən yaxşı 25 universiteti arasındadır — Avropa İttifaqının 1 nömrəli universiteti. 19 Nobel mükafatçısı və 26 Leybnits mükafatçısı TUM-la bağlıdır.",
+      paragraphs: [
+        "Münxen Texniki Universiteti 1868-ci ildə politexnik məktəb kimi yaradılıb və bu gün Avropanın ən güclü texniki universitetinə çevrilib. QS World University Rankings 2026-da TUM dünyada 25-ci yerdədir — bu, Avropa İttifaqının ən yüksək göstəricisidir.",
+        "Universitet 2006, 2012, 2019 və 2026-cı illərdə Almaniyanın 'Mükəmməllik Universiteti' titulunu alıb — bu titul yalnız ölkənin ən güclü universitetlərinə verilir. TUM-la 19 Nobel mükafatçısı və 26 Leybnits mükafatçısı bağlıdır.",
+        "QS Europe 2026 reytinqində TUM Avropada 12-ci yerdədir. Siemens, BMW, Bosch və Google ilə sıx əməkdaşlıq tələbələrə təhsil illərində real sənaye layihələrində iştirak imkanı verir.",
+      ],
+    },
+    {
       heading: "MegaGroup TUM-a qəbulda necə kömək edir?",
       summary:
         "MegaGroup Studienkolleg seçimi, sənədlərin apostil və tərcüməsi, Uni-assist müraciəti, dil hazırlığı və bloklanmış hesab da daxil bütün prosesi idarə edir. İlkin konsultasiya pulsuzdur.",
@@ -143,6 +153,11 @@ const article: Article = {
       question: "TUM məzunlarının karyera imkanları necədir?",
       answer:
         "TUM məzunları dünyanın aparıcı texnoloji şirkətlərində işləyir. Məzuniyyətdən sonra 18 aylıq iş axtarış vizası verilir.",
+    },
+    {
+      question: "TUM dünya reytinqlərində hansı yeri tutur?",
+      answer:
+        "TUM QS World 2026-da dünyada 25-ci yerdədir — Avropa İttifaqının 1 nömrəli universiteti. 2006, 2012, 2019 və 2026-cı illərdə 'Mükəmməllik Universiteti' titulu alıb.",
     },
   ],
 };

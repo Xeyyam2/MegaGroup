@@ -103,6 +103,16 @@ const article: Article = {
       ],
     },
     {
+      heading: "Humboldt Universiteti rəqəmlərlə: tarix və reytinqlər",
+      summary:
+        "Humboldt Universiteti 1810-cu ildə yaradılıb və müasir universitet modelinin banisidir. U.S. News 2026 reytinqində dünyanın ən yaxşı 51 universiteti arasındadır və 29 Nobel mükafatçısı ilə bağlıdır.",
+      paragraphs: [
+        "Berlin Humboldt Universiteti 1810-cu ildə Vilhelm fon Humboldt tərəfindən yaradılıb və 'tədqiqat və təhsil birliyi' prinsipini ilk tətbiq edən universitet kimi tarixə düşüb. Bu model sonradan bütün dünya universitetləri üçün standart oldu.",
+        "U.S. News Best Global Universities 2026 reytinqində Humboldt Universiteti dünyada 51-ci, Almaniyada isə qabaqcıl universitetlər sırasındadır. QS 2026 fənn reytinqində humanitar elmlər, hüquq, psixologiya və sosial elmlər üzrə Almaniyada 2-ci yerdədir.",
+        "Universitetlə 29 Nobel mükafatçısı bağlıdır — Maks Born, Teodor Mommsen və digərləri. Hegel, Eynşteyn və Qrimm qardaşları burada çalışıb; bu, Humboldt-u dünya elminin ən mühüm mərkəzlərindən birinə çevirir.",
+      ],
+    },
+    {
       heading: "MegaGroup Humboldt Universitetinə qəbulda necə kömək edir?",
       summary:
         "MegaGroup APS prosesi, Studienkolleg seçimi, sənədlərin apostil və tərcüməsi, Uni-assist müraciəti və bloklanmış hesab daxil bütün prosesi idarə edir. İlkin konsultasiya pulsuzdur.",
@@ -141,6 +151,11 @@ const article: Article = {
       question: "APS sertifikatı nədir və mütləqdirmi?",
       answer:
         "APS Azərbaycan attestatının Almaniya üçün rəsmi təsdiqidir və universitet müraciəti üçün mütləqdir. MegaGroup bu prosesi idarə edir.",
+    },
+    {
+      question: "Humboldt Universiteti hansı ildə yaradılıb və neçə Nobel mükafatçısı ilə bağlıdır?",
+      answer:
+        "Humboldt Universiteti 1810-cu ildə yaradılıb və müasir universitet modelinin banisidir. Onunla 29 Nobel mükafatçısı bağlıdır və U.S. News 2026-da dünyanın ən yaxşı 51 universiteti arasındadır.",
     },
   ],
 };

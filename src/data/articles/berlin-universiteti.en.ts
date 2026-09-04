@@ -103,6 +103,16 @@ const article: Article = {
       ],
     },
     {
+      heading: "Humboldt University by numbers: history and rankings",
+      summary:
+        "Founded in 1810, Humboldt University is the founder of the modern university model. It ranks among the world's best 51 universities in U.S. News 2026 and is linked to 29 Nobel laureates.",
+      paragraphs: [
+        "Berlin's Humboldt University was founded in 1810 by Wilhelm von Humboldt and went down in history as the first university to apply the principle of the 'unity of research and teaching'. This model later became the standard for universities all over the world.",
+        "In the U.S. News Best Global Universities 2026 ranking, Humboldt University ranks 51st worldwide and among the leading universities in Germany. In the QS 2026 subject rankings it ranks 2nd in Germany for humanities, law, psychology and social sciences.",
+        "29 Nobel laureates are linked to the university — Max Born, Theodor Mommsen and others. Hegel, Einstein and the Brothers Grimm worked here, making Humboldt one of the most important centers of world science.",
+      ],
+    },
+    {
       heading: "How MegaGroup helps with admission to Humboldt University",
       summary:
         "MegaGroup manages the entire process: obtaining the APS certificate, choosing Studienkolleg, apostilling and translating documents, applying via Uni-assist and opening a blocked account. The initial consultation is free.",
@@ -141,6 +151,11 @@ const article: Article = {
       question: "What is the APS certificate and is it mandatory?",
       answer:
         "The APS is the official verification of the Azerbaijani certificate for Germany and is mandatory for university applications. MegaGroup manages this process.",
+    },
+    {
+      question: "When was Humboldt University founded and how many Nobel laureates is it linked to?",
+      answer:
+        "Humboldt University was founded in 1810 and is the founder of the modern university model. It is linked to 29 Nobel laureates and ranks among the world's best 51 universities in U.S. News 2026.",
     },
   ],
 };
