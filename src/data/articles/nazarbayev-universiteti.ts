@@ -104,6 +104,16 @@ const article: Article = {
       ],
     },
     {
+      heading: "Nazarbayev Universiteti beynəlxalq reytinqlərdə hansı yerdədir?",
+      summary:
+        "NU Times Higher Education World University Rankings 2026-da dünyanın ən yaxşı 401-500 universiteti arasındadır (top 23%) və Qafqaz & Mərkəzi Asiya üzrə 1-ci yerdədir. U.S. News 2026-2027 reytinqində isə 831-ci pilləyə yüksəlib.",
+      paragraphs: [
+        "Nazarbayev Universiteti qısa tarixinə baxmayaraq beynəlxalq reytinqlərdə sürətlə yüksəlir. Times Higher Education World University Rankings 2026-da NU dünyanın ən yaxşı 401-500 universiteti arasında yer alır və dünya universitetlərinin top 23%-inə daxildir — bu, Qazaxıstan üçün rekord göstəricidir.",
+        "THE eyni reytinqində NU Qafqaz və Mərkəzi Asiya regionunda 1-ci universitet elan olunub. U.S. News Best Global Universities 2026-2027 siyahısında isə NU bir il əvvəlki 1,111-ci yerdən 831-ci yerə — 280 pillə yüksəlib.",
+        "Reytinq nəticələri NU-nun akademik keyfiyyətini və tam ingilis dilində təhsilin dünya standartlarına uyğunluğunu təsdiqləyir — məzun üçün bu, qlobal əmək bazarında ən güclü arqumentdir.",
+      ],
+    },
+    {
       heading: "MegaGroup Nazarbayev Universitetinə qəbulda necə kömək edir?",
       summary:
         "MegaGroup sənədlərin hazırlanması, motivasiya məktubunun yazılması, müsahibəyə hazırlıq və müraciət prosesini idarə edir. İlkin konsultasiya pulsuzdur.",
@@ -142,6 +152,11 @@ const article: Article = {
       question: "Nazarbayev Universitetinə qəbulda MegaGroup necə kömək edir?",
       answer:
         "MegaGroup sənədlərin hazırlanması, motivasiya məktubunun yazılması, müsahibəyə hazırlıq və müraciət prosesini idarə edir. İlkin konsultasiya pulsuzdur.",
+    },
+    {
+      question: "Nazarbayev Universiteti beynəlxalq reytinqlərdə necə qiymətləndirilir?",
+      answer:
+        "THE World University Rankings 2026-da NU dünyanın 401-500 ən yaxşı universiteti arasındadır (top 23%) və Qafqaz & Mərkəzi Asiya üzrə 1-ci yerdədir. U.S. News 2026-2027-də isə 831-ci pillədədir.",
     },
   ],
 };

@@ -195,7 +195,7 @@ const rawCountries: RawCountry[] = [
     description_az: "Attestatla, imtahansız qəbul — türk dünyasına yaxın mədəniyyət və əlçatan təhsil haqqı. Nazarbayev Universiteti və digər aparıcı ali məktəblərdə ingilis dilində keyfiyyətli təhsil.",
     description_ru: "Поступление по аттестату, без экзаменов — близкая тюркская культура и доступная стоимость обучения. Качественное образование на английском языке в Назарбаев Университете и других вузах.",
     description_en: "Admission by certificate, exam-free — a culturally close Turkic country with affordable tuition. Quality English-language education at Nazarbayev University and other leading institutions.",
-    hero_image_url: "https://images.unsplash.com/photo-1642430571845-798ea94120a6?w=1200&q=80",
+    hero_image_url: "/images/countries/qazaxistan.jpg",
     sort_order: 7, is_active: true, is_featured: true,
     quick_stats: {
       universities: 40,

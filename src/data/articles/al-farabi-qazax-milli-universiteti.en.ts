@@ -105,6 +105,16 @@ const article: Article = {
       ],
     },
     {
+      heading: "Where does KazNU rank internationally?",
+      summary:
+        "KazNU ranked 38th among 1,534 universities in the QS Asia 2025 rankings — the only Central Asian university in the top 40. In 2023 it placed 150th worldwide in QS World, the highest rank of any university in Kazakhstan.",
+      paragraphs: [
+        "International recognition is one of the most important criteria when choosing a university, and here KazNU has no rival in Central Asia. In the QS Asia University Rankings 2025, the university ranked 38th among 1,534 institutions — the only Central Asian university in the top 40. Worldwide, KazNU ranks among the top 3% of universities.",
+        "In 2023, KazNU reached 150th place worldwide in the QS World University Rankings. This confirms the international value of the diploma: graduates gain a competitive advantage in Kazakhstan, Azerbaijan, and the global job market alike.",
+        "Ranking results are a guarantee of educational quality — KazNU enrolls more than 20,000 students, including international students from over 100 countries, making it a truly international campus.",
+      ],
+    },
+    {
       heading: "How MegaGroup helps with admission to KazNU",
       summary:
         "MegaGroup manages the entire process: document preparation, university application, acceptance letter, student visa and accommodation in Almaty. The initial consultation is free.",
@@ -143,6 +153,11 @@ const article: Article = {
       question: "How much does it cost to live in Almaty?",
       answer:
         "Monthly living costs (dormitory, food, transport) are approximately $230–410 — very affordable figures.",
+    },
+    {
+      question: "Where does KazNU rank internationally?",
+      answer:
+        "KazNU ranked 38th among 1,534 universities in QS Asia 2025 — the only Central Asian university in the top 40. In 2023 it placed 150th worldwide in QS World.",
     },
   ],
 };

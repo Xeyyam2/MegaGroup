@@ -105,6 +105,16 @@ const article: Article = {
       ],
     },
     {
+      heading: "KazNU beynəlxalq reytinqlərdə hansı yerdədir?",
+      summary:
+        "KazNU QS Asiya 2025 reytinqində 1,534 universitet arasında 38-ci yerdədir — Asiya ilk 40-lığına düşən yeganə Orta Asiya universiteti. 2023-cü ildə QS World reytinqində dünyada 150-ci olub və Qazaxıstanın ən yüksək reytinqli universitetidir.",
+      paragraphs: [
+        "Beynəlxalq tanınma abituriyent üçün ən vacib meyarlardan biridir və KazNU bu sahədə Orta Asiyada rəqibsizdir. QS Asia University Rankings 2025-də universitet 1,534 ali məktəb arasında 38-ci yeri tutub — ilk 40-lığa düşən yeganə Mərkəzi Asiya universiteti. Dünya üzrə isə KazNU universitetlərin top 3%-i arasındadır.",
+        "2023-cü ildə QS World University Rankings-də KazNU dünyada 150-ci yerə yüksəlib. Bu göstərici diplomun beynəlxalq dəyərini təsdiqləyir: məzun həm Qazaxıstanda, həm Azərbaycanda, həm də beynəlxalq əmək bazarında rəqabətli üstünlüyə malik olur.",
+        "Reytinq rəqəmləri təhsil keyfiyyətinin təminatıdır — KazNU-nun 20 mindən çox tələbəsi və 100-dən çox ölkədən gələn beynəlxalq tələbəsi var ki, bu da onu əsl beynəlxalq kampus edir.",
+      ],
+    },
+    {
       heading: "MegaGroup KazNU-ya qəbulda necə kömək edir?",
       summary:
         "MegaGroup sənədlərin hazırlanması, müraciət, qəbul məktubu, tələbə vizası və Almatıda yerləşmə daxil bütün prosesi idarə edir. İlkin konsultasiya pulsuzdur.",
@@ -143,6 +153,11 @@ const article: Article = {
       question: "Almatıda yaşayış xərcləri nə qədərdir?",
       answer:
         "Aylıq yaşayış xərcləri (yataqxana, qida, nəqliyyat) təxminən 230-410 USD təşkil edir — çox münasib göstəricilərdir.",
+    },
+    {
+      question: "KazNU beynəlxalq reytinqlərdə necə qiymətləndirilir?",
+      answer:
+        "QS Asiya 2025-də KazNU 1,534 universitet arasında 38-cidir — ilk 40-lığa düşən yeganə Orta Asiya universiteti. 2023-cü ildə QS World-də dünyada 150-ci olub.",
     },
   ],
 };

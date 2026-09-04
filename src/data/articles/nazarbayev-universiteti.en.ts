@@ -104,6 +104,16 @@ const article: Article = {
       ],
     },
     {
+      heading: "Where does Nazarbayev University rank internationally?",
+      summary:
+        "NU is ranked among the world's top 401-500 universities (top 23%) in the Times Higher Education World University Rankings 2026 and is #1 in the Caucasus & Central Asia region. U.S. News 2026-2027 ranks it 831st, up 280 places in a year.",
+      paragraphs: [
+        "Despite its short history, Nazarbayev University is climbing international rankings rapidly. In the Times Higher Education World University Rankings 2026, NU ranks among the world's top 401-500 universities and sits in the top 23% worldwide — a record for Kazakhstan.",
+        "In the same ranking, NU was named the #1 university in the Caucasus & Central Asia region. In U.S. News Best Global Universities 2026-2027, NU rose from 1,111th to 831st place — up 280 positions in a single year.",
+        "These results confirm NU's academic quality and show that its fully English-medium education meets global standards — the strongest argument for a graduate in the international job market.",
+      ],
+    },
+    {
       heading: "How MegaGroup helps with admission to Nazarbayev University",
       summary:
         "MegaGroup manages document preparation, writing the motivation letter, interview preparation and the application process. The initial consultation is free.",
@@ -142,6 +152,11 @@ const article: Article = {
       question: "How does MegaGroup help with admission to Nazarbayev University?",
       answer:
         "MegaGroup manages document preparation, writing the motivation letter, interview preparation and the application process. The initial consultation is free.",
+    },
+    {
+      question: "How is Nazarbayev University ranked internationally?",
+      answer:
+        "NU ranks among the world's top 401-500 universities (top 23%) in the THE World University Rankings 2026 and is #1 in the Caucasus & Central Asia region. U.S. News 2026-2027 ranks it 831st.",
     },
   ],
 };

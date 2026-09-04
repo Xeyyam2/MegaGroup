@@ -20,7 +20,7 @@ const rawUniversities: RawUniversity[] = [
     city_az: "Giresun", city_ru: "Гиресун", city_en: "Giresun",
     website_url: "https://www.giresun.edu.tr",
     logo_url: "",
-    hero_image_url: "https://images.unsplash.com/photo-1562774053-701939374585?w=1200&q=80",
+    hero_image_url: "/images/universities/giresun-universiteti.jpg",
     is_featured: true,
     is_active: true,
     highlights: [
@@ -195,7 +195,7 @@ const rawUniversities: RawUniversity[] = [
     city_az: "Lvov", city_ru: "Львов", city_en: "Lviv",
     website_url: "https://lnu.edu.ua",
     logo_url: "",
-    hero_image_url: "https://images.unsplash.com/photo-1566206088916-c11f6a3f4197?w=1200&q=80",
+    hero_image_url: "/images/universities/lvov-universiteti.jpg",
     is_featured: false,
     is_active: true,
     highlights: [
@@ -432,7 +432,7 @@ const rawUniversities: RawUniversity[] = [
     city_az: "Almatı", city_ru: "Алматы", city_en: "Almaty",
     website_url: "https://www.kaznu.kz",
     logo_url: "",
-    hero_image_url: "https://images.unsplash.com/photo-1565148129028-b8bbee5a1f10?w=1200&q=80",
+    hero_image_url: "/images/universities/al-farabi-qazax-milli-universiteti.jpg",
     is_featured: true,
     is_active: true,
     highlights: [
@@ -472,7 +472,7 @@ const rawUniversities: RawUniversity[] = [
     city_az: "Astana", city_ru: "Астана", city_en: "Astana",
     website_url: "https://nu.edu.kz",
     logo_url: "",
-    hero_image_url: "https://images.unsplash.com/photo-1559136055-4a414951a4b1?w=1200&q=80",
+    hero_image_url: "/images/universities/nazarbayev-universiteti.jpg",
     is_featured: false,
     is_active: true,
     highlights: [
