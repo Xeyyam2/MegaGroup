@@ -1,15 +1,18 @@
 /**
  * Universitet səhifələri (`/xaricde-tehsil/[country]/[university]`) üçün dərin
- * AZ məzmunu (SEO üçün).
+ * məzmun (SEO üçün) — AZ, RU və EN dillərində.
  *
  * `country-content.ts` ilə eyni prinsip: landing səhifələri rank olmalı olduğu
  * üçün hər universitet üçün açar sözlə zəngin, unikal, strukturlaşdırılmış
  * məzmun tələb olunur. Bloq məqalələrindən FƏRQLİ mətndir (məqalə = bələdçi,
  * bu = səhifə profili) — duplicate content yaranmaması üçün.
  *
- * Yalnız AZ dilindədir (hədəf açar sözlər AZ-dildir); RU/EN ziyarətçiləri
- * üçün səhifənin əsas datası və bloq məqalələri mövcuddur.
+ * AZ: `UNIVERSITY_CONTENT`, RU: `university-content.ru.ts`, EN:
+ * `university-content.en.ts` — hər dil üçün 14 universitetin tam profili.
+ * `getUniversityContentByLocale` səhifəyə locale-ə uyğun mətni qaytarır.
  */
+import { UNIVERSITY_CONTENT_RU } from "./university-content.ru";
+import { UNIVERSITY_CONTENT_EN } from "./university-content.en";
 
 export interface UniversityContentSection {
   heading: string;
@@ -674,5 +677,11 @@ export const UNIVERSITY_CONTENT: Record<string, UniversityContent> = {
 };
 
 export function getUniversityContent(slug: string): UniversityContent | undefined {
+  return UNIVERSITY_CONTENT[slug];
+}
+
+export function getUniversityContentByLocale(slug: string, locale: string): UniversityContent | undefined {
+  if (locale === "ru") return UNIVERSITY_CONTENT_RU[slug];
+  if (locale === "en") return UNIVERSITY_CONTENT_EN[slug];
   return UNIVERSITY_CONTENT[slug];
 }

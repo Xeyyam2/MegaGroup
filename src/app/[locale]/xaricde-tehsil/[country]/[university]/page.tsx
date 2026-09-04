@@ -10,7 +10,7 @@ import { CTASection } from "@/components/sections/CTASection";
 import { FadeInUp } from "@/components/motion/FadeInUp";
 import { getCountryBySlug } from "@/lib/data/countries";
 import { getUniversityBySlug } from "@/lib/data/universities";
-import { getUniversityContent } from "@/data/university-content";
+import { getUniversityContentByLocale } from "@/data/university-content";
 import { getArticleBySlugLocalized } from "@/data/articles";
 import { getFAQsByUniversity } from "@/lib/data/faqs";
 import { getTestimonialsByUniversity } from "@/lib/data/testimonials";
@@ -84,7 +84,7 @@ export default async function UniversityPage({ params }: PageProps) {
   const guide = getArticleBySlugLocalized(university, locale);
   // Dərin AZ məzmunu (qəbul, sənədlər, şəhər, karyera) — hər universitet üçün.
   // Bloq məqaləsindən fərqli, səhifə profili kimi qurulub (duplicate yoxdur).
-  const content = locale === "az" ? getUniversityContent(university) : undefined;
+  const content = getUniversityContentByLocale(university, locale);
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CollegeOrUniversity",
@@ -271,7 +271,13 @@ export default async function UniversityPage({ params }: PageProps) {
         <>
           {content.admission.length > 0 && (
             <section className="mx-auto max-w-3xl px-6 py-12">
-              <h2 className="font-heading text-3xl font-bold text-foreground">Qəbul Şərtləri və Proses</h2>
+              <h2 className="font-heading text-3xl font-bold text-foreground">
+                {locale === "az"
+                  ? "Qəbul Şərtləri və Proses"
+                  : locale === "ru"
+                    ? "Условия поступления и процесс"
+                    : "Admission Requirements & Process"}
+              </h2>
               <div className="mt-8 space-y-8">
                 {content.admission.map((sec) => (
                   <div key={sec.heading}>
@@ -289,7 +295,13 @@ export default async function UniversityPage({ params }: PageProps) {
 
           {content.documents.length > 0 && (
             <section className="mx-auto max-w-3xl px-6 py-12">
-              <h2 className="font-heading text-3xl font-bold text-foreground">Tələb Olunan Sənədlər</h2>
+              <h2 className="font-heading text-3xl font-bold text-foreground">
+                {locale === "az"
+                  ? "Tələb Olunan Sənədlər"
+                  : locale === "ru"
+                    ? "Требуемые документы"
+                    : "Required Documents"}
+              </h2>
               <div className="mt-6 grid grid-cols-1 gap-3">
                 {content.documents.map((doc) => (
                   <div
