@@ -28,7 +28,7 @@ const rawTestimonials: RawTestimonial[] = [
   {
     id: "t3",
     student_name: "Ləman Əliyeva",
-    university_slug: "varşava-tibb-universiteti",
+    university_slug: "varshava-tibb-universiteti",
     country_slug: "polsa",
     photo_url: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80",
     quote_az: "Polşada ingilis dilində tibb oxuyuram. Avropa diplomu gələcəyim üçün böyük fürsətdir.",

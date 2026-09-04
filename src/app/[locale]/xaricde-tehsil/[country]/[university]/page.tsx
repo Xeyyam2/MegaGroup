@@ -10,6 +10,7 @@ import { CTASection } from "@/components/sections/CTASection";
 import { FadeInUp } from "@/components/motion/FadeInUp";
 import { getCountryBySlug } from "@/lib/data/countries";
 import { getUniversityBySlug } from "@/lib/data/universities";
+import { getUniversityContent } from "@/data/university-content";
 import { getArticleBySlugLocalized } from "@/data/articles";
 import { getFAQsByUniversity } from "@/lib/data/faqs";
 import { getTestimonialsByUniversity } from "@/lib/data/testimonials";
@@ -81,6 +82,9 @@ export default async function UniversityPage({ params }: PageProps) {
   // Universitet haqqında bloq bələdçisi varsa, onu tap — səhifələrarası
   // kontekstual link (internal linking) üçün. Məqalə slug-ı universitet slug-ı ilə eynidir.
   const guide = getArticleBySlugLocalized(university, locale);
+  // Dərin AZ məzmunu (qəbul, sənədlər, şəhər, karyera) — hər universitet üçün.
+  // Bloq məqaləsindən fərqli, səhifə profili kimi qurulub (duplicate yoxdur).
+  const content = locale === "az" ? getUniversityContent(university) : undefined;
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CollegeOrUniversity",
@@ -152,6 +156,17 @@ export default async function UniversityPage({ params }: PageProps) {
         </div>
       </section>
 
+      {/* Giriş paraqrafları — ilk 100 sözdə açar söz (SEO üçün kritik). */}
+      {content?.intro && content.intro.length > 0 && (
+        <section className="mx-auto max-w-3xl px-6 py-10">
+          <div className="space-y-4 text-base leading-relaxed text-foreground/80">
+            {content.intro.map((p, i) => (
+              <p key={i}>{p}</p>
+            ))}
+          </div>
+        </section>
+      )}
+
       <section className="mx-auto max-w-7xl px-6 py-16">
         <h2 className="font-heading text-3xl font-bold text-foreground">
           {locale === "az" ? "Niyə" : locale === "ru" ? "Почему" : "Why"} {u.name}?
@@ -215,6 +230,9 @@ export default async function UniversityPage({ params }: PageProps) {
         <div className="mt-8">
           <CostCalculator universities={[u]} />
         </div>
+        {content?.costNote && (
+          <p className="mx-auto mt-6 max-w-3xl text-sm text-foreground/60">{content.costNote}</p>
+        )}
       </section>
 
       {u.campus_info && (
@@ -246,6 +264,63 @@ export default async function UniversityPage({ params }: PageProps) {
             <p className="mt-1 text-sm text-foreground/70">{guide.excerpt}</p>
           </Link>
         </section>
+      )}
+
+      {/* Dərin AZ məzmunu — qəbul şərtləri, sənədlər, şəhər, karyera (SEO üçün). */}
+      {content && (
+        <>
+          {content.admission.length > 0 && (
+            <section className="mx-auto max-w-3xl px-6 py-12">
+              <h2 className="font-heading text-3xl font-bold text-foreground">Qəbul Şərtləri və Proses</h2>
+              <div className="mt-8 space-y-8">
+                {content.admission.map((sec) => (
+                  <div key={sec.heading}>
+                    <h3 className="font-heading text-xl font-bold text-foreground">{sec.heading}</h3>
+                    <div className="mt-2 space-y-3 text-foreground/80">
+                      {sec.paragraphs.map((p, i) => (
+                        <p key={i}>{p}</p>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {content.documents.length > 0 && (
+            <section className="mx-auto max-w-3xl px-6 py-12">
+              <h2 className="font-heading text-3xl font-bold text-foreground">Tələb Olunan Sənədlər</h2>
+              <div className="mt-6 grid grid-cols-1 gap-3">
+                {content.documents.map((doc) => (
+                  <div
+                    key={doc}
+                    className="glass flex items-center gap-3 rounded-xl p-4 text-sm text-foreground/80"
+                  >
+                    <span className="text-brand-primary">✓</span> {doc}
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
+          <section className="mx-auto max-w-3xl px-6 py-12">
+            <h2 className="font-heading text-3xl font-bold text-foreground">{content.city.heading}</h2>
+            <div className="mt-6 space-y-4 text-foreground/80">
+              {content.city.paragraphs.map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
+            </div>
+          </section>
+
+          <section className="mx-auto max-w-3xl px-6 py-12">
+            <h2 className="font-heading text-3xl font-bold text-foreground">{content.career.heading}</h2>
+            <div className="mt-6 space-y-4 text-foreground/80">
+              {content.career.paragraphs.map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
+            </div>
+          </section>
+        </>
       )}
 
       {stories.length > 0 && (

@@ -287,7 +287,7 @@ const rawUniversities: RawUniversity[] = [
   },
   {
     id: "u9",
-    slug: "varşava-tibb-universiteti",
+    slug: "varshava-tibb-universiteti",
     country_slug: "polsa",
     name_az: "Varşava Tibb Universiteti", name_ru: "Варшавский медицинский университет", name_en: "Medical University of Warsaw",
     city_az: "Varşava", city_ru: "Варшава", city_en: "Warsaw",

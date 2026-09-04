@@ -34,7 +34,7 @@ export async function POST(req: NextRequest) {
       "moskva-dovlet-universiteti", "sankt-peterburg-universiteti",
       "kiev-tibb-universiteti", "lvov-universiteti",
       "munchen-texniki-universiteti", "berlin-universiteti",
-      "varşava-tibb-universiteti", "krakov-tibb-universiteti",
+      "varshava-tibb-universiteti", "krakov-tibb-universiteti",
       "tbilisi-dovlet-tibb-universiteti", "batumi-shota-rustaveli-universiteti",
       "al-farabi-qazax-milli-universiteti", "nazarbayev-universiteti",
     ];
