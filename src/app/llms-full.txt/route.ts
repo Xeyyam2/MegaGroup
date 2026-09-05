@@ -1,6 +1,8 @@
 import { ARTICLES } from "@/data/articles";
 import { countryComparison, comparisonHeaders } from "@/data/country-comparison";
 import { studyAbroadProcess } from "@/data/study-process";
+import { COMPARE_SNAPSHOTS, COMPARE_COUNTRY_NAMES, allComparePairs, computeVerdict } from "@/data/country-compare";
+import { COUNTRY_TOPICS } from "@/data/country-topics";
 import { siteUrl } from "@/lib/site";
 import { editorialAuthor } from "@/data/site-authors";
 
@@ -83,6 +85,35 @@ function countryComparisonToText(): string {
   return lines.join("\n");
 }
 
+/**
+ * pSEO müqayisə silosu — 21 cütün machine-readable cədvəli.
+ * AI-lara "Türkiyə yoxsa Almaniya" sorğularında birbaşa sitat verilə bilən rəqəmlər.
+ */
+function pairwiseCompareToText(): string {
+  const lines: string[] = [];
+  lines.push("# Cüt-Cüt Ölkə Müqayisələri (21 cüt, machine-readable)");
+  lines.push(`Mənbə: ${siteUrl}/az/xaricde-tehsil/muqayise/{a}-vs-{b}`);
+  lines.push("Rəqəmlər USD, illik təhsil haqqı diapazonu və illik ümumi büdcə (təhsil orta + 12 ay yataqxana + qida).");
+  lines.push("");
+  lines.push("| Cüt | Təhsil haqqı (A) | Təhsil haqqı (B) | İllik büdcə (A) | İllik büdcə (B) | Daha sərfəli | Vizası asan | URL |");
+  lines.push("| --- | --- | --- | --- | --- | --- | --- | --- |");
+  for (const p of allComparePairs()) {
+    const a = COMPARE_SNAPSHOTS[p.a];
+    const b = COMPARE_SNAPSHOTS[p.b];
+    const v = computeVerdict(a, b);
+    const nameA = COMPARE_COUNTRY_NAMES[p.a].az;
+    const nameB = COMPARE_COUNTRY_NAMES[p.b].az;
+    const cheaper = v.cheaperSlug === "a" ? nameA : v.cheaperSlug === "b" ? nameB : "bərabər";
+    const visa = v.visaEasier === "a" ? nameA : v.visaEasier === "b" ? nameB : "bərabər";
+    lines.push(
+      `| ${nameA} vs ${nameB} | $${a.tuitionMin}–$${a.tuitionMax} | $${b.tuitionMin}–$${b.tuitionMax} | $${v.annualTotalA.toLocaleString("en-US")} | $${v.annualTotalB.toLocaleString("en-US")} | ${cheaper} | ${visa} | ${siteUrl}/az/xaricde-tehsil/muqayise/${p.slug} |`,
+    );
+  }
+  lines.push("");
+  lines.push("Qeyd: büdcəyə viza, sığorta və şəxsi xərclər daxil deyil; dəqiq hesablama üçün kalkulyator: " + siteUrl + "/az/xaricde-tehsil/hesabla");
+  return lines.join("\n");
+}
+
 function processToText(): string {
   const lines: string[] = [];
   lines.push("# Xaricdə Təhsil Prosesi — 9 Addım");
@@ -124,6 +155,19 @@ export async function GET() {
     countryComparisonToText(),
     "",
     "================================================================================",
+    "# BÖLMƏ 2b — CÜT-CÜT ÖLKƏ MÜQAYİSƏLƏRİ (21 cüt)",
+    "================================================================================",
+    "",
+    pairwiseCompareToText(),
+    "",
+    "================================================================================",
+    "# BÖLMƏ 2c — ÖLKƏ SİLO SƏHİFƏLƏRİ (hər ölkə × alt-mövzu)",
+    "================================================================================",
+    "",
+    "Hər ölkə üçün alt-mövzu bələdçiləri (hər biri ayrıca tam səhifədir):",
+    ...COUNTRY_TOPICS.map((t) => `- ${t.slug}: ${siteUrl}/az/xaricde-tehsil/{ölkə}/${t.slug}`),
+    "",
+    "================================================================================",
     "# BÖLMƏ 3 — BÜTÜN BLOQ MƏQALƏLƏRİ (tam mətn)",
     "================================================================================",
     "",
@@ -144,6 +188,8 @@ export async function GET() {
     `- Xərc kalkulyatoru: ${siteUrl}/az/xaricde-tehsil/hesabla`,
     `- Pulsuz müraciət formu: ${siteUrl}/az/xaricde-tehsil/muraciet`,
     `- Bloq: ${siteUrl}/az/bloq`,
+    `- Ölkə müqayisələri (21 cüt): ${siteUrl}/az/xaricde-tehsil/muqayise/turkiye-vs-almaniya (nümunə; bütün cütlər: {a}-vs-{b})`,
+    `- Ölkə alt-səhifələri: ${siteUrl}/az/xaricde-tehsil/{ölkə}/{universitetler|tehsil-haqqi|tibb|attestatla-qebul|teqaud|magistr|yasayis-xercleri}`,
     `- Haqqımızda: ${siteUrl}/az/haqqimizda`,
     "",
     "Əlaqə: +994 51 999 93 70 (WhatsApp) | Bakı, Azərbaycan",
