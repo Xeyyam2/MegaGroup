@@ -523,6 +523,17 @@ export default async function CountryPage({ params }: PageProps) {
       )}
 
       <CTASection />
+
+      {/* CC BY 3.0 atribusiya — şəkil hüquqları (bax: public/images/countries/CREDITS.md). */}
+      {c.slug === "qazaxistan" && (
+        <footer className="mx-auto max-w-7xl px-6 pb-8 text-xs text-foreground/40">
+          {locale === "az"
+            ? "Ölkə şəkli: Almatıdakı Birinci Prezident parkının girişi — Foto: Igors Jefimovs (CC BY 3.0, Wikimedia Commons vasitəsilə)."
+            : locale === "ru"
+              ? "Фото страны: вход в Парк Первого Президента, Алматы — Фото: Igors Jefimovs (CC BY 3.0, через Wikimedia Commons)."
+              : "Country photo: Entrance to the Park of the First President, Almaty — Photo: Igors Jefimovs (CC BY 3.0, via Wikimedia Commons)."}
+        </footer>
+      )}
     </>
   );
 }
