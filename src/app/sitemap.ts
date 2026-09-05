@@ -43,7 +43,7 @@ function pushAllLocales(
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const countries = await getCountries("az");
   const universities = await getAllUniversitySlugs();
-  const staticPaths = ["", "/xaricde-tehsil", "/haqqimizda", "/xaricde-tehsil/hesabla", "/xaricde-tehsil/muraciet"];
+  const staticPaths = ["", "/xaricde-tehsil", "/haqqimizda", "/xaricde-tehsil/hesabla", "/xaricde-tehsil/muraciet", "/statistika"];
   const entries: MetadataRoute.Sitemap = [];
 
   for (const path of staticPaths) {

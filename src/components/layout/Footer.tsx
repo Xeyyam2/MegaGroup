@@ -108,6 +108,15 @@ export async function Footer({
                 {t("services")}
               </Link>
             </li>
+            <li>
+              <Link href={`/${locale}/statistika`} className="hover:text-brand-primary">
+                {locale === "az"
+                  ? "Statistika"
+                  : locale === "ru"
+                    ? "Статистика"
+                    : "Statistics"}
+              </Link>
+            </li>
           </ul>
         </div>
 

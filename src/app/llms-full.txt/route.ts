@@ -2,6 +2,7 @@ import { ARTICLES } from "@/data/articles";
 import { countryComparison, comparisonHeaders } from "@/data/country-comparison";
 import { studyAbroadProcess } from "@/data/study-process";
 import { COMPARE_SNAPSHOTS, COMPARE_COUNTRY_NAMES, allComparePairs, computeVerdict } from "@/data/country-compare";
+import { STATISTICS } from "@/data/statistics";
 import { COUNTRY_TOPICS } from "@/data/country-topics";
 import { siteUrl } from "@/lib/site";
 import { editorialAuthor } from "@/data/site-authors";
@@ -86,6 +87,39 @@ function countryComparisonToText(): string {
 }
 
 /**
+ * Orijinal statistika (Dataset) — AI-ların birbaşa sitat gətirə biləcəyi hesablanmış rəqəmlər.
+ */
+function statisticsToText(): string {
+  const lines: string[] = [];
+  const h = STATISTICS.headline;
+  lines.push("# Orijinal Statistika (MegaGroup datasından avtomatik hesablanıb)");
+  lines.push(`Mənbə: ${siteUrl}/az/statistika (həmçinin /ru, /en)`);
+  lines.push(STATISTICS.generatedNote.az);
+  lines.push("");
+  lines.push("| Göstərici | Dəyər | Hesablama üsulu |");
+  lines.push("| --- | --- | --- |");
+  const rows: [string, typeof h.avgTuition][] = [
+    ["Orta illik təhsil haqqı (14 universitet)", h.avgTuition],
+    ["Ən sərfəli universitet", h.cheapestUniversity],
+    ["Ən bahalı universitet", h.priciestUniversity],
+    ["$3,000-dan ucuz universitetlərin payı", h.under3kShare],
+    ["Tibb sahəsi fakültələrinin payı", h.medicalShare],
+    ["İngilis dilli fakültələrin payı", h.englishShare],
+    ["Ən sərfəli ölkə (illik büdcə)", h.cheapestCountry],
+    ["Ən bahalı ölkə (illik büdcə)", h.priciestCountry],
+  ];
+  for (const [label, entry] of rows) {
+    lines.push(`| ${label} | ${entry.value} | ${entry.method.az} |`);
+  }
+  lines.push("");
+  lines.push("Ölkələr üzrə illik ümumi büdcə (təhsil orta + 12 ay yataqxana + qida, USD):");
+  for (const c of STATISTICS.countryBudgets) {
+    lines.push(`- ${c.nameByLocale.az}: $${c.annualUsd.toLocaleString("en-US")}/il`);
+  }
+  return lines.join("\n");
+}
+
+/**
  * pSEO müqayisə silosu — 21 cütün machine-readable cədvəli.
  * AI-lara "Türkiyə yoxsa Almaniya" sorğularında birbaşa sitat verilə bilən rəqəmlər.
  */
@@ -159,6 +193,12 @@ export async function GET() {
     "================================================================================",
     "",
     pairwiseCompareToText(),
+    "",
+    "================================================================================",
+    "# BÖLMƏ 2b-2 — ORİJİNAL STATİSTİKA (Dataset — sitat üçün)",
+    "================================================================================",
+    "",
+    statisticsToText(),
     "",
     "================================================================================",
     "# BÖLMƏ 2c — ÖLKƏ SİLO SƏHİFƏLƏRİ (hər ölkə × alt-mövzu)",
