@@ -5,6 +5,7 @@ import { getAllUniversitySlugs } from "@/lib/data/universities";
 import { ARTICLES } from "@/data/articles";
 import { COUNTRY_TOPICS } from "@/data/country-topics";
 import { PROGRAMS } from "@/data/country-programs";
+import { allComparePairs } from "@/data/country-compare";
 import { siteUrl } from "@/lib/site";
 
 const baseUrl = siteUrl;
@@ -76,6 +77,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         priority: 0.7,
       });
     }
+  }
+  // pSEO müqayisə silosu: 21 cüt × 3 dil = 63 səhifə.
+  for (const p of allComparePairs()) {
+    pushAllLocales(entries, `/xaricde-tehsil/muqayise/${p.slug}`, {
+      lastModified: STATIC_LASTMOD,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    });
   }
   for (const u of universities) {
     pushAllLocales(entries, `/xaricde-tehsil/${u.country_slug}/${u.slug}`, {

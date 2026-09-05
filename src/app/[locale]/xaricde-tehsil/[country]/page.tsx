@@ -16,6 +16,7 @@ import { countries as staticCountries } from "@/data/countries";
 import { ARTICLES, getArticleBySlugLocalized } from "@/data/articles";
 import { getCountryContentByLocale } from "@/data/country-content";
 import { COUNTRY_TOPICS } from "@/data/country-topics";
+import { pairsForCountry, COMPARE_COUNTRY_NAMES } from "@/data/country-compare";
 import { siteUrl } from "@/lib/site";
 import { getCountrySeo } from "@/lib/seo";
 
@@ -458,14 +459,47 @@ export default async function CountryPage({ params }: PageProps) {
                     : t.slug === "tehsil-haqqi"
                       ? locale === "az" ? "Təhsil haqqı" : locale === "ru" ? "Стоимость" : "Tuition fees"
                       : t.slug === "teqaud"
-                        ? locale === "az" ? "Təqaüdlər" : locale === "ru" ? "Стипендии" : "Scholarships"
-                        : t.slug === "magistr"
-                          ? locale === "az" ? "Magistratura" : locale === "ru" ? "Магистратура" : "Master's degree"
-                          : locale === "az" ? "Yaşayış xərcləri" : locale === "ru" ? "Расходы на проживание" : "Living costs"}
+                        ? locale === "az" ? "Təqaüdlər" : locale === "ru" ? "Стипендии" : "Scholarships"                          : t.slug === "magistr"
+                            ? locale === "az" ? "Magistratura" : locale === "ru" ? "Магистратура" : "Master's degree"
+                            : locale === "az" ? "Yaşayış xərcləri" : locale === "ru" ? "Расходы на проживание" : "Living costs"}
             </Link>
           ))}
         </div>
       </nav>
+
+      {/* pSEO müqayisə silosu: bu ölkənin digər ölkələrlə müqayisə səhifələri. */}
+      {(() => {
+        const pairs = pairsForCountry(c.slug).slice(0, 6);
+        if (!pairs.length) return null;
+        return (
+          <nav aria-label={locale === "az" ? "Ölkə müqayisələri" : locale === "ru" ? "Сравнение стран" : "Country comparisons"} className="mx-auto max-w-7xl px-6 pb-8">
+            <h2 className="font-heading text-xl font-bold text-foreground">
+              {locale === "az"
+                ? `${c.name} ilə müqayisə`
+                : locale === "ru"
+                  ? `Сравнение с ${c.name_ru}`
+                  : `Compare with ${c.name_en}`}
+            </h2>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {pairs.map((p) => {
+                const other = p.a === c.slug ? p.b : p.a;
+                const otherName = COMPARE_COUNTRY_NAMES[other][locale];
+                return (
+                  <Link
+                    key={p.slug}
+                    href={`/${locale}/xaricde-tehsil/muqayise/${p.slug}`}
+                    className="glass rounded-full px-4 py-1.5 text-sm text-foreground/80 transition-colors hover:bg-white/10 hover:text-foreground"
+                  >
+                    {locale === "ru"
+                      ? `${c.name_ru} или ${otherName}`
+                      : `${c.name} vs ${otherName}`}
+                  </Link>
+                );
+              })}
+            </div>
+          </nav>
+        );
+      })()}
 
       {relatedArticle && (
         <section className="mx-auto max-w-3xl px-6 pb-12">
