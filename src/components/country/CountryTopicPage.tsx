@@ -109,6 +109,74 @@ export async function CountryTopicPage({ locale, country, topic }: TopicPageProp
     years: locale === "az" ? "il" : locale === "ru" ? "лет" : "yrs",
   };
 
+  // Magistratura (master) topic-i üçün xüsusi bələdçi məzmunu — cədvəl
+  // göstərmir, çünki fakültə müddətləri bakalavr səviyyəsinə aiddir.
+  const master =
+    locale === "az"
+      ? {
+          docsTitle: "Magistratura üçün tələb olunan sənədlər",
+          stepsTitle: "Müraciət addımları",
+          note: "Magistr proqramlarının müddəti ölkədən və ixtisasdan asılıdır (adətən 1-2 il) — dəqiq məlumat üçün universitetin rəsmi saytını yoxlayın.",
+          docs: [
+            "Bakalavr diplomu və əlavəsi (notarial tərcümə + apostil)",
+            "Motivasiya məktubu",
+            "CV (CV/Resume)",
+            "Dil sertifikatı — IELTS 6.0+ / TOEFL və ya ölkə dilində B2",
+            "İki tövsiyə məktubu",
+            "Pasport və şəkillər",
+            "Maliyyə sübutu (viza üçün)",
+          ],
+          steps: [
+            "Proqram və universitet seçimi — ingilis dilli magistratura proqramlarına üstünlük verin",
+            "Universitetin onlayn portalından müraciət",
+            "Qəbul komissiyası ilə yazışma və qəbul məktubu",
+            "Təhsil vizası üçün müraciət",
+            "Yerləşmə və şəhərə gəliş",
+          ],
+        }
+      : locale === "ru"
+        ? {
+            docsTitle: "Документы для поступления в магистратуру",
+            stepsTitle: "Шаги подачи заявки",
+            note: "Срок обучения в магистратуре зависит от страны и специальности (обычно 1–2 года) — уточняйте на официальном сайте университета.",
+            docs: [
+              "Диплом бакалавра с приложением (нотариальный перевод + апостиль)",
+              "Мотивационное письмо",
+              "Резюме (CV)",
+              "Сертификат о знании языка — IELTS 6.0+ / TOEFL или B2 по языку страны",
+              "Два рекомендательных письма",
+              "Загранпаспорт и фотографии",
+              "Подтверждение финансов (для визы)",
+            ],
+            steps: [
+              "Выбор программы и вуза — отдайте предпочтение англоязычным магистерским программам",
+              "Подача заявки через онлайн-портал университета",
+              "Переписка с приёмной комиссией и письмо о зачислении",
+              "Подача на учебную визу",
+              "Размещение и приезд в город",
+            ],
+          }
+        : {
+            docsTitle: "Documents required for a master's application",
+            stepsTitle: "Application steps",
+            note: "Master's programme duration varies by country and field (usually 1–2 years) — always verify on the university's official website.",
+            docs: [
+              "Bachelor's diploma with transcript (notarised translation + apostille)",
+              "Motivation letter",
+              "CV / Resume",
+              "Language certificate — IELTS 6.0+ / TOEFL or B2 in the country's language",
+              "Two recommendation letters",
+              "Passport and photos",
+              "Proof of funds (for the visa)",
+            ],
+            steps: [
+              "Choose a programme and university — prefer English-taught master's programmes",
+              "Apply through the university's online portal",
+              "Correspond with the admissions office and receive your acceptance letter",
+              "Apply for a study visa",
+              "Arrange accommodation and travel to the city",
+            ],
+          };
 
   return (
     <>
@@ -168,8 +236,34 @@ export async function CountryTopicPage({ locale, country, topic }: TopicPageProp
         </section>
       )}
 
+      {/* Magistratura — sənəd və addım bələdçisi (bakalavr cədvəli göstərilmir). */}
+      {topic.slug === "magistr" && (
+        <section className="mx-auto max-w-3xl px-6 py-12">
+          <h2 className="font-heading text-3xl font-bold text-foreground">{master.docsTitle}</h2>
+          <p className="mt-3 text-sm text-foreground/60">{master.note}</p>
+          <div className="mt-6 grid grid-cols-1 gap-3">
+            {master.docs.map((doc) => (
+              <div key={doc} className="glass flex items-center gap-3 rounded-xl p-4 text-sm text-foreground/80">
+                <span className="text-brand-primary">✓</span> {doc}
+              </div>
+            ))}
+          </div>
+          <h2 className="mt-12 font-heading text-3xl font-bold text-foreground">{master.stepsTitle}</h2>
+          <ol className="mt-6 space-y-4">
+            {master.steps.map((step, i) => (
+              <li key={step} className="glass flex items-start gap-4 rounded-xl p-4">
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand-primary text-sm font-bold text-white">
+                  {i + 1}
+                </span>
+                <span className="pt-0.5 text-sm text-foreground/80">{step}</span>
+              </li>
+            ))}
+          </ol>
+        </section>
+      )}
+
       {/* Data cədvəli — universitetlər üzrə topic-a uyğun sütunlar. */}
-      {topic.slug !== "attestatla-qebul" && filtered.length > 0 && (
+      {topic.slug !== "attestatla-qebul" && topic.slug !== "magistr" && filtered.length > 0 && (
         <section className="mx-auto max-w-7xl px-6 py-12">
           <h2 className="font-heading text-3xl font-bold text-foreground">
             {topic.slug === "universitetler"

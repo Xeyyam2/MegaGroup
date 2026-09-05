@@ -1,4 +1,11 @@
-import type { FAQ } from "@/types";
+import type { FAQ, Locale } from "@/types";
+
+/** Lokalizasiya — Supabase mapFaqRow ilə eyni qayda (dil sahəsi yoxdursa AZ). */
+function pick(locale: Locale, az: string, ru?: string | null, en?: string | null): string {
+  if (locale === "ru" && ru) return ru;
+  if (locale === "en" && en) return en;
+  return az;
+}
 
 type RawFaq = {
   id: string;
@@ -137,12 +144,25 @@ export const faqs: FAQ[] = rawFaqs.map((f, i) => ({
   sort_order: i,
 }));
 
-export function getFAQsByCountry(countrySlug: string): FAQ[] {
-  return faqs.filter((f) => f.country_slug === countrySlug || (!f.country_slug && !f.university_slug));
+/** Lokalizə olunmuş statik FAQ — locale-ə görə question/answer seçir. */
+export function localizeFaq(f: FAQ, locale: Locale): FAQ {
+  return {
+    ...f,
+    question: pick(locale, f.question_az, f.question_ru, f.question_en),
+    answer: pick(locale, f.answer_az, f.answer_ru, f.answer_en),
+  };
 }
-export function getFAQsByUniversity(universitySlug: string): FAQ[] {
-  return faqs.filter((f) => f.university_slug === universitySlug || (!f.country_slug && !f.university_slug));
+
+export function getFAQsByCountry(countrySlug: string, locale: Locale = "az"): FAQ[] {
+  return faqs
+    .filter((f) => f.country_slug === countrySlug || (!f.country_slug && !f.university_slug))
+    .map((f) => localizeFaq(f, locale));
 }
-export function getGeneralFAQs(): FAQ[] {
-  return faqs.filter((f) => !f.country_slug && !f.university_slug);
+export function getFAQsByUniversity(universitySlug: string, locale: Locale = "az"): FAQ[] {
+  return faqs
+    .filter((f) => f.university_slug === universitySlug || (!f.country_slug && !f.university_slug))
+    .map((f) => localizeFaq(f, locale));
+}
+export function getGeneralFAQs(locale: Locale = "az"): FAQ[] {
+  return faqs.filter((f) => !f.country_slug && !f.university_slug).map((f) => localizeFaq(f, locale));
 }

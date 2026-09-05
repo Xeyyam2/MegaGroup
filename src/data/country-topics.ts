@@ -115,6 +115,17 @@ export const COUNTRY_TOPICS: CountryTopic[] = [
     ],
   },
   {
+    slug: "magistr",
+    title: (loc, y) => `${loc} Magistratura Təhsili ${y} — Qəbul və Sənədlər | MegaGroup`,
+    h1: (loc, y) => `${loc} Magistratura Təhsili ${y}`,
+    metaDescription: (loc, name, y) =>
+      `${loc} magistratura təhsili ${y}: bakalavr məzunları üçün qəbul şərtləri, lazımi sənədlər, ingilis dilli magistr proqramları və müddətləri. ${name} magistratura bələdçisi.`,
+    intro: (loc) => [
+      `${loc} magistratura təhsili bakalavr dərəcəsi olan tələbələr üçün növbəti akademik pillədir və adətən 1-2 il davam edir. Boloniya sistemi üzrə diplomların tanınması sayəsində Azərbaycan məzunları xaricdə magistr təhsilini davam etdirə bilər.`,
+      "İngilis dilində tədris olunan magistr proqramları dil baryerini azaldır — qəbul üçün bakalavr diplomu, motivasiya məktubu və dil sertifikatı əsasdır. Aşağıda ölkə üzrə magistratura qəbulunun ümumi tələbləri verilir.",
+    ],
+  },
+  {
     slug: "yasayis-xercleri",
     title: (loc, y) => `${loc} Yaşayış Xərcləri ${y} — Tələbə Büdcəsi | MegaGroup`,
     h1: (loc, y) => `${loc} Yaşayış Xərcləri ${y}`,
@@ -172,6 +183,14 @@ const TOPIC_RU: Record<
       "На практике наибольшая экономия — это правильный выбор вуза с самого начала: ниже университеты отсортированы по годовой стоимости обучения. При расчёте бюджета используйте также страницу расходов на проживание.",
     ],
   }),
+  magistr: (f, y) => ({
+    title: `Магистратура ${f.prep} ${y} — поступление и документы | MegaGroup`,
+    metaDescription: `Магистратура ${f.prep} ${y}: условия поступления для выпускников бакалавриата, необходимые документы, англоязычные программы и сроки обучения. Полный гид.`,
+    intro: [
+      `Магистратура ${f.prep} — следующая академическая ступень для выпускников бакалавриата; обучение обычно длится 1–2 года. Благодаря признанию дипломов в рамках Болонской системы выпускники из Азербайджана могут продолжить образование за рубежом.`,
+      "Англоязычные магистерские программы снижают языковой барьер — для поступления нужны диплом бакалавра, мотивационное письмо и сертификат о знании языка. Ниже — общие требования к поступлению в магистратуру в этой стране.",
+    ],
+  }),
   "yasayis-xercleri": (f, y) => ({
     title: `Расходы на проживание ${f.prep} ${y} — бюджет студента | MegaGroup`,
     metaDescription: `Расходы на проживание ${f.prep} ${y}: общежитие, питание, транспорт и личные расходы — сколько стоит месяц студента? Реальный бюджет с цифрами.`,
@@ -225,6 +244,14 @@ const TOPIC_EN: Record<
     intro: [
       `Scholarship opportunities in ${name} fall into three groups: the universities' own academic scholarships, state programmes and contractual discounts (GPA-based, partner-country agreements).`,
       "In practice, the biggest saving comes from choosing the right university from the start — below are the most affordable universities by annual tuition. When planning your budget, also use the living costs page.",
+    ],
+  }),
+  magistr: (name, y) => ({
+    title: `Master's Degree in ${name} ${y} — Admission and Documents | MegaGroup`,
+    metaDescription: `Master's studies in ${name} ${y}: admission requirements for bachelor's graduates, required documents, English-taught master's programmes and durations. A complete guide.`,
+    intro: [
+      `A master's degree in ${name} is the next academic step for bachelor's graduates and usually takes 1–2 years. Thanks to Bologna-process degree recognition, Azerbaijani graduates can continue their studies abroad.`,
+      "English-taught master's programmes lower the language barrier — a bachelor's diploma, motivation letter and a language certificate are the core requirements. Below are the general admission requirements for this country.",
     ],
   }),
   "yasayis-xercleri": (name, y) => ({
@@ -322,6 +349,8 @@ export function topicHeading(
           return `Стоимость обучения ${f.prep} ${year}`;
         case "teqaud":
           return `Стипендии и гранты ${f.prep} ${year}`;
+        case "magistr":
+          return `Магистратура ${f.prep} ${year}`;
         default:
           return `Расходы на проживание ${f.prep} ${year}`;
       }
@@ -338,6 +367,8 @@ export function topicHeading(
           return `Tuition Fees in ${name} ${year}`;
         case "teqaud":
           return `Scholarships in ${name} ${year}`;
+        case "magistr":
+          return `Master's Degree in ${name} ${year}`;
         default:
           return `Living Costs in ${name} ${year}`;
       }

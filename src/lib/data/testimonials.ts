@@ -6,6 +6,7 @@ import {
   testimonials as staticTestimonials,
   getTestimonialsByCountry as staticByCountry,
   getTestimonialsByUniversity as staticByUniversity,
+  localizeTestimonial,
 } from "@/data/testimonials";
 import type { Testimonial, Locale } from "@/types";
 
@@ -13,7 +14,7 @@ const REVALIDATE = 300;
 
 async function fetchTestimonials(locale: Locale): Promise<Testimonial[]> {
   if (!isSupabaseConfigured()) {
-    return staticTestimonials;
+    return staticTestimonials.map((t) => localizeTestimonial(t, locale));
   }
   const supabase = createCacheClient();
   const { data, error } = await supabase
@@ -24,14 +25,14 @@ async function fetchTestimonials(locale: Locale): Promise<Testimonial[]> {
     .order("sort_order");
   if (error) {
     console.warn("[testimonials] Supabase error, statik fallback:", error.message);
-    return staticTestimonials;
+    return staticTestimonials.map((t) => localizeTestimonial(t, locale));
   }
   return (data ?? []).map((row) => mapTestimonialRow(row, locale));
 }
 
 async function fetchTestimonialsByCountry(countrySlug: string, locale: Locale): Promise<Testimonial[]> {
   if (!isSupabaseConfigured()) {
-    return staticByCountry(countrySlug);
+    return staticByCountry(countrySlug, locale);
   }
   const supabase = createCacheClient();
   const { data, error } = await supabase
@@ -42,14 +43,14 @@ async function fetchTestimonialsByCountry(countrySlug: string, locale: Locale): 
     .eq("is_active", true)
     .order("sort_order");
   if (error) {
-    return staticByCountry(countrySlug);
+    return staticByCountry(countrySlug, locale);
   }
   return (data ?? []).map((row) => mapTestimonialRow(row, locale));
 }
 
 async function fetchTestimonialsByUniversity(universitySlug: string, locale: Locale): Promise<Testimonial[]> {
   if (!isSupabaseConfigured()) {
-    return staticByUniversity(universitySlug);
+    return staticByUniversity(universitySlug, locale);
   }
   const supabase = createCacheClient();
   const { data, error } = await supabase
@@ -60,7 +61,7 @@ async function fetchTestimonialsByUniversity(universitySlug: string, locale: Loc
     .eq("is_active", true)
     .order("sort_order");
   if (error) {
-    return staticByUniversity(universitySlug);
+    return staticByUniversity(universitySlug, locale);
   }
   return (data ?? []).map((row) => mapTestimonialRow(row, locale));
 }

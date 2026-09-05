@@ -13,13 +13,13 @@ const REVALIDATE = 300;
 
 async function fetchGeneralFAQs(locale: Locale): Promise<FAQ[]> {
   if (!isSupabaseConfigured()) {
-    return staticGeneral();
+    return staticGeneral(locale);
   }
   const supabase = createCacheClient();
   const { data, error } = await supabase.from("faqs").select("*").eq("is_deleted", false).order("sort_order");
   if (error) {
     console.warn("[faqs] Supabase error, statik fallback:", error.message);
-    return staticGeneral();
+    return staticGeneral(locale);
   }
   return (data ?? [])
     .filter((f) => !f.country_slug && !f.university_slug)
@@ -28,7 +28,7 @@ async function fetchGeneralFAQs(locale: Locale): Promise<FAQ[]> {
 
 async function fetchFAQsByCountry(countrySlug: string, locale: Locale): Promise<FAQ[]> {
   if (!isSupabaseConfigured()) {
-    return staticByCountry(countrySlug);
+    return staticByCountry(countrySlug, locale);
   }
   const supabase = createCacheClient();
   const { data, error } = await supabase
@@ -38,14 +38,14 @@ async function fetchFAQsByCountry(countrySlug: string, locale: Locale): Promise<
     .or(`country_slug.eq.${countrySlug},country_slug.is.null`)
     .order("sort_order");
   if (error) {
-    return staticByCountry(countrySlug);
+    return staticByCountry(countrySlug, locale);
   }
   return (data ?? []).map((row) => mapFaqRow(row, locale));
 }
 
 async function fetchFAQsByUniversity(universitySlug: string, locale: Locale): Promise<FAQ[]> {
   if (!isSupabaseConfigured()) {
-    return staticByUniversity(universitySlug);
+    return staticByUniversity(universitySlug, locale);
   }
   const supabase = createCacheClient();
   const { data, error } = await supabase
@@ -55,7 +55,7 @@ async function fetchFAQsByUniversity(universitySlug: string, locale: Locale): Pr
     .or(`university_slug.eq.${universitySlug},university_slug.is.null`)
     .order("sort_order");
   if (error) {
-    return staticByUniversity(universitySlug);
+    return staticByUniversity(universitySlug, locale);
   }
   return (data ?? []).map((row) => mapFaqRow(row, locale));
 }

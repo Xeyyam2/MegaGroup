@@ -406,7 +406,9 @@ export default async function ArticlePage({ params }: PageProps) {
                           ? locale === "az" ? "Təhsil haqqı" : locale === "ru" ? "Стоимость" : "Tuition fees"
                           : t.slug === "teqaud"
                             ? locale === "az" ? "Təqaüdlər" : locale === "ru" ? "Стипендии" : "Scholarships"
-                            : locale === "az" ? "Yaşayış xərcləri" : locale === "ru" ? "Расходы на проживание" : "Living costs"}
+                            : t.slug === "magistr"
+                              ? locale === "az" ? "Magistratura" : locale === "ru" ? "Магистратура" : "Master's degree"
+                              : locale === "az" ? "Yaşayış xərcləri" : locale === "ru" ? "Расходы на проживание" : "Living costs"}
                 </Link>
               ))}
               {PROGRAMS.map((p) => (

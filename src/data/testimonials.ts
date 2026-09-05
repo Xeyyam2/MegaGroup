@@ -1,4 +1,11 @@
-import type { Testimonial } from "@/types";
+import type { Locale, Testimonial } from "@/types";
+
+/** Lokalizasiya — Supabase mapTestimonialRow ilə eyni qayda (dil yoxdursa AZ). */
+function pick(locale: Locale, az: string, ru?: string | null, en?: string | null): string {
+  if (locale === "ru" && ru) return ru;
+  if (locale === "en" && en) return en;
+  return az;
+}
 
 type RawTestimonial = Omit<Testimonial, "quote">;
 
@@ -76,10 +83,18 @@ export const testimonials: Testimonial[] = rawTestimonials.map((t) => ({
   quote: t.quote_az,
 }));
 
-export function getTestimonialsByCountry(countrySlug: string): Testimonial[] {
-  return testimonials.filter((t) => t.country_slug === countrySlug);
+/** Lokalizə olunmuş statik testimonial — locale-ə görə quote seçir. */
+export function localizeTestimonial(t: Testimonial, locale: Locale): Testimonial {
+  return {
+    ...t,
+    quote: pick(locale, t.quote_az, t.quote_ru, t.quote_en),
+  };
 }
 
-export function getTestimonialsByUniversity(universitySlug: string): Testimonial[] {
-  return testimonials.filter((t) => t.university_slug === universitySlug);
+export function getTestimonialsByCountry(countrySlug: string, locale: Locale = "az"): Testimonial[] {
+  return testimonials.filter((t) => t.country_slug === countrySlug).map((t) => localizeTestimonial(t, locale));
+}
+
+export function getTestimonialsByUniversity(universitySlug: string, locale: Locale = "az"): Testimonial[] {
+  return testimonials.filter((t) => t.university_slug === universitySlug).map((t) => localizeTestimonial(t, locale));
 }
