@@ -1,6 +1,6 @@
 "use client";
 import dynamic from "next/dynamic";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -56,6 +56,27 @@ export function HeroSection({
   const reduced = useReducedMotion();
   const wrapperRef = useRef<HTMLElement>(null);
   const globeProgressRef = useRef(0);
+
+  // WebGL (three.js) qatları əsas main-thread işindən sonra, yalnız desktop-da
+  // yüklənir: mobil CWV (LCP/TBT) üçün kritik — shader/globe chunk-ları mobil
+  // əvvəlki versiyada hydration-da fetch olunurdu. Desktop-da da render
+  // yüklənməsi üçün bir az gecikdirilir (idle) ki, ilk paint üçün rəqabət etməsin.
+  const [fxEnabled, setFxEnabled] = useState(false);
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (!window.matchMedia("(min-width: 768px)").matches) return;
+    const win = window as Window & {
+      requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
+      cancelIdleCallback?: (id: number) => void;
+    };
+    const start = () => setFxEnabled(true);
+    if (typeof win.requestIdleCallback === "function") {
+      const id = win.requestIdleCallback(start, { timeout: 2000 });
+      return () => win.cancelIdleCallback?.(id);
+    }
+    const id = window.setTimeout(start, 350);
+    return () => window.clearTimeout(id);
+  }, []);
 
   const defaultStats: HeroStats[] = [
     { end: 200, suffix: "+", label: t("statUniversities") },
@@ -150,14 +171,13 @@ export function HeroSection({
               }
         }
       >
-        {/* Layer 0: Parallax education image (subtle, behind everything) */}
+        {/* Layer 0: Parallax education image (subtle, behind everything).
+            Lokal, optimallaşdırılmış şəkil — əvvəl remote Unsplash idi və
+            LCP elementi kimi yüklənməsi ~saniyələr çəkirdi (CWV). */}
         <ScrollParallax speed={0.4} className="absolute inset-0 z-0 opacity-15">
           <div
             className="h-full w-full bg-cover bg-center"
-            style={{
-              backgroundImage:
-                "url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1600&q=45')",
-            }}
+            style={{ backgroundImage: "url('/images/hero/education.jpg')" }}
             aria-hidden
           />
         </ScrollParallax>
@@ -168,10 +188,10 @@ export function HeroSection({
           aria-hidden
         />
 
-        {/* Layer 2: WebGL plasma shader background — skipped entirely on
-            reduced-motion so the three.js shader chunk is never fetched. */}
+        {/* Layer 2: WebGL plasma shader background — yalnız desktop + idle sonrası
+            (mobil main-thread-i yükləmir); reduced-motion-da heç fetch olunmur. */}
         <div className="absolute inset-0 z-0" aria-hidden>
-          {reduced ? (
+          {reduced || !fxEnabled ? (
             <div className="hero-fallback-gradient h-full w-full" />
           ) : (
             <ShaderBackground className="h-full w-full" />
@@ -186,7 +206,7 @@ export function HeroSection({
           style={{ opacity: reduced ? 0.4 : "calc(0.4 + var(--hero-globe, 0) * 0.6)" }}
           aria-hidden
         >
-          {reduced ? (
+          {reduced || !fxEnabled ? (
             <div className="hero-fallback-gradient absolute inset-0" />
           ) : (
             <CanvasWrapper>
