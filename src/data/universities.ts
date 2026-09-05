@@ -34,12 +34,12 @@ const rawUniversities: RawUniversity[] = [
     highlights_ru: ["Прямое поступление по аттестату — без DIM/ÖSYM","Есть медицинский факультет","Кампус на берегу моря — город Гиресун","Активное азербайджанское студенческое сообщество","Сравнительно невысокая плата за обучение","Есть отделения на английском языке"],
     highlights_en: ["Direct admission by certificate — no DIM/ÖSYM","Medical faculty available","Seaside campus — Giresun city","Active Azerbaijani student community","Comparatively affordable tuition","English-language departments available"],
     faculties: [
-      { id: "f1", university_id: "u1", name_az: "Tibb", is_competitive: true, duration_years: 6, language: "Türkçe" },
-      { id: "f2", university_id: "u1", name_az: "Stomatologiya", is_competitive: true, duration_years: 5, language: "Türkçe" },
-      { id: "f3", university_id: "u1", name_az: "Mühəndislik", is_competitive: false, duration_years: 4, language: "Türkçe/İngilis" },
-      { id: "f4", university_id: "u1", name_az: "İqtisadiyyat və İdarəetmə", is_competitive: false, duration_years: 4, language: "Türkçe" },
-      { id: "f5", university_id: "u1", name_az: "Təhsil Fakültəsi", is_competitive: false, duration_years: 4, language: "Türkçe" },
-      { id: "f6", university_id: "u1", name_az: "Ədəbiyyat", is_competitive: false, duration_years: 4, language: "Türkçe" },
+      { id: "fu1-0", university_id: "u1", name_az: "Tibb", name_ru: "Медицина", name_en: "Medicine", is_competitive: true, duration_years: 6, language: "Türkçe" },
+      { id: "fu1-1", university_id: "u1", name_az: "Stomatologiya", name_ru: "Стоматология", name_en: "Dentistry", is_competitive: true, duration_years: 5, language: "Türkçe" },
+      { id: "fu1-2", university_id: "u1", name_az: "Mühəndislik", name_ru: "Инженерия", name_en: "Engineering", is_competitive: false, duration_years: 4, language: "Türkçe/İngilis" },
+      { id: "fu1-3", university_id: "u1", name_az: "İqtisadiyyat və İdarəetmə", name_ru: "Экономика и управление", name_en: "Economics and Management", is_competitive: false, duration_years: 4, language: "Türkçe" },
+      { id: "fu1-4", university_id: "u1", name_az: "Təhsil fakültəsi", name_ru: "Педагогика", name_en: "Education", is_competitive: false, duration_years: 4, language: "Türkçe" },
+      { id: "fu1-5", university_id: "u1", name_az: "Ədəbiyyat və Elmlər", name_ru: "Филология и науки", name_en: "Arts and Sciences", is_competitive: false, duration_years: 4, language: "Türkçe" },
     ],
     fees: {
       tuition_min_usd: 1200, tuition_max_usd: 3000,
@@ -77,9 +77,13 @@ const rawUniversities: RawUniversity[] = [
     highlights_ru: ["Старейший университет Турции","Широкий выбор специальностей","Стамбул — культурный центр","Сильная академическая репутация"],
     highlights_en: ["Turkey's oldest university","Wide range of specialties","Istanbul — cultural hub","Strong academic reputation"],
     faculties: [
-      { id: "f7", university_id: "u2", name_az: "Hüquq", is_competitive: true, duration_years: 4, language: "Türkçe" },
-      { id: "f8", university_id: "u2", name_az: "Tibb", is_competitive: true, duration_years: 6, language: "Türkçe" },
-      { id: "f9", university_id: "u2", name_az: "Ədəbiyyat", is_competitive: false, duration_years: 4, language: "Türkçe" },
+      { id: "fu2-0", university_id: "u2", name_az: "Tibb", name_ru: "Медицина", name_en: "Medicine", is_competitive: true, duration_years: 6, language: "Türkçe/İngilis" },
+      { id: "fu2-1", university_id: "u2", name_az: "Stomatologiya", name_ru: "Стоматология", name_en: "Dentistry", is_competitive: true, duration_years: 5, language: "Türkçe" },
+      { id: "fu2-2", university_id: "u2", name_az: "Əczaçılıq", name_ru: "Фармация", name_en: "Pharmacy", is_competitive: true, duration_years: 5, language: "Türkçe" },
+      { id: "fu2-3", university_id: "u2", name_az: "Hüquq", name_ru: "Юриспруденция", name_en: "Law", is_competitive: true, duration_years: 4, language: "Türkçe" },
+      { id: "fu2-4", university_id: "u2", name_az: "İqtisadiyyat", name_ru: "Экономика", name_en: "Economics", is_competitive: false, duration_years: 4, language: "Türkçe" },
+      { id: "fu2-5", university_id: "u2", name_az: "Beynəlxalq Münasibətlər", name_ru: "Международные отношения", name_en: "International Relations", is_competitive: false, duration_years: 4, language: "Türkçe" },
+      { id: "fu2-6", university_id: "u2", name_az: "Ədəbiyyat", name_ru: "Филология", name_en: "Literature", is_competitive: false, duration_years: 4, language: "Türkçe" },
     ],
     fees: {
       tuition_min_usd: 1500, tuition_max_usd: 3500,
@@ -110,9 +114,11 @@ const rawUniversities: RawUniversity[] = [
     highlights_ru: ["Самый престижный университет России","Сильные медицинские и инженерные программы","Исторический кампус","Международное признание"],
     highlights_en: ["Russia's most prestigious university","Strong medical and engineering programs","Historic campus","International recognition"],
     faculties: [
-      { id: "f10", university_id: "u3", name_az: "Tibb", is_competitive: true, duration_years: 6, language: "Rus" },
-      { id: "f11", university_id: "u3", name_az: "İqtisadiyyat", is_competitive: false, duration_years: 4, language: "Rus" },
-      { id: "f12", university_id: "u3", name_az: "Fizika", is_competitive: true, duration_years: 4, language: "Rus" },
+      { id: "fu3-0", university_id: "u3", name_az: "Tibb (Fundamental Tibb)", name_ru: "Медицина (фундаментальная медицина)", name_en: "Medicine (Fundamental Medicine)", is_competitive: true, duration_years: 6, language: "Rus" },
+      { id: "fu3-1", university_id: "u3", name_az: "Hüquq", name_ru: "Юриспруденция", name_en: "Law", is_competitive: true, duration_years: 4, language: "Rus" },
+      { id: "fu3-2", university_id: "u3", name_az: "İqtisadiyyat", name_ru: "Экономика", name_en: "Economics", is_competitive: false, duration_years: 4, language: "Rus" },
+      { id: "fu3-3", university_id: "u3", name_az: "Fizika", name_ru: "Физика", name_en: "Physics", is_competitive: true, duration_years: 4, language: "Rus" },
+      { id: "fu3-4", university_id: "u3", name_az: "Hesablama Riyaziyyatı və Kibernetika", name_ru: "Вычислительная математика и кибернетика", name_en: "Computational Mathematics and Cybernetics", is_competitive: false, duration_years: 4, language: "Rus" },
     ],
     fees: {
       tuition_min_usd: 2500, tuition_max_usd: 5000,
@@ -142,8 +148,11 @@ const rawUniversities: RawUniversity[] = [
     highlights_ru: ["Исторический академический центр","Сильные программы языка и литературы","Культурный город","Современные лаборатории"],
     highlights_en: ["Historic academic center","Strong language and literature programs","Cultural city","Modern laboratories"],
     faculties: [
-      { id: "f13", university_id: "u4", name_az: "Filologiya", is_competitive: false, duration_years: 4, language: "Rus" },
-      { id: "f14", university_id: "u4", name_az: "Hüquq", is_competitive: true, duration_years: 4, language: "Rus" },
+      { id: "fu4-0", university_id: "u4", name_az: "Tibb", name_ru: "Медицина", name_en: "Medicine", is_competitive: true, duration_years: 6, language: "Rus" },
+      { id: "fu4-1", university_id: "u4", name_az: "Hüquq", name_ru: "Юриспруденция", name_en: "Law", is_competitive: true, duration_years: 4, language: "Rus" },
+      { id: "fu4-2", university_id: "u4", name_az: "İqtisadiyyat", name_ru: "Экономика", name_en: "Economics", is_competitive: false, duration_years: 4, language: "Rus" },
+      { id: "fu4-3", university_id: "u4", name_az: "Beynəlxalq Münasibətlər", name_ru: "Международные отношения", name_en: "International Relations", is_competitive: true, duration_years: 4, language: "Rus" },
+      { id: "fu4-4", university_id: "u4", name_az: "Filologiya", name_ru: "Филология", name_en: "Philology", is_competitive: false, duration_years: 4, language: "Rus" },
     ],
     fees: {
       tuition_min_usd: 2200, tuition_max_usd: 4500,
@@ -159,7 +168,7 @@ const rawUniversities: RawUniversity[] = [
     country_slug: "ukrayna",
     name_az: "Kiev Tibb Universiteti", name_ru: "Киевский медицинский университет", name_en: "Kyiv Medical University",
     city_az: "Kiyev", city_ru: "Киев", city_en: "Kyiv",
-    website_url: "https://kma.edu.ua",
+    website_url: "https://kmu.edu.ua",
     logo_url: "",
     hero_image_url: "/images/universities/kiev-tibb-universiteti.jpg",
     is_featured: true,
@@ -173,8 +182,9 @@ const rawUniversities: RawUniversity[] = [
     highlights_ru: ["Медицинская программа на английском языке","Диплом, признаваемый в Европе","Возможности клинической практики","Поддержка подготовки к PMQ"],
     highlights_en: ["Medical program in English","Diploma recognized in Europe","Clinical practice opportunities","PMQ preparation support"],
     faculties: [
-      { id: "f15", university_id: "u5", name_az: "Ümumi Tibb (İngilis)", is_competitive: false, duration_years: 6, language: "İngilis" },
-      { id: "f16", university_id: "u5", name_az: "Stomatologiya", is_competitive: true, duration_years: 5, language: "İngilis" },
+      { id: "fu5-0", university_id: "u5", name_az: "Ümumi Tibb (İngilis)", name_ru: "Общая медицина (англ.)", name_en: "General Medicine (English)", is_competitive: true, duration_years: 6, language: "İngilis" },
+      { id: "fu5-1", university_id: "u5", name_az: "Stomatologiya (İngilis)", name_ru: "Стоматология (англ.)", name_en: "Dentistry (English)", is_competitive: true, duration_years: 5, language: "İngilis" },
+      { id: "fu5-2", university_id: "u5", name_az: "Əczaçılıq (İngilis)", name_ru: "Фармация (англ.)", name_en: "Pharmacy (English)", is_competitive: false, duration_years: 5, language: "İngilis" },
     ],
     fees: {
       tuition_min_usd: 3500, tuition_max_usd: 5500,
@@ -207,8 +217,10 @@ const rawUniversities: RawUniversity[] = [
     highlights_ru: ["Безопасный город в Западной Украине","Европейская архитектура","Широкий выбор специальностей","Приемлемая плата за обучение"],
     highlights_en: ["Safe city in Western Ukraine","European architecture","Wide range of specialties","Affordable tuition"],
     faculties: [
-      { id: "f17", university_id: "u6", name_az: "İqtisadiyyat", is_competitive: false, duration_years: 4, language: "Ukraynaca/İngilis" },
-      { id: "f18", university_id: "u6", name_az: "Hüquq", is_competitive: false, duration_years: 4, language: "Ukraynaca" },
+      { id: "fu6-0", university_id: "u6", name_az: "Hüquq", name_ru: "Юриспруденция", name_en: "Law", is_competitive: true, duration_years: 4, language: "Ukraynaca" },
+      { id: "fu6-1", university_id: "u6", name_az: "İqtisadiyyat", name_ru: "Экономика", name_en: "Economics", is_competitive: false, duration_years: 4, language: "Ukraynaca/İngilis" },
+      { id: "fu6-2", university_id: "u6", name_az: "Beynəlxalq Münasibətlər", name_ru: "Международные отношения", name_en: "International Relations", is_competitive: true, duration_years: 4, language: "Ukraynaca/İngilis" },
+      { id: "fu6-3", university_id: "u6", name_az: "Tətbiqi Riyaziyyat və İnformatika", name_ru: "Прикладная математика и информатика", name_en: "Applied Mathematics and Computer Science", is_competitive: false, duration_years: 4, language: "Ukraynaca/İngilis" },
     ],
     fees: {
       tuition_min_usd: 3000, tuition_max_usd: 4800,
@@ -239,9 +251,11 @@ const rawUniversities: RawUniversity[] = [
     highlights_ru: ["Один из лучших технических университетов Европы","Бесплатное государственное образование","Лидер в инженерии и технологиях","Сильные связи с промышленностью"],
     highlights_en: ["One of Europe's best technical universities","Free public education","Leader in engineering and technology","Strong industry connections"],
     faculties: [
-      { id: "f19", university_id: "u7", name_az: "Mexatronika", is_competitive: true, duration_years: 4, language: "Alman/İngilis" },
-      { id: "f20", university_id: "u7", name_az: "İnformatika", is_competitive: true, duration_years: 4, language: "İngilis" },
-      { id: "f21", university_id: "u7", name_az: "Maşınqayırma", is_competitive: false, duration_years: 4, language: "Alman" },
+      { id: "fu7-0", university_id: "u7", name_az: "Maşınqayırma", name_ru: "Машиностроение", name_en: "Mechanical Engineering", is_competitive: true, duration_years: 3, language: "Alman" },
+      { id: "fu7-1", university_id: "u7", name_az: "Elektrotexnika", name_ru: "Электротехника", name_en: "Electrical Engineering", is_competitive: true, duration_years: 3, language: "Alman" },
+      { id: "fu7-2", university_id: "u7", name_az: "Mexatronika", name_ru: "Мехатроника", name_en: "Mechatronics", is_competitive: false, duration_years: 3, language: "Alman" },
+      { id: "fu7-3", university_id: "u7", name_az: "İnformatika", name_ru: "Информатика", name_en: "Informatics (Computer Science)", is_competitive: true, duration_years: 3, language: "Alman" },
+      { id: "fu7-4", university_id: "u7", name_az: "İdarəetmə və Texnologiya", name_ru: "Управление и технологии", name_en: "Management and Technology", is_competitive: false, duration_years: 3, language: "Alman" },
     ],
     fees: {
       tuition_min_usd: 0, tuition_max_usd: 300,
@@ -274,8 +288,11 @@ const rawUniversities: RawUniversity[] = [
     highlights_ru: ["Столичный университет","Широкий выбор гуманитарных и естественных наук","Бесплатное обучение","Международная среда"],
     highlights_en: ["Capital city university","Wide range of humanities and sciences","Free education","International environment"],
     faculties: [
-      { id: "f22", university_id: "u8", name_az: "Fəlsəfə", is_competitive: false, duration_years: 4, language: "Alman" },
-      { id: "f23", university_id: "u8", name_az: "Biologiya", is_competitive: false, duration_years: 4, language: "Alman/İngilis" },
+      { id: "fu8-0", university_id: "u8", name_az: "Tibb (Charité)", name_ru: "Медицина (Charité)", name_en: "Medicine (Charité)", is_competitive: true, duration_years: 6, language: "Alman" },
+      { id: "fu8-1", university_id: "u8", name_az: "Fəlsəfə", name_ru: "Философия", name_en: "Philosophy", is_competitive: false, duration_years: 3, language: "Alman" },
+      { id: "fu8-2", university_id: "u8", name_az: "İqtisadiyyat", name_ru: "Экономика", name_en: "Economics", is_competitive: false, duration_years: 3, language: "Alman" },
+      { id: "fu8-3", university_id: "u8", name_az: "Biologiya", name_ru: "Биология", name_en: "Biology", is_competitive: false, duration_years: 3, language: "Alman" },
+      { id: "fu8-4", university_id: "u8", name_az: "İnformatika (Kompüter Elmləri)", name_ru: "Информатика", name_en: "Computer Science", is_competitive: true, duration_years: 3, language: "Alman" },
     ],
     fees: {
       tuition_min_usd: 0, tuition_max_usd: 300,
@@ -305,8 +322,8 @@ const rawUniversities: RawUniversity[] = [
     highlights_ru: ["Медицинская программа на английском языке","Диплом Европейского союза","Поддержка подготовки к PMQ/USMLE","Современный кампус и больницы"],
     highlights_en: ["Medical program in English","European Union diploma","PMQ/USMLE preparation support","Modern campus and hospitals"],
     faculties: [
-      { id: "f24", university_id: "u9", name_az: "Ümumi Tibb (İngilis)", is_competitive: false, duration_years: 6, language: "İngilis" },
-      { id: "f25", university_id: "u9", name_az: "Stomatologiya (İngilis)", is_competitive: true, duration_years: 5, language: "İngilis" },
+      { id: "fu9-0", university_id: "u9", name_az: "Ümumi Tibb (İngilis)", name_ru: "Общая медицина (англ.)", name_en: "General Medicine (English)", is_competitive: true, duration_years: 6, language: "İngilis" },
+      { id: "fu9-1", university_id: "u9", name_az: "Stomatologiya (İngilis)", name_ru: "Стоматология (англ.)", name_en: "Dentistry (English)", is_competitive: true, duration_years: 5, language: "İngilis" },
     ],
     fees: {
       tuition_min_usd: 4500, tuition_max_usd: 6500,
@@ -336,8 +353,8 @@ const rawUniversities: RawUniversity[] = [
     highlights_ru: ["Исторический медицинский центр","Программы на английском языке","Приемлемая плата за обучение","Диплом ЕС"],
     highlights_en: ["Historic medical center","English-language programs","Affordable tuition","EU diploma"],
     faculties: [
-      { id: "f26", university_id: "u10", name_az: "Ümumi Tibb (İngilis)", is_competitive: false, duration_years: 6, language: "İngilis" },
-      { id: "f27", university_id: "u10", name_az: "Əczaçılıq", is_competitive: false, duration_years: 5, language: "İngilis" },
+      { id: "fu10-0", university_id: "u10", name_az: "Ümumi Tibb (İngilis)", name_ru: "Общая медицина (англ.)", name_en: "General Medicine (English)", is_competitive: true, duration_years: 6, language: "İngilis" },
+      { id: "fu10-1", university_id: "u10", name_az: "Stomatologiya (İngilis)", name_ru: "Стоматология (англ.)", name_en: "Dentistry (English)", is_competitive: true, duration_years: 5, language: "İngilis" },
     ],
     fees: {
       tuition_min_usd: 4000, tuition_max_usd: 6000,
@@ -368,9 +385,10 @@ const rawUniversities: RawUniversity[] = [
     highlights_ru: ["Прямое поступление по аттестату — экзамены не требуются","Медицинский университет из списка ВОЗ/FAIMER","Полностью англоязычная медицинская программа","Один из ближайших к Баку зарубежных медицинских центров","Широкие возможности клинической практики"],
     highlights_en: ["Direct admission by certificate — no exam required","WHO/FAIMER-listed medical university","Fully English-language medical program","One of the closest foreign medical education centers to Baku","Extensive clinical practice opportunities"],
     faculties: [
-      { id: "f28", university_id: "u11", name_az: "Ümumi Tibb (İngilis)", is_competitive: true, duration_years: 6, language: "İngilis" },
-      { id: "f29", university_id: "u11", name_az: "Stomatologiya", is_competitive: true, duration_years: 5, language: "İngilis" },
-      { id: "f30", university_id: "u11", name_az: "Əczaçılıq", is_competitive: false, duration_years: 5, language: "İngilis/Gürcü" },
+      { id: "fu11-0", university_id: "u11", name_az: "Ümumi Tibb (İngilis)", name_ru: "Общая медицина (англ.)", name_en: "General Medicine (English)", is_competitive: true, duration_years: 6, language: "İngilis" },
+      { id: "fu11-1", university_id: "u11", name_az: "Stomatologiya (İngilis)", name_ru: "Стоматология (англ.)", name_en: "Dentistry (English)", is_competitive: true, duration_years: 5, language: "İngilis" },
+      { id: "fu11-2", university_id: "u11", name_az: "Əczaçılıq (İngilis)", name_ru: "Фармация (англ.)", name_en: "Pharmacy (English)", is_competitive: false, duration_years: 5, language: "İngilis/Gürcü" },
+      { id: "fu11-3", university_id: "u11", name_az: "Tibb bacısı işi", name_ru: "Сестринское дело", name_en: "Nursing", is_competitive: false, duration_years: 3, language: "İngilis/Gürcü" },
     ],
     fees: {
       tuition_min_usd: 3500, tuition_max_usd: 5500,
@@ -406,9 +424,11 @@ const rawUniversities: RawUniversity[] = [
     highlights_ru: ["Поступление по аттестату — централизованный экзамен не требуется","Кампус на берегу Чёрного моря — Батуми","Доступная плата за обучение","Международные программы на английском языке"],
     highlights_en: ["Admission by certificate — no centralized exam required","Black Sea coast campus — Batumi","Affordable tuition","International programs in English"],
     faculties: [
-      { id: "f31", university_id: "u12", name_az: "Mühəndislik və Texnologiya", is_competitive: false, duration_years: 4, language: "İngilis/Gürcü" },
-      { id: "f32", university_id: "u12", name_az: "İqtisadiyyat və Biznes", is_competitive: false, duration_years: 4, language: "İngilis" },
-      { id: "f33", university_id: "u12", name_az: "Turizm İdarəetməsi", is_competitive: false, duration_years: 4, language: "İngilis/Gürcü" },
+      { id: "fu12-0", university_id: "u12", name_az: "Tibb", name_ru: "Медицина", name_en: "Medicine", is_competitive: true, duration_years: 6, language: "İngilis/Gürcü" },
+      { id: "fu12-1", university_id: "u12", name_az: "Hüquq", name_ru: "Юриспруденция", name_en: "Law", is_competitive: true, duration_years: 4, language: "Gürcü" },
+      { id: "fu12-2", university_id: "u12", name_az: "İqtisadiyyat və Biznes", name_ru: "Экономика и бизнес", name_en: "Economics and Business", is_competitive: false, duration_years: 4, language: "İngilis/Gürcü" },
+      { id: "fu12-3", university_id: "u12", name_az: "Turizm və Qonaqpərvərlik", name_ru: "Туризм и гостеприимство", name_en: "Tourism and Hospitality", is_competitive: false, duration_years: 4, language: "İngilis/Gürcü" },
+      { id: "fu12-4", university_id: "u12", name_az: "Mühəndislik və Texnologiya", name_ru: "Инженерия и технологии", name_en: "Engineering and Technology", is_competitive: false, duration_years: 4, language: "Gürcü/İngilis" },
     ],
     fees: {
       tuition_min_usd: 2000, tuition_max_usd: 3500,
@@ -445,10 +465,11 @@ const rawUniversities: RawUniversity[] = [
     highlights_ru: ["Прямое поступление по аттестату — централизованный экзамен не требуется","Один из самых престижных университетов Центральной Азии","Международные программы на английском языке","Алматы — культурный и деловой центр","Широкий выбор специальностей и научно-исследовательские возможности"],
     highlights_en: ["Direct admission by certificate — no centralized exam required","One of Central Asia's most prestigious universities","International programs in English","Almaty — cultural and business center","Wide range of specialties and research opportunities"],
     faculties: [
-      { id: "f34", university_id: "u13", name_az: "Mühəndislik və IT", is_competitive: false, duration_years: 4, language: "İngilis/Rus" },
-      { id: "f35", university_id: "u13", name_az: "Beynəlxalq Münasibətlər", is_competitive: false, duration_years: 4, language: "İngilis" },
-      { id: "f36", university_id: "u13", name_az: "İqtisadiyyat və Biznes", is_competitive: false, duration_years: 4, language: "İngilis/Rus" },
-      { id: "f37", university_id: "u13", name_az: "Tibb", is_competitive: true, duration_years: 6, language: "Rus" },
+      { id: "fu13-0", university_id: "u13", name_az: "Beynəlxalq Münasibətlər", name_ru: "Международные отношения", name_en: "International Relations", is_competitive: true, duration_years: 4, language: "Qazax/Rus/İngilis" },
+      { id: "fu13-1", university_id: "u13", name_az: "Hüquq", name_ru: "Юриспруденция", name_en: "Law", is_competitive: true, duration_years: 4, language: "Qazax/Rus" },
+      { id: "fu13-2", university_id: "u13", name_az: "İqtisadiyyat və Biznes", name_ru: "Экономика и бизнес", name_en: "Economics and Business", is_competitive: false, duration_years: 4, language: "Qazax/Rus/İngilis" },
+      { id: "fu13-3", university_id: "u13", name_az: "İnformasiya Texnologiyaları", name_ru: "Информационные технологии", name_en: "Information Technology", is_competitive: false, duration_years: 4, language: "Qazax/Rus/İngilis" },
+      { id: "fu13-4", university_id: "u13", name_az: "Filologiya", name_ru: "Филология", name_en: "Philology", is_competitive: false, duration_years: 4, language: "Qazax/Rus" },
     ],
     fees: {
       tuition_min_usd: 2000, tuition_max_usd: 4000,
@@ -484,9 +505,11 @@ const rawUniversities: RawUniversity[] = [
     highlights_ru: ["Полностью англоязычное обучение — ведущий университет Казахстана","Совместные программы с международными университетами-партнёрами","Современные исследовательские центры и лаборатории","Астана — быстро развивающаяся столица"],
     highlights_en: ["Fully English-language education — Kazakhstan's leading university","Joint programs with international partner universities","Modern research centers and laboratories","Astana — rapidly developing capital"],
     faculties: [
-      { id: "f38", university_id: "u14", name_az: "Mühəndislik", is_competitive: true, duration_years: 4, language: "İngilis" },
-      { id: "f39", university_id: "u14", name_az: "Elm və Texnologiya", is_competitive: true, duration_years: 4, language: "İngilis" },
-      { id: "f40", university_id: "u14", name_az: "Sosial Elmlər", is_competitive: false, duration_years: 4, language: "İngilis" },
+      { id: "fu14-0", university_id: "u14", name_az: "Kompüter Elmləri", name_ru: "Компьютерные науки", name_en: "Computer Science", is_competitive: true, duration_years: 4, language: "İngilis" },
+      { id: "fu14-1", university_id: "u14", name_az: "Mühəndislik və Rəqəmsal Elmlər", name_ru: "Инженерия и цифровые науки", name_en: "Engineering and Digital Sciences", is_competitive: true, duration_years: 4, language: "İngilis" },
+      { id: "fu14-2", university_id: "u14", name_az: "İqtisadiyyat və Biznes", name_ru: "Экономика и бизнес", name_en: "Economics and Business", is_competitive: false, duration_years: 4, language: "İngilis" },
+      { id: "fu14-3", university_id: "u14", name_az: "Riyaziyyat və Təbiət Elmləri", name_ru: "Математика и естественные науки", name_en: "Mathematics and Natural Sciences", is_competitive: false, duration_years: 4, language: "İngilis" },
+      { id: "fu14-4", university_id: "u14", name_az: "Sosial və Humanitar Elmlər", name_ru: "Социальные и гуманитарные науки", name_en: "Social Sciences and Humanities", is_competitive: false, duration_years: 4, language: "İngilis" },
     ],
     fees: {
       tuition_min_usd: 3500, tuition_max_usd: 6000,

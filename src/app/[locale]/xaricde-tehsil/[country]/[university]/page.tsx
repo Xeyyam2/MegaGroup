@@ -16,6 +16,7 @@ import { getFAQsByUniversityWithCountry } from "@/lib/data/faqs";
 import { getTestimonialsByUniversity } from "@/lib/data/testimonials";
 import { routing, type Locale } from "@/i18n/routing";
 import { universities as staticUniversities } from "@/data/universities";
+import { localizeLang } from "@/lib/localize-language";
 import { siteUrl } from "@/lib/site";
 
 export const revalidate = 3600;
@@ -393,7 +394,7 @@ export default async function UniversityPage({ params }: PageProps) {
                   <td className="px-5 py-3 text-foreground/70">
                     {f.duration_years} {locale === "az" ? "il" : locale === "ru" ? "лет" : "yrs"}
                   </td>
-                  <td className="px-5 py-3 text-foreground/70">{f.language}</td>
+                  <td className="px-5 py-3 text-foreground/70">{localizeLang(f.language, locale)}</td>
                 </tr>
               ))}
             </tbody>

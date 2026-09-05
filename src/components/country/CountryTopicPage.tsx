@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { CTASection } from "@/components/sections/CTASection";
+import { localizeLang } from "@/lib/localize-language";
 import { getCountryBySlug } from "@/lib/data/countries";
 import { getUniversitiesByCountry } from "@/lib/data/universities";
 import { getFAQsByCountry } from "@/lib/data/faqs";
@@ -220,7 +221,7 @@ export async function CountryTopicPage({ locale, country, topic }: TopicPageProp
                           {u.faculties.find((f) => MEDICAL_FACULTY_KEYS.some((k) => f.name.toLowerCase().includes(k)))?.duration_years ?? "—"} {labels.years}
                         </td>
                         <td className="px-5 py-3 text-foreground/70">
-                          {u.faculties.find((f) => MEDICAL_FACULTY_KEYS.some((k) => f.name.toLowerCase().includes(k)))?.language ?? "—"}
+                          {localizeLang(u.faculties.find((f) => MEDICAL_FACULTY_KEYS.some((k) => f.name.toLowerCase().includes(k)))?.language ?? "", locale) || "—"}
                         </td>
                       </>
                     )}

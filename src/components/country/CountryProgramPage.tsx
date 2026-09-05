@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { CTASection } from "@/components/sections/CTASection";
+import { localizeLang } from "@/lib/localize-language";
 import { getCountryBySlug } from "@/lib/data/countries";
 import { getUniversitiesByCountry } from "@/lib/data/universities";
 import { getFAQsByCountry } from "@/lib/data/faqs";
@@ -194,7 +195,7 @@ export async function CountryProgramPage({ locale, country, program }: ProgramPa
                       </td>
                       <td className="px-5 py-3 text-foreground/70">{u.city}</td>
                       <td className="px-5 py-3 text-foreground/70">{f.duration_years} {LBL.years}</td>
-                      <td className="px-5 py-3 text-foreground/70">{f.language}</td>
+                      <td className="px-5 py-3 text-foreground/70">{localizeLang(f.language, locale)}</td>
                       <td className="px-5 py-3 text-foreground/70">
                         {u.fees?.tuition_min_usd
                           ? u.fees.tuition_min_usd !== u.fees.tuition_max_usd
