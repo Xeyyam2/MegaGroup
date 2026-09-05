@@ -31,6 +31,7 @@ const STR: Record<Locale, {
   updated: string;
   home: string;
   blogCrumb: string;
+  tocTitle: string;
   faqTitle: string;
   otherGuides: string;
   relatedCta: string;
@@ -47,6 +48,7 @@ const STR: Record<Locale, {
     updated: "Yenilənib",
     home: "Ana Səhifə",
     blogCrumb: "Bloq",
+    tocTitle: "Mündəricat",
     faqTitle: "Tez-tez Verilən Suallar",
     otherGuides: "Digər Bələdçilər",
     relatedCta: "üzrə universitetlərə bax →",
@@ -64,6 +66,7 @@ const STR: Record<Locale, {
     updated: "Обновлено",
     home: "Главная",
     blogCrumb: "Блог",
+    tocTitle: "Содержание",
     faqTitle: "Часто задаваемые вопросы",
     otherGuides: "Другие руководства",
     relatedCta: "— смотреть вузы →",
@@ -81,6 +84,7 @@ const STR: Record<Locale, {
     updated: "Updated",
     home: "Home",
     blogCrumb: "Blog",
+    tocTitle: "Table of Contents",
     faqTitle: "Frequently Asked Questions",
     otherGuides: "Other Guides",
     relatedCta: "— view universities →",
@@ -253,10 +257,27 @@ export default async function ArticlePage({ params }: PageProps) {
           ))}
         </div>
 
+        {/* seo.md 2.4: Mündəricat — uzun məqalələrdə bölmələrə anchor linklər
+            (istifadəçi təcrübəsi + səhifədaxili keçid strukturu). */}
+        {article.sections.length >= 3 && (
+          <nav aria-label={s.tocTitle} className="mt-10 rounded-2xl border border-white/10 bg-white/5 p-5">
+            <p className="text-xs font-bold uppercase tracking-wider text-foreground/50">{s.tocTitle}</p>
+            <ol className="mt-3 grid grid-cols-1 gap-x-6 gap-y-1.5 sm:grid-cols-2">
+              {article.sections.map((section, i) => (
+                <li key={i} className="text-sm">
+                  <a href={`#sec-${i}`} className="text-brand-primary hover:underline">
+                    {section.heading}
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </nav>
+        )}
+
         <div className="mt-10 space-y-10">
           {article.sections.map((section, i) => (
             <ScrollReveal key={section.heading} delay={i * 0.05}>
-              <h2 className="font-heading text-2xl font-bold text-foreground">{section.heading}</h2>
+              <h2 id={`sec-${i}`} className="scroll-mt-24 font-heading text-2xl font-bold text-foreground">{section.heading}</h2>
               {section.summary && (
                 <p className="article-answer mt-3 border-l-2 border-brand-primary/60 pl-4 text-base font-medium leading-relaxed text-foreground">
                   {section.summary}

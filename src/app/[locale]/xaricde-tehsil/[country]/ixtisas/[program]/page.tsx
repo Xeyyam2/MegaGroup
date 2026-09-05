@@ -7,8 +7,8 @@ import { countries as staticCountries } from "@/data/countries";
 import { routing, type Locale } from "@/i18n/routing";
 import { getCountryBySlug } from "@/lib/data/countries";
 import { siteUrl } from "@/lib/site";
-import { azLocative, countryNameByLocale } from "@/data/country-topics";
-import { programMeta, programTitle } from "@/data/country-programs";
+import { azLocative, ruCountryForms } from "@/data/country-topics";
+import { programMetaLoc, programTitleLoc } from "@/data/country-programs";
 
 export const revalidate = 3600;
 export const dynamic = "force-static";
@@ -34,12 +34,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const year = new Date().getFullYear();
   const az = azLocative(c.name_az, country);
-  const name = countryNameByLocale(c, locale);
+  const ru = ruCountryForms(country, c.name_ru);
+  const ctx = { azLoc: az, azName: c.name_az, enName: c.name_en, ruPrep: ru.prep, ruGen: ru.gen };
   const path = `xaricde-tehsil/${country}/ixtisas/${p.slug}`;
 
   return {
-    title: programTitle(p, az, year),
-    description: programMeta(p, az, name, year),
+    title: programTitleLoc(p, locale, year, ctx),
+    description: programMetaLoc(p, locale, year, ctx),
     alternates: {
       canonical: `${siteUrl}/${locale}/${path}`,
       languages: {
@@ -50,15 +51,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       },
     },
     openGraph: {
-      title: programTitle(p, az, year),
-      description: programMeta(p, az, name, year),
+      title: programTitleLoc(p, locale, year, ctx),
+      description: programMetaLoc(p, locale, year, ctx),
       images: [{ url: c.hero_image_url, width: 1200, height: 630, alt: c.name }],
       type: "website",
       locale: locale === "az" ? "az_AZ" : locale === "ru" ? "ru_RU" : "en_US",
       siteName: "MegaGroup",
       url: `${siteUrl}/${locale}/${path}`,
     },
-    twitter: { card: "summary_large_image", title: programTitle(p, az, year), description: programMeta(p, az, name, year) },
+    twitter: { card: "summary_large_image", title: programTitleLoc(p, locale, year, ctx), description: programMetaLoc(p, locale, year, ctx) },
   };
 }
 

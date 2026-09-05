@@ -155,9 +155,9 @@ AI Overviews ~45% axtarışda görünür və klikləri 58%-ə qədər azaldır �
 - [x] sitemap.xml — yalnız canonical URL-lər (utm/query/admin yox), hər lokal ayrıca blok
 - [x] canonical hər səhifədə
 - [x] hreflang az/ru/en + x-default
-- [ ] Core Web Vitals: LCP < 2.5s, INP < 200ms, CLS < 0.1 — **ağır JS bundle azaldılmalıdır**
-- [ ] www/non-www + trailing slash konsistentliyi
-- [ ] 404/redirect audit
+- [ ] Core Web Vitals: LCP < 2.5s, INP < 200ms, CLS < 0.1 — kod hissəsi ✅ (6.4 dinamik import, `2026-09-05`), **sahə ölçümü (CrUX/PSI) hələ aparılmalıdır**
+- [x] www/non-www + trailing slash konsistentliyi — apex→www 308, trailing-slash 308 canlı yoxlanıldı (`2026-09-05`)
+- [x] 404/redirect audit — köhnə WP URL-ləri 410, köhnəlmiş marşrutlar redirect; canlı status yoxlanıldı (`2026-09-05`)
 
 ### 6.3 Tarix / təzəlik qaydaları
 - Başlıqlarda cari il **avtomatik** (server vaxtı), statik deyil.
@@ -195,7 +195,7 @@ Aylıq: organic clicks/impressions, avg position, CTR, indexed/non-indexed, refe
 | **P1** | Ölkə alt-səhifə siloları (universitetler, tibb, attestatla-qebul, tehsil-haqqi, teqaud, yasayis-xercleri) | Kod + məzmun | ✅ 2026-09-05 (infrastruktur; məzmun dərinləşdirmə davam edə bilər) |
 | **P1** | İxtisas səhifələri şablonu | Kod + məzmun | ✅ 2026-09-05 (6 ixtisas × 7 ölkə × 3 dil) |
 | **P1** | Cari il avtomatizasiyası (title/H1-də server vaxtı) | Kod | ✅ 2026-09-05 (silo səhifələri + ölkə SEO xəritəsi; bloq title-ları məzmun səviyyəsindədir) |
-| **P2** | Bloq məqalələrinə qısa cavab bloku + oxu vaxtı + 8-10 FAQ | Kod + məzmun | ✅ (artıq var idi — `article-intro-summary`, `readingMinutes`, BlogFAQ; yeni əlavəyə ehtiyac yox idi) |
+| **P2** | Bloq məqalələrinə qısa cavab bloku + oxu vaxtı + mündəricat + 8-10 FAQ | Kod + məzmun | ✅ (qısa cavab `article-intro-summary`, oxu vaxtı, BlogFAQ artıq var idi; mündəricat 2026-09-05 əlavə olundu) |
 | **P2** | Internal linking genişləndirmə (8-12 kross-kateqoriya link) | Kod + məzmun | ✅ 2026-09-05 (universitet + silo + ixtisas + bloq kross-link) |
 | **P2** | UGC şərh sistemi (Supabase `comments` + moderasiya) | Kod | ✅ 2026-09-05 |
 | **P2** | Trust bölməsi (VÖEN, ünvan, qəbul sənədləri açıq mətn) | Məzmun | ✅ 2026-09-05 (qəbul sənədi real data ilə doldurulmalı) |
@@ -233,6 +233,13 @@ Aylıq: organic clicks/impressions, avg position, CTR, indexed/non-indexed, refe
 | 2026-09-05 | `src/app/admin/(cms)/serhler/` (actions.ts + page.tsx + CommentButtons.tsx, YENİ) | 5.5 (P2) | **Admin moderasiya paneli**: dərc et/yola, cavabla (answer + answered_by), sil. Filtirlər: hamısı / gözləyən / dərc olunmuş. FAQ CMS naxışı ilə (RLS + requireAdmin) | `tsc --noEmit` ✅, eslint ✅ |
 | 2026-09-05 | `src/app/[locale]/bloq/[slug]/page.tsx` | 4 (P2) | **Bloq kross-link**: hər məqalə aid olduğu ölkənin 6 silo topic səhifəsinə + 6 ixtisas səhifəsinə "Əlaqəli səhifələr" nav bloğu əlavə etdi. Bloq → struktur səhifələr PageRank yayması + crawler dərinliyi | `tsc --noEmit` ✅, lint ✅, `next build` ✅ |
 | 2026-09-05 | `src/lib/data/faqs.ts`, `src/app/[locale]/xaricde-tehsil/[country]/[university]/page.tsx` | 2.2 + 9 (P0-1) | **Birləşdirilmiş universitеt FAQ**: `getFAQsByUniversityWithCountry` — universitеt-xüsusi + ölkə + ümumi FAQ-ları birləşdirib təkrarları silərək 8-10 suala çatdırır (yalan rəqəm yox). Universitet səhifəsi indi bu funksiyanı istifadə edir | `tsc --noEmit` ✅, `vitest` 12 fayl ✅, `next build` ✅ |
+| 2026-09-05 | `src/app/layout.tsx`, `src/app/[locale]/layout.tsx`, bloq/hesabla/muraciet səhifələri | 6.1 (on-page) | **Canlı bug-lar**: (1) bütün RU/EN səhifələrdə `<html lang="az">` idi → kök layout-da URL-dən oxuyan inline script ilə düzəldildi (düzgün `lang` ilk boyadan əvvəl). (2) `<title>`-da ikiqat brand (124 simvol) → bir təmiz `… | MegaGroup`. (3) bloq index, hesabla, muraciet səhifələrində hreflang dəsti yox idi → əlavə olundu | canlı curl + `next build` ✅ |
+| 2026-09-05 | `src/data/article-sources.ts` (YENİ), `src/app/[locale]/bloq/[slug]/page.tsx`, `src/data/country-content*.ts`, `src/data/university-content*.ts`, bəzi məqalə faylları | 5.4 + 2.4 | **Rəsmi mənbələr + iddia dəqiqliyi**: hər bloq bələdçisində "Rəsmi Mənbələr" bölməsi (universitetin rəsmi saytı + YÖK/DAAD/anabin/NAWA/mes.gov.ge/mon.gov.ua/studyinrussia/gov.kz — 3 dildə). Həddindən artıq iddialı ifadələr ("diplom bütün EU-da tanınır", "ABŞ/Böyük Britaniyada tanınır", "rəsmi təminat") yumşaldıldı (az/ru/en). Organization schema: `alternateName`, `foundingDate`, `logo` | `tsc --noEmit` ✅, `next build` ✅ |
+| 2026-09-05 | `src/app/sitemap.ts`, ölkə/universitet səhifələri, `src/data/articles/types.ts` + 78 məqalə | 6.2 + 2.1 | **Sitemap hər lokal ayrıca `<loc>` bloku** (159 URL, tam hreflang dəsti ilə); ölkə/universitet səhifələrində görünən lokallaşdırılmış breadcrumb (BreadcrumbList JSON-LD adları da lokallaşdırıldı); Article/BlogPosting üçün real `datePublished` (2026-07) ≠ `dateModified` | `next build` ✅ |
+| 2026-09-05 | `src/app/[locale]/xaricde-tehsil/[country]/[university]/page.tsx` | 3 (AEO) | **AEO qatı**: universitet səhifələrində "Qısa Faktlar" bloku (şəhər, təhsil haqqı USD/il, dil, müddət, fakültə sayı — real datadan) + `Speakable` JSON-LD. Tədris dilinin RU/EN lokalizasiyası (İngilis→English/Английский) | `tsc --noEmit` ✅, `next build` ✅ |
+| 2026-09-05 | `src/data/country-content.ru.ts`/`.en.ts` (YENİ), ölkə səhifəsi, `src/data/countries.ts` | 2.1 | **Ölkə səhifələrində RU/EN dərin məzmun** (əvvəl yalnız AZ idi və dil dəyişəndə yoxa çıxırdı): giriş, xərc cədvəli, şəhərlər, qəbul, viza, tələbə həyatı — 7 ölkə × ru/en. Bloq bələdçi linki lokallaşdırıldı. Polşa hero (toy fotosu) + Gürcüstan hero (tikinti fotosu) → real universitet fotoları (Varşava Universiteti / Tbilisi Dövlət Universiteti), self-host + canlı Supabase DB yeniləndi | `tsc --noEmit` ✅, lint ✅, `next build` ✅, canlı yoxlama ✅ |
+| 2026-09-05 | `src/data/country-topics.ts`, `src/data/country-programs.ts`, `src/lib/country-topic-route.ts`, `CountryTopicPage.tsx`, `CountryProgramPage.tsx`, ixtisas route | 1.2 + 2.3 (P1) | **Silo + ixtisas səhifələrinin RU/EN tam lokalizasiyası** (əvvəl title/meta/intro/H1 RU/EN-də də AZ şablondan idi): 6 topic × ru/en üçün ayrıca title/meta/intro copy, RU ölkə adlarının hal formaları xəritəsi (в Турции/Турции/Турция — əvvəl "в Турция" səhv idi), ixtisas H1/title/meta hər dil üçün (məs. EN "Medicine in Turkey 2026") | `tsc --noEmit` ✅, `next build` ✅ |
+| 2026-09-05 | `src/app/[locale]/bloq/[slug]/page.tsx` | 2.4 (P2) | **Mündəricat (TOC)**: uzun məqalələrdə (≥3 bölmə) bölmə başlıqlarına anchor linklər — az "Mündəricat" / ru "Содержание" / en "Table of Contents", `h2#sec-N` scroll-margin ilə | `tsc --noEmit` ✅, `next build` ✅ |
 
 ---
 

@@ -8,11 +8,11 @@ import { getUniversitiesByCountry } from "@/lib/data/universities";
 import { getFAQsByCountry } from "@/lib/data/faqs";
 import { siteUrl } from "@/lib/site";
 import type { Locale } from "@/types";
-import { azLocative, countryNameByLocale, type CountryTopic } from "@/data/country-topics";
+import { azLocative, countryNameByLocale, ruCountryForms, type CountryTopic } from "@/data/country-topics";
 import {
   PROGRAMS,
   matchFaculties,
-  programH1,
+  programHeading,
   programName,
   type Program,
 } from "@/data/country-programs";
@@ -35,8 +35,16 @@ export async function CountryProgramPage({ locale, country, program }: ProgramPa
   const name = countryNameByLocale(c, locale);
   const year = new Date().getFullYear();
   const az = azLocative(c.name_az, country);
+  const ru = ruCountryForms(country, c.name_ru);
   const pName = programName(program, locale);
-  const heading = programH1(program, az, year);
+  // RU/EN-də AZ şablondan H1 istifadə edilmir — hər dil öz başlığı ilə.
+  const heading = programHeading(program, locale, year, {
+    azLoc: az,
+    azName: c.name_az,
+    enName: c.name_en,
+    ruPrep: ru.prep,
+    ruGen: ru.gen,
+  });
   const basePath = `xaricde-tehsil/${c.slug}`;
   const programPath = `${basePath}/ixtisas/${program.slug}`;
 
@@ -76,7 +84,7 @@ export async function CountryProgramPage({ locale, country, program }: ProgramPa
         ]
       : locale === "ru"
         ? [
-            `Ниже — вузы ${name}, предлагающие направление «${pName}»: соответствующие факультеты, срок обучения, язык и годовая стоимость.`,
+            `Ниже — вузы ${ru.gen}, предлагающие направление «${pName}»: соответствующие факультеты, срок обучения, язык и годовая стоимость.`,
             "Кликнув по названию вуза, вы откроете подробный профиль: условия поступления по аттестату, документы, общежитие и расходы.",
           ]
         : [

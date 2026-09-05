@@ -12,6 +12,7 @@ import {
   COUNTRY_TOPICS,
   azLocative,
   countryNameByLocale,
+  topicCopy,
   topicHeading,
   type CountryTopic,
 } from "@/data/country-topics";
@@ -53,8 +54,15 @@ export async function CountryTopicPage({ locale, country, topic }: TopicPageProp
   const name = countryNameByLocale(c, locale);
   const year = new Date().getFullYear();
   const az = azLocative(c.name_az, country);
-  const heading = topicHeading(topic, locale, name, country, year);
-  const intro = topic.intro(az, name, year);
+  // Hər dil üçün tam lokallaşdırılmış copy (title/h1/meta/intro) — seo.md 1.2.
+  const copy = topicCopy(
+    topic,
+    locale,
+    { azLoc: az, azName: c.name_az, enName: c.name_en, slug: c.slug },
+    year,
+  );
+  const heading = copy.h1;
+  const intro = copy.intro;
 
   const basePath = `xaricde-tehsil/${c.slug}`;
   const topicPath = `${basePath}/${topic.slug}`;

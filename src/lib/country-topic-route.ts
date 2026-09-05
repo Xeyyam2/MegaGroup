@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { countries as staticCountries } from "@/data/countries";
-import { getCountryTopic, azLocative, countryNameByLocale } from "@/data/country-topics";
+import { getCountryTopic, azLocative, countryNameByLocale, topicCopy } from "@/data/country-topics";
 import { getCountryBySlug } from "@/lib/data/countries";
 import { routing, type Locale } from "@/i18n/routing";
 import { siteUrl } from "@/lib/site";
@@ -29,11 +29,12 @@ export async function countryTopicMetadata(
   const year = new Date().getFullYear();
   const name = countryNameByLocale(c, locale);
   const az = azLocative(c.name_az, country);
+  const copy = topicCopy(topic, locale, { azLoc: az, azName: c.name_az, enName: c.name_en, slug: c.slug }, year);
   const path = `xaricde-tehsil/${c.slug}/${topic.slug}`;
 
   return {
-    title: topic.title(az, year),
-    description: topic.metaDescription(az, name, year),
+    title: copy.title,
+    description: copy.metaDescription,
     alternates: {
       canonical: `${siteUrl}/${locale}/${path}`,
       languages: {
@@ -44,14 +45,14 @@ export async function countryTopicMetadata(
       },
     },
     openGraph: {
-      title: topic.title(az, year),
-      description: topic.metaDescription(az, name, year),
+      title: copy.title,
+      description: copy.metaDescription,
       images: [{ url: c.hero_image_url, width: 1200, height: 630, alt: name }],
       type: "website",
       locale: locale === "az" ? "az_AZ" : locale === "ru" ? "ru_RU" : "en_US",
       siteName: "MegaGroup",
       url: `${siteUrl}/${locale}/${path}`,
     },
-    twitter: { card: "summary_large_image", title: topic.title(az, year), description: topic.metaDescription(az, name, year) },
+    twitter: { card: "summary_large_image", title: copy.title, description: copy.metaDescription },
   };
 }
