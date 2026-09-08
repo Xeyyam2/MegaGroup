@@ -12,6 +12,7 @@ import { getCountries, getCountryBySlug } from "@/lib/data/countries";
 import { getUniversitiesByCountry, getFeaturedUniversity } from "@/lib/data/universities";
 import { getFAQsByCountry } from "@/lib/data/faqs";
 import { routing, type Locale } from "@/i18n/routing";
+import { partnerLinks } from "@/lib/partner-links";
 import { countries as staticCountries } from "@/data/countries";
 import { ARTICLES, getArticleBySlugLocalized } from "@/data/articles";
 import { getCountryContentByLocale } from "@/data/country-content";
@@ -523,6 +524,33 @@ export default async function CountryPage({ params }: PageProps) {
       )}
 
       <CTASection />
+
+      {/* Partnyor kontekstual linki — yalnız Türkiyə səhifəsində. Dofollow,
+          "Türkiyədə təhsil" exact-match anchoru (bax: partner-links.ts). */}
+      {c.slug === "turkiye" && (
+        <section aria-label={locale === "az" ? "Faydalı resurslar" : locale === "ru" ? "Полезные ресурсы" : "Useful resources"} className="mx-auto max-w-3xl px-6 pb-8">
+          <p className="text-sm text-foreground/70">
+            {locale === "az"
+              ? "Qəbul şərtlərini müqayisə edərkən attestatla imtahansız qəbul, təhsil haqqı və viza prosesi barədə EduVix-in "
+              : locale === "ru"
+                ? "Сравнивая условия поступления, ознакомьтесь с руководством EduVix о "
+                : "While comparing admission requirements, also check the EduVix guide on "}
+            <a
+              href={partnerLinks.eduvix.url}
+              target="_blank"
+              rel="noopener"
+              className="font-medium text-brand-primary transition-colors hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary"
+            >
+              {partnerLinks.eduvix.topicAnchor[locale]}
+            </a>
+            {locale === "az"
+              ? " bələdçisinə də baxa bilərsiniz."
+              : locale === "ru"
+                ? " — полезный сторонний ресурс."
+                : " — a useful third-party resource."}
+          </p>
+        </section>
+      )}
 
       {/* CC BY 3.0 atribusiya — şəkil hüquqları (bax: public/images/countries/CREDITS.md). */}
       {c.slug === "qazaxistan" && (

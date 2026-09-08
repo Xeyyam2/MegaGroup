@@ -4,6 +4,7 @@ import { MessageCircle, Phone, MapPin } from "lucide-react";
 import { InstagramIcon } from "@/components/ui/InstagramIcon";
 import { TikTokIcon } from "@/components/ui/TikTokIcon";
 import { getCountries } from "@/lib/data/countries";
+import { partnerLinks } from "@/lib/partner-links";
 import { ADDRESS, LOCATION } from "@/data/location";
 import type { Locale } from "@/i18n/routing";
 
@@ -175,6 +176,28 @@ export async function Footer({
             </li>
           </ul>
         </div>
+      </div>
+
+      {/* Partnyor resursları — sitewide dofollow backlink (SEO üçün
+          server-rendered; rel="noopener", nofollow deyil). Bax: partner-links.ts */}
+      <div className="mx-auto max-w-7xl px-6 pb-10">
+        <h3 className="mb-2 text-sm font-semibold text-foreground">{t("resources")}</h3>
+        <p className="text-sm text-foreground/60">
+          {locale === "az"
+            ? "Xaricdə təhsil üzrə partnyor resursu:"
+            : locale === "ru"
+              ? "Партнёрский ресурс по обучению за рубежом:"
+              : "Partner resource for studying abroad:"}{" "}
+          <a
+            href={partnerLinks.eduvix.url}
+            target="_blank"
+            rel="noopener"
+            className="font-medium text-brand-primary transition-colors hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary"
+            title={partnerLinks.eduvix.anchor[locale]}
+          >
+            {partnerLinks.eduvix.anchor[locale]}
+          </a>
+        </p>
       </div>
 
       <div className="border-t border-white/10 py-4 text-center text-xs text-foreground/50">{t("rights")}</div>

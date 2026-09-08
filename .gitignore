@@ -12,6 +12,8 @@
 
 # testing
 /coverage
+# Lighthouse / dev-server HTML çıxışları (lokal SEO test artefaktları)
+/.freebuff/
 
 # next.js
 /.next/
