@@ -7,7 +7,12 @@ import { SWRegister } from "@/components/SWRegister";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   verification: {
-    google: "DsAlnBZ_mxgAGoRglX8BFBCJ1g28VbsvIqtuAKqdXJo",
+    // Hər iki Search Console property-si üçün tokenlər (Next.js avtomatik
+    // <meta name="google-site-verification"> etiketləri kimi render edir).
+    google: [
+      "DsAlnBZ_mxgAGoRglX8BFBCJ1g28VbsvIqtuAKqdXJo",
+      "KjaPLGpYKlV1epDrKq7QMOtk6mQzaG4Pns30diD9ucM",
+    ],
     yandex: "8f6d02f3c166693e",
   },
   // Branded MG monogram — replaces the framework-default favicon so
