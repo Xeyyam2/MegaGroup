@@ -14,6 +14,10 @@ import polsadaTehsil from "./articles/polsada-tehsil";
 import xaricdeTibbTehsili from "./articles/xaricde-tibb-tehsili";
 import xaricdeTehsilSenedleri from "./articles/xaricde-tehsil-senedleri";
 import hansiOlkedeOxumaq from "./articles/hansi-olkede-oxumaq-serfelidir";
+// 2022–2028 Xaricdə Təhsil Dövlət Proqramı cornerstones məqaləsi (PAA: "xaricdə təhsil dövlət proqramı").
+import xaricdeTehsilDevletProgrami from "./articles/xaricde-tehsil-devlet-programi";
+// "DİM balı ilə xaricdə təhsil" cornerstones məqaləsi (PAA: "dim balı ilə xaricdə təhsil", "neçə bal ilə xaricdə təhsil").
+import dimBaliIleXaricdeTehsil from "./articles/dim-bali-ile-xaricde-tehsil";
 
 // Universitet məqalələri — hər flaqman universitet üçün ayrıca bələdçi.
 // Məqalə slug-ı universitet slug-ı ilə eynidir (universitet səhifəsindən
@@ -47,6 +51,8 @@ export const ARTICLES: Article[] = [
   xaricdeTibbTehsili,
   xaricdeTehsilSenedleri,
   hansiOlkedeOxumaq,
+  xaricdeTehsilDevletProgrami,
+  dimBaliIleXaricdeTehsil,
   // Universitet bələdçiləri (məqalə slug-ı = universitet slug-ı)
   giresunUniversiteti,
   tbilisiDovletTibb,
@@ -70,6 +76,10 @@ export const ARTICLES: Article[] = [
 // RU/EN tərcümələri. AZ bazadır; RU/EN yoxdursa AZ-a fallback.
 import xaricdeTehsilRu from "./articles/xaricde-tehsil-2026-beledcisi.ru";
 import xaricdeTehsilEn from "./articles/xaricde-tehsil-2026-beledcisi.en";
+import xaricdeTehsilDevletProgramiRu from "./articles/xaricde-tehsil-devlet-programi.ru";
+import xaricdeTehsilDevletProgramiEn from "./articles/xaricde-tehsil-devlet-programi.en";
+import dimBaliIleXaricdeTehsilRu from "./articles/dim-bali-ile-xaricde-tehsil.ru";
+import dimBaliIleXaricdeTehsilEn from "./articles/dim-bali-ile-xaricde-tehsil.en";
 import turkiyedeTehsilRu from "./articles/turkiyede-tehsil.ru";
 import turkiyedeTehsilEn from "./articles/turkiyede-tehsil.en";
 import rusiyadaTehsilRu from "./articles/rusiyada-tehsil.ru";
@@ -133,6 +143,8 @@ const TRANSLATIONS: Record<string, { ru?: Article; en?: Article }> = {
   "xaricde-tibb-tehsili": { ru: xaricdeTibbTehsiliRu, en: xaricdeTibbTehsiliEn },
   "xaricde-tehsil-senedleri": { ru: xaricdeTehsilSenedleriRu, en: xaricdeTehsilSenedleriEn },
   "hansi-olkede-oxumaq-serfelidir": { ru: hansiOlkedeOxumaqRu, en: hansiOlkedeOxumaqEn },
+  "xaricde-tehsil-devlet-programi": { ru: xaricdeTehsilDevletProgramiRu, en: xaricdeTehsilDevletProgramiEn },
+  "dim-bali-ile-xaricde-tehsil": { ru: dimBaliIleXaricdeTehsilRu, en: dimBaliIleXaricdeTehsilEn },
   "giresun-universiteti": { ru: giresunUniversitetiRu, en: giresunUniversitetiEn },
   "tbilisi-dovlet-tibb-universiteti": { ru: tbilisiDovletTibbRu, en: tbilisiDovletTibbEn },
   "varshava-tibb-universiteti": { ru: varshavaTibbRu, en: varshavaTibbEn },
