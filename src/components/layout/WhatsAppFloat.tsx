@@ -1,14 +1,18 @@
 "use client";
 import { motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
+import { useLocale } from "next-intl";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { whatsappUrl } from "@/lib/whatsapp";
 
-export function WhatsAppFloat({ href = "https://wa.me/994519999370" }: { href?: string }) {
+export function WhatsAppFloat({ href }: { href?: string }) {
+  const locale = useLocale();
   const reduced = useReducedMotion();
+  const url = whatsappUrl(locale, href);
 
   return (
     <a
-      href={href}
+      href={url}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="WhatsApp ilə əlaqə"

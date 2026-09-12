@@ -5,6 +5,7 @@ import { InstagramIcon } from "@/components/ui/InstagramIcon";
 import { TikTokIcon } from "@/components/ui/TikTokIcon";
 import { ApplicationForm } from "@/components/sections/ApplicationForm";
 import { siteUrl } from "@/lib/site";
+import { whatsappUrl } from "@/lib/whatsapp";
 import type { Locale } from "@/i18n/routing";
 
 export async function generateMetadata({
@@ -63,7 +64,7 @@ export default async function ApplicationPage({
         </p>
         <div className="mt-4 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <a
-            href="https://wa.me/994519999370"
+            href={whatsappUrl(locale)}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-xl bg-green-500 px-6 py-3 font-semibold text-white transition-colors hover:bg-green-600"

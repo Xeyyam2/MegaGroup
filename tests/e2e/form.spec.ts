@@ -10,7 +10,8 @@ test("form shows validation errors when submitted empty", async ({ page }) => {
 test("form accepts valid input and shows success", async ({ page }) => {
   await page.goto("/xaricde-tehsil/muraciet");
   await page.getByLabel(/Ad Soyad/i).fill("Aytən Hüseynli");
-  await page.getByLabel(/Telefon/i).fill("+994501234567");
+  await page.getByLabel(/Operator \/ Prefiks/i).selectOption("50");
+  await page.getByLabel(/Telefon/i).fill("5012345");
   await page.getByLabel(/Maraqlandığınız ölkə/i).selectOption("turkiye");
   await page.getByRole("button", { name: /Müraciət Et/i }).click();
   await expect(page.getByText(/Müraciətiniz qeydə alındı/i)).toBeVisible();

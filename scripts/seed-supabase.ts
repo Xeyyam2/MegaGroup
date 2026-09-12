@@ -170,7 +170,7 @@ async function seed() {
     { key: "hero_stat_countries", az: "7" },
     { key: "hero_stat_students", az: "1000" },
     { key: "contact_whatsapp", az: "https://wa.me/994519999370" },
-    { key: "contact_phone", az: "+994 51 572 35 54" },
+    { key: "contact_phone", az: "+994 51 999 93 70" },
     { key: "contact_email", az: "info@megagroup.az" },
     { key: "contact_address", az: "Bakı, Azərbaycan" },
     { key: "contact_instagram", az: "https://www.instagram.com/mega_xaricde_tehsil_merkezi/" },

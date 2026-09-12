@@ -52,15 +52,15 @@ describe("ApplicationForm", () => {
   it("blocks submit and shows phone error with invalid phone", async () => {
     render(<ApplicationForm />);
 
-    // Labels use t("name") which mock returns "name *" (with asterisk)
-    fireEvent.change(screen.getByLabelText(/name/i), { target: { value: "Test İstifadəçi" } });
-    fireEvent.change(screen.getByLabelText(/phone/i), { target: { value: "bad-phone" } });
+    // Labels use t("name") which mock returns "name" (with asterisk appended in the component)
+    fireEvent.change(screen.getByLabelText(/^name \*$/), { target: { value: "Test İstifadəçi" } });
+    fireEvent.change(screen.getByLabelText(/^phone \*$/), { target: { value: "bad-phone" } });
 
     const submitButton = screen.getByRole("button", { name: /submit/i });
     fireEvent.click(submitButton);
 
     await waitFor(() => {
-      expect(screen.getByText(/Düzgün telefon nömrəsi/i)).toBeInTheDocument();
+      expect(screen.getByText(/7 rəqəmli nömrəni tam daxil edin/i)).toBeInTheDocument();
     });
   });
 
@@ -68,8 +68,8 @@ describe("ApplicationForm", () => {
     mockCreateApplication.mockResolvedValue({ success: true });
     render(<ApplicationForm />);
 
-    fireEvent.change(screen.getByLabelText(/name/i), { target: { value: "Aytən Hüseynli" } });
-    fireEvent.change(screen.getByLabelText(/phone/i), { target: { value: "+994501234567" } });
+    fireEvent.change(screen.getByLabelText(/^name \*$/), { target: { value: "Aytən Hüseynli" } });
+    fireEvent.change(screen.getByLabelText(/^phone \*$/), { target: { value: "1234567" } });
     const countrySelect = screen.getByLabelText(/country/i);
     fireEvent.change(countrySelect, { target: { value: "turkiye" } });
 

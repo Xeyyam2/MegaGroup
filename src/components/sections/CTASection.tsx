@@ -3,10 +3,12 @@ import { MessageCircle } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { MagneticButton } from "@/components/motion/MagneticButton";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
+import { whatsappUrl } from "@/lib/whatsapp";
 
-export function CTASection({ whatsappUrl = "https://wa.me/994519999370" }: { whatsappUrl?: string }) {
+export function CTASection({ whatsappUrl: waBase }: { whatsappUrl?: string }) {
   const locale = useLocale();
   const tCta = useTranslations("cta");
+  const waUrl = whatsappUrl(locale, waBase);
   const desc =
     locale === "az"
       ? "MegaGroup komandası sizə uyğun ölkə və universiteti seçməyə kömək edər. İlk konsultasiya tam pulsuzdur."
@@ -29,7 +31,7 @@ export function CTASection({ whatsappUrl = "https://wa.me/994519999370" }: { wha
               {tCta("apply")}
             </MagneticButton>
             <a
-              href={whatsappUrl}
+              href={waUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-xl bg-green-500 px-7 py-3.5 font-semibold text-white transition-colors hover:bg-green-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-400"

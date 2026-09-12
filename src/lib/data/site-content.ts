@@ -17,7 +17,7 @@ const FALLBACK_AZ: Record<string, string> = {
   hero_stat_countries: "7",
   hero_stat_students: "1000",
   contact_whatsapp: "https://wa.me/994519999370",
-  contact_phone: "+994 51 572 35 54",
+  contact_phone: "+994 51 999 93 70",
   contact_email: "info@megagroup.az",
   contact_address: "Bakı, Azərbaycan",
   contact_instagram: "https://www.instagram.com/mega_xaricde_tehsil_merkezi/",

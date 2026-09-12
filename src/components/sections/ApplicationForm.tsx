@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Suspense, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
-import { contactSchema, type ContactFormData, type ContactFormOutput } from "@/lib/validations/contact.schema";
+import { applicationFormSchema, buildAzPhone, type ApplicationFormData, type ApplicationFormOutput } from "@/lib/validations/contact.schema";
 import { countries } from "@/data/countries";
 import { createApplication } from "@/lib/actions/applications";
 import { TurnstileWidget } from "@/components/sections/TurnstileWidget";
@@ -19,6 +19,17 @@ function trackApplicationSubmitted(country: string) {
   w.dataLayer.push({ event: "application_submitted", country });
 }
 
+// Azərbaycan mobil operatorları — prefiks → operator adı.
+const AZ_OPERATORS: Record<string, string> = {
+  "50": "Azercell",
+  "51": "Azercell",
+  "55": "Bakcell",
+  "70": "Nar",
+  "77": "Nar",
+  "99": "Bakmobile",
+};
+const FOREIGN_PREFIX = "foreign";
+
 function ApplicationFormContent() {
   const t = useTranslations("application");
   const router = useRouter();
@@ -27,21 +38,50 @@ function ApplicationFormContent() {
   // Success state URL-də saxlanır (?success=1) — refresh-də itmir.
   const submitted = searchParams.get("success") === "1";
   const [serverError, setServerError] = useState("");
+  // Telefon prefiksi: "50"-"99" — Azərbaycan operatoru, "foreign" — xarici nömrə.
+  const [phoneCode, setPhoneCode] = useState("50");
+  const isForeign = phoneCode === FOREIGN_PREFIX;
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors, isSubmitting },
-  } = useForm<ContactFormData, unknown, ContactFormOutput>({ resolver: zodResolver(contactSchema) });
+  } = useForm<ApplicationFormData, unknown, ApplicationFormOutput>({
+    resolver: zodResolver(applicationFormSchema),
+    defaultValues: { phone_code: "50", phone: "" },
+  });
 
-  const onSubmit = async (data: ContactFormOutput, event?: React.BaseSyntheticEvent) => {
+  const phoneRegister = register("phone");
+
+  // Prefiks dəyişəndə nömrə sahəsini sıfırla (AZ ↔ xarici formatlar fərqlidir).
+  const handlePhoneCodeChange = (value: string) => {
+    setPhoneCode(value);
+    setValue("phone_code", value);
+    setValue("phone", "", { shouldValidate: false });
+  };
+
+  // AZ rejimində yalnız rəqəmlər, maksimum 7 simvol; xarici rejimdə sərbəst (+ ilə).
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (!isForeign) {
+      e.target.value = e.target.value.replace(/\D/g, "").slice(0, 7);
+    }
+    phoneRegister.onChange(e);
+  };
+
+  const onSubmit = async (data: ApplicationFormOutput, event?: React.BaseSyntheticEvent) => {
     setServerError("");
+    // Tam nömrəni yığ: +994 + prefiks + 7 rəqəm, və ya xarici nömrə (əyləncələri təmizlə).
+    const finalPhone =
+      data.phone_code === FOREIGN_PREFIX
+        ? data.phone.replace(/[\s\-()]/g, "")
+        : buildAzPhone(data.phone_code, data.phone);
     // Honeypot dəyərini submit event-in DOM-dan oxuyuruq (ref closure -> lint qaydasını tetiklemir)
     const formEl = event?.target as HTMLFormElement | undefined;
     const honeypot = formEl?.querySelector<HTMLInputElement>('input[name="website"]')?.value ?? "";
     const turnstileToken = formEl?.querySelector<HTMLInputElement>('input[name="cf-turnstile-response"]')?.value ?? "";
     const fd = new FormData();
     fd.append("full_name", data.full_name);
-    fd.append("phone", data.phone);
+    fd.append("phone", finalPhone);
     fd.append("email", data.email ?? "");
     fd.append("country_interest", data.country_interest);
     fd.append("attestat_avg", String(data.attestat_avg ?? ""));
@@ -93,17 +133,35 @@ function ApplicationFormContent() {
         {errors.full_name && <p id="full_name-error" className="mt-1 text-sm text-brand-primary">{errors.full_name.message}</p>}
       </div>
       <div>
-        <label htmlFor="phone" className="mb-1 block text-sm font-medium text-foreground/80">{t("phone")} *</label>
+        <label htmlFor="phone_code" className="mb-1 block text-sm font-medium text-foreground/80">{t("phonePrefix")} *</label>
+        <select
+          id="phone_code"
+          value={phoneCode}
+          onChange={(e) => handlePhoneCodeChange(e.target.value)}
+          className={cn(inputClass)}
+        >
+          {Object.entries(AZ_OPERATORS).map(([prefix, operator]) => (
+            <option key={prefix} value={prefix} className="bg-slate-900">
+              +994 {prefix} — {operator}
+            </option>
+          ))}
+          <option value={FOREIGN_PREFIX} className="bg-slate-900">{t("phoneForeign")}</option>
+        </select>
+        <label htmlFor="phone" className="mb-1 mt-3 block text-sm font-medium text-foreground/80">{t("phone")} *</label>
         <input
           type="tel"
           id="phone"
-          {...register("phone")}
+          {...phoneRegister}
+          onChange={handlePhoneChange}
+          inputMode={isForeign ? "text" : "numeric"}
+          maxLength={isForeign ? 20 : 7}
           aria-invalid={!!errors.phone}
           aria-describedby={errors.phone ? "phone-error" : undefined}
           className={cn(inputClass, errors.phone && "border-brand-primary")}
-          placeholder="+994 50 123 45 67"
+          placeholder={isForeign ? "+380501234567" : "1234567"}
         />
         {errors.phone && <p id="phone-error" className="mt-1 text-sm text-brand-primary">{errors.phone.message}</p>}
+        <p className="mt-1 text-xs text-foreground/50">{isForeign ? t("phoneHintForeign") : t("phoneHintAz")}</p>
       </div>
       <div>
         <label htmlFor="email" className="mb-1 block text-sm font-medium text-foreground/80">{t("email")}</label>

@@ -6,10 +6,10 @@ import { TikTokIcon } from "@/components/ui/TikTokIcon";
 import { getCountries } from "@/lib/data/countries";
 import { partnerLinks } from "@/lib/partner-links";
 import { ADDRESS, LOCATION } from "@/data/location";
+import { whatsappUrl as buildWhatsAppUrl } from "@/lib/whatsapp";
 import type { Locale } from "@/i18n/routing";
 
-const DEFAULT_WHATSAPP_URL = "https://wa.me/994519999370";
-const DEFAULT_PHONE = "+994 51 572 35 54";
+const DEFAULT_PHONE = "+994 51 999 93 70";
 
 export async function Footer({
   locale,
@@ -31,7 +31,7 @@ export async function Footer({
 
   const igUrl = instagramUrl || "https://www.instagram.com/mega_xaricde_tehsil_merkezi/";
   const ttUrl = tiktokUrl || "https://www.tiktok.com/@megaxaricdetehsil";
-  const waUrl = whatsappUrl || DEFAULT_WHATSAPP_URL;
+  const waUrl = buildWhatsAppUrl(locale, whatsappUrl);
   // Edited from Admin → Sayt Məzmunu → "contact_phone". Falls back to a
   // sane default so the footer never shows a blank number if that key is
   // ever missing.
