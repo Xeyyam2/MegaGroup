@@ -1,14 +1,16 @@
 import { z } from "zod";
 
 // Azərbaycan mobil operator prefiksləri (+994-dən sonra gələn 2 rəqəm):
-// 50, 51 — Azercell; 55 — Bakcell; 70, 77 — Nar; 99 — Bakmobile.
-export const azOperatorPrefixes = ["50", "51", "55", "70", "77", "99"] as const;
+// 10, 50, 51 — Azercell; 55 — Bakcell; 70, 77 — Nar; 99 — Bakcell (köhnə adı: Bakmobile).
+// "əl ilə yaz" rejimində başqa 2 rəqəmli kod da qəbul olunur — heç bir müraciət bloklanmasın.
+export const azOperatorPrefixes = ["10", "50", "51", "55", "70", "77", "99"] as const;
 
 export type AzOperatorPrefix = (typeof azOperatorPrefixes)[number];
 
-// Tam (final) nömrə: +994 + operator prefiksi + 7 rəqəm (cəmi 12 rəqəm),
+// Tam (final) nömrə: +994 + 2 rəqəmli operator kodu + 7 rəqəm (cəmi 12 rəqəm).
+// Operator kodu sərbəst qəbul olunur (adi prefikslər + əl ilə yazılanlar).
 // və ya xarici nömrə: + ilə başlayan 7-15 rəqəm (E.164).
-export const AZ_PHONE_REGEX = /^\+994(50|51|55|70|77|99)\d{7}$/;
+export const AZ_PHONE_REGEX = /^\+994\d{9}$/;
 export const FOREIGN_PHONE_REGEX = /^\+[1-9]\d{6,14}$/;
 
 export const phoneError = "Düzgün telefon nömrəsi daxil edin";
@@ -18,7 +20,9 @@ export const contactSchema = z.object({
   phone: z
     .string()
     .trim()
-    .refine((v) => AZ_PHONE_REGEX.test(v) || FOREIGN_PHONE_REGEX.test(v), phoneError),
+    // +994 ilə başlayan nömrə həmişə AZ formatı ilə yoxlanılır (12 rəqəm) —
+    // natamaz AZ nömrəsi təsadüfən "xarici" kimi qəbul olunmasın.
+    .refine((v) => (v.startsWith("+994") ? AZ_PHONE_REGEX.test(v) : FOREIGN_PHONE_REGEX.test(v)), phoneError),
   email: z.string().email("Düzgün email daxil edin").optional().or(z.literal("")),
   country_interest: z.string().min(1, "Ölkə seçin"),
   attestat_avg: z
@@ -40,7 +44,7 @@ export type ContactFormOutput = z.output<typeof contactSchema>;
 
 // Form tərəfindəki sahələr: prefiks (məs. "50") + lokal hissə (7 rəqəm) ayrı-sayrı daxil edilir,
 // submit zamanı "+994" + prefiks + rəqəmlər birləşdirilib final nömrə yaradılır.
-// "foreign" prefiksi seçilirsə, istifadəçi ölkə kodu ilə tam nömrəni yazır.
+// "foreign" — ölkə kodu ilə tam xarici nömrə; "manual" — istifadəçi öz prefiksini yazır (2 rəqəm).
 function refinePhoneParts(
   val: { phone_code: string; phone: string },
   ctx: z.RefinementCtx,
@@ -54,6 +58,15 @@ function refinePhoneParts(
         message: "Ölkə kodu ilə tam nömrə daxil edin (+9945xxxxxxxx və ya +90xxxxxxxxxx)",
       });
     }
+    return;
+  }
+  // Azərbaycan (seçilmiş və ya əl ilə yazılmış) prefiks: dəqiq 2 rəqəm.
+  if (!/^\d{2}$/.test(val.phone_code)) {
+    ctx.addIssue({
+      code: z.ZodIssueCode.custom,
+      path: ["phone"],
+      message: "Prefiks 2 rəqəm olmalıdır (məs. 10, 50, 99)",
+    });
     return;
   }
   if (!/^\d{7}$/.test(val.phone.replace(/\D/g, ""))) {

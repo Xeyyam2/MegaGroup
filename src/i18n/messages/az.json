@@ -81,6 +81,7 @@
     "phone": "Telefon",
     "phonePrefix": "Operator / Prefiks",
     "phoneForeign": "🌐 Xarici nömrə (başqa ölkə)",
+    "phoneManual": "✍️ Əl ilə yaz (başqa prefiks)",
     "phoneHintAz": "Prefiksi seçib 7 rəqəmli nömrəni yazın",
     "phoneHintForeign": "Ölkə kodu ilə tam nömrə yazın (məs. +380501234567)",
     "email": "Email",

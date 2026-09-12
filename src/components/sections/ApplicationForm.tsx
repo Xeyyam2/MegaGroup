@@ -19,16 +19,19 @@ function trackApplicationSubmitted(country: string) {
   w.dataLayer.push({ event: "application_submitted", country });
 }
 
-// Azərbaycan mobil operatorları — prefiks → operator adı.
+// Azərbaycan mobil operatorları — operator kodu → operator adı.
+// Göstəriş forması "0" + kod (məs. "010"), final nömrə "+994" + kod + 7 rəqəm.
 const AZ_OPERATORS: Record<string, string> = {
+  "10": "Azercell",
   "50": "Azercell",
   "51": "Azercell",
   "55": "Bakcell",
   "70": "Nar",
   "77": "Nar",
-  "99": "Bakmobile",
+  "99": "Bakcell",
 };
 const FOREIGN_PREFIX = "foreign";
+const MANUAL_PREFIX = "manual";
 
 function ApplicationFormContent() {
   const t = useTranslations("application");
@@ -38,9 +41,13 @@ function ApplicationFormContent() {
   // Success state URL-də saxlanır (?success=1) — refresh-də itmir.
   const submitted = searchParams.get("success") === "1";
   const [serverError, setServerError] = useState("");
-  // Telefon prefiksi: "50"-"99" — Azərbaycan operatoru, "foreign" — xarici nömrə.
+  // Telefon rejimi: operator kodu ("10"-"99") — Azərbaycan, "foreign" — xarici,
+  // "manual" — istifadəçi prefiksi özü yazır.
   const [phoneCode, setPhoneCode] = useState("50");
+  // Əl ilə yazılan prefiks (manual rejimdə istifadə olunur).
+  const [manualCode, setManualCode] = useState("");
   const isForeign = phoneCode === FOREIGN_PREFIX;
+  const isManual = phoneCode === MANUAL_PREFIX;
   const {
     register,
     handleSubmit,
@@ -56,8 +63,16 @@ function ApplicationFormContent() {
   // Prefiks dəyişəndə nömrə sahəsini sıfırla (AZ ↔ xarici formatlar fərqlidir).
   const handlePhoneCodeChange = (value: string) => {
     setPhoneCode(value);
-    setValue("phone_code", value);
+    setValue("phone_code", value === MANUAL_PREFIX ? "" : value);
     setValue("phone", "", { shouldValidate: false });
+    if (value === MANUAL_PREFIX) setManualCode("");
+  };
+
+  // Əl ilə yazılan prefiks — yalnız rəqəmlər, maksimum 2 simvol.
+  const handleManualCodeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const code = e.target.value.replace(/\D/g, "").slice(0, 2);
+    setManualCode(code);
+    setValue("phone_code", code);
   };
 
   // AZ rejimində yalnız rəqəmlər, maksimum 7 simvol; xarici rejimdə sərbəst (+ ilə).
@@ -140,13 +155,27 @@ function ApplicationFormContent() {
           onChange={(e) => handlePhoneCodeChange(e.target.value)}
           className={cn(inputClass)}
         >
-          {Object.entries(AZ_OPERATORS).map(([prefix, operator]) => (
-            <option key={prefix} value={prefix} className="bg-slate-900">
-              +994 {prefix} — {operator}
+          {Object.entries(AZ_OPERATORS).map(([code, operator]) => (
+            <option key={code} value={code} className="bg-slate-900">
+              0{code} — {operator}
             </option>
           ))}
+          <option value={MANUAL_PREFIX} className="bg-slate-900">{t("phoneManual")}</option>
           <option value={FOREIGN_PREFIX} className="bg-slate-900">{t("phoneForeign")}</option>
         </select>
+        {isManual && (
+          <input
+            type="text"
+            id="phone_code_manual"
+            value={manualCode}
+            onChange={handleManualCodeChange}
+            inputMode="numeric"
+            maxLength={2}
+            aria-label={t("phonePrefix")}
+            placeholder="10"
+            className={cn(inputClass, "mt-3")}
+          />
+        )}
         <label htmlFor="phone" className="mb-1 mt-3 block text-sm font-medium text-foreground/80">{t("phone")} *</label>
         <input
           type="tel"

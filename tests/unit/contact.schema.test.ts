@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { contactSchema } from "@/lib/validations/contact.schema";
+import { contactSchema, applicationFormSchema, buildAzPhone } from "@/lib/validations/contact.schema";
 
 describe("contactSchema", () => {
   it("passes with valid input", () => {
@@ -84,5 +84,59 @@ describe("contactSchema", () => {
       attestat_avg: 85,
     });
     expect(result.success).toBe(true);
+  });
+
+  it("accepts any 2-digit AZ operator code (məs. 010 — Azercell)", () => {
+    const result = contactSchema.safeParse({
+      full_name: "Kamilla",
+      phone: "+994101234567",
+      country_interest: "polsha",
+    });
+    expect(result.success).toBe(true);
+  });
+
+  it("rejects a truncated AZ number (missing digits)", () => {
+    const result = contactSchema.safeParse({
+      full_name: "Kamilla",
+      phone: "+994501633",
+      country_interest: "polsha",
+    });
+    expect(result.success).toBe(false);
+  });
+
+  it("form parts: 010 + 7 digits builds a valid final number", () => {
+    const form = applicationFormSchema.safeParse({
+      full_name: "Kamilla",
+      phone_code: "10",
+      phone: "1234567",
+      country_interest: "polsha",
+    });
+    expect(form.success).toBe(true);
+    if (form.success) {
+      expect(buildAzPhone(form.data.phone_code, form.data.phone)).toBe("+994101234567");
+    }
+  });
+
+  it("form parts: manual prefix (12) + 7 digits builds a valid final number", () => {
+    const form = applicationFormSchema.safeParse({
+      full_name: "Kamilla",
+      phone_code: "12",
+      phone: "1234567",
+      country_interest: "polsha",
+    });
+    expect(form.success).toBe(true);
+    if (form.success) {
+      expect(contactSchema.safeParse({ full_name: "Kamilla", phone: buildAzPhone(form.data.phone_code, form.data.phone), country_interest: "polsha" }).success).toBe(true);
+    }
+  });
+
+  it("form parts: rejects a non-2-digit manual prefix", () => {
+    const form = applicationFormSchema.safeParse({
+      full_name: "Kamilla",
+      phone_code: "123",
+      phone: "1234567",
+      country_interest: "polsha",
+    });
+    expect(form.success).toBe(false);
   });
 });

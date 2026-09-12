@@ -81,6 +81,7 @@
     "phone": "Phone",
     "phonePrefix": "Operator / Prefix",
     "phoneForeign": "🌐 Foreign number (other country)",
+    "phoneManual": "✍️ Enter manually (other prefix)",
     "phoneHintAz": "Select the prefix and enter the 7-digit number",
     "phoneHintForeign": "Enter the full number with country code (e.g. +380501234567)",
     "email": "Email",
