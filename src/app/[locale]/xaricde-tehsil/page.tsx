@@ -19,7 +19,7 @@ export async function generateMetadata({
   const locale = (await params).locale as Locale;
   const title =
     locale === "az"
-      ? "Xaricdə Təhsil — Türkiyə, Rusiya, Gürcüstan, Ukrayna, Qazaxıstan | MegaGroup"
+      ? "Xaricdə Təhsil — Türkiyə, Rusiya, Gürcüstan | MegaGroup"
       : locale === "ru"
         ? "Учеба за рубежом | MegaGroup"
         : "Study Abroad | MegaGroup";
@@ -27,7 +27,7 @@ export async function generateMetadata({
     title,
     description:
       locale === "az"
-        ? "MegaGroup — xaricdə təhsil mərkəzi: Türkiyədə təhsil, Rusiyada təhsil, Gürcüstanda təhsil, Ukraynada təhsil, Qazaxıstanda təhsil, Almaniya və Polşa. Attestatla, imtahansız qəbul."
+        ? "MegaGroup — xaricdə təhsil mərkəzi. Türkiyə, Rusiya, Gürcüstan, Ukrayna, Qazaxıstan, Almaniya və Polşada attestatla, imtahansız qəbul."
         : locale === "ru"
           ? "MegaGroup — учеба за рубежом: Турция, Россия, Грузия, Украина, Казахстан, Германия и Польша. Поступление по аттестату, без экзаменов."
           : "MegaGroup — study abroad in Turkey, Russia, Georgia, Ukraine, Kazakhstan, Germany and Poland. Certificate-based, exam-free admission.",

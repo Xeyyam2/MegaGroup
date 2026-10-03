@@ -26,9 +26,9 @@ export interface CountrySeo {
 const COUNTRY_SEO: Record<string, CountrySeo> = {
   turkiye: {
     h1: "Türkiyədə Təhsil 2026",
-    title: "Türkiyədə Təhsil 2026 — Attestatla, İmtahansız Qəbul | MegaGroup",
+    title: "Türkiyədə Təhsil 2026 — Attestatla Qəbul | MegaGroup",
     metaDescription:
-      "Türkiyədə təhsil: 200+ universitet, attestatla DIM olmadan qəbul. Təhsil haqqı, ən yaxşı universitetlər, viza və xərclər haqqında tam bələdçi. Pulsuz konsultasiya.",
+      "Türkiyədə təhsil: 200+ universitet, attestatla DIM olmadan qəbul. Təhsil haqqı, universitetlər, viza və xərclər. Pulsuz konsultasiya.",
     primaryKeyword: "türkiyədə təhsil",
     keywords: [
       "türkiyədə təhsil",
@@ -41,7 +41,7 @@ const COUNTRY_SEO: Record<string, CountrySeo> = {
   },
   rusiya: {
     h1: "Rusiyada Təhsil 2026",
-    title: "Rusiyada Təhsil 2026 — Attestatla, İmtahansız Qəbul | MegaGroup",
+    title: "Rusiyada Təhsil 2026 — Attestatla Qəbul | MegaGroup",
     metaDescription:
       "Rusiyada təhsil: tibb və mühəndislik proqramları, attestatla qəbul şərtləri, universitetlər, xərclər və viza prosesi. MegaGroup-dan tam bələdçi.",
     primaryKeyword: "rusiyada təhsil",
@@ -56,7 +56,7 @@ const COUNTRY_SEO: Record<string, CountrySeo> = {
   },
   ukrayna: {
     h1: "Ukraynada Təhsil 2026",
-    title: "Ukraynada Təhsil 2026 — Tibb, Mühəndislik, Attestatla Qəbul | MegaGroup",
+    title: "Ukraynada Təhsil 2026 — Tibb və Mühəndislik | MegaGroup",
     metaDescription:
       "Ukraynada təhsil: ingilis dilində tibb proqramları, attestatla qəbul, universitetlər, beynəlxalq diplom, xərclər və viza. MegaGroup-dan tam bələdçi.",
     primaryKeyword: "ukraynada təhsil",
@@ -71,7 +71,7 @@ const COUNTRY_SEO: Record<string, CountrySeo> = {
   },
   gurcustan: {
     h1: "Gürcüstanda Təhsil 2026",
-    title: "Gürcüstanda Təhsil 2026 — Attestatla, İngilis Dilində Tibb | MegaGroup",
+    title: "Gürcüstanda Təhsil 2026 — İngilis Dilində Tibb | MegaGroup",
     metaDescription:
       "Gürcüstanda təhsil: Tbilisi və Batumi universitetləri, attestatla imtahansız qəbul, ingilis dilində tibb, xərclər və viza. MegaGroup-dan tam bələdçi.",
     primaryKeyword: "gürcüstanda təhsil",
@@ -86,7 +86,7 @@ const COUNTRY_SEO: Record<string, CountrySeo> = {
   },
   qazaxistan: {
     h1: "Qazaxıstanda Təhsil 2026",
-    title: "Qazaxıstanda Təhsil 2026 — Attestatla, Nazarbayev Universiteti | MegaGroup",
+    title: "Qazaxıstanda Təhsil 2026 — Attestatla Qəbul | MegaGroup",
     metaDescription:
       "Qazaxıstanda təhsil: Almatı və Astana universitetləri, attestatla imtahansız qəbul, ingilis dilində proqramlar, xərclər və viza. MegaGroup-dan tam bələdçi.",
     primaryKeyword: "qazaxistanda təhsil",
@@ -101,7 +101,7 @@ const COUNTRY_SEO: Record<string, CountrySeo> = {
   },
   almaniya: {
     h1: "Almaniyada Təhsil 2026",
-    title: "Almaniyada Təhsil 2026 — Pulsuz Universitetlər, Mühəndislik | MegaGroup",
+    title: "Almaniyada Təhsil 2026 — Pulsuz Universitetlər | MegaGroup",
     metaDescription:
       "Almaniyada təhsil: dövlət universitetlərində pulsuz təhsil, Studienkolleg, mühəndislik proqramları, qəbul şərtləri və xərclər. MegaGroup-dan tam bələdçi.",
     primaryKeyword: "almaniyada təhsil",
@@ -116,7 +116,7 @@ const COUNTRY_SEO: Record<string, CountrySeo> = {
   },
   polsa: {
     h1: "Polşada Təhsil 2026",
-    title: "Polşada Təhsil 2026 — İngilis Dilində Tibb, EU Diplomu | MegaGroup",
+    title: "Polşada Təhsil 2026 — İngilis Dilində Tibb | MegaGroup",
     metaDescription:
       "Polşada təhsil: ingilis dilində tibb və stomatologiya, EU diplomu, qəbul şərtləri, xərclər və viza prosesi. MegaGroup-dan tam bələdçi.",
     primaryKeyword: "polşada təhsil",

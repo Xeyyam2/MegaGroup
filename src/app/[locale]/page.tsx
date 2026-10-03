@@ -40,9 +40,9 @@ export async function generateMetadata({
     en: "Study Abroad — Certificate-Based Admission | MegaGroup",
   };
   const descs = {
-    az: "Xaricdə təhsil — Türkiyə, Rusiya, Gürcüstan, Ukrayna, Qazaxıstan, Almaniya, Polşa universitetlərinə attestatla, DIM imtahanı olmadan qəbul. 200+ universitet, pulsuz konsultasiya.",
-    ru: "Учеба за рубежом — поступление в университеты Турции, России, Грузии, Украины, Казахстана, Германии, Польши по аттестату, без экзаменов. 200+ вузов, бесплатная консультация.",
-    en: "Study abroad — admission to universities in Turkey, Russia, Georgia, Ukraine, Kazakhstan, Germany, Poland by certificate, exam-free. 200+ universities, free consultation.",
+    az: "Xaricdə təhsil — Türkiyə, Rusiya, Gürcüstan və Avropaya attestatla, imtahansız qəbul. 200+ universitet, pulsuz konsultasiya.",
+    ru: "Учеба за рубежом — поступление в вузы Турции, России, Грузии и Европы по аттестату, без экзаменов. 200+ вузов, бесплатная консультация.",
+    en: "Study abroad — exam-free admission to universities in Turkey, Russia, Georgia and Europe by certificate. 200+ universities, free consultation.",
   };
   const keywords = {
     az: ["xaricdə təhsil", "türkiyədə təhsil", "rusiyada təhsil", "gürcüstanda təhsil", "ukraynada təhsil", "qazaxistanda təhsil", "avropada təhsil", "attestatla qəbul", "imtahansız xaricə", "xaricde tehsil azerbaycan", "polşada təhsil", "almaniyada təhsil"],

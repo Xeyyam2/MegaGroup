@@ -15,7 +15,7 @@ interface PageProps {
 
 const META: Record<Locale, { title: string; h1: string; subtitle: string; minRead: string; read: string; home: string; blogCrumb: string; dateLocale: string }> = {
   az: {
-    title: "Xaricdə Təhsil Bloqu — Ölkələr, Universitetlər və Qəbul Bələdçiləri",
+    title: "Xaricdə Təhsil Bloqu: Ölkələr və Universitetlər",
     h1: "Xaricdə Təhsil Bloqu",
     subtitle:
       "Ölkə seçimi, qəbul şərtləri, xərclər və sənəd prosesi haqqında ətraflı, faydalı bələdçilər — hamısı MegaGroup komandasının real təcrübəsinə əsaslanır.",
@@ -26,7 +26,7 @@ const META: Record<Locale, { title: string; h1: string; subtitle: string; minRea
     dateLocale: "az-AZ",
   },
   ru: {
-    title: "Блог об учёбе за рубежом — страны, вузы и руководства по поступлению",
+    title: "Блог об учёбе за рубежом — руководства",
     h1: "Блог об учёбе за рубежом",
     subtitle:
       "Подробные и полезные руководства о выборе страны, условиях поступления, расходах и документах — основанные на реальном опыте команды MegaGroup.",
@@ -37,7 +37,7 @@ const META: Record<Locale, { title: string; h1: string; subtitle: string; minRea
     dateLocale: "ru-RU",
   },
   en: {
-    title: "Study Abroad Blog — Countries, Universities & Admission Guides",
+    title: "Study Abroad Blog: Countries & Guides",
     h1: "Study Abroad Blog",
     subtitle:
       "Detailed, practical guides on choosing a country, admission requirements, costs and documents — all based on the real experience of the MegaGroup team.",
