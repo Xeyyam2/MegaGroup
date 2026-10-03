@@ -14,6 +14,11 @@ export const metadata: Metadata = {
       "KjaPLGpYKlV1epDrKq7QMOtk6mQzaG4Pns30diD9ucM",
     ],
     yandex: "8f6d02f3c166693e",
+    other: {
+      // Bing Webmaster Tools doğrulaması — Next.js bunu
+      // <meta name="msvalidate.01"> etiketi kimi render edir.
+      "msvalidate.01": "105E2E86030C05A33D75FDB7D65A4F22",
+    },
   },
   // Branded MG monogram — replaces the framework-default favicon so
   // MegaGroup shows its own mark in Google search results and browser tabs.
